@@ -1,0 +1,108 @@
+.top-layout{
+    background: white;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.home{
+    width: 121px;
+}
+
+ul li{
+    list-style: none;               
+    background-color: white;  
+    float: left;                
+    line-height: 30px;          
+    vertical-align: middle;     
+    text-align: left;   
+}
+.menuLink {            
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    
+    text-decoration:none;   
+                       
+    color: black;                              
+    display: block;                            
+    width: 150px;                          
+}
+
+iframe{
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+img{
+    max-width: 100%;
+    width: 100vw;
+    height: auto;
+    object-fit:contain;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrap{
+    position: relative;
+}
+
+.kakao-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+	position: absolute;
+    top: 50%;
+	left: 10%;
+}
+
+h1,h2, h3{
+    text-align: left;
+    margin: 0;
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.kakao-table{
+    position: absolute;
+    top: 50%;
+	left: 50%;
+}
+
+table {
+    width: 100%;
+    border-top: 1px solid white;
+    border-collapse: collapse;
+}
+th, td {
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    padding: 10px;
+}
+th:first-child, td:first-child {
+    border-left: none;
+}
+
+button{
+    background: #FFFFFF;
+    border: 1px solid #C6C6C6;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+}
