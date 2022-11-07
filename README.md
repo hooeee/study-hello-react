@@ -4,6 +4,7 @@
 -   PR_TEST3
 -   PR_TEST4
 -   PR_TEST5
+-   PR_TEST6
 -   PR_TEST
 -   풀리 테스트2
 
