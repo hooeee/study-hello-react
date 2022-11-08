@@ -87,7 +87,6 @@
     color: rgba(175, 169, 169, 0.836);
 }
 
-
 .inner_text_second {
     position: absolute;
     top: 50%;
@@ -97,5 +96,71 @@
     font-size: 40px;
     font-family: 'ypseo';
     text-align: left;
+    color: white;
+}
+
+.cont_info {
+    position: absolute;
+    top: 15%;
+    left: 881px;
+    width: 660px;
+    box-sizing: border-box;
+}
+
+.img-wrapper .cont_info .info_count {
+    float: left;
+    width: 660px;
+    border-top: 1px solid hsla(0,0%,100%,.3);
+    border-bottom: 1px solid hsla(0,0%,100%,.3);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.cont_info .box_desc, .img-wrapper .cont_info .box_tit {
+    display: table;
+    width: 100%;
+}
+
+.info_count .tit_count {
+    display: table-cell;
+    width: 50%;
+    padding: 19px 0 20px;
+    font-size: 20px;
+    line-height: 29px;
+    color: hsla(0,0%,100%,.8);
+    border-bottom: 1px solid hsla(0,0%,100%,.3);
+    font-family: Notosans-Medium,sans-serif;
+    letter-spacing: -.03em;
+    box-sizing: border-box;
+}
+
+.img-wrapper .info_count .desc_count {
+    display: table-cell;
+    width: 30%;
+    padding: 12px 0 29px;
+    font-size: 47px;
+    line-height: 54px;
+    color: rgb(250, 226, 226);
+    font-family: Notosans-bold,sans-serif;
+    box-sizing: border-box;
+}
+
+.img-wrapper .info_count .txt_count {
+    display: table-cell;
+    width: 50%;
+    padding: 32px 0 39px;
+    font-size: 57px;
+    line-height: 74px;
+    color: #fff;
+    font-family: Notosans-bold,sans-serif;
+    box-sizing: border-box;
+}
+
+.img-wrapper .info_count .txt_count {
+    display: inline-block;
+    font-size: 55px;
+    line-height: 60px;
+    font-family: Roboto-bold,sans-serif;
+    vertical-align: top;
     color: white;
 }
