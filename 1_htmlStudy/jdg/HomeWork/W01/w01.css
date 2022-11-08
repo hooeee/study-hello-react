@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+
+h1, p {
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 75px;
+    padding: 1rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.headerImage {
+    width: 300px;
+    height: 100px;
+    background: url("https://business.kakao.com/static/img/logo_biz.34693d3_1.16.10.png") no-repeat center center;
+}
+
+ul {
+    list-style: none;
+    margin: 0 200;
+    padding: 0;
+    display: flex;
+    float: left;
+    border-right: none;
+}
+
+ul a {
+    display: block;
+    text-align: center;
+    margin: .25rem;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+ 
+.loginButton {
+    background-color: white;
+    margin: .25rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.loginButton a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+a:hover {
+    background: skyblue;
+}
+
+main {
+    padding-top: 75px;
+}
+
+video {
+    max-width: 1600px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+.videoContent { 
+    position: absolute;
+    width: 100%; 
+    bottom: 20%; 
+}
+
+.videoContent p { 
+    text-align: center; 
+    font-size: 35px; 
+    color: white; 
+}
+
+.backgroundImage {
+    background-image: url("https://business.kakao.com/static/img/visual_cont1.0cb2c10_1.16.10.png");
+    background-size: 1600px 540px;
+    width: 1600px;
+    height: 540px;
+    margin: auto;
+    display: flex;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.content {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+  
+.content p {
+    font-size: 20px;
+    margin-bottom: 15;
+}
+
+.content span {
+    font-size: 35px;
+    margin-right: 150;
+}
+
+table {
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    border-collapse: collapse;
+    color: white;
+    text-align: center;
+}
+
+th {
+    border-bottom: 1px solid white;
+    border-collapse: collapse;
+    font-size: 17px;
+    padding: 15;
+}
+
+td {
+    border-bottom: 1px solid white;
+    border-collapse: collapse;
+    font-size: 70px;
+    padding: 10px;
+}
+
+tr > .tdFirst, .thFirst {
+    border-right: 1px solid white;
+}
