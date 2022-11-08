@@ -1,0 +1,143 @@
+html{
+    overflow-x:hidden ;
+}body{
+    margin: 0;
+}
+
+
+/* Nva 메뉴바 */
+/* Nva 메뉴바 */
+/* Nva 메뉴바 */
+#nav{
+    top: 0px;
+    z-index: 99;
+    position: sticky;
+    background-color: white;
+    padding: 0px 20px;
+}
+
+#nav .logo-link{
+    display: block;
+    width: 130px;
+    height: 15px;
+    background: url(https://business.kakao.com/static/img/logo_biz.34693d3_1.16.10.png) no-repeat 0 0;
+    background-size: contain;
+}
+#nav > .nav-container {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 25px 0px;
+}
+#nav > .nav-container > span{
+    font-family: NotoSans-regular,sans-serif;
+    font-size: 15px;
+    color: #222;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#nav > .nav-container > .btn-group{
+    float: right;
+    display: inline-block;
+    background: black;
+    margin: 3px;
+}
+#nav > .nav-container > .btn-group > * {
+    height: 100%;
+    display: inline-block;
+}
+
+
+
+
+/* Body */
+/* Body */
+/* Body */
+
+#body{
+    height: 1000px;
+
+}
+
+
+
+.slider{
+    height: calc(100vh - 50px);
+    background: #f0f;;
+    position: relative;
+}
+
+.slider >  .slider-contents{
+    height: 100%;
+}
+.slider >  .slider-contents > .slider-item{
+    height: 100%;
+    position:absolute;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.slider >  .slider-contents > .slider-item:nth-child(1){ left: 0%; }
+.slider >  .slider-contents > .slider-item:nth-child(2){ left: 100%; }
+.slider >  .slider-contents > .slider-item:nth-child(3){ left: 200%; }
+.slider >  .slider-contents > .slider-item > .slider-item-contens { position: relative;height: 100%; }
+
+
+.slider >  .slider-contents > .slider-item  video{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    margin-top: -60px;
+    transform: translate(-50%,-50%);
+    padding: 60px 0 120px;
+    background-color: #0a2254;
+}
+
+.slider >  .slider-contents > .slider-item  .slider-text{
+    color: white;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    font-size: 6em;
+    font-size: 60px;
+    line-height: 85px;
+    font-family: NotoSans-Bold,sans-serif;
+    font-weight: bold;
+}
+
+.slider >  .slider-esging{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    color: hsla(0,0%,100%,.8);
+    font-size: 24px;
+    font-weight: bold;
+}
+.slider >  .slider-esging span{
+    margin: 0 5px;
+}
+
+
+
+ /* */
+
+ .data-area > .data-contents > div{
+    display: inline-block;
+ }
+
+ .data-area > .data-contents{
+    height: 300px;
+    line-height: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+ }
+
+
+ .data-area > .data-contents > div:nth-child(1){
+    float: left;
+}
+.data-area > .data-contents > div:nth-child(2){
+   float: right;
+}
