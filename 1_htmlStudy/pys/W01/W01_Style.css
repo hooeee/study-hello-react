@@ -35,12 +35,11 @@ ul li{
     width: 150px;                          
 }
 
-iframe{
-    max-width: 100%;
-    width: 100vw;
-    height: 100vh;
-
+.video-01 > video{
+    
+    width: 100%;
 }
+
 
 img{
     max-width: 100%;
