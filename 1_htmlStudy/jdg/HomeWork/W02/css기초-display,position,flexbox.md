@@ -89,7 +89,7 @@ a[href] {
 - `fixed` : window (웹 페이지) 자체를 기준으로 움직임
 - `sticky` : 원래 있던 자리에 있는 대신, 스크롤해도 없어지지 않는다.
 
-[이미지1]
+![image](https://github.com/jang75967/hello-react/blob/jdg_w01/1_htmlStudy/jdg/HomeWork/W02/%EC%9D%B4%EB%AF%B8%EC%A7%80%201.png)
 
 #### float
 - 이미지와 텍스트 배치하는 용도로만 사용하자
@@ -125,7 +125,7 @@ a[href] {
 - align-content : justify-content 속성 이름이랑 동일한 이름 지원
   - `space-between` : row가 여러개일 때 처음, 마지막은 여백 없이 붙어있고 그 사이 row들이 균일하게 정렬됨
 
-[이미지2]
+![image](https://github.com/jang75967/hello-react/blob/jdg_w01/1_htmlStudy/jdg/HomeWork/W02/%EC%9D%B4%EB%AF%B8%EC%A7%80%202.png)
 
 #### item의 속성
 - order : 숫자 줘서 순서대로 정렬 (거의 안씀)
@@ -137,5 +137,5 @@ a[href] {
 - **flex** :  grow, shrink, basis 한번에 적용
 - align-self : 아이템 별로 하나하나 정렬 가능
 
-[이미지3]
+![image](https://github.com/jang75967/hello-react/blob/jdg_w01/1_htmlStudy/jdg/HomeWork/W02/%EC%9D%B4%EB%AF%B8%EC%A7%80%203.png)
 
