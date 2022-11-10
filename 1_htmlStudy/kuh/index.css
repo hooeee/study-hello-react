@@ -37,6 +37,7 @@ body {
     width: 130px;
     height: 15px;
     background: url(https://business.kakao.com/static/img/logo_biz.34693d3_1.16.10.png) no-repeat 0 0;
+    background: url(/0_asset/resource/kakao_biz_logo.png) no-repeat 0 0;
     background-size: contain;
 }
 #nav > .nav-container {
