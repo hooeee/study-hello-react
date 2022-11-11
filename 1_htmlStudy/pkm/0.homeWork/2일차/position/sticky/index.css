@@ -1,0 +1,15 @@
+body {
+    height: 1000px;
+  }
+  
+  .menu {
+    position: -webkit-sticky; /* Safari 호환을 위한 Vendor prefix */
+    position: sticky;
+    height: 30px;
+    top: 0;
+    text-align: center;
+    line-height: 2;
+    background: #c98986;
+    color: #fff;
+  }
+  
