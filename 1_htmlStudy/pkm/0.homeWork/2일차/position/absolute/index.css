@@ -1,0 +1,28 @@
+.parents{
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background: skyblue ;
+}
+
+.box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+  }
+  .box.one {
+    position: absolute;
+    right:  20px;
+    bottom: 10px;
+  }
+  .box.two {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+  }
+  .box.three {
+    position: absolute;
+    bottom: 100px;
+    left: 200px;
+  }

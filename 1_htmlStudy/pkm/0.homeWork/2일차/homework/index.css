@@ -1,0 +1,25 @@
+.box {
+    position: static;
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+  }
+  
+  .box.one {
+    /* box의 position 값이 static이기 때문에,
+    실제로는 right 값이 적용되지 않음 */
+    right: 10px;
+  }
+  
+  .box.two {
+    /* box의 position 값이 static이기 때문에,
+    실제로는 bottom 값이 적용되지 않음 */
+    bottom: 20px;
+  }
+  
+  .box.three {
+    /* box의 position 값이 static이기 때문에,
+    실제로는 top 값이 적용되지 않음 */
+    top: 50px;
+  }
+  
