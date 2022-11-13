@@ -7,6 +7,10 @@ html {
 body {
     margin: 0;
 }
+p,
+h4 {
+    margin: 0px;
+}
 
 .button {
     display: inline-block;
@@ -36,8 +40,8 @@ body {
     display: block;
     width: 130px;
     height: 15px;
-    background: url(https://business.kakao.com/static/img/logo_biz.34693d3_1.16.10.png) no-repeat 0 0;
-    background: url(/0_asset/resource/kakao_biz_logo.png) no-repeat 0 0;
+    /* background: url(https://business.kakao.com/static/img/logo_biz.34693d3_1.16.10.png) no-repeat 0 0; */
+    background: url(../../0_asset/resource/kakao_biz_logo.png) no-repeat 0 0;
     background-size: contain;
 }
 #nav > .nav-container {
@@ -151,7 +155,7 @@ body {
 /* Body - influence contents */
 /* Body - influence contents */
 .influence-centents {
-    background: url("https://business.kakao.com/static/img/visual_cont1.0cb2c10_1.16.10.png") center center no-repeat;
+    background: url("../../0_asset/resource/kakao_bg1.png") center center no-repeat;
     background-size: cover;
 }
 
@@ -236,4 +240,75 @@ body {
 #other-contents {
     background: gray;
     height: 1500px;
+}
+
+.ecosystem-centents {
+    position: relative;
+    background: white;
+    width: 100%;
+    overflow: hidden;
+    height: 670px;
+}
+.ecosystem-centents .ecosystem-bg {
+    position: absolute;
+    width: 100%;
+    left: 10%;
+    display: flex;
+    height: 100%;
+}
+.ecosystem-centents .ecosystem-bg > video {
+    height: 100%;
+
+    /* 출처 https://stackoverflow.com/questions/10797632/simulate-background-sizecover-on-video-or-img*/
+    position: absolute;
+    left: 50%; /* % of surrounding element */
+    top: 50%;
+    transform: translate(-50%, -50%); /* % of current element */
+}
+
+.ecosystem-centents .ecosystem-text {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    top: 15%;
+
+    max-width: 1240px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+
+.ecosystem-centents .ecosystem-text > h4 {
+    margin-bottom: 18px;
+    font-size: 24px;
+    line-height: 34px;
+    color: #828282;
+}
+
+.ecosystem-centents .ecosystem-text > p {
+    color: #222;
+    font-size: 36px;
+    line-height: 58px;
+    word-break: keep-all;
+    font-weight: bold;
+}
+
+.ecosystem-centents .ecosystem-text > .button-group {
+    margin-top: 16px;
+}
+
+.ecosystem-centents .ecosystem-text .button-group > button {
+    height: 80px;
+    padding: 0 30px;
+    font-size: 26px;
+    line-height: 75px;
+    color: #222;
+    background-color: rgba(2, 20, 63, 0.06);
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+}
+.ecosystem-centents .ecosystem-text .button-group > button:hover {
+    background-color: #326edc !important;
+    color: white !important;
 }
