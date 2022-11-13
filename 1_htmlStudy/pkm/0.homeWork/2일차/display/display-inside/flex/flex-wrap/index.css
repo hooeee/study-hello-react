@@ -1,0 +1,12 @@
+.container {
+    display:flex;
+    flex-wrap: nowrap;
+    /* flex-wrap: wrap;
+    flex-wrap: wrap-reverse; */
+	background: #ffe300;
+}
+.item{
+    margin: 3px;
+    border: 3px solid currentColor;
+    background: #26ab1c;
+}
