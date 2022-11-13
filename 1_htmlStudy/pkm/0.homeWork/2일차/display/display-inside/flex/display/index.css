@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+}
+.item1{
+    background-color: aquamarine;
+}
+.item2{
+    background-color: rgb(255, 81, 0);
+}
+.item3{
+    background-color: rgb(229, 255, 0);
+}

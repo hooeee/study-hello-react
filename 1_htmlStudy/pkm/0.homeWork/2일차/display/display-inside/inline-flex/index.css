@@ -1,0 +1,17 @@
+.container {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    background-color: black;
+}
+.item1{
+    margin: 10px;
+    background-color: aquamarine;
+}
+.item2{
+    margin: 10px;
+    background-color: rgb(255, 81, 0);
+}
+.item3{
+    margin: 10px;
+    background-color: rgb(229, 255, 0);
+}

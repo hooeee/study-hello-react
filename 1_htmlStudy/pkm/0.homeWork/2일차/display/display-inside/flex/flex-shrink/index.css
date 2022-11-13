@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    width: 100%;
+    border: 3px solid currentColor;
+    border-radius: 5px;
+    font-size: 1.2em;
+    line-height: 1.4;
+    background: #ffe300;
+    transition: 0.5s;
+}
+.item:nth-child(1) {
+	flex-shrink: 0;
+	width: 100px;
+    margin: 3px;
+    padding: 2px;
+    border: 3px solid currentColor;
+    border-radius: 3px;
+    font-weight: bold;
+    background: #26ab1c;
+    transition: 0.4s;
+}
+.item:nth-child(2) {
+	flex-grow: 1;
+    margin: 3px;
+    padding: 2px;
+    border: 3px solid currentColor;
+    border-radius: 3px;
+    font-weight: bold;
+    background: #26ab1c;
+    transition: 0.4s;
+}

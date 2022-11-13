@@ -1,0 +1,15 @@
+.div_table{
+    display: table;
+    border-collapse: collapse;
+    width:400px;
+    table-layout: fixed;
+}
+.div_table_row{
+    display:table-row
+}
+.div_table_cell{
+    display: table-cell;
+    border: 1px solid #333;
+    background: skyblue;
+    color: #fff;
+}

@@ -1,0 +1,15 @@
+.container {
+    display:flex;
+	/* justify-content: flex-start; */
+	justify-content: flex-end;
+	/* justify-content: center; */
+	/* justify-content: space-between; */
+	/* justify-content: space-around; */
+	/* justify-content: space-evenly; */
+    background: #ffe300;
+}
+.item{
+    margin: 3px;
+    border: 3px solid currentColor;
+    background: #26ab1c;
+}
