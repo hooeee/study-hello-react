@@ -1,0 +1,13 @@
+p{
+    background-color: skyblue;
+}
+
+.width-height{
+    width:500px;
+    height:100px;
+}
+
+.margin-padding{
+    margin: 40px;
+    padding: 20px 5px;
+}

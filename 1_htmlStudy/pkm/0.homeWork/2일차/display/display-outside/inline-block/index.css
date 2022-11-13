@@ -1,0 +1,14 @@
+ul{
+    text-align: center;
+}
+
+li{
+    display: inline-block;
+    width: 80px;
+    height: 18px;
+    margin: 10px 0;
+    padding: 10px 0;
+    background: skyblue;
+    font-weight: bold;
+    color: white;
+}
