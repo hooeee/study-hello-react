@@ -1,0 +1,19 @@
+body{
+    height: 1000px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btn-top{
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    right: 20px;
+    bottom: 60px;
+    border-radius:50%;
+    text-align: center;
+    line-height: 2.1;
+    background: black;
+}

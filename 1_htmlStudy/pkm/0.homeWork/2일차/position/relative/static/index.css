@@ -1,0 +1,18 @@
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+  }
+  .box.one {
+    right: -10px;
+    bottom: 20px;
+  }
+  .box.two {
+    top: 30px;
+    left: 50px;
+  }
+  .box.three {
+    bottom: 100px;
+    left: 200px;
+  }
