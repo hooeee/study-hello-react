@@ -51,13 +51,13 @@ ul a {
     height: 40px;
 }
 
-.loginButton a {
+button a {
     text-decoration: none;
     font-weight: bold;
     color: black;
 }
 
-a:hover {
+button:hover, a:hover {
     background: skyblue;
 }
 
@@ -74,7 +74,7 @@ video {
 .videoContent { 
     position: absolute;
     width: 100%; 
-    top: 45%
+    top: 25%
 }
 
 .videoContent p { 
@@ -92,7 +92,6 @@ video {
 .container {
     display: flex;
     flex-direction: column;
-    
 }
 
 .content {
@@ -136,4 +135,43 @@ td {
 
 tr > .tdFirst, .thFirst {
     border-right: 1px solid white;
+}
+
+.ecoSystem {
+    position: relative;
+}
+
+.ecoSystem .ecoVideo {
+    height: 100%;
+    /* overflow: hidden;
+    transform: translateX(20%);
+    object-fit: scale-down; */
+}
+
+.ecoSystem .ecoContent {
+    position: absolute;
+    margin-left: 25%;
+    top: 30%
+}
+
+.ecoSystem .ecoContent > h3 {
+    color: gray;
+}
+
+.ecoSystem .ecoContent > p {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.ecoSystemButton {
+    margin-top: 30px;
+    margin-left: auto;
+    background-color: lightgray;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
 }
