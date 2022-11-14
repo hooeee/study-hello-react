@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+
+.navbar {
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.navbar_logo {
+    display: flex;
+    padding: 0;
+}
+
+.navbar_logo img {
+    height: 15px;
+}
+
+.navbar_menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar_menu li {
+    margin: 10;
+}
+
