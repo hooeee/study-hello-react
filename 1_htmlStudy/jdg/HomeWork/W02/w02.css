@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+body, h1, p {
+    margin: 0;
+}
+
+.header {
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.headerImage {
+    margin-right: 100px;
+    width: 300px;
+    height: 75px;
+    background: url("/0_asset/resource/kakao_biz_logo.png") no-repeat center center;
+}
+
+ul li {
+    list-style: none;
+    display: inline;
+    margin: auto;
+}
+
+ul a {
+    display: inline-block;
+    text-align: center;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+ 
+.loginButton {
+    margin-left: auto;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.loginButton a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+a:hover {
+    background: skyblue;
+}
+
+.divMain {
+    position: relative;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.videoContent { 
+    position: absolute;
+    width: 100%; 
+    top: 45%
+}
+
+.videoContent p { 
+    text-align: center; 
+    font-size: 35px; 
+    color: white; 
+}
+
+.backgroundImage {
+    background: url("/0_asset/resource/kakao_bg1.png") no-repeat center center;
+    background-size: cover;
+    height: 540px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    margin-top: 10%
+}
+  
+.content p {
+    font-size: 20px;
+}
+
+.content span {
+    font-size: 35px;
+    display: block;
+}
+
+table {
+    border: 1px solid white;
+    border-left: none;
+    border-right: none;
+    border-collapse: collapse;
+    color: white;
+    text-align: center;
+}
+
+th {
+    border-bottom: 1px solid white;
+    border-collapse: collapse;
+    font-size: 17px;
+    padding: 15;
+}
+
+td {
+    border-bottom: 1px solid white;
+    border-collapse: collapse;
+    font-size: 70px;
+    padding: 10px;
+}
+
+tr > .tdFirst, .thFirst {
+    border-right: 1px solid white;
+}
