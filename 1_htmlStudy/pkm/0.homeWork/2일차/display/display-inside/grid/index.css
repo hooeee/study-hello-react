@@ -20,8 +20,8 @@
     background: green;
     /* align-items: stretch; */
     /* align-items: start; */
-    align-items: center;
-    /* align-items: end; */
+    /* align-items: center; */
+    align-items: end;
 
     height: 20rem;
 }

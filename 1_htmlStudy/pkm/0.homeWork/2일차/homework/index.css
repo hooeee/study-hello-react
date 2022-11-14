@@ -1,25 +1,292 @@
-.box {
-    position: static;
-    width: 100px;
-    height: 100px;
-    border: 1px solid green;
-  }
-  
-  .box.one {
-    /* box의 position 값이 static이기 때문에,
-    실제로는 right 값이 적용되지 않음 */
-    right: 10px;
-  }
-  
-  .box.two {
-    /* box의 position 값이 static이기 때문에,
-    실제로는 bottom 값이 적용되지 않음 */
-    bottom: 20px;
-  }
-  
-  .box.three {
-    /* box의 position 값이 static이기 때문에,
-    실제로는 top 값이 적용되지 않음 */
-    top: 50px;
-  }
-  
+@charset "utf-8";
+/*  
+ * @ RESET CSS
+ * -------------------------------
+ */
+html, body, div, p, span, strong, b, em, iframe, pre,
+h1, h2, h3, h4, h5, h6,
+img, dl, dt, dd,
+fieldset, form, legend, label,
+table, caption, thead, tbody, tfoot, tr, th, td,
+ul, ol, li, a, input, select, textarea {margin: 0;padding: 0; border: 0 none; }
+
+body {font-family: MalgunGothic, '맑은 고딕','돋움', Dotum, AppleGothic, Sans-serif, Arial; font-size: 12px; line-height: 1;color: #333;}
+
+ul, ol, li {list-style: none;}
+em, address {font-style: normal;}
+img {border: 0 none; font-size: 0;line-height: 0;}
+sup {position: relative;top: 2px;font-size: 11px;line-height: 100%;}
+
+table {border-collapse: collapse; border-spacing:0; }
+caption {overflow: hidden;width: 0;height: 0;font-size: 0; line-height: 0;}
+th, td { vertical-align: middle;/* white-space: nowrap */}
+
+a {color: #333; text-decoration: none; line-height: 1;}
+a:hover, a:focus, a:active {text-decoration: underline;}
+a:visited {color: #333;}
+*, html {box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+*, *:before, *:after {box-sizing: border-box;-webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
+
+/*   */
+/*nav*/
+/*   */
+
+#nav{
+    position: sticky;
+    display: inline-flex;
+    top: 0;
+    background: white; 
+    height: 60px;
+    width: 100%;
+    z-index: 9999;
+}
+#nav .nav-containers{
+  margin:10px;
+  display: inline-flex;
+  /* background: red; */
+  width: 100%;
+  padding: 15px 0px;
+  justify-content: row;
+}
+#nav .nav-containers > .logo-containers>.logo-link{
+  display: block;
+  height: 15px;
+  width: 130px;
+  background: url(/0_asset/resource/kakao_biz_logo.png) no-repeat 0 0;
+  background-size: 100px;
+}
+
+#nav .nav-containers > ul{
+  /* background: rgb(219, 177, 177); */
+  font-weight: bold;
+}
+#nav > .nav-containers > ul > li{
+  /* background: blueviolet; */
+  flex-flow: row wrap;
+  float:left;
+  width: 100px;
+  height: 15px;
+}
+#nav .btn-containers{
+  display: inline-flex;
+  align-items: center;
+  justify-items: end;
+}
+#nav .btn-containers > button{
+  width: 60px;
+  height: 20px;
+  font-size: 1px;
+  margin: 10px;
+}
+
+
+/*   */
+/*slider*/
+/*   */
+
+#slider-container{
+  /* background: green; */
+  height: 600px;
+}
+#slider-container > .slider{
+  /* background: rgb(0, 153, 255); */
+  position: relative;
+  height: 560px;
+}
+#slider-container > .slider > .slider-contents {
+  /* background: rgb(0, 0, 255); */
+  position: relative;
+  height: 600px;
+}
+
+#slider-container > .slider > .slider-contents >.slider-item{
+  position: absolute;
+  height: 600px;
+  width: 100%;
+  align-items: center;
+}
+
+#slider-container > .slider > .slider-contents >.slider-item:nth-child(1){
+background:red ;
+left:0%;
+}
+
+#slider-container > .slider > .slider-contents >.slider-item:nth-child(2){
+  background:rgb(255, 166, 0) ;
+  left:100%;
+}
+
+#slider-container > .slider > .slider-contents >.slider-item:nth-child(3){
+  background:rgb(0, 255, 106) ;
+  left:200%;
+}
+#slider-container > .slider > .slider-contents >.slider-item > .slider-item-contents
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#slider-container > .slider > .slider-contents >.slider-item video{
+  position: absolute;
+  height: 600px;
+  width: 100%;
+  background-color: #0c1f48;
+}
+#slider-container > .slider > .slider-contents >.slider-item .slider-text
+{
+  color: white;
+  position: absolute;
+  top: 70%;
+  left: 40%;
+  font-size:2em;
+  text-align: center;
+}
+
+#slider-container > .slider-pager
+{
+  position: absolute;
+  right: 5%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/*   */
+/*content*/
+/*   */
+
+#content-container{
+  background: yellow;
+  height: 340px;
+}
+#content-container .title{
+  font-size :10px;
+  padding: 5px;
+  font-weight: bold;
+}
+#content-container .sub-title{
+  font-size :25px;
+  padding: 5px;
+  font-weight: bold;
+}
+#content-container > .content-items{
+ position: relative;
+ display: flex;
+}
+#content-container > .content-items img{
+  position: relative;
+  width: 100%;
+  height: 340px;
+}
+
+#content-container > .content-items > .items-group
+{
+position: absolute;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+top:40%;
+width: 100%;
+}
+#content-container > .content-items > .items-group> .items-text{
+  position: relative;
+  color:white;
+}
+#content-container > .content-items > .items-group>.items-table{
+  position: relative;
+  color:white;
+}
+
+#content-container > .content-items > .items-group> .items-table > .table-column{
+  display: flex;
+  font-size: 15px;
+  width: 500px;
+}
+#content-container > .content-items > .items-group> .items-table > .table-column >.table-row:nth-child(1){
+  /* background: rgb(255, 0, 0); */
+  width: 300px;
+  padding: 10px;
+  border-top : 1px white solid;
+  border-right: 1px white solid ;
+  border-bottom: 1px white solid;
+  text-align: center;
+}
+#content-container > .content-items > div>.items-table > .table-column >.table-row:nth-child(2){
+  width: 300px;
+  /* background: rgb(0, 255, 213); */
+  padding: 10px;
+  border-top : 1px white solid;
+  border-left: 1px white solid ;
+  border-bottom: 1px white solid;
+  text-align: center;
+}
+
+/*   */
+/*content2*/
+/*   */
+
+#content1-container{
+  display: flex;
+  flex-direction: row-reverse;
+  /* background: blueviolet; */
+  height: 600px;
+}
+#content1-container > .content1-item-group{
+  position:relative;
+  width: 100%;
+}
+
+#content1-container > .content1-item-group  > .content1-main{
+  /* background: red;
+  height: 600px; */
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 50%;
+}
+
+#content1-container > .content1-item-group > .content1-main >  .content1-text-group{
+  /* background: red;
+  height: 600px; */
+  font-weight: bold;
+}
+#content1-container > .content1-item-group > .content1-main >  .content1-text-group > .title{
+  /* background: red;
+  height: 600px; */
+font-size: 1.5em;
+margin-bottom: 20px;
+color: grey;
+}
+#content1-container > .content1-item-group > .content1-main >  .content1-text-group > .sub-title{
+  /* background: red;
+  height: 600px; */
+font-size: 3em;
+margin-bottom: 20px;
+}
+
+#content1-container > .content1-item-group  .content1-main >  .content1-button-group button{
+  font-size: 25px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #F0F1F4;
+  width: 400px;
+  border:0;
+  outline:0;
+}
+#content1-container > .content1-item-group  .content1-main >  .content1-button-group button:hover{
+  color:#ffff;
+  background: #326EDC;
+}
+
+#content1-container > .content1-item-group > .video-group{
+  position:absolute;
+  left: 50%;
+}
+#content1-container > .content1-item-group > .video-group > video{
+  height: 600px;
+}
+
+
