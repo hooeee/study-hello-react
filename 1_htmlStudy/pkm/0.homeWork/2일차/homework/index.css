@@ -1,5 +1,5 @@
 @charset "utf-8";
-/*  
+/*
  * @ RESET CSS
  * -------------------------------
  */
@@ -35,7 +35,7 @@ a:visited {color: #333;}
     position: sticky;
     display: inline-flex;
     top: 0;
-    background: white; 
+    background: white;
     height: 60px;
     width: 100%;
     z-index: 9999;
@@ -267,7 +267,10 @@ font-size: 3em;
 margin-bottom: 20px;
 }
 
-#content1-container > .content1-item-group  .content1-main >  .content1-button-group button{
+#content1-container > .content1-item-group  .content1-main >  .content1-button-group > .button-group{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;;
   font-size: 25px;
   padding: 15px;
   border-radius: 8px;
@@ -275,11 +278,20 @@ margin-bottom: 20px;
   width: 400px;
   border:0;
   outline:0;
+  text-decoration:none;
 }
-#content1-container > .content1-item-group  .content1-main >  .content1-button-group button:hover{
+#content1-container > .content1-item-group  .content1-main >  .content1-button-group > .button-group > .icon-container{
+  background:url(/1_htmlStudy/pkm/0.homeWork/2일차/homework/0_asset/resource/right-arrow.png) no-repeat 0 0;
+  width: 24px;
+  height: 24px;
+  margin-left:15px;
+}
+#content1-container > .content1-item-group  .content1-main >  .content1-button-group > .button-group:hover{
   color:#ffff;
-  background: #326EDC;
+  background:  #326EDC ;
+  overflow:hidden;
 }
+
 
 #content1-container > .content1-item-group > .video-group{
   position:absolute;
