@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+video {
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  margin-right: auto;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.background_video {
+  width: 100%;
+  overflow: hidden;
+  margin: 0px;
+  position: relative;
+}
+
+.video_text {
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video_text p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+.chart_img {
+  position: relative;
+}
+
+.chart_img img {
+  width: 100%;
+}
+
+.chart_text {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.chart_text h5 {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.chart_text p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.chart_table {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  color: white;
+  border-color: white;
+  border-left: none;
+  border-right: none;
+  transform: translate(-50%, -50%);
+}
+
+.chart_table th {
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.chart_table tr {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.rotated {
+  background-color: white;
+  position: relative;
+}
+
+.rotated_video {
+  width: 60%;
+  margin-left: 30%;
+}
+
+.rotated_content {
+  position: absolute;
+  top: 15%;
+  left: 25%;
+}
+
+.rotated_content p {
+  margin: 0;
+  font-size: 45px;
+  font-weight: bolder;
+}
+
+.rotated_content h1 {
+  margin-bottom: 15px;
+  color: gray;
+  font-weight: light;
+}
+
+.rotated_button {
+  margin-top: 40px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 400px;
+  height: 80px;
+  border: none;
+}
+
+.rotated_button:hover {
+  background-color: #326EDC;
+  color: white;
+}
