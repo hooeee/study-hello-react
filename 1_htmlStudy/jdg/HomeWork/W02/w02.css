@@ -20,10 +20,9 @@ body, h1, p {
 }
 
 .headerImage {
-    margin-right: 100px;
     width: 300px;
     height: 75px;
-    background: url("/0_asset/resource/kakao_biz_logo.png") no-repeat center center;
+    background: url("../../../../0_asset/resource/kakao_biz_logo.png") no-repeat center center;
 }
 
 ul li {
@@ -61,11 +60,11 @@ button:hover, a:hover {
     background: skyblue;
 }
 
-.divMain {
+.mainContent {
     position: relative;
 }
 
-video {
+.mainContent div video {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -74,7 +73,7 @@ video {
 .videoContent { 
     position: absolute;
     width: 100%; 
-    top: 25%
+    top: 40%
 }
 
 .videoContent p { 
@@ -84,7 +83,7 @@ video {
 }
 
 .backgroundImage {
-    background: url("/0_asset/resource/kakao_bg1.png") no-repeat center center;
+    background: url("../../../../0_asset/resource/kakao_bg1.png") no-repeat center center;
     background-size: cover;
     height: 540px;
 }
@@ -141,11 +140,10 @@ tr > .tdFirst, .thFirst {
     position: relative;
 }
 
-.ecoSystem .ecoVideo {
+.ecoSystem div video {
+    width: 70%;
     height: 100%;
-    /* overflow: hidden;
-    transform: translateX(20%);
-    object-fit: scale-down; */
+    margin-left: 30%;
 }
 
 .ecoSystem .ecoContent {
@@ -167,7 +165,7 @@ tr > .tdFirst, .thFirst {
 .ecoSystemButton {
     margin-top: 30px;
     margin-left: auto;
-    background-color: lightgray;
+    background-color: #f0f1f4;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
