@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link href="./style/app.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="app">
+            <div class="bg-container">
+                <div id="bg"></div>
+            </div>
+
+            <div class="account-box">
+                <div class="account-state-login hidden">
+                    <button id="login-button">Logout</button>
+                </div>
+                <div class="account-state-logout"></div>
+            </div>
+            <div class="contents-main">
+                <form class="login" id="form">
+                    <input id="input" placeholder="이름을 입력해주세요." />
+                    <button type="submit" class="hidden" hidden></button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
