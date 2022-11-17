@@ -9,6 +9,42 @@ draft: false
 
 ## 목차
 
+> 2.0 Your First JS Project
+>
+> 2.1 Basic Data Types
+>
+> 2.2 Variables
+>
+> 2.3 const and let
+>
+> 2.4 Booleans
+>
+> 2.5 Arrays
+>
+> 2.6 Objects 
+>
+> 2.7 Functions part One
+>
+> 2.8 Functions part Two
+>
+> 2.9 Recap
+>
+> 2.10 Recap II
+>
+> > 2.10.1 과제
+>
+> 2.11 Returns 
+>
+> 2.12 Recap 
+>
+> 2.13 Conditionals
+>
+> 2.14 Conditionals part Two
+>
+> 2.15 Conditionals part Three
+>
+> 2.16 Recap
+
 ## 2.0 Your First JS Project
 
 - 자바스크립트 사용
@@ -412,3 +448,256 @@ sayHello("5dpit");
   ```
 
   ![image-20221116232238857](../../assets/img/post/2022-11-16-#2-[2021-UPDATE]-WELCOME-TO-JAVASCRIPT/image-20221116232238857.png)
+
+## 2.9 Recap
+
+```js
+const a = 5; // 업데이트 안됨
+let is3dpitFat = true;//업데이트 가능
+var notNever;//var은 쓰지 말자
+is3dpitFat = false;
+```
+
+- bolean은  false 아니면 true임
+- null이랑 undefined가 있음
+  - 이두개는 절대 다른것
+  - undefined는  존재하지만 안에 아무것도 없는 것
+  - null은 비어있음이 들어 있는 것
+
+```js
+const me ="sexy";
+const days = [1,2,false, null, undefined, "text", me];
+```
+
+- 배열은 이렇게 아무것이나 넣을 수 있음
+- 순서는 0부터 시작함 N개면 마지막 인덱스는 N-1임
+- push는 마지막에 데이터 추가하는 것
+  - days.push("extra");
+    - 하면 마지막에 extra 추가됨
+
+## 2.10 Recap II
+
+- 의미있는 property를 저장하는 경우
+
+  ```js
+  const player= {
+      name: "Nico",
+      age: "12"
+  };
+   player.name;
+  console.log(player, console);
+  
+  play.name ="3pit";//이렇게 변경 가능
+  player.smart: true;//없는 항목은 이렇게 쓰면 추가됨
+  ```
+
+  - console에 있는 것도 전부 object임
+    - f라고 되어 있는 것은 function임
+
+- function
+
+  - 계속 반복하게 하는 것임
+
+  ```js
+  function plus(){
+  console.log(1+2);
+  }
+  
+  plus();
+  
+  //발전 시키기
+  funtion plus1(num1, num2){
+      console.log(num1+num2);
+  }
+  
+  plus1(1,2);
+  plus1(1,2,3,4,5,6,7,8);//이렇게 해도 문제는 없음 정해진 것만 처리함
+  
+  const calculater ={
+      add: function(a,b){
+          console.log(a,b);
+      },
+  };
+  
+  calulator.add(5,1);
+  ```
+
+  - 주의 할 것은 순서가 중요함
+
+### 2.10.1 과제
+
+- 계산기 만들어보기
+
+  ```js
+  const calculator ={
+      add: function(a,b){
+          console.log(a+b);
+      },
+      minus: function(a,b){
+          console.log(a-b);
+      },
+      divide: function(a,b){
+          if(b==0) console.log("0으로 나눌 수 없음")
+          else console.log(a/b);
+      },
+      powerof: function(a,b){
+          console.log(a**b);
+      }
+  };
+  
+  calculator.add(1,2);
+  calculator.minus(1,2);
+  calculator.divide(1,2);
+  calculator.powerof(1,2);
+  ```
+
+  ![image-20221117211403345](../../assets/img/post/2022-11-16-#2-[2021-UPDATE]-WELCOME-TO-JAVASCRIPT/image-20221117211403345.png)
+
+## 2.11 Returns
+
+- console.log쓰지 말기
+
+  ```js
+  const age = 96;
+  function calculateKrAge(ageOfForeigner){
+      return ageOfForeigner+2;
+  }
+  
+  const krAge = calculateKrAge(age);
+  
+  console.log(krAge);
+  
+  //결과 98 나와야함
+  
+  const calculator ={
+      add: function(a,b){
+          return a+b;
+      },
+      minus: function(a,b){
+          return a-b;
+      },
+      multiple: function(a,b){
+          return a*b;
+      },
+      divide: function(a,b){
+          if(b==0) return "0으로 나눌 수 없음";
+          else return a/b;
+      },
+      powerof: function(a,b){
+          return a**b;
+      }
+  };
+  
+  const plusResult = calculator.add(1,2);
+  calculator.minus(1,2);
+  calculator.divide(1,0);
+  calculator.powerof(2,3);
+  
+  console.log(plusResult);
+  
+  const plusResult = calculator.add(1,2);
+  const minusResult = calculator.minus(plusResult,2);
+  const multipleResult = calculator.multiple(1,minusResult);
+  const divideResult = calculator.divide(minusResult,multipleResult);
+  const powerofResult = calculator.powerof(1,divideResult);
+  ```
+
+## 2.12 Recap
+
+- 왜? 리턴을 하나?
+  - console.log로하면 잘 작동하는 것 처럼 보이지만
+    - 이 자체를 변수로 받아서 결과를 다시 확인하면 값을 알 수 없음
+    - 알수 없다는 것은 활용할 수 없다는 것임
+- 결과를 눈으로 확인하기 위해서 console이 필요하지만 그것을 콘솔이 아닌 화면으로 보여줄것임
+
+## 2.13 Conditionals
+
+- 무언가 반응 하는 것을 만들대 사용
+
+  - 키워드 if
+
+    ```js
+    const age = prompt("How old are you?");
+    ```
+
+    ![image-20221117214438144](../../assets/img/post/2022-11-16-#2-[2021-UPDATE]-WELCOME-TO-JAVASCRIPT/image-20221117214438144.png)
+
+    
+
+- 대신 자바 스크립트 동작할 때까지 기다림
+
+  - 정말 예전 방식이라고 함
+
+- 숫자를 입력한다고 해서 숫자일까?
+
+  ```js
+  console.log(typeof age);
+  
+  console.log(typeof age, typeof parseInt(age));
+  ```
+
+  - "15" -> 15
+    - parseInt("15")	
+
+  ![image-20221117214746124](../../assets/img/post/2022-11-16-#2-[2021-UPDATE]-WELCOME-TO-JAVASCRIPT/image-20221117214746124.png)
+
+  - string int로 받으려 하면 NaN뜸
+
+  ```js
+  conas
+  ```
+
+## 2.14 Conditionals part Two
+
+- NaN인지 판별하기
+
+  ```js
+  const age = parseInt(prompt("How old are you?"));
+  
+  console.log(isNaN(age));
+  ```
+
+  - text 면 true
+  - 숫자면 false
+
+```js
+const age = parseInt(prompt("How old are you?"));
+
+console.log(isNaN(age));
+
+if(isNaN(age)){
+    console.log("Please write a number");
+}
+```
+
+![image-20221117215436327](../../assets/img/post/2022-11-16-#2-[2021-UPDATE]-WELCOME-TO-JAVASCRIPT/image-20221117215436327.png)
+
+
+
+## 2.15 Conditionals part Three
+
+```js
+if(isNaN(age)){
+    console.log("Please write a number");
+} else if(age<18){
+    console.log("You are too young.");
+} else if(age>=18 && age <=50){
+    console.log("You are too young.");
+}else {
+    console.log("You can drink.");
+}
+```
+
+- && , || 이해하기
+  - 당연히 알겠지만 && 두개다 참이여야하고
+  - || 두개다 거짓이 아니며 하나만 참이면 참임
+
+## 2.16 Recap 
+
+- `===`
+  - 그 값이 맞는지 확인하는 것
+- !==
+  - 그 값이 아닌것 
+
+
+
