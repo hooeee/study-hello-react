@@ -135,12 +135,123 @@
 // }
 // plus(1,2,);
 
-//응용사용
-const player ={
-    name : "3dpit",
-    sayHello : function(){
-        console.log("Hello");
-    },
-};
-console.log(player.name);
-player.sayHello();
+// //응용사용
+// const player ={
+//     name : "3dpit",
+//     sayHello : function(){
+//         console.log("Hello");
+//     },
+// };
+// console.log(player.name);
+// player.sayHello();
+
+
+// //계산기 만들기 과제
+// const calculator ={
+//     add: function(a,b){
+//         console.log(a+b);
+//     },
+//     minus: function(a,b){
+//         console.log(a-b);
+//     },
+//     divide: function(a,b){
+//         if(b==0) console.log("0으로 나눌 수 없음")
+//         else console.log(a/b);
+//     },
+//     powerof: function(a,b){
+//         console.log(a**b);
+//     }
+// };
+
+// calculator.add(1,2);
+// calculator.minus(1,2);
+// calculator.divide(1,0);
+// calculator.powerof(2,3);
+
+// //Returns
+// const age = 96;
+// function calculateKrAge(ageOfForeigner){
+//     return ageOfForeigner+2;
+// }
+
+// const krAge = calculateKrAge(age);
+
+// console.log(krAge);
+
+
+// const calculator ={
+//     add: function(a,b){
+//         },
+//     minus: function(a,b){
+//         return a-b;
+//     },
+//     multiple: function(a,b){
+//         return a*b;
+//     },
+//     divide: function(a,b){
+//         if(b==0) return "0으로 나눌 수 없음";
+//         else return a/b;
+//     },
+//     powerof: function(a,b){
+//         return a**b;
+//     }
+// };
+
+// const plusResult = calculator.add(1,2);
+// calculator.minus(1,2);
+// calculator.divide(1,0);
+// calculator.powerof(2,3);
+
+// console.log(plusResult);
+
+// //의존성을 지니면 동작하는
+// const minusResult = calculator.minus(plusResult,2);
+// const multipleResult = calculator.multiple(1,minusResult);
+// const divideResult = calculator.divide(minusResult,multipleResult);
+// const powerofResult = calculator.powerof(1,divideResult);
+
+
+//    return a+b;
+
+// //conditionals
+// // const age = prompt("How old are you?");
+
+// // console.log(age);
+// // console.log(typeof age, typeof parseInt(age));
+
+// const age = parseInt(prompt("How old are you?"));
+// console.log(age);
+
+// //Conditionals part Two
+// const age = parseInt(prompt("How old are you?"));
+
+// console.log(isNaN(age));
+
+// if(isNaN(age)){
+//     console.log("Please write a number");
+// } else{
+//     console.log("Thank you for writing you age.")
+// }
+
+// // Conditionals part Three
+// const age = parseInt(prompt("How old are you?"));
+
+// // if(isNaN(age)){
+// //     console.log("Please write a number");
+// // } else if(age<18){
+// //     console.log("You are too young.");
+// // }else {
+// //     console.log("You can drink.");
+// // }
+
+// if(isNaN(age)){
+//     console.log("Please write a number");
+// } else if(age<18){
+//     console.log("You are too young.");
+// } else if(age>=18 && age <=50){
+//     console.log("You are too young.");
+// }else {
+//     console.log("You can drink.");
+// }
+
+
