@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,14 @@
     <link rel="stylesheet" href="./style.css" type="text/css">
     <title>바닐라 JS</title>
 </head>
+
 <body>
-    <div class="hello">
-        <h1 class="remain-font">Grab me!</h1>
-    </div>
+    <form id="login-form" class="hidden">
+        <input required maxlength="15" type="text" placeholder="What's your name?" />
+        <input type="submit" value="Log in" />
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
     <script src="app.js"></script>
 </body>
+
 </html>
