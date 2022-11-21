@@ -1,11 +1,3 @@
-body {
-    background-color: beige;
-}
-
-h1 {
-    color: cornflowerblue;
-}
-
-.active {
-    color: tomato;
+.hidden {
+    display: none;
 }
