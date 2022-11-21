@@ -54,3 +54,61 @@ console.log("myname = " + myName);
 #### null, undefined
 - null : 아무것도 없음, 비어있음
 - undefined : 변수 할당은 되었지만 값이 없음
+
+## Array
+```js
+const etcArray = [1, null, "array", undefined, "19023", "test"];
+const daysOfWeeks = ["mon", "tue", "wed", "thu", "fri", "sat"];
+
+console.log(daysOfWeeks[4]);
+
+daysOfWeeks.push("sun");
+```
+
+## object
+- json 형식으로 값을 관리할 수 있음
+- 속성을 추가할 수 있음
+```js
+const player = {
+    name : "sy",
+    points : 10,
+    fat : true
+}
+
+console.log(player);
+console.log(player.name);
+console.log(player.points);
+console.log(player.fat);
+
+player.Age = 15;
+
+console.log(player);
+```
+
+## Functions part One, Two
+```js
+// Function 1, 2
+function sayHello() {
+    console.log("Hello");
+}
+
+sayHello();
+
+function sayHello(nameOfPerson){
+    console.log("Hello " + nameOfPerson);
+}
+
+sayHello("sungyun");
+
+
+const innerfunction = {
+    name : "testSy",
+    sayHello: function() {
+        console.log("function Hello");
+    }
+}
+
+innerfunction.sayHello();
+```
+## Recap 2
+- [== 과 === 차이](https://velog.io/@filoscoder/-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4-oak1091tes)

@@ -62,18 +62,19 @@ button:hover, a:hover {
 
 .mainContent {
     position: relative;
+    height: 100%;
 }
 
 .mainContent div video {
-    height: 100%;
     width: 100%;
     object-fit: cover;
+    vertical-align: middle;
 }
 
 .videoContent { 
     position: absolute;
     width: 100%; 
-    top: 40%
+    top: 60%
 }
 
 .videoContent p { 
