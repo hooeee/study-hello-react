@@ -8,9 +8,16 @@
     <title>Momentum</title>
 </head>
 <body>
-    <div class="hello">
-        <h1 class="sexy-font">Click me!</h1>
-    </div>
+    <form class="hidden" id="login-form">
+        <input 
+            required
+            maxlength="15"
+            type="text" 
+            placeholder="what is your name?"
+        />
+        <button>Log In</button>
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
     <script src="script.js"></script>
 </body>
 </html>
