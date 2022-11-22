@@ -16,3 +16,10 @@ console.log(title);
 ## Events 
 - https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector
 
+#### toggle
+- 토큰이 존재하면 토큰을 제거하고 존재하지 않는다면 토큰을 추가
+```js
+function handleTitleClick(){
+    h1.classList.toggle("clicked");
+}
+```
