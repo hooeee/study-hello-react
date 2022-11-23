@@ -1,0 +1,13 @@
+.position{
+    display: inline-flex;
+    height: 30px;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
+.no-hidden{
+    margin: 5px;
+    display:block;
+}
+
