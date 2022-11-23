@@ -1,0 +1,146 @@
+---
+title: #5 [2021 UPDATE] CLOCK
+date: 2022-11-23 17:28:00 +0900
+category: JS
+draft: true
+---
+
+## 2022-11-23-#5-[2021 UPATE]-CLOCK
+
+## 목차
+
+## 5.0 Intervals (05:37)
+
+- 새로 만든 폴더 구성
+
+  - css
+    - style.css
+  - js
+    - clock.js
+    - greetings.js
+
+  - index.html
+
+```js
+//index.html
+<h2 id="clock">00:00</h2>
+
+
+//clock.js
+const clock = document.querySelector("h2#clock");
+```
+
+- interval
+  - 매 몇초 무슨 일 일어나게 하는 것
+
+```js
+function sayHello(){
+  console.log("hello");
+}
+
+setInterval(sayHello, 5000);
+```
+
+- 이렇게 하면 5초뒤에 hello를 볼 수 있음
+- 우리가 시계를 만들 방식임
+
+## 5.1 Timeouts and Dates
+
+```sh
+const date = new Date();
+date.getDate()
+date.getDay()
+date.getFullYear()
+date.getHours()
+date.getMinutes()
+date.getSeconds()
+
+new Date().getHours()
+new Date().getMinutes()
+net Date().getSeconds()
+```
+
+- 계속 진행하려면 interval 사용함
+
+```js
+const clock = document.querySelector("h2#clock");
+
+function getClock(){
+  const date = new Date();
+  console.log(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+}
+
+setInterval(getClock, 1000);
+```
+
+- Date 오브젝트를 만들고 있는 것
+  - 문제 가 있음 0 의 경우 00 이 아니고 1은 01이 아니것의 문제가 있음
+  - 새로고침하면 다시 1초를 기다려야함
+
+- 사이트가 getClock()을 실행하고 또 매초마다 다시 실행 하기 위한것
+
+  ```js
+  const clock = document.querySelector("h2#clock");
+  
+  function getClock(){
+    const date = new Date();
+    console.log(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+  }
+  
+  getClock()
+  setInterval(getClock, 1000);
+  ```
+
+  - getClock() 을 추가 하면됨
+
+- h2에 넣기
+
+  ```js
+  const clock = document.querySelector("h2#clock");
+  
+  function getClock(){
+    const date = new Date();
+    clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  }
+  
+  getClock()
+  setInterval(getClock, 1000);
+  ```
+
+## 5.2 PadStart
+
+```js
+"1".padStart(2,"0");// 2길이가 아니면 0을 붙여서 출력해줘 라는 것
+```
+
+- padEnd(2,"0");// 뒤에 추가하는 것
+
+- 현재 date.getxxx를 하면 정수형이 나오는데 이를 string으로 변환해주면 아래와 같음
+
+  ```js
+  String(new Date().getHours);
+  ```
+
+```js
+const clock = document.querySelector("h2#clock");
+
+function getClock(){
+  const date = new Date();
+  const hours = String(date.getHours()).padStart(2,"0");
+  const minutes = String(date.getMinutes()).padStart(2,"0");
+  const seconds = String(date.getSeconds()).padStart(2,"0");
+  clock.innerText = `${hours}:${minutes}:${seconds}`;
+}
+
+getClock()
+setInterval(getClock, 1000);
+```
+
+## 5.3 Recap 
+
+- 복습
+  - Date Object를 사용함
+  - String으로 인트형 변경해줌
+  - 그리고 2자리 안되는 것 padStart()를 이용해서 채워넣음
+  - setInterval을 이용해서 정해진 초마다 실행해줌으로서 완성
+    - 이것을 안쓰면 한번만 되고 멈춤
