@@ -151,7 +151,7 @@ function handleToDoSubmit(event){
   toDolist.value="";
   toDos.push(newTodo);
   paintToDo(newTodo);
-  saveToDos(newTodo);
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handle.ToDoSubmit);
@@ -213,7 +213,7 @@ JSON.parse(localStorage.getItem("todos"))
     toDolist.value="";
     toDos.push(newTodo);
     paintToDo(newTodo);
-    saveToDos(newTodo);
+    saveToDos();
   }
   
   toDoForm.addEventListener("submit", handle.ToDoSubmit);
@@ -283,7 +283,7 @@ function handleToDoSubmit(event){
   toDolist.value="";
   toDos.push(newTodo);
   paintToDo(newTodo);
-  saveToDos(newTodo);
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handle.ToDoSubmit);
@@ -340,7 +340,7 @@ if(savedToDos !== null){
     toDolist.value="";
     toDos.push(newTodo);
     paintToDo(newTodo);
-    saveToDos(newTodo);
+    saveToDos();
   }
   
   toDoForm.addEventListener("submit", handle.ToDoSubmit);
@@ -354,5 +354,153 @@ if(savedToDos !== null){
   }
   ```
 
+
+## 7.6 Deleting To Dos part One
+
+- 현재까지의 문제점 지우더라도 storage가 업데이트 되지 않음
+
+```js
+const toDoForm = document.getElementById("todo-form");
+const toDoInput = toDoForm.querySelector("#todo-form input");
+const toDoList = document.getElementById("todo-list");
+
+const TODOS_KEY = "todos"
+
+let toDos = [ ];
+
+function saveToDos(){
+ localStorage.setItem("TODOS_KEY", JSON.stringify(toDos);
+}
+
+function deleteToDo(event){
+	/*console.log(event.target.parentElement.innerText);*/
+	const li = event.target.parentElement;
+  console.log(li.id);
+  li.remove();
+}
+function paintToDo(newTodo){
+  const li = document.createElement("li");
+  li.id = newTodo.id;
+  const span = document.createElement("span");
+  span.innerText = newTodo.text;
+  const button = document.createElement("button");
+  button.innerText = "❌"
+  vutton.addEventListener("click",deleteToDo);
+  li.appendChild(span);
+  li.appendChild(button);
+  toDoList.appendChild(li);
+}
+
+function handleToDoSubmit(event){
+	event.preventDefault();
+  const newTodo =toDoInput.value;
+  toDolist.value="";
+  const newTodoObj = {
+    text:newTodo,
+    id: Date.now(),
+  }
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
+  saveToDos();
+}
+
+toDoForm.addEventListener("submit", handle.ToDoSubmit);
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+console.log(savedToDos)
+if(savedToDos !== null){
+	const parsedToDos = JSON.parse(savedToDos); //문자열로 변환 한 것
+  toDos = parsedToDos;
+  parsedToDos.forEach((paintToDo());
+}
+```
+
+## 7.7 Deleting To Dos part Two
+
+- 삭제해보기
+
+  ```js
+  function sexyFilter(){
+    return true;
+  }
+  [1,2,3,4,5].filter(sexyFilter) //[1,2,3,4,5]
   
+  function sexyFilter(){
+  	return false;
+  }
+  [1,2,3,4,5].filter(sexyFilter) //[]
+  
+  
+  //3빼고 실행 하는 법
+  function sexyFilter(item){
+    return item !==3
+  }
+  [1,2,3,4,5].filter(sexyFilter) //[1,2,4,5]
+  
+  //todos에 적용해보기
+  function sextFilter(todo){return todo.id !== 12332313}
+  ```
+
+  - 다른것은 참이면 그대로 남아있고 false이면 안나오게 하는 방식으로 원하는 값을 지우는 것
+
+## 7.8 Deleting To Dos part Three
+
+```js
+const toDoForm = document.getElementById("todo-form");
+const toDoInput = toDoForm.querySelector("#todo-form input");
+const toDoList = document.getElementById("todo-list");
+
+const TODOS_KEY = "todos"
+
+let toDos = [ ];
+
+function saveToDos(){
+ localStorage.setItem("TODOS_KEY", JSON.stringify(toDos);
+}
+
+function deleteToDo(event){
+	/*console.log(event.target.parentElement.innerText);*/
+	const li = event.target.parentElement;
+  li.remove();
+	toDos = toDos.filter(toDo => toDo.id != parseInt(li.id)
+  saveToDos();s
+}
+function paintToDo(newTodo){
+  const li = document.createElement("li");
+  li.id = newTodo.id;
+  const span = document.createElement("span");
+  span.innerText = newTodo.text;
+  const button = document.createElement("button");
+  button.innerText = "❌"
+  vutton.addEventListener("click",deleteToDo);
+  li.appendChild(span);
+  li.appendChild(button);
+  toDoList.appendChild(li);
+}
+
+function handleToDoSubmit(event){
+	event.preventDefault();
+  const newTodo =toDoInput.value;
+  toDolist.value="";
+  const newTodoObj = {
+    text:newTodo,
+    id: Date.now(),
+  }
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
+  saveToDos();
+}
+
+toDoForm.addEventListener("submit", handle.ToDoSubmit);
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+console.log(savedToDos)
+if(savedToDos !== null){
+	const parsedToDos = JSON.parse(savedToDos); //문자열로 변환 한 것
+  toDos = parsedToDos;
+  parsedToDos.forEach((paintToDo());
+}
+```
+
+- 이렇게 하면 ToDo 완성
 
