@@ -7,7 +7,7 @@ const USERNAME_KEY = "username";
 
 function onLoginSubmit(event) {
     event.preventDefault(); // 브라우저가 기본 동작 하지 못하게 막기
- 
+
     loginForm.classList.add(HIDDEN_CLASSNAME);
 
     const username = loginInput.value;
