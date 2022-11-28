@@ -1,3 +1,9 @@
+// whole-script strict mode syntax
+// JavaScript is very flexible
+// flexible === dangerous
+// added ECMAScript 5
+'use strict';
+
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
