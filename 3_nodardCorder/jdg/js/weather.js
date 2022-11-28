@@ -1,3 +1,9 @@
+// whole-script strict mode syntax
+// JavaScript is very flexible
+// flexible === dangerous
+// added ECMAScript 5
+'use strict';
+
 const API_KEY = "1588408d0776bee62a05e6aa5b3c4063";
 
 function onGeoOK(position) {
