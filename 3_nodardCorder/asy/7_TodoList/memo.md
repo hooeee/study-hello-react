@@ -17,6 +17,7 @@ function saveToDos(){
 ```
 
 ## foreach
+- array length 만큼 반복
 ```js
 function sayHello(item){
     console.log("this is turn off item ", item);
@@ -29,3 +30,7 @@ if(savedToDos !== null){
     parsedToDos.forEach(sayHello);
 }
 ```
+
+## filter
+- 주어진 함수가 true 로 반환되는 요소만 반환합니다.
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
