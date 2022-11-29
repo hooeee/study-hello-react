@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Document</title>
+</head>
+    <div id="login-main">
+        <div id="title-main">ToDo List</div>
+        <form id="login-form" class="hidden">
+            <input
+            required
+            maxlength="15"
+            type="text"
+            placeholder="what is your name?"
+            />
+            <input type="submit" value="Log in" />
+        </form>
+        <div class="position">
+        <h3 id="greeting" class="hidden"></h3>
+        <form id="logout-form" class="hidden ">
+            <input type="submit" value="Log out" />
+        </form>
+        </div>
+    </div>
+
+    <div id="clock-main">
+        <h2 id="clock">00:00</h2>
+    </div>
+
+    <div id="quote-main">
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id ="weather-main">
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id="todo-main">
+        <form id = "todo-form">
+        <input type="text" placeholder = "Write a To Do and Press Enter" required/>
+        </form>
+        <ul id = "todo-list"></ul>
+    </div>
+
+    <div class = "canvas-main">
+        <img id="background-img"></img>
+        <canvas id ="canvas" width="1024px" height="600ox"> </canvas>
+    </div>
+</body>
+<script src="js/app.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/quote.js"></script>
+<script src="js/background.js"></script>
+<script src="js/todo.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/three.js" type="module" defer> </script>
+</html>
