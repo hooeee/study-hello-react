@@ -85,7 +85,24 @@ body , html{
     border-bottom: 1px solid #000;
     outline: none; 
 }
+.account-state-login{
+    color: whitesmoke;
 
+}
+
+.todo-container{
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    height: 300px;
+    overflow-y: auto;
+}
+.todo-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+#clock{
+    color: wheat;
+}
 
 .todo-container li { list-style-type: none; margin-bottom: 10px;}
 .todo-container li span{
@@ -138,8 +155,27 @@ body , html{
 #login-button{
     background: none;
     border: none;;
+    color: white;
 }
 
 #greeting{
     color: white;
+}
+
+.nyan-cat{
+    width: 300px;
+    height: 94px;
+    background: url(../img/nyan-cat.gif) center center no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+};
+
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+* {
+
+    font-family: 'Noto Sans KR'
 }

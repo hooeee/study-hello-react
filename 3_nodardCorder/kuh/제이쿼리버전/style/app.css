@@ -10,9 +10,15 @@
     font-weight: normal;
     font-style: normal;
 }
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 
 
 * {
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
     font-family: 'Noto Sans KR'
 }
 
@@ -143,3 +149,12 @@ body , html{
 #greeting{
     color: white;
 }
+
+
+.nyan-cat{
+    width: 300px;
+    height: 94px;
+    background: url(../img/nyan-cat.gif) center center no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+};
