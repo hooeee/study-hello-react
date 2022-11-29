@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style/app.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="app">
+        <div class="bg-container">
+            <div id="bg"></div>
+        </div>
+
+        <div class="contents">
+            <div class="account-box">
+                <div class="account-state-login hidden">
+                    <button id="login-button">Logout</button>
+                </div>
+                <div class="account-state-logout">
+
+                </div>
+            </div>
+
+
+            <div class="contents-main">
+                <h2 id='clock'></h2>
+                <h1 id="greeting">Hello~!</h1>
+                <form class="login" id="form">
+                    <input id="input" placeholder="이름을 입력해주세요.">
+                    <button type="submit" class="hidden"></button>
+                </form>
+                
+                <div id="todos" class="hidden">
+                    <form>
+                        <input placeholder="todo">
+                        <button type="submit" class="hidden"></button>
+                    </form>
+                    <ul class="todo-container">
+                    </ul>
+                </div>
+
+            </div>
+
+            <div id="weather" class="weather">
+                <div></div>
+                <div></div>
+            </div>
+
+            <div id="footer">
+                <div id="quotes">
+                    <span></span>
+                    <span> / </span>
+                    <span></span>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/clock.js"></script>
+    <script src="./scripts/quotes.js"></script>
+    <script src="./scripts/background.js"></script>
+    <script src="./scripts/todo.js"></script>
+    <script src="./scripts/weather.js"></script>
+    <script src="./scripts/account.js"></script>
+</body>
+</html>
