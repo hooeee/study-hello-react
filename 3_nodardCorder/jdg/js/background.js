@@ -1,3 +1,9 @@
+// whole-script strict mode syntax
+// JavaScript is very flexible
+// flexible === dangerous
+// added ECMAScript 5
+'use strict';
+
 const images = [
     "0.jpg",
     "1.jpg",

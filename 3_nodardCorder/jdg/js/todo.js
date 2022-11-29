@@ -1,3 +1,9 @@
+// whole-script strict mode syntax
+// JavaScript is very flexible
+// flexible === dangerous
+// added ECMAScript 5
+'use strict';
+
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const todoList = document.getElementById("todo-list");

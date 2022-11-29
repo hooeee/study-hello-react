@@ -1,3 +1,181 @@
-.hidden {
+@font-face {
+    font-family: 'establishRetrosansOTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    font-family: 'Noto Sans KR'
+}
+
+.hidden{
     display: none;
+}
+
+body , html{
+    margin: 0px;
+    height: 100%;
+}
+
+.app{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* background */
+.bg-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+#bg { height: 100%; }
+#bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* contents */
+.contents{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.contents-main{
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.contents-main h1 {
+    font-size: 4em;
+    margin: 1%;
+}
+
+.contents-main input { 
+    font-size: 1em;
+    color: #fff;
+    border-radius: 2px;
+    height: 36px;
+    width: 250px;
+    background: #ffffff17;
+    text-indent: 10px;
+    border: 0px;
+    border-bottom: 1px solid #000;
+    caret-color: #fff;
+}
+.contents-main input::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+.contents-main input:focus, 
+.contents-main input:hover{
+    background: #ffffff17;
+    border: 0px;
+    border-bottom: 1px solid #000;
+    outline: none; 
+}
+.account-state-login{
+    color: whitesmoke;
+
+}
+
+.todo-container{
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    height: 300px;
+    overflow-y: auto;
+}
+.todo-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+#clock{
+    color: wheat;
+}
+
+.todo-container li { list-style-type: none; margin-bottom: 10px;}
+.todo-container li span{
+    font-size: 2em;    
+    margin-right: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: rgba(231, 231, 231, 0.8);
+} 
+.todo-container li span:hover{ color: rgb(255, 255, 255); }
+.todo-container li button{
+    vertical-align: middle;
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    cursor: pointer;
+}
+.todo-container li button:hover{color: rgba(0, 0, 0, 0.5);}
+
+.todo-container .complate-todo{
+    text-decoration: line-through;
+    color: greenyellow !important;
+}
+
+.weather{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    padding: 5px;
+    background:#02020208;
+}
+.weather div:last-child{
+    margin-top: 5px;
+}
+
+#footer{
+    background: #72727230;
+    color: white;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    bottom: 0px;
+}
+
+.account-box {
+    text-align: right;
+    padding: 5px;
+}
+
+#login-button{
+    background: none;
+    border: none;;
+    color: white;
+}
+
+#greeting{
+    color: white;
+}
+
+.nyan-cat{
+    width: 300px;
+    height: 94px;
+    background: url(../img/nyan-cat.gif) center center no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+};
+
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+* {
+
+    font-family: 'Noto Sans KR'
 }
