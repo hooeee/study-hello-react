@@ -1,0 +1,190 @@
+
+@charset "utf-8";
+/* 
+ * @ RESET CSS
+ * -------------------------------
+ */
+html, body, div, p, span, strong, b, em, iframe, pre,
+h1, h2, h3, h4, h5, h6,
+img, dl, dt, dd,
+fieldset, form, legend, label,
+table, caption, thead, tbody, tfoot, tr, th, td,
+ul, ol, li, a, input, select, textarea {margin: 0;padding: 0; border: 0 none; }
+
+body {font-family: MalgunGothic, '맑은 고딕','돋움', Dotum, AppleGothic, Sans-serif, Arial; font-size: 12px; line-height: 1;color: #333;}
+
+ul, ol, li {list-style: none;}
+em, address {font-style: normal;}
+img {border: 0 none; font-size: 0;line-height: 0;}
+sup {position: relative;top: 2px;font-size: 11px;line-height: 100%;}
+
+table {border-collapse: collapse; border-spacing:0; }
+caption {overflow: hidden;width: 0;height: 0;font-size: 0; line-height: 0;}
+th, td { vertical-align: middle;/* white-space: nowrap */}
+
+a {color: #333; text-decoration: none; line-height: 1;}
+a:hover, a:focus, a:active {text-decoration: underline;}
+a:visited {color: #333;}
+*, html {box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+*, *:before, *:after {box-sizing: border-box;-webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
+/*자바스크립트 속성 적용*/
+
+.position{
+    display: inline-flex;
+    height: 30px;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
+.no-hidden{
+    display: inline-flex;
+    margin: 5px;
+}
+.canvas-form{
+    display: inline-flex;
+    width: 100%;
+
+}
+.canvas-form > canvas{
+    position: absolute;
+    z-index: 998;
+}
+
+/*개별 css 적용*/
+#login-main {
+    color: aliceblue;
+    display: inline-flex;
+    top: 0;
+    position: sticky;
+    /* align-content: center; */
+    align-items: center;
+    background: rgb(0, 0, 0);
+    width: 100%;
+    z-index: 999;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+#title-main{
+    position: relative;
+    display: inline-flex;
+    justify-content: flex-start;
+    margin: 10px;
+}
+#login-form{
+    margin: 10px;
+    justify-items: right;
+}
+#login-form> input:nth-child(1){
+    margin-left:10px;
+    width: 200px;
+}
+#login-form> input:nth-child(2){
+    margin-left: 40px;
+    width: 100px
+}
+#logout-form{
+    margin-left: 10px;
+    text-align: right;
+}
+#logout-form > input{
+    margin-left: 10px;
+    width: 100px
+}
+
+#clock-main{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.5em;
+    display: flex;
+    position: absolute;
+    justify-content: right;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    width: 100%;
+}
+
+#clock-main > #clock{
+    display: flex;
+    position: relative;
+    justify-content: right;
+    z-index: 999;
+}
+#background-img{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+#quote-main{
+    position: relative;
+    display: block;
+}
+#todo-main{
+    position: absolute;
+    z-index: 99999;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    width: 15em;
+}
+#todo-form >input {
+    width: 300px;
+    display: flex;
+}
+#todo-list{
+    margin-top: 5px;
+    width: 300px;
+    display: block;
+    position: relative;
+    background-color: white;
+}
+#todo-list > li > button > span{
+    width: 500px;
+    display: flex;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: large;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+#todo-list > li > button > span{
+    width: 500px;
+    display: flex;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: large;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+#weather-main{
+    position: relative;
+    z-index: 999;
+    display: block;
+}
+#canvas{
+    width: 100%;
+}
+#quote-main{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    z-index: 9999;
+    position:absolute;
+    text-align: center;
+    align-items: center;
+    top: 25%;
+    width: 100%;
+
+}
+#quote-main > span:nth-child(1){
+    display: block;
+}
+#quote-main > span:nth-child(2){
+    display: block;
+    margin: 10px;
+}
+#weather-main{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    z-index: 9999;
+    position:absolute;
+    text-align: right;
+    top: 12%;
+    width: 100%;
+
+}
