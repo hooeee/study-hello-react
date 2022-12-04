@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    border: 1px solid gray;
+}
+
+header {
+    border-bottom: 1px solid gray;
+    padding-left: 20px;
+}
+
+footer {
+    border-top: 1px solid gray;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+}
+
+.content nav {
+    border-right: 1px solid gray;
+}
+
+.content aside {
+    border-left: 1px solid gray;
+}
+
+nav, aside {
+    flex-basis: 150px;
+    flex-shrink: 0;
+}
+
+main {
+    padding: 10px;
+}
