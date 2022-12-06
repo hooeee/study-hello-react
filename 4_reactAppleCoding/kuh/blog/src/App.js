@@ -7,8 +7,7 @@ function App() {
     { id: 2, title: "강남 우동 맛집", like: 0 },
     { id: 3, title: "수원 맛집 추천", like: 0 },
   ]);
-  const [modal, setModal] = useState(false);
-  const [modalData, setModalData] = useState({ title: "", like: 0 });
+  const [modalData, setModalData] = useState(null);
 
   const sortClickHandle = () => {
     setPosts([...posts].sort((a, b) => a.title.localeCompare(b.title)));
@@ -31,7 +30,6 @@ function App() {
 
   const selectItme = (idx) => {
     setModalData({ ...posts[idx] });
-    setModal(true);
   };
 
   const addLikeHandle = (idx) => {
@@ -43,9 +41,15 @@ function App() {
     );
   };
 
+  const modalCloseHandle = () => {
+    setModalData(null);
+  };
+
   return (
     <div className="App">
-      <div className="black-nav">{/* <h4>{logo}</h4> */}</div>
+      <div className="title-header">
+        <h4>하이여</h4>
+      </div>
       <button onClick={sortClickHandle}>정렬</button>
       <button onClick={changeCoatHandle}>타이틀 변경</button>
 
@@ -64,12 +68,13 @@ function App() {
         />
       ))}
 
-      {modal == true ? (
+      {modalData != null ? (
         <Modal
           setPosts={setPosts}
           color={"skyblue"}
           modalData={modalData}
           changeCoatEvent={changeCoatHandle}
+          modalCloseHandle={modalCloseHandle}
         />
       ) : null}
     </div>
@@ -81,7 +86,14 @@ function Card({ id, title, like, selectItme, addLikeHandle }) {
     <div className="list">
       <h4 onClick={selectItme}>
         <span>{title}</span>
-        <span onClick={addLikeHandle}>👍</span>
+        <span
+          onClick={(e) => {
+            e.stopPropagation();
+            addLikeHandle();
+          }}
+        >
+          👍
+        </span>
         <span>{like}</span>
       </h4>
       <p>12월 03일 발행</p>
@@ -89,10 +101,13 @@ function Card({ id, title, like, selectItme, addLikeHandle }) {
   );
 }
 
-function Modal({ color, modalData, changeCoatEvent }) {
+function Modal({ color, modalData, changeCoatEvent, modalCloseHandle }) {
   return (
     <div className="modal" style={{ background: color }}>
-      <h4>{modalData.title}</h4>
+      <h4>
+        <span>{modalData.title}</span>
+        <span onClick={modalCloseHandle}>X</span>
+      </h4>
       <p>날짜</p>
       <p>상세내용</p>
       <button onClick={changeCoatEvent}>글수정</button>
