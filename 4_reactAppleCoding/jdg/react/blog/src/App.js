@@ -1,96 +1,144 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-
   // document.querySelector('h4').innerHTML = post; ==> 자바스크립트 문법
 
   // jsx 문법1 | class 넣을 땐 : className
   // jsx 문법2 | 변수 데이터 바인딩 : {}
   // jsx 문법3 | style 넣을 땐 : style={{스타일명:'값'}} ==> object 형식으로
 
-  let post = '강남 우동 맛집';
+  // 중요한 데이터는 변수말고 satate에 담는다.
+  //   - state 변경하는 법 : 두번째 인자 함수 이용
 
-  let [성별, 성별변경] = useState('남자');
+  let [gender, setGender] = useState("남자");
 
-  let [글제목, 글제목변경] = useState(
-    [
-      성별 + ' 코트 추천',
-      '강남 우동 맛집',
-      '파이썬 독학',
-    ]); // 중요한 데이터는 변수말고 satate에 담는다.
-
-  let [따봉, 따봉변경] = useState([0, 0, 0]); // state 변경하는 법 : 두번째 인자 함수 이용
-
-  let [modal, setModal] = useState(false);
-
-  let [내가누른글제목, setClickSubject] = useState('');
-
-  function 글제목성별변경() {
-    if (성별 === '남자') {
-      성별 = '여자';
+  const [subject, setSubject] = useState([
+    {
+      id: 0,
+      title: gender + " 코트 추천",
+      likeCount: 0,
+    },
+    {
+      id: 1,
+      title: "강남 우동 맛집",
+      likeCount: 0,
+    },
+    {
+      id: 2,
+      title: "파이썬 독학",
+      likeCount: 0,
     }
-    else if (성별 === '여자') {
-      성별 = '남자';
-    }
-    성별변경(성별);
+  ]);
 
-    let copy = [...글제목];
-    copy[0] = 성별 + ' 코드 추천';
-    글제목변경(copy);
+  const [sortText, setSortText] = useState("가나다순 정렬");
+
+  const [currentModalID, setCurrentModalID] = useState(0);
+
+  const [clickSubject, setClickSubject] = useState("");
+
+  const [modal, setModal] = useState(false);
+
+  const [isGenderButton, setGenderButton] = useState(false);
+
+  function setSubjectGender() {
+    if (gender === "남자") {
+      gender = "여자";
+    } else if (gender === "여자") {
+      gender = "남자";
+    }
+    setGender(gender);
+
+    let changedSubject = gender + " 코트 추천";
+    subject.find(x => x.id == currentModalID).title = changedSubject;
+    setClickSubject(changedSubject);
+  }
+
+  function handleSortButtonClick() {
+    if (sortText === "가나다순 정렬") {
+      setSortText("원래대로");
+    }
+    else {
+      setSortText("가나다순 정렬");
+    }
+
+    let copy = [...subject];
+    copy.sort((x, y) => {
+      if (sortText === "가나다순 정렬") {
+        if (x.title < y.title) return -1;
+        else if (x.title > y.title) return 1;
+        else return 0;
+      }
+      else {
+        if (x.id < y.id) return -1;
+        else if (x.id > y.id) return 0;
+        else return 0;
+      }
+    });
+    setSubject(copy);
   }
 
   return (
     <div className="App">
       <div className="black-nav">
-        <h4 style={{ color: 'red', fontSize: '30px' }}>JDG 블로그</h4>
+        <h4 style={{ color: "red", fontSize: "30px" }}>JDG 블로그</h4>
       </div>
 
-      {/* <button onClick={() => {
-        let copy = [...글제목];
-        copy.sort();
-        글제목변경(copy);
-      }}>가나다순 정렬</button>
+      <button onClick={handleSortButtonClick}>{sortText}</button>
 
-      <div className="list">
-        <h4>{글제목[0]} <span onClick={() => 따봉변경(따봉 + 1)}>👍</span> {따봉} </h4>
-        <p>12월 01일 발행 <button onClick={() => 글제목성별변경()}>성별 변경</button></p>
-      </div>
-      <div className="list">
-        <h4>{글제목[1]}</h4>
-        <p>12월 01일 발행</p>
-      </div>
-      <div className="list">
-        <h4 onClick={() => setModal(!modal)}>{글제목[2]}</h4>
-        <p>12월 01일 발행</p>
-      </div> */}
+      {subject.map(function (v, i) {
+        return (
+          <div className="list" key={i}>
+            <h4 className={v.id}
+              onClick={(e) => {
+                let id = e.target.className;
+                setCurrentModalID(id)
 
-      {
-        글제목.map(function (a, i) {
-          return (
-            <div className="list" key={i}>
-              <h4 onClick={() => {
-                setModal(!modal);
-                setClickSubject(글제목[i]);
-              }}>{글제목[i]}
-                <span onClick={() => {
-                  let copy = [...따봉];
-                  copy[i] += 1;
-                  따봉변경(copy);
-                }}>👍</span>{따봉[i]}
-              </h4>
-              <p>12월 01일 발행</p>
-            </div>
-          )
-        })
-      }
+                if (modal && id !== currentModalID) {
+                  setModal(true);
+                }
+                else {
+                  setModal(!modal);
+                }
 
-      {
-        modal === true ? <Modal 글제목={글제목} 글제목성별변경={글제목성별변경} 내가누른글제목={내가누른글제목}></Modal> : null
-      }
+                setClickSubject(v.title);
 
-      <h4>{post}</h4>
+                if (id == 0) {
+                  setGenderButton(true);
+                }
+                else {
+                  setGenderButton(false);
+                }
+              }}
+            >
+              {v.title}
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  let copy = [...subject];
+                  v.likeCount += 1;
+                  setSubject(copy);
+                }}
+              >
+                👍
+              </span>
+              {v.likeCount}
+            </h4>
+            <p>12월 01일 발행</p>
+          </div>
+        );
+      })}
+
+      {modal === true ? (
+        <Modal
+          subject={subject}
+          currentModalID={subject.find(x => x.title === clickSubject).id}
+          setSubjectGender={setSubjectGender}
+          clickSubject={clickSubject}
+          isGenderButton={isGenderButton}
+        ></Modal>
+      ) : null}
     </div>
   );
 }
@@ -98,12 +146,17 @@ function App() {
 function Modal(props) {
   return (
     <div className="modal">
-      <h4>{props.내가누른글제목}</h4>
+      <h4 className={props.currentModalID}>{props.clickSubject}</h4>
       <p>날짜</p>
       <p>상세내용</p>
-      <button button onClick={() => props.글제목성별변경()}>성별수정</button>
+      {props.isGenderButton &&
+        <button button onClick={() => props.setSubjectGender()}>
+          성별수정
+        </button>
+      }
+
     </div>
-  )
+  );
 }
 
 export default App;
