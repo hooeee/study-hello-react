@@ -28,7 +28,8 @@ function App() {
       </div>파이썬독학
 
       <div className='list'>
-        <h4 onClick={() => {setModal(true); setTitle(0);}}>{글제목[0]} 
+        <h4 >
+          <span onClick={() => {setModal(true); setTitle(0);}}>{글제목[0]} </span>
           <span onClick={ () => { 
             let 따봉copy = [...따봉];
             따봉copy[0] += 1;
@@ -38,7 +39,8 @@ function App() {
         <p>2월 17일 발행</p>
       </div>
       <div className='list'>
-        <h4 onClick={() => {setModal(true); setTitle(1);}}>{글제목[1]} 
+        <h4>
+          <span onClick={() => {setModal(true); setTitle(1);}}> {글제목[1]} </span>
           <span onClick={ () => {
             let 따봉copy = [...따봉];
             따봉copy[1] += 1;
@@ -46,7 +48,8 @@ function App() {
         </h4>
       </div>
       <div className='list'>
-        <h4 onClick={() => {setModal(true); setTitle(2);}}>{글제목[2]} 
+        <h4>
+          <span onClick={() => {setModal(true); setTitle(2);}}>{글제목[2]}  </span>
           <span onClick={ () => { 
             let 따봉copy = [...따봉];
             따봉copy[2] += 1;
