@@ -4,23 +4,79 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  let [board, changeBoard] = useState([
+  let [board, setBoard] = useState([
     {
       title: "남자 코트 추천",
       likeCount: 0,
+      date: "2월 17일 발행"
     },
     {
       title: "강남 우동 맛집",
       likeCount: 0,
+      date: "2월 17일 발행"
     },
     {
       title: "파이썬 독학",
       likeCount: 0,
+      date: "2월 17일 발행"
     },
   ]);
 
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
+  let [inputValue, setInputValue] = useState('');
+
+  const handleModal = (i) => {
+    modal == true ? setModal(false) : setModal(true);
+    setTitle(i);
+  }
+
+  const handleChangedTitle = (i) => {
+    let copy = [...board];
+    if(copy[i].title == "남자 코트 추천"){
+      copy[i].title = "여자 코트 추천";
+    } else if (copy[i].title == "여자 코트 추천"){
+      copy[i].title = "남자 코트 추천";
+    }
+    setBoard(copy);
+  }
+5
+  const handleAddLikeCount = (i) => {
+    setBoard(
+      board.map((item, idx) => {
+        if(i == idx){
+          item.likeCount++;
+        }
+        return item;
+      }) 
+    )
+  }
+
+  const handleTitleSort = () => {
+    setBoard([...board].sort((a,b)=> a.title.localeCompare(b.title)))
+  }
+
+  const handleInputOnChage = (e) => {
+    setInputValue(e.target.value);
+    console.log(inputValue);
+  }
+
+  const handleInputBtn = () => {
+    console.log(inputValue)
+    if(inputValue === ''){
+      return
+    }
+    const newItem = {
+      title: inputValue,
+      likeCount: 0,
+      date: ''
+    };
+    setBoard([...board, newItem]);
+  }
+
+  const handleItemDelete = (i) => {
+    setBoard(board.filter((item)=>item !== i));
+  }
 
   return (
     <div className="App">
@@ -28,40 +84,34 @@ function App() {
         <h4>ReactBlog</h4>
       </div>
 
-      <button
-        onClick={() => {
-          let copy = [...board];
-          copy[0].title = "여자 코트 추천";
-          changeBoard(copy);
-        }}
-      >
-        글 수정
-      </button>
-      {board.map(function (a, i) {
+      
+      <button onClick={handleTitleSort}>정렬</button>
+      
+      {board.map(function (item, i) {
         return (
           <div className="list" key={i}>
-            <h4
-              onClick={() => {
-                modal == true ? setModal(false) : setModal(true);
-                setTitle(i);
-              }}
-            >
-              {board[i].title}
-              <span
-                onClick={() => {
-                  let copyboard = [...board];
-                  copyboard[i].likeCount += 1;
-                  changeBoard(board);
-                }}
-              >
+            <h4 onClick={(e) => {
+                handleModal(i);
+              }}>
+              {item.title}
+              <span onClick={(e) => {
+                  e.stopPropagation();
+                  handleAddLikeCount(i)
+                }}>
                 👍
               </span>
-              {board[i].likeCount}
+              {item.likeCount}
             </h4>
-            <p>2월 17일 발행</p>
+            <p>{item.date}</p>
+            <button onClick={() => {handleChangedTitle(i)}}>글 수정</button>
+            <button onClick={() => {handleItemDelete(item)}}>삭제</button>
           </div>
         );
       })}
+
+      <input onInput={(e) => {handleInputOnChage(e)}}></input>
+      <button onClick={() => {handleInputBtn()}}>버튼</button>
+
       {modal == true ? <Modal board={board} title={title} /> : null}
     </div>
   );
