@@ -42,3 +42,10 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-main{
+  list-style: none;
+  color:black;
+  margin: 5px;
+  align-items: center;
+}
