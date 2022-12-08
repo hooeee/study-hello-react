@@ -17,7 +17,7 @@ function App() {
   const [subject, setSubject] = useState([
     {
       id: 0,
-      title: gender + " 코트 추천",
+      title: "남자 코트 추천",
       likeCount: 0,
     },
     {
@@ -79,6 +79,33 @@ function App() {
     setSubject(copy);
   }
 
+  function handleSubjectClick({ id, title }) {
+    setCurrentModalID(id)
+
+    if (modal && id !== currentModalID) {
+      setModal(true);
+    }
+    else {
+      setModal(!modal);
+    }
+
+    setClickSubject(title);
+
+    if (id == 0) {
+      setGenderButton(true);
+    }
+    else {
+      setGenderButton(false);
+    }
+  }
+
+  function handleThumbsClick(e, post) {
+    e.stopPropagation();
+    let copy = [...subject];
+    post.likeCount += 1;
+    setSubject(copy);
+  }
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -87,43 +114,23 @@ function App() {
 
       <button onClick={handleSortButtonClick}>{sortText}</button>
 
-      {subject.map(function (v, i) {
+      {subject.map(function (post, i) {
         return (
           <div className="list" key={i}>
-            <h4 className={v.id}
-              onClick={(e) => {
-                let id = e.target.className;
-                setCurrentModalID(id)
-
-                if (modal && id !== currentModalID) {
-                  setModal(true);
-                }
-                else {
-                  setModal(!modal);
-                }
-
-                setClickSubject(v.title);
-
-                if (id == 0) {
-                  setGenderButton(true);
-                }
-                else {
-                  setGenderButton(false);
-                }
+            <h4
+              onClick={() => {
+                handleSubjectClick(post);
               }}
             >
-              {v.title}
+              {post.title}
               <span
                 onClick={(e) => {
-                  e.stopPropagation();
-                  let copy = [...subject];
-                  v.likeCount += 1;
-                  setSubject(copy);
+                  handleThumbsClick(e, post);
                 }}
               >
                 👍
               </span>
-              {v.likeCount}
+              {post.likeCount}
             </h4>
             <p>12월 01일 발행</p>
           </div>
@@ -132,7 +139,6 @@ function App() {
 
       {modal === true ? (
         <Modal
-          subject={subject}
           currentModalID={subject.find(x => x.title === clickSubject).id}
           setSubjectGender={setSubjectGender}
           clickSubject={clickSubject}
@@ -143,14 +149,14 @@ function App() {
   );
 }
 
-function Modal(props) {
+function Modal({ currentModalID, setSubjectGender, clickSubject, isGenderButton }) {
   return (
     <div className="modal">
-      <h4 className={props.currentModalID}>{props.clickSubject}</h4>
+      <h4 className={currentModalID}>{clickSubject}</h4>
       <p>날짜</p>
       <p>상세내용</p>
-      {props.isGenderButton &&
-        <button button onClick={() => props.setSubjectGender()}>
+      {isGenderButton &&
+        <button button onClick={setSubjectGender}>
           성별수정
         </button>
       }
