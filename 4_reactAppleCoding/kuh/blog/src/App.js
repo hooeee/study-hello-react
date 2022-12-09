@@ -2,12 +2,38 @@ import "./App.css";
 import { useState } from "react";
 import { postsInitData } from "./data/initData";
 
+const newPost = (id, title) => {
+  return {
+    id,
+    title,
+    like: 0,
+    date: "2022-12-03",
+    context: `현재 글은 ${title} 상세 입니다.`,
+  };
+};
+
 function App() {
   const [posts, setPosts] = useState(postsInitData);
   const [modalData, setModalData] = useState(null);
+  const [keyWord, setKeyword] = useState("");
 
   const sortClickHandle = () => {
     setPosts([...posts].sort((a, b) => a.title.localeCompare(b.title)));
+  };
+
+  const addPostsSubmit = (e) => {
+    e.preventDefault();
+    if (keyWord == "") {
+      alert("빈값을 저장할 수 없습니다.");
+      return;
+    }
+    const newId = Math.max(posts.map((t) => t.id)) + 1;
+    setPosts([newPost(newId, keyWord), ...posts]);
+    setKeyword("");
+  };
+
+  const changedValueHandle = ({ target: { value } }) => {
+    setKeyword(value);
   };
 
   const changeCoatHandle = () => {
@@ -43,8 +69,17 @@ function App() {
       <div className="title-header">
         <h4>하이여</h4>
       </div>
-      <button onClick={sortClickHandle}>정렬</button>
-      <button onClick={changeCoatHandle}>타이틀 변경</button>
+
+      <div>
+        <form onSubmit={addPostsSubmit}>
+          <input value={keyWord} onChange={changedValueHandle}></input>
+          <button type="submit">글 추가하기</button>
+        </form>
+      </div>
+      <p>
+        <button onClick={sortClickHandle}>정렬</button>
+        <button onClick={changeCoatHandle}>타이틀 변경</button>
+      </p>
 
       {posts.map((post, i) => (
         <Card
@@ -102,14 +137,14 @@ function Modal({ color, modalData, changeCoatEvent, modalCloseHandle }) {
         <span>👍 {modalData.like}</span>
         <span onClick={modalCloseHandle}>X</span>
       </h4>
-      <p>
+      <div>
         <div>날짜</div>
         <span>{modalData.date} 발행</span>
-      </p>
-      <p>
+      </div>
+      <div>
         <div>상세</div>
         <span>{modalData.context}</span>
-      </p>
+      </div>
       <button onClick={changeCoatEvent}>글수정</button>
     </div>
   );
