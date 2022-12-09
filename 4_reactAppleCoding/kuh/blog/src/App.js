@@ -1,12 +1,9 @@
 import "./App.css";
 import { useState } from "react";
+import { postsInitData } from "./data/initData";
 
 function App() {
-  const [posts, setPosts] = useState([
-    { id: 1, title: "남자 코트 추천", like: 0 },
-    { id: 2, title: "강남 우동 맛집", like: 0 },
-    { id: 3, title: "수원 맛집 추천", like: 0 },
-  ]);
+  const [posts, setPosts] = useState(postsInitData);
   const [modalData, setModalData] = useState(null);
 
   const sortClickHandle = () => {
@@ -26,10 +23,6 @@ function App() {
         return t;
       })
     );
-  };
-
-  const selectItme = (idx) => {
-    setModalData({ ...posts[idx] });
   };
 
   const addLikeHandle = (idx) => {
@@ -63,7 +56,7 @@ function App() {
             addLikeHandle(i);
           }}
           selectItme={() => {
-            selectItme(i);
+            setModalData({ ...post });
           }}
         />
       ))}
@@ -106,10 +99,17 @@ function Modal({ color, modalData, changeCoatEvent, modalCloseHandle }) {
     <div className="modal" style={{ background: color }}>
       <h4>
         <span>{modalData.title}</span>
+        <span>👍 {modalData.like}</span>
         <span onClick={modalCloseHandle}>X</span>
       </h4>
-      <p>날짜</p>
-      <p>상세내용</p>
+      <p>
+        <div>날짜</div>
+        <span>{modalData.date} 발행</span>
+      </p>
+      <p>
+        <div>상세</div>
+        <span>{modalData.context}</span>
+      </p>
       <button onClick={changeCoatEvent}>글수정</button>
     </div>
   );
