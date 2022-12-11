@@ -8,16 +8,18 @@ function Detail({modeling}) {
     })
     console.log(findID);
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <img src={'/basic' + findID.id + '.png'} width="100%" />
-                </div>
-                <div className="col-md-6">
-                    <h4 className="pt-5">{findID.title}</h4>
-                    <p>{findID.content}</p>
-                    <p>{findID.price} Won</p>
-                    <button className="btn btn-danger">주문하기</button>
+        <div className="div-main">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6">
+                        <img src={'/basic' + findID.id + '.png'} width="100%" />
+                    </div>
+                    <div className="col-md-6">
+                        <h1 className="-5">{findID.title}</h1>
+                        <h3>{findID.content}</h3>
+                        <h5>{findID.price} Won</h5>
+                        <button className="btn btn-danger" onClick={() => window.open(findID.link, '_blank')}>주문하기</button>
+                    </div>
                 </div>
             </div>
         </div>

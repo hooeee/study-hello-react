@@ -2,8 +2,9 @@ import './App.css';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './Data.js';
 import { useState } from 'react';
-import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routers/Detail.js';
+import Blog from './Blog.js';
 
 function App() {
 
@@ -37,14 +38,14 @@ function App() {
             <Nav.Link href="#F&Q">F&Q</Nav.Link> */}
             <Nav.Link onClick={() => { navigate('/') }}>HOME</Nav.Link>
             <Nav.Link onClick={() => { navigate('/details') }}>DETAILS</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/event') }}>EVENT</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/etc-site') }}>ETC</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
       <Routes>
         <Route path="/" element={
           <>
-            <div className='main-bg'></div>
+        <div className='main-bg'></div>
             <Container>
               <Row>
                 {
@@ -59,20 +60,22 @@ function App() {
           </>
         } />
         <Route path="/details" element={
-          <Container>
-              <Row>
-                {
-                  modeling.map(function (obj, i) {
-                    return (
-                      <Items key={i} data={data} i={i} />)
-                  })
-                }
-              </Row>
-            </Container>
+          <div className="div-sub">
+            <Container>
+                <Row>
+                  {
+                    modeling.map(function (obj, i) {
+                      return (
+                        <Items key={i} data={data} i={i} />)
+                    })
+                  }
+                </Row>
+              </Container>
+          </div>
         }/>
         <Route path="/detail/:id" element={<Detail modeling={modeling}/>} />
-        <Route path="/event" element={<Event modeling={modeling}></Event>}>
-          <Route path="one" element={<div><h3>첫 주문시 양배추즙 서비스</h3></div>} />
+        <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>
+          <Route path="one" element={<Blog></Blog>} />
           <Route path="two" element={<div><h3>생일 기념 쿠폰받기</h3></div>} />
         </Route>
         <Route path="*" element={<div>없는 페이지</div>} />
@@ -84,10 +87,10 @@ function App() {
 function Event() {
   return (
     <div>
-      <h2>오늘의 이벤트</h2>
-      <div>
-        <button><Link to='/event/one'>Event 1</Link></button>
-        <button><Link to='/event/two'>Event 2</Link></button>
+      <h2>Etc site</h2>
+      <div className="btn-main">
+        <button><Link to='/etc-site/one'>Blog</Link></button>
+        <button><Link to='/etc-site/two'>Event 2</Link></button>
       </div>
       <Outlet></Outlet>
     </div>
@@ -105,12 +108,12 @@ function About() {
 
 function Items({ data, i }) {
   return (
-    <Col>
-      <img src={'./basic' + data[i].id + '.png'} width="50%" />
-      <h4>{data[i].title}</h4>
-      <p>{data[i].price}</p>
-      <Link to={'/detail/'+i}>{'Detail'}</Link>
-    </Col>
+      <Col>
+        <img src={'./basic' + data[i].id + '.png'} width="80%" />
+        <h4>{data[i].title}</h4>
+        <h5>{data[i].price}</h5>
+        <Link to={'/detail/'+i}>{'Detail'}</Link>
+      </Col>
   );
 }
 

@@ -1,5 +1,6 @@
 .main-bg{
   height: 300px;
+  border: bold;
   background-image: url('./img/modeling.jpg');
   background-size : cover;
 }
@@ -49,3 +50,12 @@
   margin: 5px;
   align-items: center;
 }
+
+/* Detail.js css */
+.div-main{
+  margin: 100px;
+}
+.div-sub{
+  margin: 15px;
+}
+
