@@ -19,16 +19,19 @@ function App() {
       id: 0,
       title: "남자 코트 추천",
       likeCount: 0,
+      date: new Date().toLocaleString(),
     },
     {
       id: 1,
       title: "강남 우동 맛집",
       likeCount: 0,
+      date: new Date().toLocaleString(),
     },
     {
       id: 2,
       title: "파이썬 독학",
       likeCount: 0,
+      date: new Date().toLocaleString(),
     }
   ]);
 
@@ -41,6 +44,8 @@ function App() {
   const [modal, setModal] = useState(false);
 
   const [isGenderButton, setGenderButton] = useState(false);
+
+  const [inputValue, setInputValue] = useState("");
 
   function setSubjectGender() {
     if (gender === "남자") {
@@ -106,6 +111,26 @@ function App() {
     setSubject(copy);
   }
 
+  function handlePushSubject() {
+    if (inputValue.length <= 0) {
+      return;
+    }
+    let copy = [...subject];
+    copy.push({
+      id: subject.length,
+      title: inputValue,
+      likeCount: 0,
+      date: new Date().toLocaleString(),
+    });
+    setSubject(copy);
+  }
+
+  function handleFilterSubject(e) {
+    let id = e.target.parentElement.children[0].id;
+    let filter = subject.filter(x => x.id != id);
+    setSubject(filter);
+  }
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -117,7 +142,7 @@ function App() {
       {subject.map(function (post, i) {
         return (
           <div className="list" key={i}>
-            <h4
+            <h4 id={post.id}
               onClick={() => {
                 handleSubjectClick(post);
               }}
@@ -132,10 +157,20 @@ function App() {
               </span>
               {post.likeCount}
             </h4>
-            <p>12월 01일 발행</p>
+            <p>{post.date}</p>
+            <button onClick={(e) => {
+              handleFilterSubject(e);
+            }}>글 삭제</button>
           </div>
         );
       })}
+
+      <input onChange={(e) => { setInputValue(e.target.value); }}
+        value={inputValue}></input>
+      <button onClick={() => {
+        handlePushSubject();
+        setInputValue("");
+      }}>글 발행</button>
 
       {modal === true ? (
         <Modal
