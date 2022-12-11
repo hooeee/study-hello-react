@@ -20,7 +20,8 @@ function App() {
           <Navbar.Brand href="/">JDG Shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail') }}>Detail</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/event') }}>Event</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/about') }}>About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -33,7 +34,7 @@ function App() {
               <div className='row'>
                 {shoes.map((shoe, i) => {
                   return (
-                    <Main shoe={shoe} i={i}></Main>
+                    <Main shoe={shoe} i={i} navigate={navigate}></Main>
                   );
                 })}
               </div>
@@ -62,6 +63,12 @@ function Event() {
   return (
     <div>
       <h4>오늘의 이벤트</h4>
+      <div>
+        <Link to="/event/one">이벤트 1</Link>
+      </div>
+      <div>
+        <Link to="/event/two">이벤트 2</Link>
+      </div>
       <Outlet></Outlet>
     </div>
   )
@@ -71,14 +78,22 @@ function About() {
   return (
     <div>
       <h4>회사정보임</h4>
+      <div>
+        <Link to="/about/member">멤버</Link>
+      </div>
+      <div>
+        <Link to="/about/location">location</Link>
+      </div>
       <Outlet></Outlet>
     </div>
   )
 }
 
-function Main({ shoe, i }) {
+function Main({ shoe, i, navigate }) {
   return (
-    <div className='col-md-4' key={i}>
+    <div className='col-md-4' key={i} onClick={() => {
+      navigate('/detail/' + shoe.id)
+    }}>
       <img src={shoe.img} width="80%" />
       <h4>{shoe.title}</h4>
       <p>{shoe.price}</p>
