@@ -1,4 +1,11 @@
 import { useParams } from "react-router-dom";
+import styled from 'styled-components';
+
+let CustomButton = styled.button`
+    background : ${ props => props.bg };
+    color : ${ props => props.bg == 'blue' ? 'white' : 'black' };
+    padding : 10px;
+`
 
 function Detail(props) {
     let { id } = useParams();
@@ -6,6 +13,8 @@ function Detail(props) {
 
     return (
         <div className="container">
+            <CustomButton bg="blue">버튼</CustomButton>
+            <CustomButton bg="orange">버튼</CustomButton>
             <div className="row">
                 <div className="col-md-6">
                     <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
