@@ -17,14 +17,11 @@ function App() {
           <Navbar.Brand href="/">MireroShop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => {navigate('/')}}>Home</Nav.Link>
-            <Nav.Link onClick={() => {navigate('/detail')}}>detail</Nav.Link>
+            <Nav.Link onClick={() => {navigate('/detail/0')}}>detail</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-
-
-
       <Routes>
         <Route path="/" element={
           <>
@@ -40,7 +37,7 @@ function App() {
             </div>
           </>
         }/>
-        <Route path="/detail" element={<Detail/>}/>
+        <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
         <Route path="/about" element={<About/>}>
           <Route path="member" element={<div>멤버</div>}/>
           <Route path="location" element={<div>location</div>}/>
