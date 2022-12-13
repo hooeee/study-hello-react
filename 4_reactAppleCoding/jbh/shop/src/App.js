@@ -53,10 +53,10 @@ function App() {
                     }
                 />
                 <Route
-                    path="/detail"
+                    path="/detail/:id"
                     element={
                         <>
-                            <DetailCard />
+                            <DetailCard shoes={shoes} />
                         </>
                     }
                 />

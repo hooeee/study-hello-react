@@ -9,35 +9,6 @@
     background-position: center;
 }
 
-.menu-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.item1 {
-    width: 700px;
-    height: 400px;
-    display: block;
-    background: url("../images/shoe1.png") no-repeat center center;
-    background-size: cover;
-}
-
-.item2 {
-    width: 700px;
-    height: 400px;
-    display: block;
-    background: url("../images/shoe2.png") no-repeat center center;
-    background-size: cover;
-}
-
-.item3 {
-    width: 700px;
-    height: 400px;
-    display: block;
-    background: url("../images/shoe3.png") no-repeat center center;
-    background-size: cover;
-}
-
 .App-logo {
     height: 40vmin;
     pointer-events: none;
