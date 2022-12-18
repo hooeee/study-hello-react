@@ -5,9 +5,12 @@ import { useState } from "react";
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import DetailCard from "./routes/Detail";
+import axios from "axios";
 
 function App() {
     let [shoes, setShoes] = useState(data);
+    let [buttonCount, setButtonCount] = useState(1);
+    let [buttonHidden, setButtonHidden] = useState(true);
     let navigate = useNavigate();
 
     return (
@@ -45,10 +48,44 @@ function App() {
                             <div className="container">
                                 <div className="row">
                                     {shoes.map(function (data, index) {
-                                        return <Card index={index} image={data.image} title={data.title} content={data.content}></Card>;
+                                        return <Card index={index} title={data.title} content={data.content}></Card>;
                                     })}
                                 </div>
                             </div>
+                            {buttonHidden == true ? (
+                                <button
+                                    onClick={() => {
+                                        setButtonCount(buttonCount + 1);
+                                        let url = "";
+                                        if (buttonCount == 1) {
+                                            url = "https://codingapple1.github.io/shop/data2.json";
+                                        } else if (buttonCount == 2) {
+                                            url = "https://codingapple1.github.io/shop/data3.json";
+                                        } else if (buttonCount == 3) {
+                                            alert("그만 눌러...");
+                                            url = "";
+                                            setButtonHidden(false);
+                                        }
+
+                                        if (url != "") {
+                                            axios
+                                                .get(url)
+                                                .then((data) => {
+                                                    console.log(data.data);
+                                                    let copy = [...shoes, ...data.data];
+                                                    setShoes(copy);
+                                                })
+                                                .catch(() => {
+                                                    console.log("실패함");
+                                                });
+
+                                            Promise.all([axios.get("/url1"), axios.get("/url2")]).then(() => {});
+                                        }
+                                    }}
+                                >
+                                    버튼
+                                </button>
+                            ) : null}
                         </>
                     }
                 />
