@@ -5,11 +5,11 @@ import { useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/detail.js';
+import axios from 'axios';
 
 function App() {
 
   let [shoes, setShoes] = useState(data);
-  let img = ['https://codingapple1.github.io/shop/shoes1.jpg', 'https://codingapple1.github.io/shop/shoes2.jpg', 'https://codingapple1.github.io/shop/shoes3.jpg']
   let navigate = useNavigate();
 
   return (
@@ -33,14 +33,24 @@ function App() {
           <div className='container'>
             <div className='row'>
               {
-                img.map(function(a, i) {
+                shoes.map(function(a, i) {
                   return (
-                    <ProductInfo img={a} title={shoes[i].title} content={shoes[i].content}></ProductInfo>
+                    <ProductInfo shoes={a}></ProductInfo>
                   );
                 })
               }
             </div>
           </div>
+          <button onClick={() => {
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((data) => {
+              let copy = [...shoes].concat(data.data);
+              setShoes(copy);
+            });
+
+            // Promise.all([ axios.get('/url1'), axios.get('/url2') ])
+            // .then(() => {});
+          }}>버튼</button>
           </>
         }/>
         <Route path='/detail/:id' element={
@@ -77,9 +87,9 @@ function About() {
 function ProductInfo(props) {
   return (
     <div className='col-md-4'>
-      <img src={props.img} width="80%"/>
-      <h4>{props.title}</h4>
-      <p>{props.content}</p>
+      <img src={props.shoes.image} width="80%"/>
+      <h4>{props.shoes.title}</h4>
+      <p>{props.shoes.content}</p>
     </div>
   );
 }
