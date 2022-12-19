@@ -1,0 +1,10 @@
+.alert{
+ font-size : 2em;
+ color: white;
+}
+.alert-warnig{
+background: yellow;
+}
+.alert-caution{
+background: red;
+}
