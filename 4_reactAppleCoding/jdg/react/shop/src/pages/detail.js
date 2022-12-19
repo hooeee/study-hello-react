@@ -97,21 +97,21 @@ function Detail({ props, shoes }) {
 
             <Nav variant="tabs" defaultActiveKey="link0">
                 <Nav.Item>
-                    <Nav.Link onClick={() => setTab(0)} eventKey="link0">버튼0</Nav.Link>
+                    <Nav.Link onClick={() => setTab(0)} eventKey="link0">제품명</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link onClick={() => setTab(1)} eventKey="link1">버튼1</Nav.Link>
+                    <Nav.Link onClick={() => setTab(1)} eventKey="link1">제조국</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link onClick={() => setTab(2)} eventKey="link2">버튼2</Nav.Link>
+                    <Nav.Link onClick={() => setTab(2)} eventKey="link2">가격</Nav.Link>
                 </Nav.Item>
             </Nav>
-            <TabContent tab={tab} />
+            <TabContent findShoe={findShoe} tab={tab} />
         </div>
     );
 }
 
-function TabContent({ tab }) {
+function TabContent({ findShoe, tab }) {
 
     const [fade, setFade] = useState('');
 
@@ -127,7 +127,7 @@ function TabContent({ tab }) {
     }, [tab])
 
     return (<div className={`start ${fade}`}>
-        {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+        {[<div>{findShoe.title}</div>, <div>{findShoe.content}</div>, <div>{findShoe.price}</div>][tab]}
     </div>)
 }
 
