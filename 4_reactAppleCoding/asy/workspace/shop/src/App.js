@@ -1,14 +1,25 @@
 import './App.css';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/detail.js';
+import axios from 'axios'
+
+export let Context1 = createContext()
 
 function App() {
-
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+  let [addBtnCount, setAddBtnCount] = useState(0);
+  let [재고] = useState([10,11,12])
+
+  useEffect(() => {
+    if(addBtnCount >= 3){
+      alert('세번 이상 클릭 ㄴㄴ');
+      setAddBtnCount(0)
+    }
+  }, [addBtnCount])
 
   return (
     <div className="App">
@@ -22,6 +33,7 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+
       <Routes>
         <Route path="/" element={
           <>
@@ -35,9 +47,25 @@ function App() {
                 })}
               </div>
             </div>
+            <button onClick={() => {
+                axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((data)=>{
+                  let copy = [...shoes, ...data.data]
+                  setShoes(copy)
+                })
+                // addBtnCount++
+                // setAddBtnCount(addBtnCount);
+            }}>
+              더 보기
+            </button>
           </>
         }/>
-        <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
+
+        <Route path="/detail/:id" element={
+            <Context1.Provider value={{재고}}>
+              <Detail shoes={shoes}/>
+            </Context1.Provider>
+          }/>
         <Route path="/about" element={<About/>}>
           <Route path="member" element={<div>멤버</div>}/>
           <Route path="location" element={<div>location</div>}/>
