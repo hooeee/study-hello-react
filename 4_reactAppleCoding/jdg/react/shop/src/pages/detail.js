@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { Nav } from 'react-bootstrap';
 
 let YellowButton = styled.button`
     background: ${props => props.bg};
@@ -39,6 +40,7 @@ function Detail({ props, shoes }) {
     const [count, setCount] = useState(0);
     const [alertMsg, setAlertMsg] = useState(true);
     const [num, setNum] = useState("");
+    const [tab, setTab] = useState(0);
 
     useEffect(() => {
         if (isNaN(num) == true) {
@@ -82,9 +84,36 @@ function Detail({ props, shoes }) {
                     <button className="btn btn-danger">주문하기</button>
                 </div>
             </div>
+
+            <Nav variant="tabs" defaultActiveKey="link0">
+                <Nav.Item>
+                    <Nav.Link onClick={() => setTab(0)} eventKey="link0">버튼0</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link onClick={() => setTab(1)} eventKey="link1">버튼1</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link onClick={() => setTab(2)} eventKey="link2">버튼2</Nav.Link>
+                </Nav.Item>
+            </Nav>
+            <TabContent tab={tab} />
         </div>
     );
 }
+
+function TabContent({ tab }) {
+    if (tab == 0) {
+        return <div>내용0</div>
+    }
+    if (tab == 1) {
+        return <div>내용1</div>
+    }
+    if (tab == 2) {
+        return <div>내용2</div>
+    }
+}
+
+
 
 
 export default Detail;
