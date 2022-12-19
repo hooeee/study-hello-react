@@ -2,7 +2,11 @@
   height: 300px;
   border: bold;
   background-image: url('./img/modeling.jpg');
-  background-size : cover;
+  background-size: contain;
+  border: bold;
+  background-position: center center;
+  height: 300px;
+  background-repeat: no-repeat;
 }
 
 .App {
@@ -59,3 +63,9 @@
   margin: 15px;
 }
 
+.btn-add{
+  margin: 10px;
+  background: black;
+  color: white;
+  border: gold 5px solid;
+}

@@ -1,16 +1,32 @@
 import './App.css';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './Data.js';
+import data1 from './Data1.js';
 import { useState } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routers/Detail.js';
 import Blog from './Blog.js';
+import axios from 'axios';
 
 function App() {
 
-  let [modeling] = useState(data);
+  let [modeling, setModeling] = useState(data);
   let navigate = useNavigate();
-
+  const onAddButton = () =>{
+    //로딩중 UI 띄우기
+    axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((result) => {
+        console.log(result.data)
+		let copyModeling = modeling.concat(result.data);
+        console.log(copyModeling);
+        setModeling(copyModeling);
+        //로딩중 UI 숨기기
+    })
+        .catch(() => {
+        console.log("실패");
+      //로딩중 UI 숨기기
+    })
+}
   // let [imgs] = usestate([
   //   {
   //     id: 0,
@@ -45,42 +61,44 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-        <div className='main-bg'></div>
+            <div className='main-bg'></div>
             <Container>
               <Row>
                 {
                   modeling.map(function (obj, i) {
                     return (
-                        <Items key={i} data={data} i={i} />
-                      )
+                      <Items key={i} modeling={modeling} i={i} />
+                    )
                   })
                 }
               </Row>
             </Container>
+            <button className="btn-add" onClick={() => {onAddButton()}}>상품 더보기</button>
           </>
         } />
         <Route path="/details" element={
           <div className="div-sub">
             <Container>
-                <Row>
-                  {
-                    modeling.map(function (obj, i) {
-                      return (
-                        <Items key={i} data={data} i={i} />)
-                    })
-                  }
-                </Row>
-              </Container>
+              <Row>
+                {
+                  modeling.map(function (obj, i) {
+                    return (
+                      <Items key={i} modeling={modeling} i={i} />)
+                  })
+                }
+              </Row>
+            </Container>
           </div>
-        }/>
-        <Route path="/detail/:id" element={<Detail modeling={modeling}/>} />
+        } />
+
+        <Route path="/detail/:id" element={<Detail modeling={modeling} />} />
         <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>
           <Route path="one" element={<Blog></Blog>} />
           <Route path="two" element={<div><h3>생일 기념 쿠폰받기</h3></div>} />
         </Route>
         <Route path="*" element={<div>없는 페이지</div>} />
       </Routes>
-    </div>
+   </div>
   );
 }
 
@@ -106,14 +124,14 @@ function About() {
   );
 }
 
-function Items({ data, i }) {
+function Items({ modeling, i }) {
   return (
-      <Col>
-        <img src={'./basic' + data[i].id + '.png'} width="80%" />
-        <h4>{data[i].title}</h4>
-        <h5>{data[i].price}</h5>
-        <Link to={'/detail/'+i}>{'Detail'}</Link>
-      </Col>
+    <Col>
+      <img src={'./basic' + modeling[i].id + '.png'} width="80%" />
+      <h4>{modeling[i].title}</h4>
+      <h5>{modeling[i].price}</h5>
+      <Link to={'/detail/' + i}>{'Detail'}</Link>
+    </Col>
   );
 }
 
