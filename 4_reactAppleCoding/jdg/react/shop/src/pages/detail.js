@@ -42,6 +42,16 @@ function Detail({ props, shoes }) {
     const [num, setNum] = useState("");
     const [tab, setTab] = useState(0);
 
+    const [fade2, setFade2] = useState('');
+
+    useEffect(() => {
+        setFade2('end');
+
+        return () => {
+            setFade2('');
+        }
+    }, [])
+
     useEffect(() => {
         if (isNaN(num) == true) {
             alert("숫자만 입력하세요");
@@ -59,7 +69,7 @@ function Detail({ props, shoes }) {
     }, []) // dependency
 
     return (
-        <div className="container">
+        <div className={`container start ${fade2}`}>
             {
                 alertMsg == true ? <div className='alert alert-warning'>
                     2초 이내 구매시 할인
@@ -102,18 +112,23 @@ function Detail({ props, shoes }) {
 }
 
 function TabContent({ tab }) {
-    if (tab == 0) {
-        return <div>내용0</div>
-    }
-    if (tab == 1) {
-        return <div>내용1</div>
-    }
-    if (tab == 2) {
-        return <div>내용2</div>
-    }
+
+    const [fade, setFade] = useState('');
+
+    useEffect(() => {
+        const a = setTimeout(() => {
+            setFade('end');
+        }, 100);
+
+        return () => {
+            clearTimeout(a);
+            setFade('');
+        }
+    }, [tab])
+
+    return (<div className={`start ${fade}`}>
+        {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    </div>)
 }
-
-
-
 
 export default Detail;
