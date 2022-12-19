@@ -14,6 +14,15 @@ function Detail(props) {
   let target = props.shoes.find((x) => x.id == id);
   let [alert, setAlert] = useState(true);
   let [탭, 탭변경] = useState(0);
+  let [fade, setFade] = useState('');
+
+  useEffect(() => {
+    let timer = setTimeout(() => { setFade('end') }, 100)
+    return() => {
+      clearTimeout(timer);
+      setFade('');
+    }
+  }, [])
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -22,12 +31,12 @@ function Detail(props) {
 
     //update시에는 동작 하지 않는가?
     return () => {
-      //clearTimeout(timer);
+      clearTimeout(timer);
     };
   }, []);
 
   return (
-    <div className="container">
+    <div className={`container start ${fade}`}>
       {alert == true ? (
         <div className="alert alert-warning">2초이내 구매 시 할인</div>
       ) : null}
@@ -66,13 +75,18 @@ function Detail(props) {
 }
 
 function TabContent({탭}) {
-    if(탭 == 0) {
-        return <div>내용0</div>
-    } else if(탭 == 1) {
-        return <div>내용1</div>
-    } else {
-        return <div>내용2</div>
+  let [fade, setFade] = useState('');
+  useEffect(() => {
+    let timer = setTimeout(() => { setFade('end') }, 100)
+    return() => {
+      clearTimeout(timer);
+      setFade('')
     }
+  }, [탭]);
+
+    return (<div className={`start ${fade}`}>
+      { [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭] }
+    </div>)
 }
 
 export default Detail;
