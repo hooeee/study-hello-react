@@ -5,12 +5,14 @@ import { useState } from "react";
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './pages/detail.js';
+import axios from 'axios';
 
 function App() {
 
   let [shoes, setShoes] = useState(data);
-
   let navigate = useNavigate();
+
+  const [buttonNum, setButtonNum] = useState(2);
 
   return (
     <div className="App">
@@ -39,6 +41,27 @@ function App() {
                 })}
               </div>
             </div>
+            <button onClick={() => {
+              if (buttonNum > 3) return;
+              axios.get(`https://codingapple1.github.io/shop/data${buttonNum}.json`)
+                .then((result) => {
+                  let copy = [...shoes, ...result.data];
+                  setShoes(copy);
+                  setButtonNum(buttonNum + 1);
+                })
+                .catch(() => {
+                  console.log('실패');
+                });
+
+
+              // post 
+              axios.post('url', { name: 'kim' });
+
+              // 여러 요청 동시에
+              Promise.all([axios.get('url1'), axios.get('url2')])
+                .then(() => { });
+
+            }}>더보기</button>
           </>}></Route>
         <Route path="/detail/:id" element={<Detail shoes={shoes} />}></Route>
 
@@ -94,7 +117,7 @@ function Main({ shoe, i, navigate }) {
     <div className='col-md-4' key={i} onClick={() => {
       navigate('/detail/' + shoe.id)
     }}>
-      <img src={shoe.img} width="80%" />
+      <img src={`https://codingapple1.github.io/shop/shoes${shoe.id + 1}.jpg`} width="80%" />
       <h4>{shoe.title}</h4>
       <p>{shoe.price}</p>
     </div>

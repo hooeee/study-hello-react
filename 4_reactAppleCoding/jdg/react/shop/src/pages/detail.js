@@ -73,7 +73,7 @@ function Detail({ props, shoes }) {
             <Box>박스</Box>
             <div className="row">
                 <div className="col-md-6">
-                    <img src={findShoe.img} width="100%" />
+                    <img src={`https://codingapple1.github.io/shop/shoes${findShoe.id + 1}.jpg`} width="100%" />
                 </div>
                 <div className="col-md-6">
                     <h4 className="pt-5">{findShoe.title}</h4>
