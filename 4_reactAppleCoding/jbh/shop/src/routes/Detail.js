@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { Nav } from "react-bootstrap";
 
 let YellowBtn = styled.button`
     background: ${(props) => props.bg};
@@ -23,6 +24,7 @@ function DetailCard(props) {
     let [count, setCount] = useState(0);
     let [notify, setnotify] = useState(true);
     let [input, setInput] = useState("");
+    let [tab, setTab] = useState(0);
     let { id } = useParams();
     let findProduct = props.shoes.find(function (x) {
         return x.id == id;
@@ -75,8 +77,58 @@ function DetailCard(props) {
                     <button className="btn btn-danger">주문하기</button>
                 </div>
             </div>
+
+            <Nav variant="tabs" defaultActiveKey="link0">
+                <Nav.Item>
+                    <Nav.Link
+                        onClick={() => {
+                            setTab(0);
+                        }}
+                        eventKey="link0"
+                    >
+                        버튼0
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link
+                        onClick={() => {
+                            setTab(1);
+                        }}
+                        eventKey="link1"
+                    >
+                        버튼1
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link
+                        onClick={() => {
+                            setTab(2);
+                        }}
+                        eventKey="link2"
+                    >
+                        버튼2
+                    </Nav.Link>
+                </Nav.Item>
+            </Nav>
+            <TabContent shoes={props.shoes} tab={tab} />
         </div>
     );
+}
+
+function TabContent({ tab, shoes }) {
+    let [fade, setFade] = useState("");
+    useEffect(() => {
+        let timer = setTimeout(() => {
+            setFade("end");
+        }, 100);
+
+        return () => {
+            clearTimeout(timer);
+            setFade("");
+        };
+    }, [tab]);
+
+    return <div className={`start ${fade}`}>{[<div>shoes[0].title</div>, <div>내용1</div>, <div>내용2</div>][tab]}</div>;
 }
 
 export default DetailCard;
