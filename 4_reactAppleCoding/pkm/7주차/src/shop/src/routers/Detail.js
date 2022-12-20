@@ -1,12 +1,17 @@
 import './Detail.css';
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from 'styled-components';
+import { Nav } from 'react-bootstrap';
+import {Context1} from './../App.js'
 
 function Detail({ modeling }) {
+    const {재고} = useContext(Context1);
+
     const [hidden, setHidden] = useState(true);
     const [view, setView] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [tab, setTab]= useState(0);
     const onInputValueHandler = (inputValue) => {
         if (isNaN(inputValue)) {
             //alert("숫자만 입력하세요");
@@ -30,7 +35,7 @@ function Detail({ modeling }) {
                 setView(true);
             }
         }, 2000);
-    }, [hidden],[view])
+    }, [hidden], [view])
 
     let { id } = useParams();
     let findID = modeling.find(function (model) {
@@ -60,8 +65,57 @@ function Detail({ modeling }) {
                     </div>
                 </div>
             </div>
+
+
+            <Nav variant="tabs" defaultActiveKey="link1">
+                <Nav.Item>
+                    <Nav.Link  onClick={()=>{setTab(0)}} eventKey="link0">버튼0</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link onClick={()=>{setTab(1)}} eventKey="link1">버튼1</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link onClick={()=>{setTab(2)}} eventKey="link2">버튼2</Nav.Link>
+                </Nav.Item>
+            </Nav>
+            <TabContent tab = {tab}/>
+            {/* {
+                tab ==0 ? <div>내용0</div> :null
+            }
+            {
+                tab ==1 ? <div>내용1</div> :null
+            }
+            {
+                tab ==2 ? <div>내용2</div> :null
+            } */}
         </div>
     )
+    function TabContent({tab}){
+        const [fade, setFade] = useState('')
+        useEffect(()=>{
+            const a = setTimeout(()=>{setFade('end')},100)
+            return ()=>{
+                clearTimeout(a)
+                setFade('');
+            }
+        },[tab])
+        {/* <div className={'start ' + fade}> */}
+        return (
+            <div className={`start ${fade}`}>
+                {[<div>{재고}내용0</div>,<div>내용1</div>, <div>내용2</div>][tab]}
+            </div>
+        )
+    }
+
+// function TabContent({tab}){
+//     if(tab == 0){
+//        return  <div>내용0</div>
+//     }else if(tab == 1){
+//       return  <div>내용1</div>
+//     }else if(tab == 2){
+//        return <div>내용2</div>
+//     }
+// }
     // let realObj;
     // let realID;
     // modeling.map(function(obj){
