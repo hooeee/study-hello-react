@@ -9,3 +9,20 @@
 .alert-caution{
     background: red;
 }
+
+.start{
+    opacity:0;
+  }
+.end{
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+
+.start{
+    transform: scale(0);
+  }
+.end{
+    transform: scale(1);
+    transition: all 0.5s;
+}
