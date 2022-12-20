@@ -8,6 +8,7 @@ import Detail from './routers/Detail.js';
 import Blog from './Blog.js';
 import axios from 'axios';
 import Loading from './LoadingPage/Loading';
+import { useEffect } from 'react';
 
 export let Context1 = createContext() //state 보관함
 
@@ -140,7 +141,7 @@ function App() {
 
         <Route path="/detail/:id" element={
         <Context1.Provider value={{재고, modeling}}>
-        <Detail modeling={modeling} />
+          <Detail modeling={modeling}></Detail>
         </Context1.Provider>
         } />
         <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>

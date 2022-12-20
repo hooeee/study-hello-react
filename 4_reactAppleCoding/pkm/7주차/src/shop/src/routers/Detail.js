@@ -12,6 +12,15 @@ function Detail({ modeling }) {
     const [view, setView] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [tab, setTab]= useState(0);
+    const [fadeOpacity, setFadeOpacity] = useState('')
+
+    useEffect(()=>{
+        setFadeOpacity('end-opacity')
+      return ()=>{
+        setFadeOpacity('')
+      }
+    },[])
+
     const onInputValueHandler = (inputValue) => {
         if (isNaN(inputValue)) {
             //alert("숫자만 입력하세요");
@@ -43,6 +52,7 @@ function Detail({ modeling }) {
     })
     console.log(findID);
     return (
+        <div className={'container start-opacity ' + fadeOpacity}>
         <div className="div-main">
             <div className="container">
                 {
@@ -89,6 +99,7 @@ function Detail({ modeling }) {
                 tab ==2 ? <div>내용2</div> :null
             } */}
         </div>
+    </div>
     )
     function TabContent({tab}){
         const [fade, setFade] = useState('')
@@ -106,6 +117,8 @@ function Detail({ modeling }) {
             </div>
         )
     }
+
+
 
 // function TabContent({tab}){
 //     if(tab == 0){
