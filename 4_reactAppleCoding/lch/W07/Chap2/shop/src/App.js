@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Fade } from 'react-bootstrap';
 import { createContext, useEffect, useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
@@ -13,8 +13,14 @@ function App() {
 
   let [shoes, setShoes] = useState(data);
   let [재고] = useState([10, 11, 12]);
+  let [more, setMore] = useState(2);
+  let [fade, setFade] = useState('');
 
   let navigate = useNavigate();
+
+  useEffect(() => {
+    if(more > 3) setFade('start');
+  }, [more])
 
   return (
     <div className="App">
@@ -28,8 +34,6 @@ function App() {
         </Container>
       </Navbar>
 
-
-
       <Routes>
         <Route path='/' element={
           <>
@@ -39,22 +43,24 @@ function App() {
               {
                 shoes.map(function(a, i) {
                   return (
-                    <ProductInfo shoes={a}></ProductInfo>
+                    <ProductInfo shoes={a} navigate={navigate}></ProductInfo>
                   );
                 })
               }
             </div>
           </div>
-          <button onClick={() => {
-            axios.get('https://codingapple1.github.io/shop/data2.json')
+          <button className={fade} onClick={() => {
+            if(more > 3) return;
+            axios.get(`https://codingapple1.github.io/shop/data${more}.json`)
             .then((data) => {
               let copy = [...shoes].concat(data.data);
               setShoes(copy);
+              setMore(more + 1);
             });
 
             // Promise.all([ axios.get('/url1'), axios.get('/url2') ])
             // .then(() => {});
-          }}>버튼</button>
+          }}>더보기</button>
           </>
         }/>
         <Route path='/detail/:id' element={
@@ -92,8 +98,10 @@ function About() {
 
 function ProductInfo(props) {
   return (
-    <div className='col-md-4'>
-      <img src={props.shoes.image} width="80%"/>
+    <div className='col-md-4' onClick={() => {
+      props.navigate(`/detail/${props.shoes.id}`);
+    }}>
+      <img src={`https://codingapple1.github.io/shop/shoes${props.shoes.id + 1}.jpg`} width="80%"/>
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content}</p>
     </div>
