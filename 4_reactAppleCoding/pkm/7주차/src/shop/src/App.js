@@ -126,16 +126,16 @@ function App() {
         } />
         <Route path="/details" element={
           <div className="div-sub">
-            <Container>
-              <Row>
+            <div class="container">
+            <div class="row">
                 {
                   modeling.map(function (obj, i) {
                     return (
                       <Items key={i} modeling={modeling} i={i} />)
                   })
                 }
-              </Row>
-            </Container>
+              </div>
+              </div>
           </div>
         } />
 
@@ -178,12 +178,12 @@ function About() {
 
 function Items({ modeling, i }) {
   return (
-    <Col>
+    <div class="col-md-4">
       <img src={'./basic' + modeling[i].id + '.png'} width="80%" />
       <h4>{modeling[i].title}</h4>
       <h5>{modeling[i].price}</h5>
       <Link to={'/detail/' + i}>{'Detail'}</Link>
-    </Col>
+    </div>
   );
 }
 

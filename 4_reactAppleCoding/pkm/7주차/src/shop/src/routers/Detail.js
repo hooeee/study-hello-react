@@ -1,35 +1,33 @@
 import './Detail.css';
 import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef  } from "react";
 import styled from 'styled-components';
 import { Nav } from 'react-bootstrap';
 import { Context1 } from './../App.js'
+import { cleanup } from '@testing-library/react';
 
 function Detail({ modeling }) {
     const { 재고 } = useContext(Context1);
-
     const [hidden, setHidden] = useState(true);
     const [view, setView] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [tab, setTab] = useState(0);
     const [fadeOpacity, setFadeOpacity] = useState('')
-
-    useEffect(() => {
-        setFadeOpacity('end-opacity')
-        return () => {
-            setFadeOpacity('')
-        }
-    }, [])
-
-    const onInputValueHandler = (inputValue) => {
-        if (isNaN(inputValue)) {
+    let { id } = useParams();
+    let findID = modeling.find(function (model) {
+        return model.id == id;
+    })
+    console.log(findID);
+    
+    const onInputValueHandler = (input) => {
+        if (isNaN(input)) {
             //alert("숫자만 입력하세요");
             setView(true);
         }
         else {
             setView(false);
-            setInputValue(inputValue);
-            console.log(inputValue);
+            setInputValue(input);
+            console.log(input);
         }
     }
 
@@ -38,19 +36,39 @@ function Detail({ modeling }) {
     })
 
     useEffect(() => {
-        setTimeout(() => {
+        setFadeOpacity('end-opacity')
+       const time = setTimeout(() => {
             onHidden()
-            return () => {
-                setView(true);
-            }
-        }, 2000);
-    }, [hidden], [view])
+        }, 2000)
+        return () => {
+            cleanup(time)
+            setFadeOpacity('')
+            setView(false);
+        }
+    },[hidden], [view])
 
-    let { id } = useParams();
-    let findID = modeling.find(function (model) {
-        return model.id == id;
-    })
-    console.log(findID);
+    //before
+    // useEffect(() => {
+    //     setFadeOpacity('end-opacity')
+    //     return () => {
+    //         setFadeOpacity('')
+    //     }
+    // }, [])
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         onHidden()
+    //     }, 2000)
+    //     return () => {
+    //         setView(false);
+    //     }
+    // }, [hidden], [view])
+
+
+
+
+
+
     return (
         <div className={'container start-opacity ' + fadeOpacity}>
             <div className="div-main">
