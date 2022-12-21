@@ -3,23 +3,23 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import styled from 'styled-components';
 import { Nav } from 'react-bootstrap';
-import {Context1} from './../App.js'
+import { Context1 } from './../App.js'
 
 function Detail({ modeling }) {
-    const {재고} = useContext(Context1);
+    const { 재고 } = useContext(Context1);
 
     const [hidden, setHidden] = useState(true);
     const [view, setView] = useState(false);
     const [inputValue, setInputValue] = useState('');
-    const [tab, setTab]= useState(0);
+    const [tab, setTab] = useState(0);
     const [fadeOpacity, setFadeOpacity] = useState('')
 
-    useEffect(()=>{
+    useEffect(() => {
         setFadeOpacity('end-opacity')
-      return ()=>{
-        setFadeOpacity('')
-      }
-    },[])
+        return () => {
+            setFadeOpacity('')
+        }
+    }, [])
 
     const onInputValueHandler = (inputValue) => {
         if (isNaN(inputValue)) {
@@ -53,43 +53,46 @@ function Detail({ modeling }) {
     console.log(findID);
     return (
         <div className={'container start-opacity ' + fadeOpacity}>
-        <div className="div-main">
-            <div className="container">
-                {
-                    view == false ? null : <div className="alert alert-caution">경고: 숫자만입력하세요</div>
-                }
-                {
-                    hidden == true ? <div className="alert alert-warnig">2초이내 구매시 할인</div> : null
-                }
-                <div className="row">
-                    <div className="col-md-6">
-                        <img src={'/basic' + findID.id + '.png'} width="100%" />
-                    </div>
+            <div className="div-main">
+                <div className="container">
+                    {
+                        view == false ? null : <div className="alert alert-caution">경고: 숫자만입력하세요</div>
+                    }
+                    {
+                        hidden == true ? <div className="alert alert-warnig">2초이내 구매시 할인</div> : null
+                    }
+                    <div className="row">
+                        <div className="col-md-6">
+                            <img src={'/basic' + findID.id + '.png'} width="100%" />
+                        </div>
 
-                    <div className="col-md-6">
-                        <input onChange={(e) => { onInputValueHandler(e.target.value) }} />
-                        <h1 className="-5">{findID.title}</h1>
-                        <h3>{findID.content}</h3>
-                        <h5>{findID.price} Won</h5>
-                        <button className="btn btn-danger" onClick={() => window.open(findID.link, '_blank')}>주문하기</button>
+                        <div className="col-md-6">
+                            <input onChange={(e) => { onInputValueHandler(e.target.value) }} />
+                            <h1 className="-5">{findID.title}</h1>
+                            <h3>{findID.content}</h3>
+                            <h5>{findID.price} Won</h5>
+                            <button className="btn btn-danger" onClick={() => window.open(findID.link, '_blank')}>주문하기</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <Nav variant="tabs" defaultActiveKey="link1">
-                <Nav.Item>
-                    <Nav.Link  onClick={()=>{setTab(0)}} eventKey="link0">버튼0</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link onClick={()=>{setTab(1)}} eventKey="link1">버튼1</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link onClick={()=>{setTab(2)}} eventKey="link2">버튼2</Nav.Link>
-                </Nav.Item>
-            </Nav>
-            <TabContent tab = {tab}/>
-            {/* {
+                <Nav variant="tabs" defaultActiveKey="link0">
+                    <Nav.Item>
+                        <Nav.Link onClick={() => { setTab(0) }} eventKey="link0">상세정보</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link onClick={() => { setTab(1) }} eventKey="link1">리뷰</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link onClick={() => { setTab(2) }} eventKey="link2">Q&A</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link onClick={() => { setTab(3) }} eventKey="link3">반품/교환정보</Nav.Link>
+                    </Nav.Item>
+                </Nav>
+                <TabContent tab={tab} />
+                {/* {
                 tab ==0 ? <div>내용0</div> :null
             }
             {
@@ -98,37 +101,110 @@ function Detail({ modeling }) {
             {
                 tab ==2 ? <div>내용2</div> :null
             } */}
+            </div>
         </div>
-    </div>
     )
-    function TabContent({tab}){
+    function TabContent({ tab }) {
         const [fade, setFade] = useState('')
-        useEffect(()=>{
-            const a = setTimeout(()=>{setFade('end')},100)
-            return ()=>{
+        useEffect(() => {
+            const a = setTimeout(() => { setFade('end') }, 100)
+            return () => {
                 clearTimeout(a)
                 setFade('');
             }
-        },[tab])
-        {/* <div className={'start ' + fade}> */}
+        }, [tab])
+        {/* <div className={'start ' + fade}> */ }
         return (
             <div className={`start ${fade}`}>
-                {[<div>{재고}내용0</div>,<div>내용1</div>, <div>내용2</div>][tab]}
+                {[<div><DetailInfomation /></div>, <div><ReviewInfomation /></div>, <div><QA /></div>, <div>준비중입니다.</div>][tab]}
             </div>
         )
     }
 
 
+    function DetailInfomation() {
+        return (
+            <div>
+                <span>
+                    <h1>상품정보</h1>
+                    <h3>상담 시간 19:00 ~23 :00 가능합니다</h3>
+                    <p>시간당 1500원입니다. 대화 후 견적 산출 가능해요
+                    모델링 파일 첨부 해주시면 화면에 시간 확인 후 결제 및 출력 시작 합니다
+                    현재는 모델링은 진행하지 않습니다
+                    .
+                    출력물 무게에 따라 배송비 유무 있습니다
 
-// function TabContent({tab}){
-//     if(tab == 0){
-//        return  <div>내용0</div>
-//     }else if(tab == 1){
-//       return  <div>내용1</div>
-//     }else if(tab == 2){
-//        return <div>내용2</div>
-//     }
-// }
+                    3d프린터 속채움 및 나머지 설정은 현재 기본 상태로 출력 예정이며 혹여 원하시는 조건 있으면 상의후 출력 해드려요
+
+                    Fdm방식의 프린터로 약간의 오차는 생기고 면에 줄은 생길수 있는데 원래 프린터 자체출력물에 생기는 것으로 참고 바랍니다
+
+                    가격협의 가능하고 최선을 다해서 출력해 보내드리겠습니다
+
+                    간단한 모델링 같은 경우 치수랑 알려주시면 만들어드려요(난이도에따라 제작및 출력 2.5만원부터 시작합니다 하지만 협의에 의해 달라질수 있어요 문의 많이 주세요)
+
+                    가격 협의 가능하니 언제든지
+                    톡 환영합니다
+                    자세한 문의 카카오톡  플러스아이디 검색 : dp3
+                    문의 주셔도 감사하겠습니다.
+                    </p>
+                </span>
+            </div>
+
+        )
+    }
+
+    function ReviewInfomation() {
+        const username = ["덕불이","HiTomorrow","영앤뤼치"];
+        const imgSrc = ["./../review0.png","./../review1.png","./../review2.png"];
+        const ReviewWrite = [
+        "배송도 빠르고 잘나와서 매우 만족합니다. 감사합니다. 잘쓸게요~^^",
+        "쿠키틀 주문제작이 너무 비싸서 3d 프린팅으로 주문했는데, 모양 수정도 뚝딱 해주시고 친절하게 상담해주셔서 믿고 두 번이나 맡겼습니다! 다음에도 또 부탁드릴게요☺️",
+        "옛날에 구매했는데 이제야 후기를 다네요ㅜㅜ여기 사장님 진짜 최고십니다. 원하는 3d모형을 만들어주실려고 드라이기로 열까지 가열해주시고 결국 정말 제가 원하는 피규어 똑같이 나왔습니다.가격도 정말싸고 최고십니다!!  다음에 또 거래하고 싶습니다~"];
+        const ReviewList = username.map((obj, i)=>(
+            <Review username={username} imgSrc={imgSrc} ReviewWrite={ReviewWrite} i = {i}/>
+        ))
+
+        return (
+            <div>
+                <div className="item-main">
+                    {ReviewList}
+                </div>
+            </div>
+        )
+    }
+
+    function QA() {
+        return (
+            <div>
+                준비중입니다.
+            </div>
+
+        )
+    }
+
+    function Review({username, imgSrc, ReviewWrite, i}){
+        return (
+            <div className="item-sub">
+            <div className='username-main'>{username[i]}</div>
+            <div className='image-main'>
+                <img src={imgSrc[i]}></img>
+            </div>
+            <div className="review-main">
+                {ReviewWrite[i]}
+            </div>
+        </div>
+        )
+    }
+
+    // function TabContent({tab}){
+    //     if(tab == 0){
+    //        return  <div>내용0</div>
+    //     }else if(tab == 1){
+    //       return  <div>내용1</div>
+    //     }else if(tab == 2){
+    //        return <div>내용2</div>
+    //     }
+    // }
     // let realObj;
     // let realID;
     // modeling.map(function(obj){
