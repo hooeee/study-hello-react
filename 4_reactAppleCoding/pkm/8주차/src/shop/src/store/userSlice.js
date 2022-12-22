@@ -14,6 +14,7 @@ let user =createSlice({
     }
 })
 
+
 export let {changeName, changeAge } = user.actions //변경 함수 남음
 
 export default user;
