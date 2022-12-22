@@ -35,7 +35,7 @@ function Cart() {
                         <td>
                             <button onClick={()=>{
                                 console.log(obj.id);
-                                dispatch(addCount());
+                                dispatch(addCount(obj));
                                 //dispatch(addCount());
                             }}>+</button>
                         </td>

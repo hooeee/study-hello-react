@@ -1,12 +1,17 @@
 import './Detail.css';
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import { useContext, useEffect, useState, useRef  } from "react";
 import styled from 'styled-components';
 import { Nav } from 'react-bootstrap';
 import { Context1 } from './../App.js'
 import { cleanup } from '@testing-library/react';
+import { addCount, addItem } from './../store.js';
+
 
 function Detail({ modeling }) {
+    let state = useSelector((state)=>{ return state})
+    let dispatch = useDispatch()//store.js로 요청보내주는 함수
     const { 재고 } = useContext(Context1);
     const [hidden, setHidden] = useState(true);
     const [view, setView] = useState(false);
@@ -89,6 +94,9 @@ function Detail({ modeling }) {
                             <h1 className="-5">{findID.title}</h1>
                             <h3>{findID.content}</h3>
                             <h5>{findID.price} Won</h5>
+                            <button className="btn btn-info" onClick={() => {
+                                dispatch(addItem(findID))
+                            }}>장바구니</button>
                             <button className="btn btn-danger" onClick={() => window.open(findID.link, '_blank')}>주문하기</button>
                         </div>
                     </div>
