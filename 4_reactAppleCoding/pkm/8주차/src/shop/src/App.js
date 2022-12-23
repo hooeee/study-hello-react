@@ -99,6 +99,7 @@ function App() {
             <Nav.Link onClick={() => { navigate('/') }}>HOME</Nav.Link>
             <Nav.Link onClick={() => { navigate('/details') }}>DETAILS</Nav.Link>
             <Nav.Link onClick={() => { navigate('/etc-site') }}>ETC</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/cart') }}>CART</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

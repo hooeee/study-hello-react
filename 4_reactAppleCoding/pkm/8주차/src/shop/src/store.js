@@ -24,20 +24,35 @@ let shoppingItems = createSlice({
           }
         })
       },
+      minusCount(state, action){
+        const findDataIndex = state.findIndex((a)=>{
+          return a.id == action.payload.id
+        })
+        state[findDataIndex].count--;
+        if(state[findDataIndex].count===0){
+          state.splice(findDataIndex,1);
+        }
+      },
       addItem(state, action){
+        const findDataIndex = state.findIndex((a)=>{
+          return a.id == action.payload.id;
+        })
+        if(findDataIndex==-1){
         const item = new Object();
         item.id = action.payload.id;
         item.name = action.payload.title;
         item.count = 1;
         state.push(item)
         return state;
-      }
+        }
+        else{
+          state[findDataIndex].count++;
+        }
+      },
     }
 })
 //2
-export let {addCount, addItem} = shoppingItems.actions //변경 함수 남음
-
-
+export let {addCount, minusCount, addItem} = shoppingItems.actions //변경 함수 남음
 
 
 export default configureStore({
