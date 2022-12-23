@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCount } from './../store.js';
+import { addCount, minusCount } from './../store.js';
 import { changeName, changeAge } from './../store/userSlice.js';
 
 
@@ -23,12 +23,13 @@ function Cart() {
                         <th>상품명</th>
                         <th>수량</th>
                         <th>변경하기</th>
+                        <th>삭제하기</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                     state.shoppingItems.map((obj, i)=>(
-                    <tr>
+                    <tr key={i}>
                         <td>{obj.id}</td>
                         <td>{obj.name}</td>
                         <td>{obj.count}</td>
@@ -38,6 +39,13 @@ function Cart() {
                                 dispatch(addCount(obj));
                                 //dispatch(addCount());
                             }}>+</button>
+                        </td>
+                        <td>
+                            <button onClick={()=>{
+                                console.log(obj.id);
+                                dispatch(minusCount(obj));
+                                //dispatch(addCount());
+                            }}>-</button>
                         </td>
                     </tr>
                     ))
