@@ -9,18 +9,27 @@ import Blog from './Blog.js';
 import axios from 'axios';
 import Loading from './LoadingPage/Loading';
 import { useEffect } from 'react';
-import Cart from './routers/Cart.js'
+import Cart from './routers/Cart.js';
+import RecentView  from'./RecentView.js';
 
 export let Context1 = createContext() //state 보관함
 
 function App() {
+  useEffect(()=>{
+    localStorage.setItem('watched', JSON.stringify( [] ))
+    setRecentViewChecked(0);
+  },[])
 
+
+  let obj = {name: 'park'}
+  localStorage.setItem('data',obj);
   let [modeling, setModeling] = useState(data);
   let [재고] = useState([10,11,12]);
   let navigate = useNavigate();
   let [btnCount, setBtnCount] = useState(0);
   let [btnHidden, setBtnHidden] = useState(0);
   let [loadingHidden, setLoadingHidden] = useState(false);
+  const [recentViewChecked, setRecentViewChecked] =useState(1);
 
   const onAddButton = () => {
     //로딩중 UI 띄우기
@@ -86,6 +95,8 @@ function App() {
   //   },
   // ])
 
+
+
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -107,6 +118,9 @@ function App() {
         <Route path="/" element={
           <>
             <div className='main-bg'></div>
+            {
+             recentViewChecked==0?<RecentView modeling={modeling}></RecentView> :null
+            }
             <Container>
               <Row>
                 {
@@ -185,12 +199,19 @@ function About() {
 }
 
 function Items({ modeling, i }) {
+  const recentItem = (e) => {
+    const watchedItems = localStorage.getItem('watched');
+    const watchedItemsJson= JSON.parse(watchedItems);
+    watchedItemsJson.push(e);
+    const setArr = new Set(watchedItemsJson);
+    const remainItems = [...setArr];
+    localStorage.setItem('watched',JSON.stringify(remainItems));
+    }
   return (
     <div class="col-md-4">
-      <img src={'./basic' + modeling[i].id + '.png'} width="80%" />
+     <Link to={'/detail/' + i} onClick={() => { recentItem(i) }}> <img src={'./basic' + modeling[i].id + '.png'} width="80%" /></Link>
       <h4>{modeling[i].title}</h4>
       <h5>{modeling[i].price}</h5>
-      <Link to={'/detail/' + i}>{'Detail'}</Link>
     </div>
   );
 }
