@@ -117,10 +117,14 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <div className='main-bg'></div>
-            {
+            <div className='main-bg'>
+              <div className='title'>3DPIT PRINTER SHOP</div>
+              <div className='recent'>
+              {
              recentViewChecked==0?<RecentView modeling={modeling}></RecentView> :null
-            }
+              }
+              </div>
+            </div>
             <Container>
               <Row>
                 {
