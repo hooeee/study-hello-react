@@ -2,12 +2,23 @@
   height: 300px;
   border: bold;
   background-image: url('./img/modeling.jpg');
-  background-size: contain;
+  background-size: cover;
   border: bold;
   background-position: center center;
-  height: 300px;
+  height: 500px;
   background-repeat: no-repeat;
+  margin-bottom: 50px;
 }
+.main-bg > .title{
+  color:white;
+  font-size: 5em;
+}
+.main-bg > .recent{
+  margin-left: 10px;
+  text-align: start;
+  color:white;
+  font-size: 1em;
+}s
 
 .App {
   text-align: center;
