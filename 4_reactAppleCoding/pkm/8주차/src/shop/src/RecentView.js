@@ -18,7 +18,7 @@ function RecentView({ modeling }) {
                     copyLocalStorage.map(function (obj, i) {
                         return (
                             <Col md={2}>
-                                <img src={'./basic' + modeling[obj].id + '.png'} width="70%" />
+                                <img className='img-main' src={'./basic' + modeling[obj].id + '.png'} width="70%" />
                             </Col>
                         )
                     })
