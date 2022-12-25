@@ -128,7 +128,7 @@ function TabContent({ tab, shoes }) {
         };
     }, [tab]);
 
-    return <div className={`start ${fade}`}>{[<div>shoes[0].title</div>, <div>내용1</div>, <div>내용2</div>][tab]}</div>;
+    return <div className={`start ${fade}`}>{[<div>{shoes[0].title}</div>, <div>내용1</div>, <div>내용2</div>][tab]}</div>;
 }
 
 export default DetailCard;
