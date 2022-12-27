@@ -17,12 +17,13 @@ function RecentView({ modeling }) {
     const copyLocalStorage = [...watchedItemsJson];
     console.log(modeling)
     console.log(copyLocalStorage)
+    console.log(modeling[0].id)
     return (
-        <>
-        <div className='recentTitle'>
+        <div className='recent-main'>
+        <div className='recent-title'>
         최근본 상품
         </div>
-        <div className='recentSub'>
+        <div className='recent-sub'>
         <Container>
             <Row md={3}>
                 {
@@ -37,7 +38,7 @@ function RecentView({ modeling }) {
             </Row>
         </Container>
         </div>
-        </>
+        </div>
     )
 }
 

@@ -14,19 +14,21 @@
   font-size: 5em;
 }
 .main-bg > .recent{
-  display: block;
-  width: 480px;
-  height: 200px;
-  margin-left: 10px;
+  display: flex;
+  position:relative;
+  width: 50%;
+  height: 15em;
   text-align: start;
   color:white;
   font-size: 1em;
   overflow-x: hidden;
   overflow-y:auto;
+  background:transparent;
 }
 .img-main{
-width: 100px;
+/* width: 100px; */
 margin: 10px;
+border-radius:10%;
 }
 .App {
   text-align: center;

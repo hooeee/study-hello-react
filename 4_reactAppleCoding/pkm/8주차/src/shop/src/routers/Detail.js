@@ -22,9 +22,18 @@ function Detail({ modeling }) {
     let { id } = useParams();
     let findID = modeling.find(function (model) {
         return model.id == id;
-    })
+    })// let findID = modeling.find(x => x.id ==id);
     console.log(findID);
-    
+
+    // useEffect(()=>{
+    //     let getItems = localStorage.getItem('watched',[findID.id])
+    //     getItems = JSON.parse(getItems)
+    //     getItems.push(findID.id)
+    //     getItems = new Set(getItems)
+    //     getItems = Array.from(getItems)
+    //     localStorage.setItem('watched',JSON.stringify(getItems))
+    // },[])
+
     const onInputValueHandler = (input) => {
         if (isNaN(input)) {
             //alert("숫자만 입력하세요");
