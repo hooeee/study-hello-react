@@ -1,0 +1,18 @@
+
+.recent-main{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.recent-title{
+    display: inline-flex;
+    text-align: center;
+    position: sticky;
+    top:0;
+    background:black;
+}
+.recent-sub{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    background:transparent;
+}

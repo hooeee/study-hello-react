@@ -16,7 +16,9 @@ export let Context1 = createContext() //state 보관함
 
 function App() {
   useEffect(()=>{
+    if(localStorage.getItem('watched').indexOf(0)==-1){
     localStorage.setItem('watched', JSON.stringify( [] ))
+    }
     setRecentViewChecked(0);
   },[])
 
@@ -101,7 +103,7 @@ function App() {
     <div className="App">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">3DPIT SHOP</Navbar.Brand>
+          <Navbar.Brand >3DPIT SHOP</Navbar.Brand>
           <Nav className="me-auto">
             {/* <Link className="navbar-nav nav-link " to="/">홈</Link>
             <Link className="navbar-nav nav-link " to="/detail">상세페이지</Link> */}
@@ -213,7 +215,7 @@ function Items({ modeling, i }) {
     }
   return (
     <div class="col-md-4">
-     <Link to={'/detail/' + i} onClick={() => { recentItem(i) }}> <img src={'./basic' + modeling[i].id + '.png'} width="80%" /></Link>
+     <Link to={'/detail/' + i} onClick={() => { recentItem(i) }}> <img className='img-main' src={'./basic' + modeling[i].id + '.png'} width="80%" /></Link>
       <h4>{modeling[i].title}</h4>
       <h5>{modeling[i].price}</h5>
     </div>
