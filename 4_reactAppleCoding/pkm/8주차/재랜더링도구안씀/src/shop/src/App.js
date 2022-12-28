@@ -4,12 +4,14 @@ import data from './Data.js';
 import data1 from './Data1.js';
 import { createContext, useState } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Detail from './routers/Detail.js';
 import Blog from './Blog.js';
 import axios from 'axios';
 import Loading from './LoadingPage/Loading';
-import { useEffect } from 'react';
-import Cart from './routers/Cart.js';
+import { lazy, Suspense, useEffect } from 'react';
+// import Detail from './routers/Detail.js';
+// import Cart from './routers/Cart.js';
+const Detail = lazy(() => import('./routers/Detail.js'));
+const Cart = lazy(() => import('./routers/Cart.js'));
 import RecentView from './RecentView.js';
 import { useQuery } from 'react-query';
 
@@ -149,6 +151,8 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+      <Suspense fallback={<div>로딩중임</div>}>
+
       <Routes>
         <Route path="/" element={
           <>
@@ -200,7 +204,7 @@ function App() {
 
         <Route path="/detail/:id" element={
           <Context1.Provider value={{ 재고, modeling }}>
-            <Detail modeling={modeling}></Detail>
+              <Detail modeling={modeling}></Detail>
           </Context1.Provider>
         } />
 
@@ -210,6 +214,7 @@ function App() {
         </Route>
         <Route path="*" element={<div>없는 페이지</div>} />
       </Routes>
+      </Suspense>
 
     </div>
   );
