@@ -8,13 +8,12 @@ import Blog from './Blog.js';
 import axios from 'axios';
 import Loading from './LoadingPage/Loading';
 import { lazy, Suspense, useEffect } from 'react';
-import RecentView from './RecentView.js';
-import { useQuery } from 'react-query';
 // import Detail from './routers/Detail.js';
 // import Cart from './routers/Cart.js';
 const Detail = lazy(() => import('./routers/Detail.js'));
 const Cart = lazy(() => import('./routers/Cart.js'));
-
+import RecentView from './RecentView.js';
+import { useQuery } from 'react-query';
 
 export let Context1 = createContext() //state 보관함
 
