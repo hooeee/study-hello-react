@@ -13,7 +13,7 @@ function Detail({ modeling }) {
     let state = useSelector((state)=>{ return state})
     let navigate = useNavigate();
     let dispatch = useDispatch()//store.js로 요청보내주는 함수
-    const { 재고 } = useContext(Context1);
+    //const { 재고 } = useContext(Context1);
     const [hidden, setHidden] = useState(true);
     const [view, setView] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -34,17 +34,17 @@ function Detail({ modeling }) {
         localStorage.setItem('watched',JSON.stringify(getItems))
     },[])
 
-    const onInputValueHandler = (input) => {
-        if (isNaN(input)) {
+    useEffect(()=>{
+        if (isNaN(inputValue)) {
             //alert("숫자만 입력하세요");
             setView(true);
         }
         else {
             setView(false);
-            setInputValue(input);
-            console.log(input);
+            setInputValue(inputValue);
+            console.log(inputValue);
         }
-    }
+    })
 
     const onHidden = (() => {
         setHidden(false);
@@ -100,7 +100,7 @@ function Detail({ modeling }) {
                         </div>
 
                         <div className="col-md-6">
-                            <input onChange={(e) => { onInputValueHandler(e.target.value) }} />
+                            <input onChange={(e) => { setInputValue(e.target.value) }} />
                             <h1 className="-5">{findID.title}</h1>
                             <h3>{findID.content}</h3>
                             <h5>{findID.price} Won</h5>
@@ -140,7 +140,8 @@ function Detail({ modeling }) {
             } */}
             </div>
         </div>
-    )
+    );
+}
     function TabContent({ tab }) {
         const [fade, setFade] = useState('')
         useEffect(() => {
@@ -279,7 +280,5 @@ function Detail({ modeling }) {
     //         </div>
     //     </div>
     // )
-
-}
 
 export default Detail;

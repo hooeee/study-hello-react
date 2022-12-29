@@ -140,7 +140,8 @@ function Detail({ modeling }) {
             } */}
             </div>
         </div>
-    )
+    );
+}
     function TabContent({ tab }) {
         const [fade, setFade] = useState('')
         useEffect(() => {
@@ -280,6 +281,5 @@ function Detail({ modeling }) {
     //     </div>
     // )
 
-}
 
 export default Detail;

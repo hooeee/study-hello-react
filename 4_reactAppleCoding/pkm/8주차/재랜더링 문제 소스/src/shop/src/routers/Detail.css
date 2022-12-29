@@ -21,6 +21,7 @@
 .start-opacity{
     opacity:0;
   }
+  
 .end-opacity{
     opacity: 1;
     transition: opacity 3s;
