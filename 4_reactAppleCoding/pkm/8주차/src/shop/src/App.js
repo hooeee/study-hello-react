@@ -1,35 +1,33 @@
-import './App.css';
-import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
-import data from './Data.js';
-import data1 from './Data1.js';
-import { createContext, useState } from 'react';
-import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Blog from './Blog.js';
-import axios from 'axios';
-import Loading from './LoadingPage/Loading';
-import { lazy, Suspense, useEffect } from 'react';
-import RecentView from './RecentView.js';
-import { useQuery } from 'react-query';
+import "./App.css";
+import { Button, Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+import data from "./Data.js";
+import data1 from "./Data1.js";
+import { createContext, useState } from "react";
+import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import Blog from "./Blog.js";
+import axios from "axios";
+import Loading from "./LoadingPage/Loading";
+import { lazy, Suspense, useEffect } from "react";
+import RecentView from "./RecentView.js";
+import { useQuery } from "react-query";
 // import Detail from './routers/Detail.js';
 // import Cart from './routers/Cart.js';
-const Detail = lazy(() => import('./routers/Detail.js'));
-const Cart = lazy(() => import('./routers/Cart.js'));
+const Detail = lazy(() => import("./routers/Detail.js"));
+const Cart = lazy(() => import("./routers/Cart.js"));
 
-
-export let Context1 = createContext() //state 보관함
+export let Context1 = createContext(); //state 보관함
 
 function App() {
   useEffect(() => {
-    if (localStorage.getItem('watched') === null) {
+    if (localStorage.getItem("watched") === null) {
       console.log("11111");
-      localStorage.setItem('watched', JSON.stringify([]))
+      localStorage.setItem("watched", JSON.stringify([]));
     }
     setRecentViewChecked(0);
-  }, [])
+  }, []);
 
-
-  let obj = { name: 'park' }
-  localStorage.setItem('data', obj);
+  let obj = { name: "park" };
+  localStorage.setItem("data", obj);
   let [modeling, setModeling] = useState(data);
   let [재고] = useState([10, 11, 12]);
   let navigate = useNavigate();
@@ -38,13 +36,15 @@ function App() {
   let [loadingHidden, setLoadingHidden] = useState(false);
   const [recentViewChecked, setRecentViewChecked] = useState(1);
 
-  const resultUser = useQuery('userName', () => axios.get('https://codingapple1.github.io/userdata.json')
-    .then((a) => {
-      console.log('요청됨')
-      return a.data
-    }),
+  const resultUser = useQuery(
+    "userName",
+    () =>
+      axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
+        console.log("요청됨");
+        return a.data;
+      }),
     { staleTime: 2000 }
-  )
+  );
   // const resultUser = useQuery('userName', () => {
   //   return  axios.get('https://codingapple1.github.io/userdata.json')
   //   .then((a) => {
@@ -62,58 +62,60 @@ function App() {
     setLoadingHidden(true);
     let copyModeling = [...modeling];
     if (btnCount === 0) {
-      setBtnCount(btnCount += 1);
-      axios.get('https://codingapple1.github.io/shop/data2.json')
+      setBtnCount((btnCount += 1));
+      axios
+        .get("https://codingapple1.github.io/shop/data2.json")
         .then((result) => {
-          console.log(result.data)
+          console.log(result.data);
           copyModeling = modeling.concat(result.data);
           console.log(copyModeling);
           setModeling(copyModeling);
           //로딩중 UI 숨기기
           setTimeout(() => {
-            setLoadingHidden(false)
+            setLoadingHidden(false);
           }, 500);
         })
         .catch(() => {
           console.log("실패");
           setTimeout(() => {
-            setLoadingHidden(false)
-          }, 500);          //로딩중 UI 숨기기
-        })
+            setLoadingHidden(false);
+          }, 500); //로딩중 UI 숨기기
+        });
     } else if (btnCount === 1) {
-      setBtnCount(btnCount += 1);
-      axios.get('https://codingapple1.github.io/shop/data3.json')
+      setBtnCount((btnCount += 1));
+      axios
+        .get("https://codingapple1.github.io/shop/data3.json")
         .then((result) => {
-          console.log(result.data)
+          console.log(result.data);
           copyModeling = modeling.concat(result.data);
           console.log(copyModeling);
           setModeling(copyModeling);
           //로딩중 UI 숨기기
           setTimeout(() => {
-            setLoadingHidden(false)
+            setLoadingHidden(false);
           }, 500);
         })
         .catch(() => {
           console.log("실패");
           //로딩중 UI 숨기기
           setTimeout(() => {
-            setLoadingHidden(false)
+            setLoadingHidden(false);
           }, 500);
-        })
+        });
     } else if (btnCount === 2) {
       let copyBtnHidden = btnHidden;
       copyBtnHidden = 1;
       console.log(copyBtnHidden);
       setBtnHidden(copyBtnHidden);
-      alert("상품이 더 이상 존재하지 않습니다.")
+      alert("상품이 더 이상 존재하지 않습니다.");
       setTimeout(() => {
-        setLoadingHidden(false)
+        setLoadingHidden(false);
       }, 500);
     }
-    console.log(btnCount)
-    modeling = [...copyModeling]
+    console.log(btnCount);
+    modeling = [...copyModeling];
     console.log(modeling);
-  }
+  };
   // let [imgs] = usestate([
   //   {
   //     id: 0,
@@ -129,94 +131,132 @@ function App() {
   //   },
   // ])
 
-
-
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand >3DPIT SHOP</Navbar.Brand>
+          <Navbar.Brand
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            3DPIT SHOP
+          </Navbar.Brand>
           <Nav className="me-auto">
             {/* <Link className="navbar-nav nav-link " to="/">홈</Link>
             <Link className="navbar-nav nav-link " to="/detail">상세페이지</Link> */}
             {/* <Nav.Link href="#Shop">Shop</Nav.Link>
             <Nav.Link href="#F&Q">F&Q</Nav.Link> */}
-            <Nav.Link onClick={() => { navigate('/') }}>HOME</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/details') }}>DETAILS</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/etc-site') }}>ETC</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/cart') }}>CART</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              HOME
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/details");
+              }}
+            >
+              DETAILS
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/etc-site");
+              }}
+            >
+              ETC
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              CART
+            </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            {resultUser.isLoading && '로딩중'}    {resultUser.error && '에러남'}
+            {resultUser.isLoading && "로딩중"} {resultUser.error && "에러남"}
             {resultUser.data && resultUser.data.name}
           </Nav>
         </Container>
       </Navbar>
       <Suspense fallback={<div>로딩중임</div>}>
-
-      <Routes>
-        <Route path="/" element={
-          <>
-            <div className='main-bg'>
-              <div className='title'>3DPIT PRINTER SHOP</div>
-              <div className='recent'>
-                {
-                  recentViewChecked == 0 ? <RecentView modeling={modeling} ></RecentView> : null
-                }
-              </div>
-            </div>
-            <Container>
-              <Row>
-                {
-                  modeling.map(function (obj, i) {
-                    return (
-                      <Items key={i} modeling={modeling} i={i} />
-                    )
-                  })
-                }
-              </Row>
-            </Container>
-            {
-              btnHidden == 0 ? <button className="btn-add" onClick={() => { onAddButton() }}>상품 더보기</button> : null
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="main-bg">
+                  <div className="title">3DPIT PRINTER SHOP</div>
+                  <div className="recent">
+                    {recentViewChecked == 0 ? (
+                      <RecentView modeling={modeling}></RecentView>
+                    ) : null}
+                  </div>
+                </div>
+                <Container>
+                  <Row>
+                    {modeling.map(function (obj, i) {
+                      return <Items key={i} modeling={modeling} i={i} />;
+                    })}
+                  </Row>
+                </Container>
+                {btnHidden == 0 ? (
+                  <button
+                    className="btn-add"
+                    onClick={() => {
+                      onAddButton();
+                    }}
+                  >
+                    상품 더보기
+                  </button>
+                ) : null}
+                {loadingHidden ? <Loading /> : null}
+              </>
             }
-            {
-              loadingHidden ? <Loading /> : null
-            }
-          </>
-        } />
-        <Route path="/details" element={
-          <div className="div-sub">
-            <div className="container">
-              <div className="row">
-                {
-                  modeling.map(function (obj, i) {
-                    return (
-                      <Items key={i} modeling={modeling} i={i} />)
-                  })
-                }
+          />
+          <Route
+            path="/details"
+            element={
+              <div className="div-sub">
+                <div className="container">
+                  <div className="row">
+                    {modeling.map(function (obj, i) {
+                      return <Items key={i} modeling={modeling} i={i} />;
+                    })}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        } />
+            }
+          />
 
-        <Route path="/cart" element={
-          <Cart></Cart>
-        } />
+          <Route path="/cart" element={<Cart></Cart>} />
 
-        <Route path="/detail/:id" element={
-          <Context1.Provider value={{ 재고, modeling }}>
-              <Detail modeling={modeling}></Detail>
-          </Context1.Provider>
-        } />
+          <Route
+            path="/detail/:id"
+            element={
+              <Context1.Provider value={{ 재고, modeling }}>
+                <Detail modeling={modeling}></Detail>
+              </Context1.Provider>
+            }
+          />
 
-        <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>
-          <Route path="one" element={<Blog></Blog>} />
-          <Route path="two" element={<div><h3>생일 기념 쿠폰받기</h3></div>} />
-        </Route>
-        <Route path="*" element={<div>없는 페이지</div>} />
-      </Routes>
+          <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>
+            <Route path="one" element={<Blog></Blog>} />
+            <Route
+              path="two"
+              element={
+                <div>
+                  <h3>생일 기념 쿠폰받기</h3>
+                </div>
+              }
+            />
+          </Route>
+          <Route path="*" element={<div>없는 페이지</div>} />
+        </Routes>
       </Suspense>
-
     </div>
   );
 }
@@ -226,8 +266,16 @@ function Event() {
     <div>
       <h2>Etc site</h2>
       <div className="btn-main">
-        <button><Link to='/etc-site/one'>Blog</Link></button>
-        <button><Link to='/etc-site/two'>Event 2</Link></button>
+        <button className="btn-deco">
+          <Link className="btn-link" to="/etc-site/one">
+            Blog
+          </Link>
+        </button>
+        <button className="btn-deco">
+          <Link className="btn-link" to="/etc-site/two">
+            Event 2
+          </Link>
+        </button>
       </div>
       <Outlet></Outlet>
     </div>
@@ -245,16 +293,28 @@ function About() {
 
 function Items({ modeling, i }) {
   const recentItem = (e) => {
-    const watchedItems = localStorage.getItem('watched');
+    const watchedItems = localStorage.getItem("watched");
     const watchedItemsJson = JSON.parse(watchedItems);
     watchedItemsJson.push(e);
     const setArr = new Set(watchedItemsJson);
     const remainItems = [...setArr];
-    localStorage.setItem('watched', JSON.stringify(remainItems));
-  }
+    localStorage.setItem("watched", JSON.stringify(remainItems));
+  };
   return (
     <div className="col-md-4">
-      <Link to={'/detail/' + i} onClick={() => { recentItem(i) }}> <img className='img-main' src={'./basic' + modeling[i].id + '.png'} width="80%" /></Link>
+      <Link
+        to={"/detail/" + i}
+        onClick={() => {
+          recentItem(i);
+        }}
+      >
+        {" "}
+        <img
+          className="img-main"
+          src={"./basic" + modeling[i].id + ".png"}
+          width="80%"
+        />
+      </Link>
       <h4>{modeling[i].title}</h4>
       <h5>{modeling[i].price}</h5>
     </div>

@@ -100,3 +100,22 @@ border-radius:10%;
 .ms-auto{
   color: white;
 }
+
+.btn-main{
+  margin-bottom:10px;
+}
+.btn-margin{
+margin-left: 10px;
+}
+.btn-deco{
+  margin-left: 10px;
+  background: black;
+}
+
+.btn-link{
+  background: black;
+  text-decoration-line : none;
+  text-decoration : none;
+  color:white ;
+  font-weight:500;
+}
