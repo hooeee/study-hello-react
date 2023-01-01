@@ -63,7 +63,7 @@ function Detail({ props, shoes }) {
 
 
     useEffect(() => {
-        let item = localStorage.getItem('watched');
+        let item = localStorage.getItem('watched', [findShoe.id]);
         item = JSON.parse(item);
 
         item.push(findShoe.id);

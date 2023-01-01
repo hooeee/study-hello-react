@@ -11,14 +11,23 @@ import axios from 'axios';
 function App() {
 
   useEffect(() => {
-    localStorage.setItem('watched', JSON.stringify([]))
-  }, [])
+    if (localStorage.getItem('watched') === null) {
+      localStorage.setItem('watched', JSON.stringify([]))
+    }
 
+    let item = localStorage.getItem('watched');
+    item = JSON.parse(item);
+    item = new Set(item);
+    item = Array.from(item);
+    setRecentItem(item);
+  }, []);
 
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
 
   const [buttonNum, setButtonNum] = useState(2);
+
+  let [recentItem, setRecentItem] = useState();
 
   return (
     <div className="App">
@@ -38,12 +47,22 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <div className='main-bg'></div>
+            <div>
+              <div className='main-bg'></div>
+              <div>최근 본 상품</div>
+              {
+                // recentItem.map((id, i) => {
+                //   return (
+                //     <div key={i}>{id}</div>
+                //   );
+                // })
+              }
+            </div>
             <div className='container'>
               <div className='row'>
                 {shoes.map((shoe, i) => {
                   return (
-                    <Main shoe={shoe} i={i} navigate={navigate}></Main>
+                    <Main key={i} shoe={shoe} i={i} navigate={navigate}></Main>
                   );
                 })}
               </div>
@@ -72,7 +91,7 @@ function App() {
           </>}></Route>
         <Route path="/detail/:id" element={<Detail shoes={shoes} />}></Route>
 
-        <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
 
         <Route path="/about" element={<About />}>
           <Route path='member' element={<div>멤버임</div>} />
