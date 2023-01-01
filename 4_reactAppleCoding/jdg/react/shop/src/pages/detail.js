@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Nav } from 'react-bootstrap';
+import { addItem } from '../store.js';
+import { useDispatch } from 'react-redux';
 
 let YellowButton = styled.button`
     background: ${props => props.bg};
@@ -41,6 +43,7 @@ function Detail({ props, shoes }) {
     const [alertMsg, setAlertMsg] = useState(true);
     const [num, setNum] = useState("");
     const [tab, setTab] = useState(0);
+    const dispatch = useDispatch();
 
     const [fade2, setFade2] = useState('');
 
@@ -57,6 +60,18 @@ function Detail({ props, shoes }) {
             alert("숫자만 입력하세요");
         }
     }, [num])
+
+
+    useEffect(() => {
+        let item = localStorage.getItem('watched', [findShoe.id]);
+        item = JSON.parse(item);
+
+        item.push(findShoe.id);
+        item = new Set(item);
+        item = Array.from(item);
+        localStorage.setItem('watched', JSON.stringify(item));
+    }, [])
+
 
     // hook
     useEffect(() => {
@@ -91,7 +106,13 @@ function Detail({ props, shoes }) {
                     <h4 className="pt-5">{findShoe.title}</h4>
                     <p>{findShoe.content}</p>
                     <p>{findShoe.price}원</p>
-                    <button className="btn btn-danger">주문하기</button>
+                    <button className="btn btn-danger" onClick={() => {
+                        dispatch(addItem({
+                            id: findShoe.id,
+                            name: findShoe.title,
+                            count: 1
+                        }))
+                    }}>주문하기</button>
                 </div>
             </div>
 
