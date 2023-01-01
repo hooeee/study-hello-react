@@ -61,6 +61,18 @@ function Detail({ props, shoes }) {
         }
     }, [num])
 
+
+    useEffect(() => {
+        let item = localStorage.getItem('watched');
+        item = JSON.parse(item);
+
+        item.push(findShoe.id);
+        item = new Set(item);
+        item = Array.from(item);
+        localStorage.setItem('watched', JSON.stringify(item));
+    }, [])
+
+
     // hook
     useEffect(() => {
         // mount, update 시 여기 코드 실행

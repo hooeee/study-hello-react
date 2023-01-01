@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './pages/Detail.js';
@@ -9,6 +9,11 @@ import Cart from './pages/Cart.js';
 import axios from 'axios';
 
 function App() {
+
+  useEffect(() => {
+    localStorage.setItem('watched', JSON.stringify([]))
+  }, [])
+
 
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
