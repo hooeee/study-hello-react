@@ -88,3 +88,38 @@ export let {changeName, 함수 1, ....} = user.actions
   });
 }
 ```
+
+## Redux object/array 변경
+
+- return 문을 사용하여 변경 가능
+- immer.js 라이브러리가 아래와 같은 방식으로 변경할 수 있도록 함
+
+```js
+let user = createSlice({
+  name: "user",
+  initialState: { name: "kim", age: 20 },
+  reducers: {
+    changeName(state) {
+      state.name = "park";
+    },
+  },
+});
+```
+
+- parameter 를 이용할 수 있음
+- payload 를 사용하여 파라메터 값을 사용
+
+```js
+let user = createSlice({
+  name: "user",
+  initialState: { name: "kim", age: 20 },
+  reducers: {
+    changeName(state) {
+      state.name = "park";
+    },
+    increase(state, int) {
+      state.age += int.payload;
+    },
+  },
+});
+```
