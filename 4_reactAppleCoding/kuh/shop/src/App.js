@@ -1,145 +1,286 @@
-import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-
-import { Button, Navbar, Container, Nav, Table } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import "./App.css";
-import bg from "./asset/bg.png";
-import { items } from "./data/Items";
-import { useDispatch, useSelector } from "react-redux";
-import { update, add } from "./store";
+import { Button, Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+import data from "./data/Data.js";
+import { createContext, useState } from "react";
+import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import Blog from "./components/pages/blog/Blog.js";
+import Loading from "./components/organism/LoadingPage/Loading";
+import { lazy, Suspense, useEffect } from "react";
+import RecentView from "./components/pages/recent/RecentView.js";
+import { useQuery } from "react-query";
+import axios from "axios";
 
-function Cart() {
-    const { carts } = useSelector((state) => state);
-    const dispatch = useDispatch();
+const Detail = lazy(() => import("./components/pages/detail/Detail.js"));
+const Cart = lazy(() => import("./components/pages/cart/Cart.js"));
 
-    return (
-        <div>
-            <div></div>
-            <Table>
-                <thead>
-                    <tr>
-                        <td>#</td>
-                        <td>상품명</td>
-                        <td>수량</td>
-                        <td>변경하기</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {carts.map((t) => {
-                        return (
-                            <tr key={t.id}>
-                                <td>{t.id}</td>
-                                <td>{t.name}</td>
-                                <td>{t.count}</td>
-                                <td>
-                                    <Button
-                                        onClick={() => {
-                                            dispatch(update(t.id));
-                                        }}
-                                    >
-                                        변경
-                                    </Button>
-                                </td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </Table>
-        </div>
-    );
-}
+export let Context1 = createContext(); //state 보관함
 
 function App() {
-    const [datas, setDatas] = useState(items);
+  useEffect(() => {
+    if (localStorage.getItem("watched") === null) {
+      console.log("11111");
+      localStorage.setItem("watched", JSON.stringify([]));
+    }
+    setRecentViewChecked(0);
+  }, []);
 
-    return (
-        <div className="App">
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home shoes={datas} />} />
-                <Route path="/detail/:id" element={<Detail shoes={datas} />} />
-                <Route path="/cart" element={<Cart />} />
-            </Routes>
-        </div>
-    );
-}
+  let obj = { name: "park" };
+  localStorage.setItem("data", obj);
+  let [modeling, setModeling] = useState(data);
+  let [재고] = useState([10, 11, 12]);
+  let navigate = useNavigate();
+  let [btnCount, setBtnCount] = useState(0);
+  let [btnHidden, setBtnHidden] = useState(0);
+  let [loadingHidden, setLoadingHidden] = useState(false);
+  const [recentViewChecked, setRecentViewChecked] = useState(1);
 
-function Header() {
-    return (
-        <Navbar bg="dark" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Link to="/">Home</Link>
-                    <Link to="/detail">detail</Link>
-                    <Link to="/cart">Cart</Link>
-                    <Nav.Link></Nav.Link>
-                    <Nav.Link></Nav.Link>
-                </Nav>
-            </Container>
-        </Navbar>
-    );
-}
+  const resultUser = useQuery(
+    "userName",
+    () =>
+      axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
+        console.log("요청됨");
+        return a.data;
+      }),
+    { staleTime: 2000 }
+  );
+  // const resultUser = useQuery('userName', () => {
+  //   return  axios.get('https://codingapple1.github.io/userdata.json')
+  //   .then((a) => {
+  //     console.log('요청됨')
+  //     return a.data
+  //   }),
+  //   {staleTime : 2000}
+  // })
+  // axios.get('https://codingapple1.github.io/userdata.json').then(()=>{
+  //   a.data
+  // })
 
-function Home({ shoes }) {
-    return (
-        <>
-            <div>
-                <div className="main-bg" style={{ background: `url(${bg})` }}></div>
-
+  const onAddButton = () => {
+    //로딩중 UI 띄우기
+    setLoadingHidden(true);
+    let copyModeling = [...modeling];
+    if (btnCount === 0) {
+      setBtnCount((btnCount += 1));
+      axios
+        .get("https://codingapple1.github.io/shop/data2.json")
+        .then((result) => {
+          console.log(result.data);
+          copyModeling = modeling.concat(result.data);
+          console.log(copyModeling);
+          setModeling(copyModeling);
+          //로딩중 UI 숨기기
+          setTimeout(() => {
+            setLoadingHidden(false);
+          }, 500);
+        })
+        .catch(() => {
+          console.log("실패");
+          setTimeout(() => {
+            setLoadingHidden(false);
+          }, 500); //로딩중 UI 숨기기
+        });
+    } else if (btnCount === 1) {
+      setBtnCount((btnCount += 1));
+      axios
+        .get("https://codingapple1.github.io/shop/data3.json")
+        .then((result) => {
+          console.log(result.data);
+          copyModeling = modeling.concat(result.data);
+          console.log(copyModeling);
+          setModeling(copyModeling);
+          //로딩중 UI 숨기기
+          setTimeout(() => {
+            setLoadingHidden(false);
+          }, 500);
+        })
+        .catch(() => {
+          console.log("실패");
+          //로딩중 UI 숨기기
+          setTimeout(() => {
+            setLoadingHidden(false);
+          }, 500);
+        });
+    } else if (btnCount === 2) {
+      let copyBtnHidden = btnHidden;
+      copyBtnHidden = 1;
+      console.log(copyBtnHidden);
+      setBtnHidden(copyBtnHidden);
+      alert("상품이 더 이상 존재하지 않습니다.");
+      setTimeout(() => {
+        setLoadingHidden(false);
+      }, 500);
+    }
+    console.log(btnCount);
+    modeling = [...copyModeling];
+    console.log(modeling);
+  };
+  return (
+    <div className="App">
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            3DPIT SHOP
+          </Navbar.Brand>
+          <Nav className="me-auto">
+            {/* <Link className="navbar-nav nav-link " to="/">홈</Link>
+            <Link className="navbar-nav nav-link " to="/detail">상세페이지</Link> */}
+            {/* <Nav.Link href="#Shop">Shop</Nav.Link>
+            <Nav.Link href="#F&Q">F&Q</Nav.Link> */}
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              HOME
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/details");
+              }}
+            >
+              DETAILS
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/etc-site");
+              }}
+            >
+              ETC
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              CART
+            </Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
+            {resultUser.isLoading && "로딩중"} {resultUser.error && "에러남"}
+            {resultUser.data && resultUser.data.name}
+          </Nav>
+        </Container>
+      </Navbar>
+      <Suspense fallback={<div>로딩중임</div>}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="main-bg">
+                  <div className="title">3DPIT PRINTER SHOP</div>
+                  <div className="recent">
+                    {recentViewChecked == 0 ? (
+                      <RecentView modeling={modeling}></RecentView>
+                    ) : null}
+                  </div>
+                </div>
+                <Container>
+                  <Row>
+                    {modeling.map(function (obj, i) {
+                      return <Items key={i} modeling={modeling} i={i} />;
+                    })}
+                  </Row>
+                </Container>
+                {btnHidden == 0 ? (
+                  <button
+                    className="btn-add"
+                    onClick={() => {
+                      onAddButton();
+                    }}
+                  >
+                    상품 더보기
+                  </button>
+                ) : null}
+                {loadingHidden ? <Loading /> : null}
+              </>
+            }
+          />
+          <Route
+            path="/details"
+            element={
+              <div className="div-sub">
                 <div className="container">
-                    <div className="row">
-                        {shoes.map((item) => (
-                            <Link to={`/detail/${item.id}`} key={item.id}>
-                                <Card shoes={item} />
-                            </Link>
-                        ))}
-                    </div>
+                  <div className="row">
+                    {modeling.map(function (obj, i) {
+                      return <Items key={i} modeling={modeling} i={i} />;
+                    })}
+                  </div>
                 </div>
-            </div>
-        </>
-    );
+              </div>
+            }
+          />
+
+          <Route path="/cart" element={<Cart></Cart>} />
+
+          <Route
+            path="/detail/:id"
+            element={
+              <Context1.Provider value={{ 재고, modeling }}>
+                <Detail modeling={modeling}></Detail>
+              </Context1.Provider>
+            }
+          />
+
+          <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>
+            <Route path="one" element={<Blog></Blog>} />
+            <Route
+              path="two"
+              element={
+                <div>
+                  <h3>생일 기념 쿠폰받기</h3>
+                </div>
+              }
+            />
+          </Route>
+          <Route path="*" element={<div>없는 페이지</div>} />
+        </Routes>
+      </Suspense>
+    </div>
+  );
 }
 
-function Detail({ shoes }) {
-    let { id } = useParams();
-    const dispatch = useDispatch();
-
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-                </div>
-                <div className="col-md-6 mt-4">
-                    <h4 className="pt-5">{shoes[id].title}</h4>
-                    <p>{shoes[0].content}</p>
-                    <p>{shoes[0].price}원</p>
-
-                    <Button
-                        className="btn btn-danger"
-                        onClick={() => {
-                            dispatch(add(shoes[id].title));
-                        }}
-                    >
-                        주문하기
-                    </Button>
-                </div>
-            </div>
-        </div>
-    );
+function About() {
+  return (
+    <div>
+      <h4>회사 정보임</h4>
+      <Outlet></Outlet>
+    </div>
+  );
 }
 
-function Card({ shoes }) {
-    return (
-        <div className="col-md-4">
-            <img src={shoes.image} width="80%" />
-            <h4>{shoes.title}</h4>
-            <p>{shoes.content}</p>
-            <p>{shoes.price}</p>
-        </div>
-    );
+function Items({ modeling, i }) {
+  const recentItem = (e) => {
+    const watchedItems = localStorage.getItem("watched");
+    const watchedItemsJson = JSON.parse(watchedItems);
+    watchedItemsJson.push(e);
+    const setArr = new Set(watchedItemsJson);
+    const remainItems = [...setArr];
+    localStorage.setItem("watched", JSON.stringify(remainItems));
+  };
+  return (
+    <div className="col-md-4">
+      <Link
+        to={"/detail/" + i}
+        onClick={() => {
+          recentItem(i);
+        }}
+      >
+        {" "}
+        <img
+          className="img-main"
+          src={"./basic" + modeling[i].id + ".png"}
+          width="80%"
+        />
+      </Link>
+      <h4>{modeling[i].title}</h4>
+      <h5>{modeling[i].price}</h5>
+    </div>
+  );
 }
 
 export default App;

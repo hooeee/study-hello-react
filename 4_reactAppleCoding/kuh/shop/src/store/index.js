@@ -1,40 +1,60 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import user from "./module/userSlice.js";
 
 let stock = createSlice({
-    name: "stock",
-    initialState: [10, 11, 12],
+  name: "stock",
+  initialState: [10, 11, 12],
 });
 
-let carts = createSlice({
-    name: "cart",
-    initialState: [
-        { id: 0, name: "새우깡", count: 2 },
-        { id: 1, name: "콜라", count: 2 },
-    ],
-    reducers: {
-        update(state, action) {
-            let idx = state.findIndex((a) => a.id == action.payload);
-            state[idx].count++;
-        },
-        add(state, action) {
-            const title = action.payload;
-            const exitsIdx = state.findIndex((t) => t.name === title);
-            if (exitsIdx != -1) {
-                state[exitsIdx].count++;
-            } else {
-                let { id } = state[state.length - 1];
-                const newId = id + 1;
-                state.push({ id: newId, name: title, count: 0 });
-            }
-        },
+let shoppingItems = createSlice({
+  name: "shoppingItems",
+  initialState: [
+    { id: 0, name: "White and Black", count: 2 },
+    { id: 2, name: "Grey Yordan", count: 1 },
+  ],
+  reducers: {
+    addCount(state, action) {
+      console.log(state);
+      state.map(function (obj, i) {
+        console.log(action.payload.id);
+        if (obj.id === action.payload.id) {
+          obj.count += 1;
+        }
+      });
     },
+    minusCount(state, action) {
+      const findDataIndex = state.findIndex((a) => {
+        return a.id == action.payload.id;
+      });
+      state[findDataIndex].count--;
+      if (state[findDataIndex].count === 0) {
+        state.splice(findDataIndex, 1);
+      }
+    },
+    addItem(state, action) {
+      const findDataIndex = state.findIndex((a) => {
+        return a.id == action.payload.id;
+      });
+      if (findDataIndex == -1) {
+        const item = new Object();
+        item.id = action.payload.id;
+        item.name = action.payload.title;
+        item.count = 1;
+        state.push(item);
+        return state;
+      } else {
+        state[findDataIndex].count++;
+      }
+    },
+  },
 });
-
-export const { update, add } = carts.actions;
+//2
+export let { addCount, minusCount, addItem } = shoppingItems.actions; //변경 함수 남음
 
 export default configureStore({
-    reducer: {
-        stock: stock.reducer,
-        carts: carts.reducer,
-    },
+  reducer: {
+    user: user.reducer,
+    stock: stock.reducer,
+    shoppingItems: shoppingItems.reducer,
+  },
 });
