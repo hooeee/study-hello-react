@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
 
@@ -95,6 +95,7 @@ function App() {
       
 
       { isModal === true ? <Modal posts={posts} setPosts={setPosts} bgColor={"yellow"} pivot={pivot} /> : null}
+      <Modal2></Modal2>
     </div>
   );
 }
@@ -116,5 +117,27 @@ function Modal({posts, setPosts, bgColor, pivot}){
     </div>
   )
 }
+class Modal2 extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name: 'kim',
+      age : 20,
+    }
+  }
+  render(){
+    return (
+      <div>안녕 {this.state.age}
+        <button onClick={() => {
+          this.setState({age:21})
+        }}>
+        버튼
+        </button>
+      </div>
+    )
+  }
+}
+
+
 
 export default App;

@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.ms-auto {
-  color: aliceblue;
-}
-
-.main-bg {
-  height: 300px;
-  background-image: url("./img/bg.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
