@@ -22,6 +22,14 @@ function Detail(props) {
   let dispatch = useDispatch();
 
   useEffect(() => {
+    let watchedData = JSON.parse(localStorage.getItem("watched"));
+    watchedData.push(target.id);
+    watchedData = new Set(watchedData);
+    watchedData = Array.from(watchedData);
+    localStorage.setItem("watched", JSON.stringify(watchedData));
+  }, []);
+
+  useEffect(() => {
     let timer = setTimeout(() => {
       setFade("end");
     }, 100);
