@@ -46,6 +46,10 @@
   transition: all 0.5s;
 }
 
+.ms-auto {
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

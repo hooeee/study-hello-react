@@ -2,31 +2,74 @@ import './App.css';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './Data.js';
 import data1 from './Data1.js';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routers/Detail.js';
 import Blog from './Blog.js';
 import axios from 'axios';
+import Loading from './LoadingPage/Loading';
+import { useEffect } from 'react';
+
+export let Context1 = createContext() //state 보관함
 
 function App() {
 
   let [modeling, setModeling] = useState(data);
+  let [재고] = useState([10,11,12]);
   let navigate = useNavigate();
-  const onAddButton = () =>{
+  let [btnCount, setBtnCount] = useState(0);
+  let [btnHidden, setBtnHidden] = useState(0);
+  let [loadingHidden, setLoadingHidden] = useState(false);
+
+  const onAddButton = () => {
     //로딩중 UI 띄우기
-    axios.get('https://codingapple1.github.io/shop/data2.json')
+    setLoadingHidden(true);
+    if (btnCount === 0) {
+      setBtnCount(btnCount += 1);
+      axios.get('https://codingapple1.github.io/shop/data2.json')
         .then((result) => {
-        console.log(result.data)
-		let copyModeling = modeling.concat(result.data);
-        console.log(copyModeling);
-        setModeling(copyModeling);
-        //로딩중 UI 숨기기
-    })
+          console.log(result.data)
+          let copyModeling = modeling.concat(result.data);
+          console.log(copyModeling);
+          setModeling(copyModeling);
+          //로딩중 UI 숨기기
+          setTimeout (()=>{setLoadingHidden(false)
+          },500);
+        })
         .catch(() => {
-        console.log("실패");
-      //로딩중 UI 숨기기
-    })
-}
+          console.log("실패");
+          setTimeout (()=>{setLoadingHidden(false)
+          },500);          //로딩중 UI 숨기기
+        })
+    } else if (btnCount === 1) {
+      setBtnCount(btnCount += 1);
+      axios.get('https://codingapple1.github.io/shop/data3.json')
+        .then((result) => {
+          console.log(result.data)
+          let copyModeling = modeling.concat(result.data);
+          console.log(copyModeling);
+          setModeling(copyModeling);
+          //로딩중 UI 숨기기
+          setTimeout (()=>{setLoadingHidden(false)
+          },500);
+        })
+        .catch(() => {
+          console.log("실패");
+          //로딩중 UI 숨기기
+          setTimeout (()=>{setLoadingHidden(false)
+          },500);
+        })
+    } else if (btnCount === 2) {
+      let copyBtnHidden = btnHidden;
+      copyBtnHidden=1;
+      console.log(copyBtnHidden);
+      setBtnHidden(copyBtnHidden);
+      alert("상품이 더 이상 존재하지 않습니다.")
+      setTimeout (()=>{setLoadingHidden(false)
+      },500);
+    }
+    console.log(btnCount)
+  }
   // let [imgs] = usestate([
   //   {
   //     id: 0,
@@ -73,32 +116,41 @@ function App() {
                 }
               </Row>
             </Container>
-            <button className="btn-add" onClick={() => {onAddButton()}}>상품 더보기</button>
+            {
+               btnHidden==0 ? <button className="btn-add" onClick={() => { onAddButton()}}>상품 더보기</button> : null
+            }
+            {
+               loadingHidden ? <Loading /> : null
+            }
           </>
         } />
         <Route path="/details" element={
           <div className="div-sub">
-            <Container>
-              <Row>
+            <div class="container">
+            <div class="row">
                 {
                   modeling.map(function (obj, i) {
                     return (
                       <Items key={i} modeling={modeling} i={i} />)
                   })
                 }
-              </Row>
-            </Container>
+              </div>
+              </div>
           </div>
         } />
 
-        <Route path="/detail/:id" element={<Detail modeling={modeling} />} />
+        <Route path="/detail/:id" element={
+        <Context1.Provider value={{재고, modeling}}>
+          <Detail modeling={modeling}></Detail>
+        </Context1.Provider>
+        } />
         <Route path="/etc-site" element={<Event modeling={modeling}></Event>}>
           <Route path="one" element={<Blog></Blog>} />
           <Route path="two" element={<div><h3>생일 기념 쿠폰받기</h3></div>} />
         </Route>
         <Route path="*" element={<div>없는 페이지</div>} />
       </Routes>
-   </div>
+    </div>
   );
 }
 
@@ -126,12 +178,12 @@ function About() {
 
 function Items({ modeling, i }) {
   return (
-    <Col>
+    <div class="col-md-4">
       <img src={'./basic' + modeling[i].id + '.png'} width="80%" />
       <h4>{modeling[i].title}</h4>
       <h5>{modeling[i].price}</h5>
       <Link to={'/detail/' + i}>{'Detail'}</Link>
-    </Col>
+    </div>
   );
 }
 

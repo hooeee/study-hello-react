@@ -1,18 +1,51 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap';
-import { useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Detail from './pages/detail.js';
+import Detail from './pages/Detail.js';
+import Cart from './pages/Cart.js';
+
+// const Detail = lazy(() => import('./pages/Detail.js'));
+// const Cart = lazy(() => import('./pages/Cart.js'));
+
+
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 function App() {
+
+  useEffect(() => {
+    if (localStorage.getItem('watched') === null) {
+      localStorage.setItem('watched', JSON.stringify([]))
+    }
+
+    let item = localStorage.getItem('watched');
+    item = JSON.parse(item);
+    item = new Set(item);
+    item = Array.from(item);
+    setRecentItem(item);
+  }, []);
 
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
 
   const [buttonNum, setButtonNum] = useState(2);
+
+  let [recentItem, setRecentItem] = useState();
+
+  // react-query 이용하여 ajax 요청
+  let result = useQuery('작명', () => {
+    return axios.get('https://codingapple1.github.io/userdata.json').then((a) => {
+      return a.data
+    });
+  })
+
+  // 성공/실패/로딩중 쉽게 파악가능
+  const v1 = result.data
+  const v2 = result.isLoading
+  const v3 = result.error
 
   return (
     <div className="App">
@@ -22,6 +55,7 @@ function App() {
           <Navbar.Brand href="/">JDG Shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/cart') }}>Cart</Nav.Link>
             <Nav.Link onClick={() => { navigate('/event') }}>Event</Nav.Link>
             <Nav.Link onClick={() => { navigate('/about') }}>About</Nav.Link>
           </Nav>
@@ -31,12 +65,27 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <div className='main-bg'></div>
+            <div>
+              <div className='main-bg'></div>
+              <div>최근 본 상품</div>
+              {
+                // recentItem.map((id, i) => {
+                //   return (
+                //     <div key={i}>{id}</div>
+                //   );
+                // })
+              }
+              <div>
+                {result.isLoading && '로딩중'}
+                {result.error && '에러남'}
+                {result.data && result.data.name}
+              </div>
+            </div>
             <div className='container'>
               <div className='row'>
                 {shoes.map((shoe, i) => {
                   return (
-                    <Main shoe={shoe} i={i} navigate={navigate}></Main>
+                    <Main key={i} shoe={shoe} i={i} navigate={navigate}></Main>
                   );
                 })}
               </div>
@@ -64,6 +113,8 @@ function App() {
             }}>더보기</button>
           </>}></Route>
         <Route path="/detail/:id" element={<Detail shoes={shoes} />}></Route>
+
+        <Route path="/cart" element={<Cart />}></Route>
 
         <Route path="/about" element={<About />}>
           <Route path='member' element={<div>멤버임</div>} />

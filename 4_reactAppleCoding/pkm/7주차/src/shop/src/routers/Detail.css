@@ -9,3 +9,42 @@
 .alert-caution{
     background: red;
 }
+
+.start{
+    transform: scale(0);
+  }
+.end{
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.start-opacity{
+    opacity:0;
+  }
+.end-opacity{
+    opacity: 1;
+    transition: opacity 3s;
+}
+
+.item-main{
+    display: flex;
+    flex-flow: nowrap column;
+}
+.item-sub{
+    background:lightblue;
+}
+.username-main{
+    background: black;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+}
+.image-main{
+    position: relative;
+    margin: 10px;
+}
+.review-main{
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: left;
+}

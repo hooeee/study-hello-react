@@ -1,3 +1,35 @@
+.main-bg{
+  height: 300px;
+  border: bold;
+  background-image: url('./assets/img/spinner.gif');
+  background-size: cover;
+  border: bold;
+  background-position: center center;
+  height: 500px;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+.main-bg > .title{
+  color:white;
+  font-size: 5em;
+}
+.main-bg > .recent{
+  display: flex;
+  position:relative;
+  width: 50%;
+  height: 15em;
+  text-align: start;
+  color:white;
+  font-size: 1em;
+  overflow-x: hidden;
+  overflow-y:auto;
+  background:transparent;
+}
+.img-main{
+/* width: 100px; */
+margin: 10px;
+border-radius:10%;
+}
 .App {
   text-align: center;
 }
@@ -37,10 +69,53 @@
   }
 }
 
+.nav-main{
+  list-style: none;
+  color:black;
+  margin: 5px;
+  align-items: center;
+}
 
+/* Detail.js css */
+.div-main{
+  margin: 100px;
+}
+.div-sub{
+  margin: 15px;
+}
 
-.main-bg{
-  height: 300px;
-  background-position:  center center !important;
-  background-size: cover !important;
+.btn-add{
+  margin: 10px;
+  background: black;
+  color: white;
+  border: rgb(0, 0, 0) 5px solid;
+}
+.start{
+  transform: scale(0);
+}
+.end{
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.ms-auto{
+  color: white;
+}
+
+.btn-main{
+  margin-bottom:10px;
+}
+.btn-margin{
+margin-left: 10px;
+}
+.btn-deco{
+  margin-left: 10px;
+  background: black;
+}
+
+.btn-link{
+  background: black;
+  text-decoration-line : none;
+  text-decoration : none;
+  color:white ;
+  font-weight:500;
 }
