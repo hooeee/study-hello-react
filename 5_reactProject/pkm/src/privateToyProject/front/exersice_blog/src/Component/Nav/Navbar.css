@@ -1,0 +1,46 @@
+.nav-main {
+  width: 100%;
+  display: inline-flex;
+  position: relative;
+  background: transparent;
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-main > .home-title {
+  display: inline-flex;
+  position: relative;
+  background-color: transparent;
+  flex-grow: 1;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.nav-main > .tab-main {
+  display: inline-flex;
+  position: relative;
+  background-color: transparent;
+  flex-grow: 7;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.nav-main > .tab-main > div {
+  margin-right: 30px;
+}
+
+.nav-main > .tab-sub {
+  display: inline-flex;
+  position: relative;
+  background-color: transparent;
+  flex-grow: 2;
+  justify-content: flex-end;
+}
+
+.nav-main > .tab-sub > div:nth-child(1) {
+  margin-right: 20px;
+}
+.nav-main > .tab-sub > div:nth-child(2) {
+  margin-right: 20px;
+}
