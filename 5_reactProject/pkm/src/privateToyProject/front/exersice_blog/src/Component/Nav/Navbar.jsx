@@ -25,6 +25,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import { About, Dashboard, DataWrite } from "./../..//Component/Tab/Tab.jsx";
 import App from "./../../App.js";
 import "./Navbar.css";
+import {Public, MenuRounded} from '@mui/icons-material';
 function Navbar() {
   let navigate = useNavigate();
   return (
@@ -61,8 +62,8 @@ function Navbar() {
         </div>
       </div>
       <div className="tab-sub">
-        <div>🍪</div>
-        <div>🍔</div>
+        <div><Public/></div>
+        <div><MenuRounded/></div>
       </div>
     </div>
   );
