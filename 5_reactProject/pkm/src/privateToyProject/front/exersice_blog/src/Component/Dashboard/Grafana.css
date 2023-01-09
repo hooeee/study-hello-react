@@ -1,54 +1,53 @@
-li{
-    list-style:none;
-    padding-left: 10px;
+li {
+  list-style: none;
+  padding-left: 10px;
 }
-.grafana-tab-main{
-    display: flex;
-    position: sticky;
-    top: 0;
-    flex-flow: nowrap column;
-    align-items: flex-start;
-    margin-top:100px;
-    margin-left:30px;
-    font-size: 1em;
-    padding-top: 160px;
-    cursor: pointer;
-    font-weight: bold;
-    list-style:none;
-    text-align: start;
-    z-index: 999;
-    width: 200px;
-    margin-bottom: 50px;
+.grafana-tab-main {
+  display: flex;
+  position: sticky;
+  top: 0;
+  flex-flow: nowrap column;
+  align-items: flex-start;
+  margin-top: 100px;
+  margin-left: 30px;
+  font-size: 1em;
+  padding-top: 160px;
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+  text-align: start;
+  z-index: 999;
+  width: 200px;
+  margin-bottom: 50px;
 }
-.on-li-style{
-    display: list-item;
-    list-style:none;
-    list-style-type: '👉';
-    margin-bottom: 10px;
+.on-li-style {
+  display: list-item;
+  list-style: none;
+  list-style-type: "👉";
+  margin-bottom: 10px;
 }
-.off-li-style{
-    color:lightgray;
-    margin-bottom: 10px;
+.off-li-style {
+  color: lightgray;
+  margin-bottom: 10px;
 }
 
-.grafana-style{
-    display: flex;
-    position: relative;
-    justify-content: center;
+.grafana-style {
+  display: flex;
+  position: relative;
+  justify-content: center;
 }
-.grafana-content-main{
-    font-size: 2em;
-    text-align: start;
-    font-weight: bold;
-
+.grafana-content-main {
+  font-size: 2em;
+  text-align: start;
+  font-weight: bold;
 }
-.on-icon{
-    background: url("./../../img/empty_dashboard.png") no-repeat 0 0;
-    width:12%;
-    height: 100%;
+.on-icon {
+  background: url("./../../img/empty_dashboard.png") no-repeat 0 0;
+  width: 12%;
+  height: 100%;
 }
-.off-icon{
-    /* background: url("./../../img/empty_dashboard.png") no-repeat 0 0; */
-    width:13.5%;
-    height: 100%;
+.off-icon {
+  /* background: url("./../../img/empty_dashboard.png") no-repeat 0 0; */
+  width: 13.5%;
+  height: 100%;
 }

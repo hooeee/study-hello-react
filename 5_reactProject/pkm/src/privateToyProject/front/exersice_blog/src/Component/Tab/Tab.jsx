@@ -4,7 +4,7 @@ import "./Tab.css";
 function DataWrite() {
   return (
     <>
-      <div className="img-main"></div>
+      <div className="img-main2"></div>
       <DBDataSave />
     </>
   );
@@ -20,7 +20,7 @@ function Dashboard() {
 }
 
 function About() {
-  return <div className="img-main2">About</div>;
+  return <div className="img-main3">About</div>;
 }
 
 export { DataWrite, Dashboard, About };
