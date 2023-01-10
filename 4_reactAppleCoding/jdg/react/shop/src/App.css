@@ -16,6 +16,18 @@
   background: url('./2589999.png') no-repeat center center;
 }
 
+.recentContainer {
+  width: 200px;
+  border: 1px solid black;
+  position: relative;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hoverColor:hover {
+  color:orange;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -33,7 +33,7 @@ function App() {
 
   const [buttonNum, setButtonNum] = useState(2);
 
-  let [recentItem, setRecentItem] = useState();
+  let [recentItem, setRecentItem] = useState([]); // https://devbirdfeet.tistory.com/47
 
   // react-query 이용하여 ajax 요청
   const result = useQuery('작명', () => {
@@ -83,13 +83,24 @@ function App() {
             <div>
               <div className='main-bg'></div>
               <div>최근 본 상품</div>
-              {
-                // recentItem.map((id, i) => {
-                //   return (
-                //     <div key={i}>{id}</div>
-                //   );
-                // })
-              }
+              <div className='recentContainer'>
+                {
+                  // https://devbirdfeet.tistory.com/47
+                  recentItem && recentItem.map((id, i) => {
+                    const item = shoes.find(f => f.id == id);
+                    return (
+                      // <Sub key={i} shoe={shoe} i={i} navigate={navigate}></Sub>
+                      // <div key={i}>
+                      <div className='hoverColor' key={i} onClick={() => {
+                        navigate('/detail/' + item.id);
+                      }}>
+                        {item == null ? "not found" : item.title}
+                      </div>
+
+                    );
+                  })
+                }
+              </div>
               <div>
                 {result.isLoading && '로딩중'}
                 {result.error && '에러남'}
@@ -182,5 +193,17 @@ function Main({ shoe, i, navigate }) {
     </div>
   );
 }
+
+// function Sub({ shoe, i, navigate }) {
+//   return (
+//     <div className='col-md-4' key={i} onClick={() => {
+//       navigate('/detail/' + shoe.id)
+//     }}>
+//       <img src={`https://codingapple1.github.io/shop/shoes${shoe.id + 1}.jpg`} width="40%" />
+//       <h4>{shoe.title}</h4>
+//       <p>{shoe.price}</p>
+//     </div>
+//   )
+// }
 
 export default App;
