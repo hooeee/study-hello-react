@@ -28,12 +28,12 @@ function App() {
     setRecentItem(item);
   }, []);
 
-  let [shoes, setShoes] = useState(data);
-  let navigate = useNavigate();
+  const [shoes, setShoes] = useState(data);
+  const navigate = useNavigate();
 
   const [buttonNum, setButtonNum] = useState(2);
 
-  let [recentItem, setRecentItem] = useState([]); // https://devbirdfeet.tistory.com/47
+  const [recentItem, setRecentItem] = useState([]); // https://devbirdfeet.tistory.com/47
 
   // react-query 이용하여 ajax 요청
   const result = useQuery('작명', () => {
