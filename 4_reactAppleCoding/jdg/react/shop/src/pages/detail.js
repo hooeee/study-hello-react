@@ -42,6 +42,7 @@ function Detail({ props, shoes }) {
     const [count, setCount] = useState(0);
     const [alertMsg, setAlertMsg] = useState(true);
     const [num, setNum] = useState("");
+    const [isNum, setIsNum] = useState(true);
     const [tab, setTab] = useState(0);
     const dispatch = useDispatch();
 
@@ -57,7 +58,11 @@ function Detail({ props, shoes }) {
 
     useEffect(() => {
         if (isNaN(num) == true) {
-            alert("숫자만 입력하세요");
+            // alert("숫자만 입력하세요");
+            setIsNum(false);
+        }
+        else {
+            setIsNum(true);
         }
     }, [num])
 
@@ -89,6 +94,10 @@ function Detail({ props, shoes }) {
                 alertMsg == true ? <div className='alert alert-warning'>
                     2초 이내 구매시 할인
                 </div> : null
+            }
+
+            {
+                isNum == false ? <div>숫자만 입력하세요</div> : null
             }
 
             <input onChange={e => setNum(e.target.value)} />
