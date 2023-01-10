@@ -33,14 +33,29 @@ function App() {
 
   const [buttonNum, setButtonNum] = useState(2);
 
-  let [recentItem, setRecentItem] = useState();
+  let [recentItem, setRecentItem] = useState([]); // https://devbirdfeet.tistory.com/47
 
   // react-query 이용하여 ajax 요청
-  let result = useQuery('작명', () => {
-    return axios.get('https://codingapple1.github.io/userdata.json').then((a) => {
-      return a.data
-    });
+  const result = useQuery('작명', () => {
+    return axios.get('https://codingapple1.github.io/userdata.json')
+      .then((a) => {
+        return a.data
+      }).catch(() => {
+        console.log("실패");
+      });
   })
+
+  const moreLoad = (shoes, buttonNum) => {
+    axios.get(`https://codingapple1.github.io/shop/data${buttonNum}.json`)
+      .then((result) => {
+        let copy = [...shoes, ...result.data];
+        setShoes(copy);
+        setButtonNum(buttonNum + 1);
+      })
+      .catch(() => {
+        console.log('실패');
+      });
+  }
 
   // 성공/실패/로딩중 쉽게 파악가능
   const v1 = result.data
@@ -68,13 +83,24 @@ function App() {
             <div>
               <div className='main-bg'></div>
               <div>최근 본 상품</div>
-              {
-                // recentItem.map((id, i) => {
-                //   return (
-                //     <div key={i}>{id}</div>
-                //   );
-                // })
-              }
+              <div className='recentContainer'>
+                {
+                  // https://devbirdfeet.tistory.com/47
+                  recentItem && recentItem.map((id, i) => {
+                    const item = shoes.find(f => f.id == id);
+                    return (
+                      // <Sub key={i} shoe={shoe} i={i} navigate={navigate}></Sub>
+                      // <div key={i}>
+                      <div className='hoverColor' key={i} onClick={() => {
+                        navigate('/detail/' + item.id);
+                      }}>
+                        {item == null ? "not found" : item.title}
+                      </div>
+
+                    );
+                  })
+                }
+              </div>
               <div>
                 {result.isLoading && '로딩중'}
                 {result.error && '에러남'}
@@ -92,23 +118,16 @@ function App() {
             </div>
             <button onClick={() => {
               if (buttonNum > 3) return;
-              axios.get(`https://codingapple1.github.io/shop/data${buttonNum}.json`)
-                .then((result) => {
-                  let copy = [...shoes, ...result.data];
-                  setShoes(copy);
-                  setButtonNum(buttonNum + 1);
-                })
-                .catch(() => {
-                  console.log('실패');
-                });
 
+              moreLoad(shoes, buttonNum);
 
               // post 
               axios.post('url', { name: 'kim' });
 
               // 여러 요청 동시에
               Promise.all([axios.get('url1'), axios.get('url2')])
-                .then(() => { });
+                .then(() => { })
+                .catch(() => { });
 
             }}>더보기</button>
           </>}></Route>
@@ -174,5 +193,17 @@ function Main({ shoe, i, navigate }) {
     </div>
   );
 }
+
+// function Sub({ shoe, i, navigate }) {
+//   return (
+//     <div className='col-md-4' key={i} onClick={() => {
+//       navigate('/detail/' + shoe.id)
+//     }}>
+//       <img src={`https://codingapple1.github.io/shop/shoes${shoe.id + 1}.jpg`} width="40%" />
+//       <h4>{shoe.title}</h4>
+//       <p>{shoe.price}</p>
+//     </div>
+//   )
+// }
 
 export default App;
