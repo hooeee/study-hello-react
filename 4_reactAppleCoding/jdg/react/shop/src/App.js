@@ -36,11 +36,26 @@ function App() {
   let [recentItem, setRecentItem] = useState();
 
   // react-query 이용하여 ajax 요청
-  let result = useQuery('작명', () => {
-    return axios.get('https://codingapple1.github.io/userdata.json').then((a) => {
-      return a.data
-    });
+  const result = useQuery('작명', () => {
+    return axios.get('https://codingapple1.github.io/userdata.json')
+      .then((a) => {
+        return a.data
+      }).catch(() => {
+        console.log("실패");
+      });
   })
+
+  const moreLoad = (shoes, buttonNum) => {
+    axios.get(`https://codingapple1.github.io/shop/data${buttonNum}.json`)
+      .then((result) => {
+        let copy = [...shoes, ...result.data];
+        setShoes(copy);
+        setButtonNum(buttonNum + 1);
+      })
+      .catch(() => {
+        console.log('실패');
+      });
+  }
 
   // 성공/실패/로딩중 쉽게 파악가능
   const v1 = result.data
@@ -92,23 +107,16 @@ function App() {
             </div>
             <button onClick={() => {
               if (buttonNum > 3) return;
-              axios.get(`https://codingapple1.github.io/shop/data${buttonNum}.json`)
-                .then((result) => {
-                  let copy = [...shoes, ...result.data];
-                  setShoes(copy);
-                  setButtonNum(buttonNum + 1);
-                })
-                .catch(() => {
-                  console.log('실패');
-                });
 
+              moreLoad(shoes, buttonNum);
 
               // post 
               axios.post('url', { name: 'kim' });
 
               // 여러 요청 동시에
               Promise.all([axios.get('url1'), axios.get('url2')])
-                .then(() => { });
+                .then(() => { })
+                .catch(() => { });
 
             }}>더보기</button>
           </>}></Route>
