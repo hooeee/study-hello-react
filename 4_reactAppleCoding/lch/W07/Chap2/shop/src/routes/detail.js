@@ -60,7 +60,9 @@ function Detail(props) {
       <div className="row">
         <div className="col-md-6">
           <img
-            src="https://codingapple1.github.io/shop/shoes1.jpg"
+            src={`https://codingapple1.github.io/shop/shoes${
+              target.id + 1
+            }.jpg`}
             width="100%"
           />
         </div>
@@ -71,7 +73,7 @@ function Detail(props) {
           <button
             className="btn btn-danger"
             onClick={() =>
-              dispatch(addCart({ id: 0, name: "White and Black", count: 2 }))
+              dispatch(addCart({ id: target.id, name: target.title, count: 1 }))
             }
           >
             주문하기

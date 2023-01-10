@@ -20,7 +20,8 @@ function App() {
   // let 꺼낸거 = localStorage.getItem("data");
   // console.log(JSON.parse(꺼낸거).name);
   useEffect(() => {
-    localStorage.setItem("watched", JSON.stringify([]));
+    if (localStorage.getItem("watched") === null)
+      localStorage.setItem("watched", JSON.stringify([]));
   });
 
   let [shoes, setShoes] = useState(data);
@@ -47,7 +48,7 @@ function App() {
     <div className="App">
       <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
+          <Navbar.Brand href="/">ShoeShop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link
               onClick={() => {
@@ -55,13 +56,6 @@ function App() {
               }}
             >
               Home
-            </Nav.Link>
-            <Nav.Link
-              onClick={() => {
-                navigate("/detail");
-              }}
-            >
-              Detail
             </Nav.Link>
             <Nav.Link
               onClick={() => {
