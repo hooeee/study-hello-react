@@ -50,6 +50,12 @@ export function Detail({ products }) {
   let [detailFade, setDetailFade] = useState("");
 
   useEffect(() => {
+    let watched = JSON.parse(localStorage.getItem("watched"));
+    let inputData = new Set([...watched, product.id]);
+    localStorage.setItem("watched", JSON.stringify([...inputData]));
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       setDetailFade("end");
     }, 100);
