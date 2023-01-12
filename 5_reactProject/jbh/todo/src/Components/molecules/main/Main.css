@@ -1,0 +1,9 @@
+.main {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: indigo;
+  color: white;
+}
