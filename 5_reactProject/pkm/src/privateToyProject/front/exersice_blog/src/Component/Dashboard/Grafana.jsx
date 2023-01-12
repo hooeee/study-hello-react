@@ -34,7 +34,7 @@ function Grafana() {
                 <iframe
                   src="http://3dpit.iptime.org:3000/d/7iZhYOPnk12/undong_daesibodeu?orgId=1&from=1641168000000&to=1672358400000"
                   width="1000px"
-                  height="8100px"
+                  height="2000px"
                   frameborder="0"
                 ></iframe>
               </>
@@ -44,7 +44,7 @@ function Grafana() {
                 <iframe
                   src="http://3dpit.iptime.org:2905"
                   width="1000px"
-                  height="8100px"
+                  height="2000px"
                   frameborder="0"
                 ></iframe>
               </>

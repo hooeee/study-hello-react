@@ -20,7 +20,7 @@
 
 // export default Navbar;
 
-import * as React from "react";
+import React,{useState, useEffect} from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import { About, Dashboard, DataWrite } from "./../..//Component/Tab/Tab.jsx";
 import App from "./../../App.js";
@@ -28,8 +28,15 @@ import "./Navbar.css";
 import { Public, MenuRounded } from "@mui/icons-material";
 function Navbar() {
   let navigate = useNavigate();
+  const [scrollPosition, setScrollPosition]= useState(0);
+  const updateScroll = () => {
+    setScrollPosition(window.ScrollY || document.documentElement.scrollTop);
+  }
+  useEffect(()=>{
+    window.addEventListener('scroll',updateScroll);
+  });
   return (
-    <div className="nav-main">
+    <div className={scrollPosition<500 ? "nav-main": "nav-main-scrollY"}>
       <div
         className="home-title"
         onClick={() => {
