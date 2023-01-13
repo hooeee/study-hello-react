@@ -1,15 +1,13 @@
-import logo from './logo.svg'
-import './App.css'
-import Header from './Components/molecules/header/Header'
-import Main from './Components/molecules/main/Main'
+import logo from "./logo.svg";
+import "./App.css";
+import Layout from "./Components/organisms/Layout/layout";
 
 function App() {
-  return (
-    <div className="App">
-      <Header title="My header" subtitle="subtitle2" />
-      <Main message="My content" />
-    </div>
-  )
+    return (
+        <div className="App">
+            <Layout></Layout>
+        </div>
+    );
 }
 
-export default App
+export default App;
