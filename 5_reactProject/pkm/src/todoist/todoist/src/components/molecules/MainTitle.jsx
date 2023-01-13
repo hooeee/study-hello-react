@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { Label } from "../../atoms/Label/Label";
-import { Btn } from "../../atoms/Btn/Btn";
+import { Label } from "../atoms/form/Label";
+import { Button_k } from "../atoms/form/Button_k";
 export function MainTitle({ labelName, btnName }) {
   return (
     <>
@@ -10,7 +10,7 @@ export function MainTitle({ labelName, btnName }) {
             <Label labelName={labelName}></Label>
           </Col>
           <Col sm={0}>
-            <Btn btnName={btnName}></Btn>
+            <Button_k btnName={btnName}></Button_k>
           </Col>
         </Row>
       </Container>
