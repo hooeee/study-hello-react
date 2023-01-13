@@ -9,7 +9,7 @@ function App() {
   const item = [
     { value: "chocolate", label: "🍎 red" },
     { value: "strawberry", label: "🥏 blue" },
-    { value: "vanilla", label: "🍯 yellow" },
+    { value: "vanilla", label: "🍯 yellow" },  
   ];
   return (
     <div className="App">
