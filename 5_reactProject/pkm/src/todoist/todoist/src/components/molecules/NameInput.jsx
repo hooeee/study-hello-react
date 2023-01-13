@@ -1,8 +1,8 @@
-import { Label } from "../../atoms/Label/Label";
-import { Input } from "../../atoms/Input/Input";
+import { Label } from "../atoms/form/Label";
+import { Input } from "../atoms/form/Input";
 import { Stack } from "react-bootstrap";
 
-export function LabelInput({ labelName }) {
+export function NameInput({ labelName }) {
   return (
     <>
       <Stack gap={2}>
