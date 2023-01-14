@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Nav } from "react-bootstrap";
-import { addItem } from "../store.js";
+import { addItem } from "../store/store";
 import { useDispatch } from "react-redux";
 
 let YellowButton = styled.button`

@@ -13,7 +13,7 @@
 
 .main-bg {
   height: 300px;
-  background: url('./2589999.png') no-repeat center center;
+  background: url("./2589999.png") no-repeat center center;
 }
 
 .recentContainer {
@@ -25,7 +25,7 @@
 }
 
 .hoverColor:hover {
-  color:orange;
+  color: orange;
 }
 
 .App-logo {
