@@ -1,11 +1,10 @@
-import { Form } from "react-bootstrap";
 import "./Selector.css";
 import Select from "react-select";
 
-export function Selector({ items }) {
+export function Selector({ items ,selectStyle }) {
   return (
     <>
-      <Select options={items}></Select>
+      <Select options={items} className={selectStyle}></Select>
     </>
   );
 }

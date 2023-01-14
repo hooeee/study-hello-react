@@ -5,12 +5,9 @@ export function FavoriteCheck({ labelName }) {
   return (
     <>
       <Container>
-        <Row>
-          <Col>
-            <Form.Check type="switch" id="custom-switch" />
-          </Col>
-          <Col>
-            <Label labelName={labelName}></Label>
+        <Row className="basic-align-main">
+          <Col className="col-align-start">
+            <Form.Check type="switch" id="custom-switch" label={labelName}/>
           </Col>
         </Row>
       </Container>
