@@ -37,21 +37,23 @@
   }
 }
 
-
-.col-align-start{
+.col-align-start {
   text-align: start;
+  margin-top: 10px;
   margin-left: 10px;
 }
-
-.col-align-end{
+.col-align-end {
   text-align: end;
 }
-
-.basic-align-main{
+.basic-align-main {
   width: 100%;
-  margin-left:-10px;
-  margin-bottom:10px;
+  margin-left: -10px;
+  margin-bottom: 10px;
 }
-.cancel-add-style{
+.cancel-add-style {
   justify-content: flex-end;
+}
+.border-bottom {
+  border-bottom: solid 1px gray;
+  margin-bottom: 10px;
 }

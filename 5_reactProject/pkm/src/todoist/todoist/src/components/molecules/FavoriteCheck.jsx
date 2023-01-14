@@ -7,7 +7,7 @@ export function FavoriteCheck({ labelName }) {
       <Container>
         <Row className="basic-align-main">
           <Col className="col-align-start">
-            <Form.Check type="switch" id="custom-switch" label={labelName}/>
+            <Form.Check type="switch" id="custom-switch" label={labelName} />
           </Col>
         </Row>
       </Container>

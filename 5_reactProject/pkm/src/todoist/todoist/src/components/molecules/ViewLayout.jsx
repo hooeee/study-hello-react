@@ -28,8 +28,8 @@ export function ViewLayout({
           <Col className="col-align-start">
             <Row>
               <Img color={color2}></Img>
-              </Row>
-              <Row>
+            </Row>
+            <Row>
               <Form.Check type="checkbox" id="check2" label={ViewLabelName2} />
             </Row>
           </Col>

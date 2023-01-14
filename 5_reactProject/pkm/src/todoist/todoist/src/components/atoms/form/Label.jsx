@@ -1,9 +1,11 @@
-import "./Label.css"
+import "./Label.css";
 
-export function Label({ labelName,labelStyle }) {
+export function Label({ labelName, labelStyle }) {
   return (
     <div>
-      <label htmlFor="input" className={labelStyle}>{labelName}</label>
+      <label htmlFor="input" className={labelStyle}>
+        {labelName}
+      </label>
     </div>
   );
 }

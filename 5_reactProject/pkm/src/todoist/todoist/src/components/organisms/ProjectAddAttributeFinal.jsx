@@ -1,8 +1,23 @@
 import { CancelAdd } from "../molecules/CancelAdd";
-export function ProjectAddAttributeFinal({ cancelName, addName, btnVarient, btnStyle }) {
+import { Container } from "react-bootstrap";
+export function ProjectAddAttributeFinal({
+  cancelName,
+  addName,
+  btnCancelVarient,
+  btnOkVarient,
+  btnStyle,
+}) {
   return (
     <>
-      <CancelAdd cancelName={cancelName} addName={addName} variant={btnVarient} btnStyle={btnStyle}></CancelAdd>
+    <Container>
+      <CancelAdd
+        cancelName={cancelName}
+        addName={addName}
+        cancelVariant={btnCancelVarient}
+        okVariant={btnOkVarient}
+        btnStyle={btnStyle}
+      ></CancelAdd>
+      </Container>
     </>
   );
 }
