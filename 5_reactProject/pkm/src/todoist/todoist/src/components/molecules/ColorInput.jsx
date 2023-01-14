@@ -1,7 +1,7 @@
 import { Label } from "./../atoms/form/Label";
 import { Selector } from "./../atoms/form/Selector";
 import { Container, Row, Col } from "react-bootstrap";
-export function ColorInput({ labelName, labelStyle,items, selectStyle }) {
+export function ColorInput({ labelName, labelStyle, items, selectStyle }) {
   return (
     <>
       <Container>

@@ -1,5 +1,6 @@
 import { ProjectAddTemplate } from "../templates/ProjectAddTemplate";
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
+import {BsCircle} from "react-icons/bs"
 export function ProjectAddPage({
   labelMainName,
   btnName,
@@ -17,10 +18,13 @@ export function ProjectAddPage({
   cancelName,
   addName
 }) {
+  const color = <Circle color={"blue"}/>
+
   const item = [
-    { value: "chocolate", label: "🍎 red" },
-    { value: "strawberry", label: "🥏 blue" },
-    { value: "vanilla", label: "🍯 yellow" },
+    { value: "베리레드", label: "🔴 베리 레드"},
+    { value: "레드", label: "🔴 레드" },
+    { value: "오렌지", label: "🟠 오렌지" },
+    { value: "올리브그린", label: "🟢 올리브 그린" },
   ];
   return (
     <>
@@ -32,8 +36,8 @@ export function ProjectAddPage({
         FavoriteLabelName={"즐겨찾기에 추가"}
         items={item}
         ViewName={"보기"}
-        color1={"red"}
-        color2={"blue"}
+        color1={"list-img "}
+        color2={"border-img "}
         ViewLabelName1={"목록"}
         ViewLabelName2={"보드"}
         DetaillabelName1={
@@ -45,4 +49,10 @@ export function ProjectAddPage({
       ></ProjectAddTemplate>
     </>
   );
+}
+
+export function Circle({color}){
+  return(
+    <div style={{"width":"15px", "height":"15px", "border-radius":"50%", "background":color}}></div>
+  )
 }

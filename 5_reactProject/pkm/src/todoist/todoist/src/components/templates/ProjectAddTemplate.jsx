@@ -58,6 +58,8 @@ export function ProjectAddTemplate({
           cancelName={cancelName}
           addName={addName}
           btnStyle={"btn-font-main"}
+          btnCancelVarient={"light"}
+          btnOkVarient={"danger"}
           btnVarient={"outline-secondary"}
         ></ProjectAddAttributeFinal>
       </Stack>

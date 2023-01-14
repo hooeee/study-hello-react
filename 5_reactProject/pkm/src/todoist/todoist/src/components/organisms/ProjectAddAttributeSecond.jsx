@@ -1,4 +1,4 @@
-import { Stack } from "react-bootstrap";
+import { Stack,Container } from "react-bootstrap";
 import { ViewLayout } from "../molecules/ViewLayout";
 import { DetailLabel } from "../molecules/DetailLabel";
 export function ProjectAddAttributeSecond({
@@ -11,10 +11,11 @@ export function ProjectAddAttributeSecond({
   DetaillabelName1,
   DetaillabelName2,
   DetailLabelStyle1,
-  DetailLabelStyle2
+  DetailLabelStyle2,
 }) {
   return (
     <>
+    <Container className="border-bottom">
       <Stack>
         <ViewLayout
           ViewName={ViewName}
@@ -31,6 +32,7 @@ export function ProjectAddAttributeSecond({
           labelStyle2={DetailLabelStyle2}
         ></DetailLabel>
       </Stack>
+      </Container>
     </>
   );
 }

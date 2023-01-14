@@ -1,4 +1,4 @@
-import { Stack } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import { NameInput } from "./../molecules/NameInput";
 import { ColorInput } from "../molecules/ColorInput";
 import { FavoriteCheck } from "../molecules/FavoriteCheck";
@@ -15,11 +15,22 @@ export function ProjectAddAttributeFirst({
 }) {
   return (
     <>
+    <Container>
       <Stack>
-        <NameInput labelName={NameLabelName} labelStyle={NameLabelStyle} inputStyle={NameInputStyle}></NameInput>
-        <ColorInput labelName={ColorLabelName} items={items} labelStyle={ColorLabelStyle} selectStyle={ColorSelectStyle}></ColorInput>
+        <NameInput
+          labelName={NameLabelName}
+          labelStyle={NameLabelStyle}
+          inputStyle={NameInputStyle}
+        ></NameInput>
+        <ColorInput
+          labelName={ColorLabelName}
+          items={items}
+          labelStyle={ColorLabelStyle}
+          selectStyle={ColorSelectStyle}
+        ></ColorInput>
         <FavoriteCheck labelName={FavoriteLabelName}></FavoriteCheck>
       </Stack>
+      </Container>
     </>
   );
 }
