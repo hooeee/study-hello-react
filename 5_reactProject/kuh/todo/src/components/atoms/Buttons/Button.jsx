@@ -1,6 +1,7 @@
-import { default as BootButton}  from 'react-bootstrap/Button';
+import css from './Button.module.css'
 
-
-export function Button({title, variant = 'light'}){
-    return (<BootButton variant={variant}>{title}</BootButton>)
+export function Button({link, children}){
+    return (
+        <button className={css.button}>{children}</button>
+    )
 }

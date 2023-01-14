@@ -1,3 +1,8 @@
-export function GoogleIcon({iconName}){
-    return (<span class="material-symbols-outlined">{iconName}</span>)
+
+
+export function GoogleIcon({iconName , color = 'white', size = 16}){
+    const sizeStd = size + 'px'
+    return (
+    <span class="material-symbols-outlined" 
+        style={{fontSize:sizeStd, color : color}}>{iconName}</span>)
 }
