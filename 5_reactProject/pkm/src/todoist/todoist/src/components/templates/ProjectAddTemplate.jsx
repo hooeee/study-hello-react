@@ -19,6 +19,8 @@ export function ProjectAddTemplate({
   DetaillabelName2,
   cancelName,
   addName,
+  btnStyle,
+  btnVarient,
 }) {
   return (
     <>
@@ -26,6 +28,8 @@ export function ProjectAddTemplate({
         <ProjectAddTitle
           labelMainName={labelMainName}
           btnName={btnName}
+          btnStyle={btnStyle}
+          btnVarient={btnVarient}
         ></ProjectAddTitle>
         <ProjectAddAttributeFirst
           NameLabelName={NameLabelName}
