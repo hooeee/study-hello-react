@@ -8,23 +8,28 @@ export function ViewLayout({
   color2,
   ViewLabelName1,
   ViewLabelName2,
+  labelStyle,
 }) {
   return (
     <>
       <Container>
         <Row>
-          <Label labelName={ViewName}></Label>
+          <Label labelName={ViewName} labelStyle={labelStyle}></Label>
         </Row>
         <Row>
-          <Col>
+          <Col className="col-align-start">
             <Row>
               <Img color={color1}></Img>
+            </Row>
+            <Row>
               <Form.Check type="checkbox" id="check1" label={ViewLabelName1} />
             </Row>
           </Col>
-          <Col>
+          <Col className="col-align-start">
             <Row>
               <Img color={color2}></Img>
+              </Row>
+              <Row>
               <Form.Check type="checkbox" id="check2" label={ViewLabelName2} />
             </Row>
           </Col>

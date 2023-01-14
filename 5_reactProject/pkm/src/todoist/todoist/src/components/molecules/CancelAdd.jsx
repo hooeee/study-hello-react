@@ -1,15 +1,15 @@
 import { Button } from "../atoms/form/Button";
-import { Container, Row, Col } from "react-bootstrap";
-export function CancelAdd({ cancelName, addName }) {
+import {Stack, Container, Row, Col } from "react-bootstrap";
+export function CancelAdd({variant, btnStyle, cancelName, addName }) {
   return (
     <>
       <Container>
         <Row>
-          <Col>
-            <Button btnName={cancelName}></Button>
-          </Col>
-          <Col>
-            <Button btnName={addName}></Button>
+          <Col className="col-align-end">
+            <Stack direction="horizontal" gap={2} className="cancel-add-style">
+            <Button variant={variant} className={btnStyle} btnName={cancelName}></Button>
+            <Button  variant={variant} className={btnStyle} btnName={addName}></Button>
+            </Stack>
           </Col>
         </Row>
       </Container>

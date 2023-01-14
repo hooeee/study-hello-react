@@ -49,6 +49,9 @@
 
 .basic-align-main{
   width: 100%;
-  margin-left:26px;
+  margin-left:-10px;
   margin-bottom:10px;
+}
+.cancel-add-style{
+  justify-content: flex-end;
 }

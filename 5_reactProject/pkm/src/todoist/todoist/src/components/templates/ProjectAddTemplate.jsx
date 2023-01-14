@@ -17,6 +17,8 @@ export function ProjectAddTemplate({
   ViewLabelName2,
   DetaillabelName1,
   DetaillabelName2,
+  DetailLabelStyle1,
+  DetailLabelStyle2,
   cancelName,
   addName,
 }) {
@@ -39,20 +41,24 @@ export function ProjectAddTemplate({
           ColorSelectStyle={"select-main"}
           FavoriteLabelName={FavoriteLabelName}
           items={items}
-          
         ></ProjectAddAttributeFirst>
         <ProjectAddAttributeSecond
           ViewName={ViewName}
+          ViewLabelStyle={"subTitle-font-main"}
           color1={color1}
           color2={color2}
           ViewLabelName1={ViewLabelName1}
           ViewLabelName2={ViewLabelName2}
           DetaillabelName1={DetaillabelName1}
           DetaillabelName2={DetaillabelName2}
+          DetailLabelStyle1={"basic-font-style"}
+          DetailLabelStyle2={"basic-font-style red-font"}
         ></ProjectAddAttributeSecond>
         <ProjectAddAttributeFinal
           cancelName={cancelName}
           addName={addName}
+          btnStyle={"btn-font-main"}
+          btnVarient={"outline-secondary"}
         ></ProjectAddAttributeFinal>
       </Stack>
     </>
