@@ -1,0 +1,25 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: beige;
+    position: absolute;
+    left: 0;
+    transform: translateX(0%);
+    transition: all 0.4s ease-in-out;
+}
+
+.collapse {
+    transform: translateX(0%);
+}
+
+.sidebar ul li {
+    list-style: none;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(247, 218, 218);
+}
+
+.sidebar ul li:hover {
+    background-color: rgb(252, 196, 196);
+    color: rgb(220, 251, 44);
+}
