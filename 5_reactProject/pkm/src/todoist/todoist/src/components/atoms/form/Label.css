@@ -1,0 +1,12 @@
+.title-font-main{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+.subTitle-font-main{
+    display: flex;
+    font-size:15px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+}

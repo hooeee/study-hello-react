@@ -1,7 +1,8 @@
-export function Input() {
+import "./Input.css"
+export function Input({inputStyle}) {
   return (
     <>
-      <input></input>
+      <input className={"input-main"}></input>
     </>
   );
 }

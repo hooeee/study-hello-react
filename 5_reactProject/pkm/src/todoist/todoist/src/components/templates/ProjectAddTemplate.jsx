@@ -19,23 +19,27 @@ export function ProjectAddTemplate({
   DetaillabelName2,
   cancelName,
   addName,
-  btnStyle,
-  btnVarient,
 }) {
   return (
     <>
       <Stack>
         <ProjectAddTitle
           labelMainName={labelMainName}
+          labelStyle={"title-font-main"}
           btnName={btnName}
-          btnStyle={btnStyle}
-          btnVarient={btnVarient}
+          btnStyle={"btn-font-main"}
+          btnVarient={"out-line"}
         ></ProjectAddTitle>
         <ProjectAddAttributeFirst
           NameLabelName={NameLabelName}
+          NameLabelStyle={"subTitle-font-main"}
+          NameInputStyle={"input-main"}
           ColorLabelName={ColorLabelName}
+          ColorLabelStyle={"subTitle-font-main"}
+          ColorSelectStyle={"select-main"}
           FavoriteLabelName={FavoriteLabelName}
           items={items}
+          
         ></ProjectAddAttributeFirst>
         <ProjectAddAttributeSecond
           ViewName={ViewName}

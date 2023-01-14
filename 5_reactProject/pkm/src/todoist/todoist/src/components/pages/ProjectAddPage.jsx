@@ -1,5 +1,5 @@
 import { ProjectAddTemplate } from "../templates/ProjectAddTemplate";
-
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
 export function ProjectAddPage({
   labelMainName,
   btnName,
@@ -15,9 +15,7 @@ export function ProjectAddPage({
   DetaillabelName1,
   DetaillabelName2,
   cancelName,
-  addName,
-  btnStyle,
-  btnVarient,
+  addName
 }) {
   const item = [
     { value: "chocolate", label: "🍎 red" },
@@ -28,9 +26,7 @@ export function ProjectAddPage({
     <>
       <ProjectAddTemplate
         labelMainName={"프로젝트 추가"}
-        btnName={"®"}
-        btnStyle={"out-line"}
-        btnVarient={"out-lines"}
+        btnName={<AiOutlineQuestionCircle/>}
         NameLabelName={"이름"}
         ColorLabelName={"색상"}
         FavoriteLabelName={"즐겨찾기에 추가"}

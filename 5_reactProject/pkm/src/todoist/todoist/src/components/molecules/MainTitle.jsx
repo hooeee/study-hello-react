@@ -1,15 +1,15 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Label } from "../atoms/form/Label";
 import { Button } from "../atoms/form/Button";
-export function MainTitle({ labelName, btnName, btnStyle, btnVarient }) {
+export function MainTitle({ labelName, labelStyle, btnName, btnStyle, btnVarient }) {
   return (
     <>
       <Container>
         <Row>
-          <Col sm={0}>
-            <Label labelName={labelName}></Label>
+          <Col className="col-align-start">
+            <Label labelName={labelName} labelStyle={labelStyle}></Label>
           </Col>
-          <Col sm={0}>
+          <Col className="col-align-end">
             <Button btnName={btnName} variant={btnVarient} btnStyle={btnStyle}></Button>
           </Col>
         </Row>
