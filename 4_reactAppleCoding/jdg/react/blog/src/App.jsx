@@ -32,7 +32,7 @@ function App() {
       title: "파이썬 독학",
       likeCount: 0,
       date: new Date().toLocaleString(),
-    }
+    },
   ]);
 
   const [sortText, setSortText] = useState("가나다순 정렬");
@@ -56,15 +56,14 @@ function App() {
     setGender(gender);
 
     let changedSubject = gender + " 코트 추천";
-    subject.find(x => x.id == currentModalID).title = changedSubject;
+    subject.find((x) => x.id == currentModalID).title = changedSubject;
     setClickSubject(changedSubject);
   }
 
   function handleSortButtonClick() {
     if (sortText === "가나다순 정렬") {
       setSortText("원래대로");
-    }
-    else {
+    } else {
       setSortText("가나다순 정렬");
     }
 
@@ -74,8 +73,7 @@ function App() {
         if (x.title < y.title) return -1;
         else if (x.title > y.title) return 1;
         else return 0;
-      }
-      else {
+      } else {
         if (x.id < y.id) return -1;
         else if (x.id > y.id) return 0;
         else return 0;
@@ -85,12 +83,11 @@ function App() {
   }
 
   function handleSubjectClick({ id, title }) {
-    setCurrentModalID(id)
+    setCurrentModalID(id);
 
     if (modal && id !== currentModalID) {
       setModal(true);
-    }
-    else {
+    } else {
       setModal(!modal);
     }
 
@@ -98,8 +95,7 @@ function App() {
 
     if (id == 0) {
       setGenderButton(true);
-    }
-    else {
+    } else {
       setGenderButton(false);
     }
   }
@@ -127,7 +123,7 @@ function App() {
 
   function handleFilterSubject(e) {
     let id = e.target.parentElement.children[0].id;
-    let filter = subject.filter(x => x.id != id);
+    let filter = subject.filter((x) => x.id != id);
     setSubject(filter);
   }
 
@@ -142,7 +138,8 @@ function App() {
       {subject.map(function (post, i) {
         return (
           <div className="list" key={i}>
-            <h4 id={post.id}
+            <h4
+              id={post.id}
               onClick={() => {
                 handleSubjectClick(post);
               }}
@@ -158,23 +155,35 @@ function App() {
               {post.likeCount}
             </h4>
             <p>{post.date}</p>
-            <button onClick={(e) => {
-              handleFilterSubject(e);
-            }}>글 삭제</button>
+            <button
+              onClick={(e) => {
+                handleFilterSubject(e);
+              }}
+            >
+              글 삭제
+            </button>
           </div>
         );
       })}
 
-      <input onChange={(e) => { setInputValue(e.target.value); }}
-        value={inputValue}></input>
-      <button onClick={() => {
-        handlePushSubject();
-        setInputValue("");
-      }}>글 발행</button>
+      <input
+        onChange={(e) => {
+          setInputValue(e.target.value);
+        }}
+        value={inputValue}
+      ></input>
+      <button
+        onClick={() => {
+          handlePushSubject();
+          setInputValue("");
+        }}
+      >
+        글 발행
+      </button>
 
       {modal === true ? (
         <Modal
-          currentModalID={subject.find(x => x.title === clickSubject).id}
+          currentModalID={subject.find((x) => x.title === clickSubject).id}
           setSubjectGender={setSubjectGender}
           clickSubject={clickSubject}
           isGenderButton={isGenderButton}
@@ -184,18 +193,22 @@ function App() {
   );
 }
 
-function Modal({ currentModalID, setSubjectGender, clickSubject, isGenderButton }) {
+function Modal({
+  currentModalID,
+  setSubjectGender,
+  clickSubject,
+  isGenderButton,
+}) {
   return (
     <div className="modal">
       <h4 className={currentModalID}>{clickSubject}</h4>
       <p>날짜</p>
       <p>상세내용</p>
-      {isGenderButton &&
+      {isGenderButton && (
         <button button onClick={setSubjectGender}>
           성별수정
         </button>
-      }
-
+      )}
     </div>
   );
 }
