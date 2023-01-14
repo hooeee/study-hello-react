@@ -1,4 +1,4 @@
-import { Button_k } from "../atoms/form/Button_k";
+import { Button } from "../atoms/form/Button";
 import { Container, Row, Col } from "react-bootstrap";
 export function CancelAdd({ cancelName, addName }) {
   return (
@@ -6,10 +6,10 @@ export function CancelAdd({ cancelName, addName }) {
       <Container>
         <Row>
           <Col>
-            <Button_k btnName={cancelName}></Button_k>
+            <Button btnName={cancelName}></Button>
           </Col>
           <Col>
-            <Button_k btnName={addName}></Button_k>
+            <Button btnName={addName}></Button>
           </Col>
         </Row>
       </Container>
