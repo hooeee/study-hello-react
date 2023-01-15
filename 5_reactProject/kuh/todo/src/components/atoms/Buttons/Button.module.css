@@ -15,5 +15,5 @@
     padding-left: 30px;
 }
 .button:hover{
-    background: #f9f9f980;
+    background: rgba(238, 238, 238, 0.425);
 }

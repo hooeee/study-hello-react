@@ -1,5 +1,5 @@
 import css from './Header.module.css'
-import { Button } from 'components/atoms/Buttons/Button'
+import { Button } from 'components/atoms/buttons/Button'
 import { GoogleIcon } from 'components/atoms/icon/GoogleIcon'
 
 export function Header(){
