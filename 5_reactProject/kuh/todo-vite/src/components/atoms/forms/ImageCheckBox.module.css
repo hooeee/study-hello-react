@@ -1,0 +1,14 @@
+.image{
+    background-repeat: no-repeat !important;
+    width: 200px;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    height: 154px;
+    background-position: center center !important;
+    background-size: contain !important;
+}
+
+.image:hover{
+    border: 1px solid black;
+}

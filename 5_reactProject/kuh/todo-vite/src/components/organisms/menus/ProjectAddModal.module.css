@@ -1,0 +1,6 @@
+.radioSection{
+    display: inline-block;
+}
+.radioSection:first-child{
+    margin-right: 5px;
+}

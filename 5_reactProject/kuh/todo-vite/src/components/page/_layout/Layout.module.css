@@ -1,0 +1,12 @@
+.contenxt{
+    display: flex;
+    height: calc(100vh - 44px);
+}
+.left{
+    width: 305px;
+    height: 100%;
+}
+.right{
+    flex: 1;
+    height: 100%;
+}
