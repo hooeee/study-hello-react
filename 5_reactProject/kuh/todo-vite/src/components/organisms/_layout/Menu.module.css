@@ -3,3 +3,17 @@
     padding: 30px 18px 0px 18px;
     height: calc(100% - 30px);
 }
+
+.splider{
+    height: 14px;
+}
+
+.projectContainer {
+    height: calc(100vh - 450px);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.hide {
+    height: 0;
+}

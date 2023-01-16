@@ -14,7 +14,7 @@ export function Header(){
             </div>
             <div>
                 <Button><GoogleIcon size={iconSize} iconName={'add'} /></Button>
-                <Button><GoogleIcon size={iconSize} iconName={'data_exploration'} /> <span>0/5</span></Button>
+                <Button><GoogleIcon size={iconSize} iconName={'data_exploration'} /><span style={{fontSize:'12px', color: 'white'}}>0/5</span></Button>
                 <Button><GoogleIcon size={iconSize} iconName={'help'} /></Button>
                 <Button><GoogleIcon size={iconSize} iconName={'notifications'} /></Button>
             </div>
