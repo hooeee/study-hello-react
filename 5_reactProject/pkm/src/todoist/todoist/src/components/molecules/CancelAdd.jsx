@@ -6,6 +6,8 @@ export function CancelAdd({
   btnStyle,
   cancelName,
   addName,
+  onClickCancel,
+  onClickOk
 }) {
   return (
     <>
@@ -17,11 +19,13 @@ export function CancelAdd({
                 variant={cancelVariant}
                 className={btnStyle}
                 btnName={cancelName}
+                onClickBtn={onClickCancel}
               ></Button>
               <Button
                 variant={okVariant}
                 className={btnStyle}
                 btnName={addName}
+                onClickBtn={onClickOk}
               ></Button>
             </Stack>
           </Col>

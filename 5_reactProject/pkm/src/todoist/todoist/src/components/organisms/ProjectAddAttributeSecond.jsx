@@ -6,12 +6,18 @@ export function ProjectAddAttributeSecond({
   ViewLabelStyle,
   color1,
   color2,
+  checkboxId1,
+  checkboxId2,
   ViewLabelName1,
   ViewLabelName2,
+  checkedFlag1,
+  checkedFlag2,
   DetaillabelName1,
   DetaillabelName2,
   DetailLabelStyle1,
   DetailLabelStyle2,
+  changeChecked1,
+  changeChecked2,
 }) {
   return (
     <>
@@ -24,6 +30,12 @@ export function ProjectAddAttributeSecond({
           color2={color2}
           ViewLabelName1={ViewLabelName1}
           ViewLabelName2={ViewLabelName2}
+          checkboxId1={checkboxId1}
+          checkboxId2={checkboxId2}
+          checkedFlag1={checkedFlag1}
+          checkedFlag2={checkedFlag2}
+          changeChecked1={changeChecked1}
+          changeChecked2={changeChecked2}
         ></ViewLayout>
         <DetailLabel
           DetaillabelName1={DetaillabelName1}

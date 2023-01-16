@@ -6,17 +6,22 @@ export function ProjectAddAttributeFinal({
   btnCancelVarient,
   btnOkVarient,
   btnStyle,
+  onClickCancel,
+  onClickOk,
 }) {
   return (
     <>
-    <Container>
-      <CancelAdd
-        cancelName={cancelName}
-        addName={addName}
-        cancelVariant={btnCancelVarient}
-        okVariant={btnOkVarient}
-        btnStyle={btnStyle}
-      ></CancelAdd>
+
+      <Container>
+        <CancelAdd
+          cancelName={cancelName}
+          addName={addName}
+          cancelVariant={btnCancelVarient}
+          okVariant={btnOkVarient}
+          btnStyle={btnStyle}
+          onClickCancel={onClickCancel}
+          onClickOk={onClickOk}
+        ></CancelAdd>
       </Container>
     </>
   );
