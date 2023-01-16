@@ -1,5 +1,3 @@
-
-
 export function GoogleIcon({iconName , color = 'white', size = 16}){
     const sizeStd = size + 'px'
     return (
