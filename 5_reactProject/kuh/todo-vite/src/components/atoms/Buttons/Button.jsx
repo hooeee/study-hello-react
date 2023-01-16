@@ -2,7 +2,7 @@ import css from './Button.module.css'
 
 export function Button({link , full=false, children, onHover, onOut}){
     const style = { 
-        display : full ? 'flex' : 'inline',
+        display : full ? 'flex' : 'inline-flex',
         width : full ? '100%' : '',
         alignItems: 'center',
         justifyContent: 'space-between'
