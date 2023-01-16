@@ -11,25 +11,27 @@ export function ProjectAddAttributeFirst({
   ColorLabelStyle,
   ColorSelectStyle,
   FavoriteLabelName,
-  items,
+  onChangeNameInputData,
+  selectedColor,
 }) {
   return (
     <>
-    <Container>
-      <Stack>
-        <NameInput
-          labelName={NameLabelName}
-          labelStyle={NameLabelStyle}
-          inputStyle={NameInputStyle}
-        ></NameInput>
-        <ColorInput
-          labelName={ColorLabelName}
-          items={items}
-          labelStyle={ColorLabelStyle}
-          selectStyle={ColorSelectStyle}
-        ></ColorInput>
-        <FavoriteCheck labelName={FavoriteLabelName}></FavoriteCheck>
-      </Stack>
+      <Container>
+        <Stack>
+          <NameInput
+            labelName={NameLabelName}
+            labelStyle={NameLabelStyle}
+            inputStyle={NameInputStyle}
+            changeInputData={onChangeNameInputData}
+          ></NameInput>
+          <ColorInput
+            labelName={ColorLabelName}
+            labelStyle={ColorLabelStyle}
+            selectStyle={ColorSelectStyle}
+            selectedColor={selectedColor}
+          ></ColorInput>
+          <FavoriteCheck labelName={FavoriteLabelName}></FavoriteCheck>
+        </Stack>
       </Container>
     </>
   );

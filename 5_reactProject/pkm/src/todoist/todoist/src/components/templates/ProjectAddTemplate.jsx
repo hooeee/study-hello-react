@@ -3,24 +3,28 @@ import { ProjectAddTitle } from "./../organisms/ProjectAddTitle";
 import { ProjectAddAttributeFirst } from "../organisms/ProjectAddAttributeFirst";
 import { ProjectAddAttributeSecond } from "../organisms/ProjectAddAttributeSecond";
 import { ProjectAddAttributeFinal } from "../organisms/ProjectAddAttributeFinal";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+
 export function ProjectAddTemplate({
   labelMainName,
-  btnName,
+  onChangeInput,
   NameLabelName,
   ColorLabelName,
   FavoriteLabelName,
-  items,
+  selectedColor,
   ViewName,
-  color1,
-  color2,
   ViewLabelName1,
   ViewLabelName2,
+  checkedFlag1,
+  checkedFlag2,
   DetaillabelName1,
   DetaillabelName2,
-  DetailLabelStyle1,
-  DetailLabelStyle2,
   cancelName,
   addName,
+  onClickCancel,
+  onClickOk,
+  changeChecked1,
+  changeChecked2,
 }) {
   return (
     <>
@@ -28,27 +32,34 @@ export function ProjectAddTemplate({
         <ProjectAddTitle
           labelMainName={labelMainName}
           labelStyle={"title-font-main"}
-          btnName={btnName}
+          btnName={<AiOutlineQuestionCircle />}
           btnStyle={"btn-font-main"}
           btnVarient={"out-line"}
         ></ProjectAddTitle>
         <ProjectAddAttributeFirst
           NameLabelName={NameLabelName}
+          onChangeNameInputData={onChangeInput}
           NameLabelStyle={"subTitle-font-main"}
           NameInputStyle={"input-main"}
           ColorLabelName={ColorLabelName}
           ColorLabelStyle={"subTitle-font-main"}
           ColorSelectStyle={"select-main"}
           FavoriteLabelName={FavoriteLabelName}
-          items={items}
+          selectedColor={selectedColor}
         ></ProjectAddAttributeFirst>
         <ProjectAddAttributeSecond
           ViewName={ViewName}
           ViewLabelStyle={"subTitle-font-main"}
-          color1={color1}
-          color2={color2}
+          color1={"list-img"}
+          color2={"border-img"}
           ViewLabelName1={ViewLabelName1}
           ViewLabelName2={ViewLabelName2}
+          checkboxId={1}
+          checkboxId2={2}
+          checkedFlag1={checkedFlag1}
+          checkedFlag2={checkedFlag2}
+          changeChecked1={changeChecked1}
+          changeChecked2={changeChecked2}
           DetaillabelName1={DetaillabelName1}
           DetaillabelName2={DetaillabelName2}
           DetailLabelStyle1={"basic-font-style"}
@@ -61,6 +72,8 @@ export function ProjectAddTemplate({
           btnCancelVarient={"light"}
           btnOkVarient={"danger"}
           btnVarient={"outline-secondary"}
+          onClickCancel={onClickCancel}
+          onClickOk={onClickOk}
         ></ProjectAddAttributeFinal>
       </Stack>
     </>

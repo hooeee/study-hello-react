@@ -11,3 +11,9 @@ npm i --save react-select
 ```js
 npm install react-icons --save
 ```
+
+
+## 리덕스
+```js
+npm install @reduxjs/toolkit react-redux 
+```
