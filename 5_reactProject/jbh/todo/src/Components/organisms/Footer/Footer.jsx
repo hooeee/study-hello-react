@@ -1,10 +1,10 @@
-import "./Footer.css";
+import style from "./Footer.module.css";
 
 export default function Footer() {
     return (
-        <footer className="{footer}">
-            <div className="{contents}">
-                <h2 className="{title">하...인생....</h2>
+        <footer className={style.footer}>
+            <div className={style.contents}>
+                <h2 className={style.title}>하...인생....</h2>
             </div>
         </footer>
     );
