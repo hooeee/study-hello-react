@@ -7,9 +7,9 @@ export function MenuItem({iconName, iconColor, link, children, count}){
         <Button full={true}>
             <span className={css.context + ' ' + css.fontsize24}  >
                 <GoogleIcon color={iconColor} iconName={iconName} size={22}/>
-                <sapn>{children}</sapn>
+                <span>{children}</span>
             </span>
-            <sapn className={css.count}>{count}</sapn>
+            <span className={css.count}>{count}</span>
         </Button>
     )
 }

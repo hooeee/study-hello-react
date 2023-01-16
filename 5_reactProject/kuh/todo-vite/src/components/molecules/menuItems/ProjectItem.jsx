@@ -14,9 +14,9 @@ export function ProjectItem({iconColor = '#f0f', link, children, count}){
                 <span className={css.circleArea}>
                     <span className={css.circle} style={iconColorStyle}></span>
                 </span>
-                <sapn>{children}</sapn>
+                <span>{children}</span>
             </span>
-            <sapn>{count}</sapn>
+            <span>{count}</span>
         </Button>
     )
 }
