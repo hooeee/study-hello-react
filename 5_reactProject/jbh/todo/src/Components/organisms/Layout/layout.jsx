@@ -1,24 +1,23 @@
 import { useState } from "react";
 import Header from "../Header/Header";
+import CreateProjectModal from "../Modals/CreateProjectModal";
 import SideBar from "../SideBar/SideBar";
-import "./layout.css";
+import style from "./layout.module.css";
 
 export default function Layout(props) {
     const [open, setOpen] = useState(false);
-    const [over, setOver] = useState(false);
     const hamburgerMenuClick = () => {
         setOpen(!open);
     };
-    const mouseHover = () => {
-        console.log("hover..");
-        setOver(!over);
-    };
     return (
-        <div className="layout">
+        <div className={style.loyout}>
             <Header hamberClick={hamburgerMenuClick} />
-            <SideBar open={open} over={over} mouseHover={mouseHover} />
+            <div className={`${style.sidebar} ${open ? style.collapse_test : ""}`}>
+                <SideBar />
+            </div>
 
             <main className="main">{props.children}</main>
+            <CreateProjectModal />
         </div>
     );
 }

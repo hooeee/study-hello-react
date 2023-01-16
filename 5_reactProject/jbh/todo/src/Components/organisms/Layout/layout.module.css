@@ -1,0 +1,13 @@
+.sidebar {
+    width: 250px;
+    height: calc(100vh - 40px);
+    background-color: rgb(247, 247, 247);
+    position: absolute;
+    left: 0;
+    transform: translateX(0%);
+    transition: all 0.4s ease-in-out;
+}
+
+.collapse_test {
+    transform: translateX(-100%);
+}

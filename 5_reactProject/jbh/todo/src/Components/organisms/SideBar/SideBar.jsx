@@ -1,11 +1,13 @@
-import "./SideBar.css";
+import style from "./SideBar.module.css";
 import IconButton from "../../molecules/iconbutton/IconButton";
 import { AiFillAppstore, AiFillCalendar, AiOutlineBorderTop, AiFillFilter, AiOutlinePlus, AiOutlineLeft } from "react-icons/ai";
+import { useState } from "react";
 
-export default function SideBar({ open, over, mouseHover }) {
+export default function SideBar() {
+    const [over, setOver] = useState(false);
     return (
         <div>
-            <div className={`sidebar ${open ? `collapse` : ""}`}>
+            <div className={style.sidebar}>
                 <ul>
                     <li>
                         <AiFillAppstore />
@@ -24,9 +26,17 @@ export default function SideBar({ open, over, mouseHover }) {
                         필터 & 라벨
                     </li>
                     <li>
-                        <div className="project-group" onMouseOver={mouseHover}>
+                        <div
+                            className={style.projectGroup}
+                            onMouseOver={() => {
+                                setOver(true);
+                            }}
+                            onMouseOut={() => {
+                                setOver(false);
+                            }}
+                        >
                             <span>프로젝트</span>
-                            <div className={`hover ${over ? `visible` : ""}`}>
+                            <div className={over ? style.visible : style.hide}>
                                 <IconButton buttonName={<AiOutlinePlus />} />
                                 <IconButton buttonName={<AiOutlineLeft />} />
                             </div>
