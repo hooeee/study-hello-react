@@ -1,0 +1,38 @@
+.selectredArea{
+    display: flex;
+     width : 100%;
+     background: none !important;
+     color: #212529 !important;
+     border: 1px solid #ced4da !important;
+    /* background: none */
+}
+.selectredArea::after{
+    display: none;
+}
+
+.selectorItemContainer{
+    width: 100%;
+    padding: 0px;
+}
+
+
+.selectorItemBox{
+    display: block ; width : 100%;
+    padding: 5px 0px 5px 6px;
+}
+
+
+.colorItemContainer{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.colorCircle{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin-right: 8px;
+    border-radius: 100%;
+}

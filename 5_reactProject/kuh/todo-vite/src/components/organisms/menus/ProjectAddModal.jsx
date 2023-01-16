@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Window } from 'components/atoms/modals/Window' 
 import { ImageCheckBox } from 'components/atoms/forms/ImageCheckBox';
+import { ColorSelector } from 'components/molecules/forms/ColorSelector';
 import css from './ProjectAddModal.module.css';
 
 
@@ -19,20 +20,9 @@ function ProjectAddFrom (){
         <Form.Label className={css.label}>이름</Form.Label>
         <Form.Control size="sm" />
       </Form.Group>
-
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className={css.label}>색상</Form.Label>
-        <Form.Select aria-label="Default select example" size="sm">
-          <option>Open this select menu</option>
-          <option value="1">
-            <div>
-              <span>123</span>
-              <span>Ddd</span>
-            </div>
-          </option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </Form.Select>
+        <ColorSelector/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
