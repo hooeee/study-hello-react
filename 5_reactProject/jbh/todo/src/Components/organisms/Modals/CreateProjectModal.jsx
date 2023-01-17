@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SelectBox from "../../molecules/selectboxs/SelectBox";
 import style from "./CreateProjectModal.module.css";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 export default function CreateProjectModal() {
     return (
@@ -11,6 +12,16 @@ export default function CreateProjectModal() {
             </div>
             <div>색상</div>
             <SelectBox />
+            <div className={style.switchButton}>
+                <BootstrapSwitchButton checked={true} onstyle="success" width={50} height={20} />
+                <div>즐겨찾기에 추가</div>
+            </div>
+            <div>
+                <span>보기는 공유 프로젝트에서 팀 멤버들 간에 동기화됩니다.</span>
+                <a href="https://todoist.com/ko/help/articles/how-to-use-board-view" target="_blank" className={style.link}>
+                    자세히 알아보기
+                </a>
+            </div>
         </div>
     );
 }

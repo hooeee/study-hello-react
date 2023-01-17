@@ -1,21 +1,22 @@
-.select {
-    margin: 0;
-    min-width: 0;
-    display: block;
-    width: 300px;
-    padding: 8px 8px;
-    font-size: inherit;
-    line-height: inherit;
-    border: 1px solid;
-    border-radius: 4px;
-    color: inherit;
-    background-color: transparent;
-}
-
 .circle {
     display: flex;
     width: 15px;
     height: 15px;
-    background-color: green;
     border-radius: 50%;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-indent: 10px;
+}
+
+.dropdown {
+    display: flex;
+    width: 300px;
+}
+
+.dropdownMenu {
+    width: 300px;
 }
