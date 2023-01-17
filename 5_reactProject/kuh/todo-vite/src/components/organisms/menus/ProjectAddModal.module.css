@@ -1,29 +1,28 @@
-.radioSection{
-    display: inline-block;
+.radioSection {
+	display: inline-block;
 }
-.radioSection:first-child{
-    margin-right: 5px;
-}
-
-.checkBoxLabel{
-    font-size: 14px;
+.radioSection:first-child {
+	margin-right: 5px;
 }
 
-.label {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0 0 7;
+.checkBoxLabel {
+	font-size: 14px;
 }
+
 .title {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0;
 }
 
-.comment{
-    font-size: 12px;
+.comment {
+	font-size: 12px;
 }
-.commentRed{
-    font-size: 12px;
-    color: #db4c3f;
+.commentRed {
+	font-size: 12px;
+	color: #db4c3f;
+}
+button:disabled {
+	cursor: not-allowed;
+	pointer-events: all !important;
 }

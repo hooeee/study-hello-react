@@ -15,11 +15,11 @@ export function Button({ link, full = false, children, hoverBgColor = "#eeeeee6c
 		<button
 			onMouseOver={() => {
 				setHover(true);
-				onHover();
+				if (onHover) onHover();
 			}}
 			onMouseOut={() => {
 				setHover(false);
-				onOut();
+				if (onHover) onOut();
 			}}
 			className={css.button}
 			style={style}>
