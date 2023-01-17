@@ -3,7 +3,7 @@ import IconButton from "../../molecules/iconbutton/IconButton";
 import { AiFillAppstore, AiFillCalendar, AiOutlineBorderTop, AiFillFilter, AiOutlinePlus, AiOutlineLeft } from "react-icons/ai";
 import { useState } from "react";
 
-export default function SideBar() {
+export default function SideBar({ modalClick }) {
     const [over, setOver] = useState(false);
     return (
         <div>
@@ -37,7 +37,7 @@ export default function SideBar() {
                         >
                             <span>프로젝트</span>
                             <div className={over ? style.visible : style.hide}>
-                                <IconButton buttonName={<AiOutlinePlus />} />
+                                <IconButton buttonName={<AiOutlinePlus />} click={modalClick} />
                                 <IconButton buttonName={<AiOutlineLeft />} />
                             </div>
                         </div>
