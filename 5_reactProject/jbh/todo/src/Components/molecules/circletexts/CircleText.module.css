@@ -1,0 +1,13 @@
+.circle {
+    display: flex;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-indent: 10px;
+}

@@ -2,6 +2,7 @@ import style from "./SelectBox.module.css";
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useState } from "react";
+import CircleText from "../circletexts/CircleText";
 
 const colorObjectFactory = (value, name, color) => {
     return {
@@ -12,7 +13,7 @@ const colorObjectFactory = (value, name, color) => {
 };
 
 export default function SelectBox() {
-    const [name, setName] = useState(colorObjectFactory("", "", ""));
+    const [select, setSelect] = useState(colorObjectFactory("", "", ""));
     const OPTIONS = [
         colorObjectFactory("red", "베리레드", "rgb(184, 37, 111)"),
         colorObjectFactory("red", "레드", "rgb(219, 64, 53)"),
@@ -35,23 +36,24 @@ export default function SelectBox() {
         colorObjectFactory("red", "그레이", "rgb(184, 184, 184)"),
         colorObjectFactory("red", "토프", "rgb(204, 172, 147)"),
     ];
-    const change = (eventkey) => {
-        setName(colorObjectFactory("", eventkey, ""));
+    const change = (option) => {
+        setSelect({ ...option });
     };
     return (
         <div>
-            <Dropdown onSelect={change}>
+            <Dropdown>
                 <Dropdown.Toggle className={style.dropdown} id="dropdown-basic">
-                    {name.name}
+                    <CircleText color={select.color} name={select.name} />
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu className={style.dropdownMenu}>
                     {OPTIONS.map((option) => (
-                        <Dropdown.Item eventKey={option.name}>
-                            <div className={style.item}>
-                                <div className={style.circle} style={{ backgroundColor: option.color }}></div>
-                                <div>{option.name}</div>
-                            </div>
+                        <Dropdown.Item
+                            onClick={() => {
+                                change(option);
+                            }}
+                        >
+                            <CircleText color={option.color} name={option.name} />
                         </Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
