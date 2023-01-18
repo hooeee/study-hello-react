@@ -11,7 +11,6 @@ export function ProjectAddAttributeFinal({
 }) {
   return (
     <>
-
       <Container>
         <CancelAdd
           cancelName={cancelName}
