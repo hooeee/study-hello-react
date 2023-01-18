@@ -1,5 +1,4 @@
 import style from "./Header.module.css";
-import Hamburgur from "../../../images/hamburger.png";
 import IconButton from "../../molecules/iconbutton/IconButton";
 import SearchInput from "../../molecules/searchinputs/SearchInput";
 import { AiOutlineBars, AiFillHome, AiOutlinePlus, AiFillQuestionCircle, AiOutlineBell } from "react-icons/ai";

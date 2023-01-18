@@ -1,20 +1,14 @@
-.circle {
-    display: flex;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-}
-
-.item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-indent: 10px;
-}
-
 .dropdown {
     display: flex;
     width: 300px;
+    color: black !important;
+    font-weight: bold;
+    background-color: transparent !important;
+    border: 1px solid black !important;
+}
+
+.dropdown::after {
+    display: none !important;
 }
 
 .dropdownMenu {
