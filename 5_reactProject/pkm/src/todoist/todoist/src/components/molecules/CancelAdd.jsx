@@ -17,13 +17,13 @@ export function CancelAdd({
             <Stack direction="horizontal" gap={2} className="cancel-add-style">
               <Button
                 variant={cancelVariant}
-                className={btnStyle}
+                btnStyle={btnStyle}
                 btnName={cancelName}
                 onClickBtn={onClickCancel}
               ></Button>
               <Button
                 variant={okVariant}
-                className={btnStyle}
+                btnStyle={btnStyle}
                 btnName={addName}
                 onClickBtn={onClickOk}
               ></Button>
