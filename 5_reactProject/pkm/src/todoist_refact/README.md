@@ -52,3 +52,13 @@ npm install react-bootstrap bootstrap
   ```
 
   - 위와같이 추가를 하면 이렇게 사용 가능
+
+## 리액트 아이콘 | react-icons
+```sh
+ npm install react-icons --save
+```
+
+## 리액트 아이콘 | google-material-icons
+```sh
+npm install react-google-material-icons
+```
