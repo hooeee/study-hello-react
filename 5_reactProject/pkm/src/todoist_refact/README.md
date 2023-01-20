@@ -62,7 +62,7 @@ npm install react-bootstrap bootstrap
 ```sh
 npm install react-google-material-icons
 ```
-- 찾을 아이콘 종류
+- 찾은 아이콘 종류
   - home
   - menu
   - add
@@ -73,4 +73,6 @@ npm install react-google-material-icons
   - Tune
   - calendar_month
   - grid_view
-  - 
+  - inbox
+- 찾을 아이콘 종류
+  - 해당 일자에 해당하는 아이콘
