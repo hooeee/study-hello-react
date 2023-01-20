@@ -7,7 +7,7 @@ function App() {
       <IoMdPerson></IoMdPerson>
      <div onClick={()=>{
       
-     }}> <GoogleIcon color={"pink"} iconName={"menu"} size={100}></GoogleIcon>
+     }}> <GoogleIcon color={"red"} iconName={"whatshot"} size={100}></GoogleIcon>
      </div>
       <Button name={"ddd"} styCss={"style.btnSize"}></Button>
     </div>
