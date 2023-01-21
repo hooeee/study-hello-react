@@ -5,10 +5,11 @@ import { FavoriteCheck } from "./components/molecules/FavoriteCheck";
 import { ProjectAddTemplate } from "./components/templates/ProjectAddTemplate";
 import { ProjectAddPage } from "./components/pages/ProjectAddPage";
 import { Img } from "./components/atoms/form/Img";
+import Test from "./Test";
 function App() {
   return (
     <div className="App">
-      <ProjectAddPage></ProjectAddPage>
+      <Test></Test>
     </div>
   );
 }

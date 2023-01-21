@@ -6,5 +6,9 @@
 }
 
 .btn-font-main{
-  font-size: 15px;
+  font-size: 20px;
+}
+
+.btn-footer{
+  margin-bottom:10px;
 }

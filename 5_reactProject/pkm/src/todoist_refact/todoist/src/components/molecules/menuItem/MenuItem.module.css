@@ -1,0 +1,13 @@
+.MenuItemMain {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.MenuItemMain > span:nth-child(1) {
+  margin-right: 5%;
+}
+
+.MenuItemMain > span:nth-child(2) {
+    margin-right: 20%;
+}
+
