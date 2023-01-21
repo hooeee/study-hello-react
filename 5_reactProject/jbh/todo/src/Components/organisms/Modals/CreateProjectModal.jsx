@@ -2,6 +2,7 @@ import { useState } from "react";
 import SelectBox from "../../molecules/selectboxs/SelectBox";
 import style from "./CreateProjectModal.module.css";
 import Form from "react-bootstrap/Form";
+import SwitchButton from "../../atoms/forms/SwitchButton";
 
 export default function CreateProjectModal() {
     return (
@@ -13,8 +14,21 @@ export default function CreateProjectModal() {
             <div>색상</div>
             <SelectBox />
             <div className={style.switchButton}>
+                <SwitchButton label={"즐겨찾기 추가"} />
+            </div>
+            <div>
+                <span>보기</span>
                 <Form>
-                    <Form.Check type="switch" id="custom-switch" label="즐겨찾기에 추가" />
+                    <div className={style.imageGroup}>
+                        <div className={style.firstGroup}>
+                            <div className={style.firstDivImage}></div>
+                            <Form.Check inline label="목록" name="imageGroup" type={"radio"} id={`inline-radio-1`} />
+                        </div>
+                        <div className={style.secondGroup}>
+                            <div className={style.secondDivImage}></div>
+                            <Form.Check inline label="보드" name="imageGroup" type={"radio"} id={`inline-radio-1`} />
+                        </div>
+                    </div>
                 </Form>
             </div>
             <div>
