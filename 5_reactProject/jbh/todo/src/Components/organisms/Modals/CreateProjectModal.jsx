@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SelectBox from "../../molecules/selectboxs/SelectBox";
 import style from "./CreateProjectModal.module.css";
-import BootstrapSwitchButton from "bootstrap-switch-button-react";
+import Form from "react-bootstrap/Form";
 
 export default function CreateProjectModal() {
     return (
@@ -13,8 +13,9 @@ export default function CreateProjectModal() {
             <div>색상</div>
             <SelectBox />
             <div className={style.switchButton}>
-                <BootstrapSwitchButton checked={true} onstyle="success" width={50} height={20} />
-                <div>즐겨찾기에 추가</div>
+                <Form>
+                    <Form.Check type="switch" id="custom-switch" label="즐겨찾기에 추가" />
+                </Form>
             </div>
             <div>
                 <span>보기는 공유 프로젝트에서 팀 멤버들 간에 동기화됩니다.</span>
