@@ -74,5 +74,6 @@ npm install react-google-material-icons
   - calendar_month
   - grid_view
   - inbox
+  - search
 - 찾을 아이콘 종류
   - 해당 일자에 해당하는 아이콘

@@ -1,8 +1,9 @@
 
+import style from "./Label.module.css"
 export function Label ({name}){
     return (
     <>
-    <label>{name}ddd</label>
+    <label className={style.labelMain} >{name}</label>
     </>
     )
 }
