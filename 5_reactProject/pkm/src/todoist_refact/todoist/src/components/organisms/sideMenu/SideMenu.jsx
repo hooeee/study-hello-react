@@ -13,9 +13,11 @@ export function SideMenu() {
       >
         test SideBar
       </button>
+
+      {/* <div className={style.sideMain}>
       <div
         className={
-            btnC == true ? style.sideMenuMainOpen : style.sideMenuMainClose
+          btnC == true ? style.sideMenuMainOpen : style.sideMenuMainClose
         }
       >
         <div>
@@ -57,6 +59,65 @@ export function SideMenu() {
             menuName={"개인"}
             contentCount={0}
           ></MenuItem>
+        </div>
+      </div>
+
+      <div className={style.ddd}>
+      dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+      </div>
+      </div> */}
+
+      <div className={style.main}>
+        <div className={ btnC == true ? style.one: style.one1}>
+        <div
+        className={
+          btnC == true ? style.sideMenuMainOpen : style.sideMenuMainClose
+        }
+      >
+        <div>
+          <MenuItem
+            iconName={"inbox"}
+            color={"#246EE0"}
+            size={"25px"}
+            menuName={"관리함"}
+            contentCount={0}
+          ></MenuItem>
+          <MenuItem
+            iconName={"calendar_today"}
+            color={"#028527"}
+            size={"25px"}
+            menuName={"오늘"}
+            contentCount={0}
+          ></MenuItem>
+          <MenuItem
+            iconName={"calendar_month"}
+            color={"#692FC2"}
+            size={"25px"}
+            menuName={"다음"}
+            contentCount={0}
+          ></MenuItem>
+          <MenuItem
+            iconName={"grid_view"}
+            color={"#EB8907"}
+            size={"25px"}
+            menuName={"필터 & 라벨"}
+            contentCount={0}
+          ></MenuItem>
+        </div>
+        <div>
+          <Label name={"프로젝트"}> </Label>
+          <MenuItem
+            iconName={"radio_button_checked"}
+            color={"blue"}
+            size={"25px"}
+            menuName={"개인"}
+            contentCount={0}
+          ></MenuItem>
+        </div>
+      </div>
+        </div>
+        <div className={style.two}>
+            ddd
         </div>
       </div>
     </>
