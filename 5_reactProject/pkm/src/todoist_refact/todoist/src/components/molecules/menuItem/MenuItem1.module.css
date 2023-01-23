@@ -14,5 +14,10 @@
 .MenuItemMain > span:nth-child(3) {
   display: flex;
   position: absolute;
-  right:10%;
+  right: 10%;
+}
+
+.DropMain {
+  background-color: transparent;
+  border:solid 1px transparent;
 }

@@ -33,11 +33,11 @@
   background: blue;
 }
 .main > .one1 {
-    display: flex;
-    width: 0px;
-    position: relative;
-    background: blue;
-  }
+  display: flex;
+  width: 0px;
+  position: relative;
+  background: blue;
+}
 .main > .two {
   display: flex;
   width: 100%;

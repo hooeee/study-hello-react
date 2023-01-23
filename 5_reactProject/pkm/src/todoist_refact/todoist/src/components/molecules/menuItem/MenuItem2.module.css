@@ -1,0 +1,19 @@
+.divMain {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+}
+.divMain > span:nth-child(2) {
+  display: inline-flex;
+  position: absolute;
+  align-content: center;
+  right: -310%;
+}
+
+.divMain > span:nth-child(3){
+    display: inline-flex;
+    position: absolute;
+    align-content: center;
+    right: -350%;
+  }
+  
