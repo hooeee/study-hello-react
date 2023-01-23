@@ -35,6 +35,15 @@
     background-size: contain;
 }
 
+.firstDivCheckImage {
+    width: 150px;
+    height: 150px;
+    border: 1px solid red;
+    border-radius: 10px 10px;
+    background: url("https://d3ptyyxy2at9ui.cloudfront.net/assets/images/76bd6d1001a372ece03ef777813b3352.svg") no-repeat center center;
+    background-size: contain;
+}
+
 .firstDivImage:hover {
     width: 150px;
     height: 150px;
@@ -48,6 +57,15 @@
     width: 150px;
     height: 150px;
     border: 1px solid rgb(232, 229, 229);
+    border-radius: 10px 10px;
+    background: url("https://d3ptyyxy2at9ui.cloudfront.net/assets/images/04587b33fb8e382780f4fb5787663300.svg") no-repeat center center;
+    background-size: contain;
+}
+
+.secondDivCheckImage {
+    width: 150px;
+    height: 150px;
+    border: 1px solid red;
     border-radius: 10px 10px;
     background: url("https://d3ptyyxy2at9ui.cloudfront.net/assets/images/04587b33fb8e382780f4fb5787663300.svg") no-repeat center center;
     background-size: contain;
