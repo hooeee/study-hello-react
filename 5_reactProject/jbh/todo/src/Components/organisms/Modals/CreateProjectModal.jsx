@@ -5,6 +5,12 @@ import Form from "react-bootstrap/Form";
 import SwitchButton from "../../atoms/forms/SwitchButton";
 
 export default function CreateProjectModal() {
+    const [todoFormat, setTodoFormat] = useState("todoList");
+    const onTodoFormatChange = ({ target: { value } }) => {
+        console.log(value);
+        setTodoFormat(value);
+    };
+
     return (
         <div>
             <div>이름</div>
@@ -21,12 +27,30 @@ export default function CreateProjectModal() {
                 <Form>
                     <div className={style.imageGroup}>
                         <div className={style.firstGroup}>
-                            <div className={style.firstDivImage}></div>
-                            <Form.Check inline label="목록" name="imageGroup" type={"radio"} id={`inline-radio-1`} />
+                            <div className={`${style.firstDivImage} ${todoFormat === "todoList" ? style.firstDivCheckImage : ""}`} />
+                            <Form.Check
+                                inline
+                                label="목록"
+                                name="imageGroup"
+                                type={"radio"}
+                                id={`inline-radio-1`}
+                                value="todoList"
+                                checked={todoFormat === "todoList"}
+                                onChange={onTodoFormatChange}
+                            />
                         </div>
                         <div className={style.secondGroup}>
-                            <div className={style.secondDivImage}></div>
-                            <Form.Check inline label="보드" name="imageGroup" type={"radio"} id={`inline-radio-1`} />
+                            <div className={`${style.secondDivImage} ${todoFormat === "todoBoard" ? style.secondDivCheckImage : ""}`} />
+                            <Form.Check
+                                inline
+                                label="보드"
+                                name="imageGroup"
+                                type={"radio"}
+                                id={`inline-radio-1`}
+                                value="todoBoard"
+                                checked={todoFormat === "todoBoard"}
+                                onChange={onTodoFormatChange}
+                            />
                         </div>
                     </div>
                 </Form>
