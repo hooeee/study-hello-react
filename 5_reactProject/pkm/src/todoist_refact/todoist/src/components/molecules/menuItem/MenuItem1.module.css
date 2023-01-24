@@ -17,7 +17,14 @@
   right: 10%;
 }
 
+.show {
+  background-color: transparent !important;
+}
+.dropdown {
+  background-color: transparent !important;
+}
 .DropMain {
-  background-color: transparent;
-  border:solid 1px transparent;
+  display: flex;
+  position: absolute;
+  right:10%;
 }

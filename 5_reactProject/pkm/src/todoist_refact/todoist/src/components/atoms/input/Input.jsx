@@ -1,15 +1,16 @@
 import style from "./Input.module.css";
 
-export function Input() {
+export function Input({ bgcolor, fontColor,color,value, placeholder }) {
   return (
     <input
       className={style.InputMain}
       style={{
-        color: "white",
-        backgroundColor: "#E37267",
-        border: "1px solid #E37267",
+        color: `${fontColor}`,
+        backgroundColor: `${bgcolor}`,
+        border: `1px solid ${color}`,
       }}
-      placeholder={"검색"}
+      placeholder={placeholder}
+      value={value}
     ></input>
   );
 }

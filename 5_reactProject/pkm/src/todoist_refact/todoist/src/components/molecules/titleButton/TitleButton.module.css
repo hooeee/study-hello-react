@@ -1,0 +1,11 @@
+.LabelMain {
+  display: flex;
+  position: relative;
+  font-size: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.LabelMain > span {
+  display: flex;
+  position: relative;
+}

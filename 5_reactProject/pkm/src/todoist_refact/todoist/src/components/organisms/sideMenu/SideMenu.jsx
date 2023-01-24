@@ -1,5 +1,5 @@
 import { Label } from "components/atoms";
-import { MenuItem, MenuItem1,MenuItem2 } from "components/molecules";
+import { MenuItem, MenuItem1, MenuItem2 } from "components/molecules";
 import style from "./SideMenu.module.css";
 import { useState } from "react";
 export function SideMenu() {
