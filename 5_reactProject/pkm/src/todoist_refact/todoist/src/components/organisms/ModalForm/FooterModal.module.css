@@ -1,0 +1,5 @@
+.btnMain {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+}

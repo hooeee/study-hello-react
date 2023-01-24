@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Dropdown } from "react-bootstrap";
 import style from "./LabelDropdown.module.css";
 
-export function LabelDropDown() {
+export function LabelDropDown({ name }) {
   const [selectColor, setSelectColor] = useState([
     { id: "베리레드", color: "#B8266E", name: "베리 레드" },
   ]);
@@ -34,26 +34,13 @@ export function LabelDropDown() {
       name: "올리브 그린",
     },
   ];
-  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <a
-      href=""
-      ref={ref}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(e);
-      }}
-    >
-      {children}
-    </a>
-  ));
-
   const ChangeColor = (color) => {
     setSelectColor({ ...color });
   };
 
   return (
     <div>
-      <Label name={"색상"}></Label>
+      <Label name={name}></Label>
       <Dropdown className={style.DropMain}>
         <Dropdown.Toggle className={style.dropdown} id="dropdown-basic">
           <Circle color={selectColor.color} />

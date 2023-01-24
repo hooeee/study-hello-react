@@ -1,1 +1,3 @@
-export {MainTemplate} from "./mainTemplate/MainTemplate"
+export { MainTemplate } from "./mainTemplate/MainTemplate";
+
+export { ModalTemplates } from "./modalTemplate/ModalTemplate"

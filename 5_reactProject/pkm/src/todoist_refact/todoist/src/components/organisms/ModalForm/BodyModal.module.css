@@ -1,0 +1,9 @@
+.checkBoxImageMain {
+  display: flex;
+  position: relative;
+  align-content: flex-start;
+  margin-left: 5px;
+}
+.checkBoxImageMain > form {
+  margin-left: 10px;
+}
