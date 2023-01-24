@@ -9,8 +9,8 @@ export function ModalTemplates() {
 
   return (
     <div>
-      <Button variant="" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+      Modal Test Button
       </Button>
       <ModalShow
         show={modalShow}

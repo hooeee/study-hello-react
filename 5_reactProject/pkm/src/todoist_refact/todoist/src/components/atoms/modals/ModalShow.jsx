@@ -5,7 +5,7 @@ export function ModalShow(props) {
     <Modal
       {...props}
       size="100px"
-      aria-labelledby="contained-modal-title-vcenter"
+      aria-labelledby="ModalTest"
       centered
     >
       {props.Head}
