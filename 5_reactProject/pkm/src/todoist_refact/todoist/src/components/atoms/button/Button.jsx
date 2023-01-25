@@ -1,26 +1,14 @@
 import { default as Button_bs } from "react-bootstrap/Button";
 import style from "./Button.module.css";
 
-export function Button({ children, variant, fontColor }) {
-  const style={
-    display:"inline-flex",
-    width: "100%",
-    height:"10px",
-    alignItems: "center",
-    justifyContent:"space-between",
-    position:"relative",
-    color: `${fontColor}`, 
-    opacity: 1 ,
-    background:"transparent",
-    border: "solid 1px transparent"
-  }
+export function Button({ name, variant, fontColor }) {
   return (
     <Button_bs
       variant={variant}
       className={style.btnSize}
-      style={style}
+      style={{ color: `${fontColor}`, opacity: 0.7 }}
     >
-      {children}
+      {name}
     </Button_bs>
   );
 }

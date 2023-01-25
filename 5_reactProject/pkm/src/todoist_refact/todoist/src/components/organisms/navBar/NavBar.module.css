@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 50px;
-  background-color: #db4c3f;
+  background-color: #DB4C3F;
   justify-content: space-between;
   top: 0;
   align-items: center;
@@ -11,9 +11,7 @@
 }
 .navMain > div:nth-child(1) {
   display: flex;
-  align-items: center;
 }
 .navMain > div:nth-child(2) {
   display: flex;
-  align-items: center;
 }
