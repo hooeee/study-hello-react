@@ -1,0 +1,28 @@
+.dropdown {
+  display: flex;
+  width: 98%;
+  margin-left: 5px;
+  color: black;
+  background-color: transparent;
+  align-items: center;
+  border: 1px solid black;
+}
+.dropdown > div {
+  display: flex;
+}
+
+.dropdown::after {
+  display: none;
+}
+
+.dropdownMenu {
+  width: 98%;
+}
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.dropdownItem > div {
+  display: flex;
+}

@@ -74,5 +74,17 @@ npm install react-google-material-icons
   - calendar_month
   - grid_view
   - inbox
+  - search
 - 찾을 아이콘 종류
   - 해당 일자에 해당하는 아이콘
+
+## 해당 체크 이미지박스 링크
+```
+https://d3ptyyxy2at9ui.cloudfront.net/assets/images/76bd6d1001a372ece03ef777813b3352.svg
+
+https://d3ptyyxy2at9ui.cloudfront.net/assets/images/21ab83928e698e2cd56b75be2756e393.svg
+
+https://d3ptyyxy2at9ui.cloudfront.net/assets/images/04587b33fb8e382780f4fb5787663300.svg
+
+https://d3ptyyxy2at9ui.cloudfront.net/assets/images/235e73c80b156de08b5182c969622c08.svg
+```

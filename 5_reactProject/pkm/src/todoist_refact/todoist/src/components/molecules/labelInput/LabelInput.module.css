@@ -1,0 +1,13 @@
+.LabelInputMain {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.LabelInputMain > input {
+  display: flex;
+  position: relative;
+  margin-left: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+}

@@ -1,0 +1,30 @@
+.MenuItemMain {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.MenuItemMain > span:nth-child(1) {
+  display: flex;
+}
+
+.MenuItemMain > span:nth-child(2) {
+  display: flex;
+}
+
+.MenuItemMain > span:nth-child(3) {
+  display: flex;
+  position: absolute;
+  right: 10%;
+}
+
+.show {
+  background-color: transparent !important;
+}
+.dropdown {
+  background-color: transparent !important;
+}
+.DropMain {
+  display: flex;
+  position: absolute;
+  right:10%;
+}

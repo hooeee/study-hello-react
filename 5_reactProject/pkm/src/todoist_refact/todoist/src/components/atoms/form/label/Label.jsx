@@ -1,8 +1,10 @@
-
-export function Label ({name}){
-    return (
+import style from "./Label.module.css";
+export function Label({ name, color }) {
+  return (
     <>
-    <label>{name}ddd</label>
+      <label className={style.labelMain} style={{ color: `${ color }` }}>
+        {name}
+      </label>
     </>
-    )
+  );
 }

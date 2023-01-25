@@ -1,0 +1,17 @@
+.navMain {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #DB4C3F;
+  justify-content: space-between;
+  top: 0;
+  align-items: center;
+  text-align: center;
+}
+.navMain > div:nth-child(1) {
+  display: flex;
+}
+.navMain > div:nth-child(2) {
+  display: flex;
+}

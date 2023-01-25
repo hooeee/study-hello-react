@@ -1,0 +1,47 @@
+.sideMenuMainOpen {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: #fafafa;
+  width: 300px;
+  height: 1000px;
+}
+.sideMenuMainClose {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: #fafafa;
+  width: 0%;
+  height: 1000px;
+  left: -300px;
+  transform: translate(-300px, 0);
+}
+.sideMenuMainOpen > #ddd {
+  display: flex;
+  background: red;
+}
+
+.main {
+  display: flex;
+  position: relative;
+  background: red;
+}
+.main > .one {
+  display: flex;
+  width: 300px;
+  position: relative;
+  background: blue;
+}
+.main > .one1 {
+  display: flex;
+  width: 0px;
+  position: relative;
+  background: blue;
+}
+.main > .two {
+  display: flex;
+  width: 100%;
+  position: relative;
+  background: yellow;
+  justify-content: center;
+}

@@ -7,3 +7,5 @@ export { GoogleIcon } from "./icon/GoogleIcon";
 export { CheckBoxImage } from "./form/CheckBoxImage/CheckBoxImage";
 
 export { ModalShow } from "./modals/ModalShow";
+
+export {Input} from "./input/Input"
