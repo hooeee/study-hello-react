@@ -1,0 +1,12 @@
+.content {
+  background-color: #fafafa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.main_menu {
+  padding-top: 30px;
+}

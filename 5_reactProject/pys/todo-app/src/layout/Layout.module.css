@@ -1,0 +1,37 @@
+:root {
+  --headerHeight: 2.7em;
+  --sidebarLeft: -30em;
+}
+
+.header {
+  height: var(--headerHeight);
+  background-color: #db4c3f;
+  margin: 0;
+}
+.center {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - var(--headerHeight));
+}
+
+.sidebar {
+  height: calc(100vh - var(--headerHeight));
+  width: 250px;
+  top: var(--headerHeight);
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  transition: all 0.2s;
+}
+
+.sidebar_open {
+  margin-left: 0px;
+}
+
+.sidebar_close {
+  margin-left: -250px;
+}
+
+.main {
+  width: 100%;
+}

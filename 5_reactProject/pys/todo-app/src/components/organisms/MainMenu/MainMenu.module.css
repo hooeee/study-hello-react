@@ -1,0 +1,17 @@
+.main_menus {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.projects_close {
+  transition: height 0.5s;
+  height: 0;
+  overflow: hidden;
+}
+
+.projects_open {
+  transition: height 0.5s;
+  height: 500px;
+  overflow: hidden;
+}
