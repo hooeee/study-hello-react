@@ -2,18 +2,27 @@
   display: inline-flex;
   position: relative;
   align-items: center;
+  width: 100%;
 }
 .divMain > span:nth-child(2) {
   display: inline-flex;
   position: absolute;
   align-content: center;
-  right: -310%;
+  right: 10%;
 }
 
-.divMain > span:nth-child(3){
-    display: inline-flex;
-    position: absolute;
-    align-content: center;
-    right: -350%;
-  }
-  
+.divMain > span:nth-child(3) {
+  display: inline-flex;
+  position: absolute;
+  align-content: center;
+  right: 2%;
+}
+.divMain:hover {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  background: #eeeeee;
+  border-radius: 5px;
+  margin-left: 5px;
+}
