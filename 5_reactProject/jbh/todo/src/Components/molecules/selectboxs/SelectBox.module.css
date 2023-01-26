@@ -1,6 +1,7 @@
 .dropdown {
     display: flex;
-    width: 300px;
+    border-radius: 10;
+    width: 100%;
     color: black !important;
     font-weight: bold;
     background-color: transparent !important;
@@ -12,5 +13,6 @@
 }
 
 .dropdownMenu {
-    width: 300px;
+    border-radius: 10;
+    width: 100%;
 }
