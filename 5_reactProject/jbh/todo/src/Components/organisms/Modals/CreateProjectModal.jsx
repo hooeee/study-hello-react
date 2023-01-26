@@ -13,18 +13,18 @@ export default function CreateProjectModal() {
 
     return (
         <div>
-            <div>이름</div>
-            <div>
-                <input className={style.projectNameInput}></input>
-            </div>
-            <div>색상</div>
-            <SelectBox />
-            <div className={style.switchButton}>
-                <SwitchButton label={"즐겨찾기 추가"} />
-            </div>
-            <div>
-                <span>보기</span>
-                <Form>
+            <Form>
+                <div>이름</div>
+                <div>
+                    <input className={style.projectNameInput}></input>
+                </div>
+                <div>색상</div>
+                <SelectBox />
+                <div className={style.switchButton}>
+                    <SwitchButton label={"즐겨찾기 추가"} />
+                </div>
+                <div>
+                    <span>보기</span>
                     <div className={style.imageGroup}>
                         <div className={style.firstGroup}>
                             <div className={`${style.firstDivImage} ${todoFormat === "todoList" ? style.firstDivCheckImage : ""}`} />
@@ -53,14 +53,14 @@ export default function CreateProjectModal() {
                             />
                         </div>
                     </div>
-                </Form>
-            </div>
-            <div>
-                <span>보기는 공유 프로젝트에서 팀 멤버들 간에 동기화됩니다.</span>
-                <a href="https://todoist.com/ko/help/articles/how-to-use-board-view" target="_blank" className={style.link}>
-                    자세히 알아보기
-                </a>
-            </div>
+                </div>
+                <div>
+                    <span>보기는 공유 프로젝트에서 팀 멤버들 간에 동기화됩니다.</span>
+                    <a href="https://todoist.com/ko/help/articles/how-to-use-board-view" target="_blank" className={style.link}>
+                        자세히 알아보기
+                    </a>
+                </div>
+            </Form>
         </div>
     );
 }
