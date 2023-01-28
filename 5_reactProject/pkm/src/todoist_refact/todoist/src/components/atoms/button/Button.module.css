@@ -5,5 +5,13 @@
   background: transparent;
   border: 1px solid transparent;
   margin-right: 5px;
-  color:black;
+  color: black;
+}
+
+.btnNavHover:hover {
+  background: #e37267;
+}
+
+.btnMenuHover:hover {
+  background: #EEEEEE;
 }

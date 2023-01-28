@@ -109,3 +109,44 @@ import { BrowserRouter } from "react-router-dom";
 ```
 
 - 위와 같이 감싸놓기
+- 현재 사이드 바 부분에 링크 연결
+  ```js
+              <div
+                onClick={() => {
+                  navigate("./manage");
+                }}
+              >
+              <div
+                onClick={() => {
+                  navigate("./today");
+                }}
+              >
+              <div
+                onClick={() => {
+                  navigate("./tomorrow");
+                }}
+              >
+              <div
+                onClick={() => {
+                  navigate("./filterLabel");
+                }}
+              >
+  ```
+
+## store 구성하기
+
+```sh
+npm install @reduxjs/toolkit react-redux
+```
+
+### store.jsx
+
+```js
+// vite + react 기준
+// main.jsx
+import { Provider } from "@reduxjs/toolkit";
+import store from "./store/store";
+
+<Provider store={store}>
+</Provider>
+```
