@@ -4,14 +4,14 @@
   align-items: center;
   width: 100%;
 }
-.divMain > span:nth-child(2) {
+.divMain > div:nth-child(2) {
   display: inline-flex;
   position: absolute;
   align-content: center;
   right: 10%;
 }
 
-.divMain > span:nth-child(3) {
+.divMain > div:nth-child(3) {
   display: inline-flex;
   position: absolute;
   align-content: center;

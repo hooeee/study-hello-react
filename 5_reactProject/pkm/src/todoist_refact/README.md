@@ -147,6 +147,33 @@ npm install @reduxjs/toolkit react-redux
 import { Provider } from "@reduxjs/toolkit";
 import store from "./store/store";
 
-<Provider store={store}>
-</Provider>
+<Provider store={store}></Provider>;
+
+// store.jsx
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+const user = createSlice({
+  name: "user",
+  initalState: "park",
+  reducers: {
+    changeName(state) {
+      return "jhon" + state;
+    },
+  },
+});
+
+export const { changeName } = user.actions;
+
+export default configureStore({
+  reducer: {
+    user: user.reducer,
+  },
+});
+```
+
+### 사용하는 곳에 적용
+
+```js
+const a = useSelector((state) => {
+  return state.user;
+});
 ```

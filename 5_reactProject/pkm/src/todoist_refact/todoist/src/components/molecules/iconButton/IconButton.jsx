@@ -4,7 +4,7 @@ import { Button } from "components/atoms";
 export function IconButton({ color, iconName, size, btnClick }) {
   return (
     <Button
-      variant={"btnMenuHover"}
+      variant={"btnNavHover"}
       onClick={() => {
         console.log("버튼 클릭됨");
       }}

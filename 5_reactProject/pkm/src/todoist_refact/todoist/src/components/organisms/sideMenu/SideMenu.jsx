@@ -3,23 +3,22 @@ import { MenuItem, MenuItem1, MenuItem2 } from "components/molecules";
 import style from "./SideMenu.module.css";
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { setSideBarClick } from "./../../../store/store";
+import { useDispatch, useSelector } from "react-redux";
 export function SideMenu() {
-  const [btnC, setBtnC] = useState(true);
+  // const [sideBarClick, setSideBarClick] = useState(true);
+  const dispatch = useDispatch();
+  const { sideBarClick } = useSelector((state) => {
+    return state;
+  });
   let navigate = useNavigate();
+  // console.log(checkClick);
   return (
     <>
-      <button
-        onClick={() => {
-          setBtnC(!btnC);
-        }}
-      >
-        test SideBar
-      </button>
-
       {/* <div className={style.sideMain}>
       <div
         className={
-          btnC == true ? style.sideMenuMainOpen : style.sideMenuMainClose
+          sideBarClick == true ? style.sideMenuMainOpen : style.sideMenuMainClose
         }
       >
         <div>
@@ -70,10 +69,12 @@ export function SideMenu() {
       </div> */}
 
       <div className={style.main}>
-        <div className={btnC == true ? style.one : style.one1}>
+        <div className={sideBarClick == true ? style.one : style.one1}>
           <div
             className={
-              btnC == true ? style.sideMenuMainOpen : style.sideMenuMainClose
+              sideBarClick == true
+                ? style.sideMenuMainOpen
+                : style.sideMenuMainClose
             }
           >
             <>
