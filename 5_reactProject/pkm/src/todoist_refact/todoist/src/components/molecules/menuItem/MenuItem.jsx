@@ -9,7 +9,7 @@ export function MenuItem({
   btnFunc,
 }) {
   return (
-    <Button variant={"btnNavHover"}>
+    <Button variant={"btnMenuHover"}>
       <div className={style.MenuItemMain}>
         <GoogleIcon color={color} iconName={iconName} size={size}></GoogleIcon>
         <span>{menuName}</span>

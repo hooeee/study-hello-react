@@ -239,4 +239,20 @@ import {devtools} from 'zustand/middleware';
 ## middleware
 ```js
 import {persist} from 'zustand/middleware'
-``
+```
+
+## 실제 적용
+```js
+//npm install zustand
+import { create } from "zustand";
+
+//test
+export const useStore = create((set) => ({
+  count: 0,
+  dec() {
+    set((state) => ({ count: state.count - 1 }));
+  },
+  inc: () => set((state) => ({ count: state.count + 1 })),
+}));
+s
+```

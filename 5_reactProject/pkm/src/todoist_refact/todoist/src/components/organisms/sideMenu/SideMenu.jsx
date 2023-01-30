@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { setSideBarClick } from "./../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useStore } from "./../../../store/useStore";
 export function SideMenu() {
   // const [sideBarClick, setSideBarClick] = useState(true);
   const dispatch = useDispatch();
@@ -13,61 +14,9 @@ export function SideMenu() {
   });
   let navigate = useNavigate();
   // console.log(checkClick);
+  const { name, color, colorName, like, look, projectAdd } = useStore();
   return (
     <>
-      {/* <div className={style.sideMain}>
-      <div
-        className={
-          sideBarClick == true ? style.sideMenuMainOpen : style.sideMenuMainClose
-        }
-      >
-        <div>
-          <MenuItem
-            iconName={"inbox"}
-            color={"#246EE0"}
-            size={"25px"}
-            menuName={"관리함"}
-            contentCount={0}
-          ></MenuItem>
-          <MenuItem
-            iconName={"calendar_today"}
-            color={"#028527"}
-            size={"25px"}
-            menuName={"오늘"}
-            contentCount={0}
-          ></MenuItem>
-          <MenuItem
-            iconName={"calendar_month"}
-            color={"#692FC2"}
-            size={"25px"}
-            menuName={"다음"}
-            contentCount={0}
-          ></MenuItem>
-          <MenuItem
-            iconName={"grid_view"}
-            color={"#EB8907"}
-            size={"25px"}
-            menuName={"필터 & 라벨"}
-            contentCount={0}
-          ></MenuItem>
-        </div>
-        <div>
-          <Label name={"프로젝트"}> </Label>
-          <MenuItem
-            iconName={"radio_button_checked"}
-            color={"blue"}
-            size={"25px"}
-            menuName={"개인"}
-            contentCount={0}
-          ></MenuItem>
-        </div>
-      </div>
-
-      <div className={style.ddd}>
-      dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-      </div>
-      </div> */}
-
       <div className={style.main}>
         <div className={sideBarClick == true ? style.one : style.one1}>
           <div
@@ -133,13 +82,21 @@ export function SideMenu() {
             </>
             <div>
               <MenuItem2></MenuItem2>
-              <MenuItem1
-                iconName={"radio_button_checked"}
-                color={"blue"}
-                size={"25px"}
-                menuName={"개인"}
-                contentCount={0}
-              ></MenuItem1>
+              {projectAdd == true ? (
+                <div
+                  onClick={() => {
+                    navigate("./project/1");
+                  }}
+                >
+                  <MenuItem1
+                    iconName={"radio_button_checked"}
+                    color={color}
+                    size={"25px"}
+                    menuName={name}
+                    contentCount={0}
+                  ></MenuItem1>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

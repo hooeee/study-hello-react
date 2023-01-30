@@ -1,6 +1,7 @@
 import { CheckBoxImage, Label } from "components/atoms";
 import { useDispatch, useSelector } from "react-redux";
 import { setCheckClick } from "./../../../store/store";
+import { useStore } from "./../../../store/useStore";
 
 import style from "./BodyModal.module.css";
 export function BodyModal() {
@@ -9,6 +10,7 @@ export function BodyModal() {
   });
   console.log(checkClick);
   const dispatch = useDispatch();
+  const { look, setLook } = useStore();
   return (
     <div>
       <Label style={{ margin: "10px" }} name="보기"></Label>
@@ -16,7 +18,9 @@ export function BodyModal() {
         <div
           onClick={() => {
             dispatch(setCheckClick());
-            console.log(checkClick);
+            // console.log("목룍");
+            // console.log(checkClick);
+            checkClick == false ? setLook("list") : setLook("board");
           }}
         >
           <CheckBoxImage
@@ -34,6 +38,9 @@ export function BodyModal() {
         <div
           onClick={() => {
             dispatch(setCheckClick());
+            // console.log("보드");
+            // console.log(checkClick);
+            checkClick == false ? setLook("board") : setLook("list");
           }}
         >
           <CheckBoxImage
