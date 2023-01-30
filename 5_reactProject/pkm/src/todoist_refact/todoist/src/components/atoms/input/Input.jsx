@@ -1,6 +1,13 @@
 import style from "./Input.module.css";
 
-export function Input({ bgcolor, fontColor,color,value, placeholder }) {
+export function Input({
+  bgcolor,
+  fontColor,
+  color,
+  value,
+  setValue,
+  placeholder,
+}) {
   return (
     <input
       className={style.InputMain}
@@ -11,6 +18,7 @@ export function Input({ bgcolor, fontColor,color,value, placeholder }) {
       }}
       placeholder={placeholder}
       value={value}
+      onChange={(e) => setValue(e.target.value)}
     ></input>
   );
 }

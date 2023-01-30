@@ -1,10 +1,15 @@
 import { Input, Label } from "components/atoms";
 import style from "./LabelInput.module.css";
-export function LabelInput({ name, bgcolor, color }) {
+export function LabelInput({ name, bgcolor, color, value, setValue }) {
   return (
     <div className={style.LabelInputMain}>
       <Label name={name}></Label>
-      <Input bgcolor={bgcolor} color={color}></Input>
+      <Input
+        bgcolor={bgcolor}
+        color={color}
+        value={value}
+        setValue={setValue}
+      ></Input>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export function Button({ children, variant, fontColor, name }) {
       className={
         style.btnSize +
         " " +
-        `${variant != "btnNavHover" ? style.btnNavHover : style.btnMenuHover}`
+        `${variant == "btnNavHover" ? style.btnNavHover : style.btnMenuHover}`
       }
       // className={style.btnSize`${
       //   " " + variant != "navHover" ? style.btn : style.btnSize

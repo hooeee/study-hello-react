@@ -14,7 +14,6 @@ export function NavBar() {
             dispatch(setSideBarClick());
           }}
         >
-          {" "}
           <IconButton
             iconName={"menu"}
             color={"white"}

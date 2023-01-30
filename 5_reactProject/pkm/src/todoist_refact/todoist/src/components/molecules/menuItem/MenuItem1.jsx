@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Button, ButtonGroup, Dropdown, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setModalShow } from "./../../../store/store";
+import { useStore } from "./../../../store/useStore";
 
 export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
       {children}
     </a>
   ));
+
+  const { setProjectCancel } = useStore();
   return (
     <div
       onMouseEnter={() => {
@@ -53,7 +56,7 @@ export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
                 <Dropdown.Item
                   eventKey="1"
                   onClick={() => {
-                    dispatch(setModalShow());
+                    setProjectCancel();
                   }}
                 >
                   프로젝트 추가

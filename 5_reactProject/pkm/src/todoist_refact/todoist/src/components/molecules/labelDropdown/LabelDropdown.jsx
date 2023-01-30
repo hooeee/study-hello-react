@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Dropdown } from "react-bootstrap";
 import style from "./LabelDropdown.module.css";
 
-export function LabelDropDown({ name }) {
+export function LabelDropDown({ name, setValue }) {
   const [selectColor, setSelectColor] = useState([
     { id: "베리레드", color: "#B8266E", name: "베리 레드" },
   ]);
@@ -54,6 +54,7 @@ export function LabelDropDown({ name }) {
               key={index}
               onClick={() => {
                 ChangeColor(obj);
+                setValue(obj.color, obj.name);
               }}
             >
               <Circle color={obj.color} />

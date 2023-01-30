@@ -3,6 +3,7 @@ import { setModalShow } from "./../../../store/store";
 import style from "./MenuItem2.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useStore } from "./../../../store/useStore";
 
 export function MenuItem2() {
   const [hideIcon, setHideIcon] = useState(false);
@@ -10,6 +11,7 @@ export function MenuItem2() {
   const { modalShow } = useSelector((state) => {
     return state;
   });
+  const { setProjectCancel } = useStore();
   return (
     <div
       onMouseEnter={() => {
@@ -25,7 +27,7 @@ export function MenuItem2() {
           <>
             <div
               onClick={() => {
-                dispatch(setModalShow());
+                setProjectCancel();
               }}
             >
               <GoogleIcon

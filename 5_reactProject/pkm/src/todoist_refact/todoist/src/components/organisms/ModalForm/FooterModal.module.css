@@ -3,3 +3,15 @@
   position: relative;
   justify-content: flex-end;
 }
+
+.btnGrey {
+  background: #e5e5e5;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.btnRed {
+  background: #f3bab3;
+  margin-left: 10px;
+  border-radius: 5px;
+}

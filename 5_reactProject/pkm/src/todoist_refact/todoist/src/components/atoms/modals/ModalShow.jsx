@@ -6,10 +6,7 @@ export function ModalShow(props) {
     <Modal {...props} size="100px" aria-labelledby="ModalTest" centered>
       {props.headmodal}
       {props.bodymodal}
-      <Modal.Footer>
-        {props.footermodal}
-        <div onClick={props.onHide}>Close</div>
-      </Modal.Footer>
+      <Modal.Footer>{props.footermodal}</Modal.Footer>
     </Modal>
   );
 }

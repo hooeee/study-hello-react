@@ -5,6 +5,8 @@
   background-color: #fafafa;
   width: 300px;
   height: 1000px;
+  transform: translateX(0px);
+  transition: all 1s ease-in-out;
 }
 .sideMenuMainClose {
   display: flex;
@@ -13,9 +15,11 @@
   background-color: #fafafa;
   width: 0%;
   height: 1000px;
-  left: -300px;
-  transform: translate(-300px, 0);
+  left: 0%;
+  transform: translateX(-300px);
+  transition: all 2s ease-in-out;
 }
+
 .sideMenuMainOpen > #ddd {
   display: flex;
 }

@@ -5,7 +5,7 @@
   background: transparent;
   border: 1px solid transparent;
   margin-right: 5px;
-  color: black;
+  color: inherit;
 }
 
 .btnNavHover:hover {

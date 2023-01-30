@@ -3,6 +3,7 @@ import style from "./ModalTemplate.module.css";
 import { Button, ModalShow } from "components/atoms";
 import { setModalShow } from "./../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useStore } from "./../../../store/useStore";
 
 export function ModalTemplates() {
   // const [modalShow, setModalShow] = useState(false);
@@ -10,12 +11,11 @@ export function ModalTemplates() {
     return state;
   });
   const dispatch = useDispatch();
-
+  const { projectCancel, setProjectCancel } = useStore();
   return (
     <div>
       <ModalShow
-        show={modalShow}
-        onHide={() => dispatch(setModalShow())}
+        show={projectCancel}
         headmodal={<HeadModal></HeadModal>}
         bodymodal={<BodyModal></BodyModal>}
         footermodal={<FooterModal></FooterModal>}
