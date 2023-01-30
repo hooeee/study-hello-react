@@ -177,3 +177,66 @@ const a = useSelector((state) => {
   return state.user;
 });
 ```
+
+
+## Zustand 사용하기
+### 설치
+```sh
+npm install zustand
+```
+### state 보관함
+```js
+import create from 'zustand'
+
+const useStore = create(()=>({
+  count: 0,
+}))
+
+const {count} = useStore();
+```
+
+### state 수정
+```js
+useStore.setState({count: count-1})
+```
+- 이렇게만 해도 되지만 함수를 미리 정의해서 사용
+
+```js
+import create from 'zustand'
+
+const useStore = create(()=>({
+  count: 0,
+  inc(){
+    set((state)=>({count: state.count+1}))
+  }
+}))
+
+const {count, inc} = useStore();
+
+```
+### ajax 요청
+```js
+import create from 'zustand'
+
+const useStore = create(()=>({
+  count: 0,
+  inc(){
+    set((state)=>({count: state.count+1}))
+  },
+  async ajax요청(){
+    const response = await fetch('https://codingapple1.github.io/data.json');
+    console.lof(await response.json());
+  }
+}))
+```
+## 디버깅
+```js
+import {devtools} from 'zustand/middleware';
+
+```
+## state 많으면
+- 따로 만들거나 ,따로 분리해서 사용하면됨
+## middleware
+```js
+import {persist} from 'zustand/middleware'
+``
