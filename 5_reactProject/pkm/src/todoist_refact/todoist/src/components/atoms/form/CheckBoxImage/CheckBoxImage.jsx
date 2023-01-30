@@ -1,31 +1,40 @@
 import style from "./CheckBoxImage.module.css";
 import { Form } from "react-bootstrap";
-import { useState } from "react";
-export function CheckBoxImage({ backgroundImg, label, name }) {
-  const [checkClick, setCheckClick] = useState(true);
+import { useState, useRef } from "react";
+
+export function CheckBoxImage({
+  backgroundImg1,
+  backgroundImg2,
+  label,
+  name,
+  checkBoxComponent,
+}) {
+  const [checkBtn, setCheckBtn] = useState(true);
   return (
-    <Form>
+    <div>
       {
         <>
           <div
             className={style.imageMain}
-            style={{ background: `url(${backgroundImg})` }}
-            onClick={() => {
-              setCheckClick(!checkClick);
+            style={{
+              background:
+                checkBoxComponent == false
+                  ? `url(${backgroundImg1})`
+                  : `url(${backgroundImg2})`,
+              border:
+                checkBoxComponent == false ? "1px solid grey" : "1px solid red",
             }}
           ></div>
           <Form.Check
-            checked={checkClick}
-            type="checkbox"
+            type="radio"
             id="checkbox"
+            checked={checkBoxComponent}
+            // ref={checkBoxComponent}
             label={label}
             name={name}
-            onClick={() => {
-              setCheckClick(!checkClick);
-            }}
           />
         </>
       }
-    </Form>
+    </div>
   );
 }

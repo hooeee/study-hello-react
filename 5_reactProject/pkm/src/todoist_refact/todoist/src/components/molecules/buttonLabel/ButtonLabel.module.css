@@ -3,3 +3,7 @@
   align-items: center;
   margin-left: 10px;
 }
+button:hover{
+  background: #E37267;
+  border-radius: 5px;
+}

@@ -1,23 +1,24 @@
 import { BodyModal, FooterModal, HeadModal } from "components/organisms";
 import style from "./ModalTemplate.module.css";
-import { Button } from "react-bootstrap";
-import { ModalShow } from "components/atoms";
-import { useState } from "react";
+import { Button, ModalShow } from "components/atoms";
+import { setModalShow } from "./../../../store/store";
+import { useDispatch, useSelector } from "react-redux";
 
 export function ModalTemplates() {
-  const [modalShow, setModalShow] = useState(false);
+  // const [modalShow, setModalShow] = useState(false);
+  const { modalShow } = useSelector((state) => {
+    return state;
+  });
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-      Modal Test Button
-      </Button>
       <ModalShow
         show={modalShow}
-        onHide={() => setModalShow(false)}
-        Head={<HeadModal></HeadModal>}
-        Body={<BodyModal></BodyModal>}
-        Footer={<FooterModal></FooterModal>}
+        onHide={() => dispatch(setModalShow())}
+        headmodal={<HeadModal></HeadModal>}
+        bodymodal={<BodyModal></BodyModal>}
+        footermodal={<FooterModal></FooterModal>}
       ></ModalShow>
     </div>
   );

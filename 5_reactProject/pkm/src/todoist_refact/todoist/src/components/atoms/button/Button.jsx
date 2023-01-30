@@ -1,14 +1,21 @@
 import { default as Button_bs } from "react-bootstrap/Button";
 import style from "./Button.module.css";
 
-export function Button({ name, variant, fontColor }) {
+export function Button({ children, variant, fontColor, name }) {
   return (
-    <Button_bs
-      variant={variant}
-      className={style.btnSize}
-      style={{ color: `${fontColor}`, opacity: 0.7 }}
+    <button
+      className={
+        style.btnSize +
+        " " +
+        `${variant != "btnNavHover" ? style.btnNavHover : style.btnMenuHover}`
+      }
+      // className={style.btnSize`${
+      //   " " + variant != "navHover" ? style.btn : style.btnSize
+      // }`}
+      style={{ color: `${fontColor}` }}
     >
       {name}
-    </Button_bs>
+      {children}
+    </button>
   );
 }

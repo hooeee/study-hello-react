@@ -1,4 +1,17 @@
 .btnSize {
-  width: 100px;
-  margin-right: 10px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
+  margin-right: 5px;
+  color: black;
+}
+
+.btnNavHover:hover {
+  background: #e37267;
+}
+
+.btnMenuHover:hover {
+  background: #eeeeee;
 }

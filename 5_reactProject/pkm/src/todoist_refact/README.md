@@ -41,27 +41,32 @@ npm install react-bootstrap bootstrap
 ```
 
 ## 절대경로 설정하기
+
 - 프로젝트의 제일 루트부분인 src안에 jsconfig.json 파일 생성
+
   ```json
   {
-  "compilerOptions": {
-    "baseUrl": "src"
-  },
-  "include": ["src"]
+    "compilerOptions": {
+      "baseUrl": "src"
+    },
+    "include": ["src"]
   }
   ```
 
   - 위와같이 추가를 하면 이렇게 사용 가능
 
 ## 리액트 아이콘 | react-icons
+
 ```sh
  npm install react-icons --save
 ```
 
 ## 리액트 아이콘 | google-material-icons
+
 ```sh
 npm install react-google-material-icons
 ```
+
 - 찾은 아이콘 종류
   - home
   - menu
@@ -79,6 +84,7 @@ npm install react-google-material-icons
   - 해당 일자에 해당하는 아이콘
 
 ## 해당 체크 이미지박스 링크
+
 ```
 https://d3ptyyxy2at9ui.cloudfront.net/assets/images/76bd6d1001a372ece03ef777813b3352.svg
 
@@ -87,4 +93,87 @@ https://d3ptyyxy2at9ui.cloudfront.net/assets/images/21ab83928e698e2cd56b75be2756
 https://d3ptyyxy2at9ui.cloudfront.net/assets/images/04587b33fb8e382780f4fb5787663300.svg
 
 https://d3ptyyxy2at9ui.cloudfront.net/assets/images/235e73c80b156de08b5182c969622c08.svg
+```
+
+## 라우터 사용 하기
+
+```sh
+npm install react-router-dom@6
+
+//vite + react 기준
+// main.jsx
+import { BrowserRouter } from "react-router-dom";
+<BrowserRouter>
+      <App />
+</BrowserRouter>
+```
+
+- 위와 같이 감싸놓기
+- 현재 사이드 바 부분에 링크 연결
+  ```js
+              <div
+                onClick={() => {
+                  navigate("./manage");
+                }}
+              >
+              <div
+                onClick={() => {
+                  navigate("./today");
+                }}
+              >
+              <div
+                onClick={() => {
+                  navigate("./tomorrow");
+                }}
+              >
+              <div
+                onClick={() => {
+                  navigate("./filterLabel");
+                }}
+              >
+  ```
+
+## store 구성하기
+
+```sh
+npm install @reduxjs/toolkit react-redux
+```
+
+### store.jsx
+
+```js
+// vite + react 기준
+// main.jsx
+import { Provider } from "@reduxjs/toolkit";
+import store from "./store/store";
+
+<Provider store={store}></Provider>;
+
+// store.jsx
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+const user = createSlice({
+  name: "user",
+  initalState: "park",
+  reducers: {
+    changeName(state) {
+      return "jhon" + state;
+    },
+  },
+});
+
+export const { changeName } = user.actions;
+
+export default configureStore({
+  reducer: {
+    user: user.reducer,
+  },
+});
+```
+
+### 사용하는 곳에 적용
+
+```js
+const a = useSelector((state) => {
+  return state.user;
+});
 ```
