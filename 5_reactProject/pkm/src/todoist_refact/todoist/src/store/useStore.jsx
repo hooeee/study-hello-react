@@ -1,5 +1,6 @@
 //npm install zustand
 import { create } from "zustand";
+import produce from "immer";
 
 //test
 export const useStore = create((set) => ({
@@ -38,10 +39,19 @@ export const useStore = create((set) => ({
       projectAdd: true,
     }));
   },
-  setProject(name, color, colorName,like, look) {
-    set((state) => ({
-      // project: project.push({name:name, color:color, colorName:colorName, like:like, look:look})
-      project: [{name:name, color:color, colorName:colorName, like:like, look:look}]
-    }));
-  },
+setProject:(name, color, colorName,like, look)=>
+set(
+  produce((draft)=>{
+    draft.project.push({
+      name:name, color:color, colorName:colorName, like:like, look:look
+    })
+  })
+),
+  // setProject(name, color, colorName,like, look) {
+  //   project.push({name:name, color:color, colorName:colorName, like:like, look:look});
+  //   set((state) => ({
+  //     // project: project.push({name:name, color:color, colorName:colorName, like:like, look:look})
+  //     project:project
+  //   }));
+  // },
 }));

@@ -38,8 +38,9 @@ export function FooterModal() {
           console.log(like);
           console.log(look);
           setProject(name,color,colorName,like,look);
-          console.log(project[0])
-          console.log(project[0])
+          project.map((obj,index)=>{
+            console.log(obj);
+          })
 
         }}
       >
