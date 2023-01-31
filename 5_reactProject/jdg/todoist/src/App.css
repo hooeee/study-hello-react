@@ -23,12 +23,28 @@ div {
   text-align: left;
 }
 
-.black-nav {
+.menuButton {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+  color: white;
+  font-size: 25px;
+}
+
+.menu-bar {
   display: flex;
   background: #c84b3f;
   width: 100%;
   color: white;
   padding-left: 20px;
+}
+
+.project-menu {
+  width: 250px;
+  height: 95vh;
+  border: 1px solid #d8d6d3;
+  position: relative;
+  /* margin: 0 auto; */
+  align-items: center;
 }
 
 .App-logo {
