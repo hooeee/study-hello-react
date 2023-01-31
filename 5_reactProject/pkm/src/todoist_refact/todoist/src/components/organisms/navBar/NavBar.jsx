@@ -28,6 +28,8 @@ export function NavBar() {
         <IconInput
           iconName={"search"}
           color={"white"}
+          bgColor={"#E37267"}
+          bgColorInput={"#E27267"}
           size={basicSize}
         ></IconInput>
       </div>

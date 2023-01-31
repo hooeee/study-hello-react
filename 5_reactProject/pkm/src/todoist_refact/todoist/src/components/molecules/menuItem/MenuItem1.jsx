@@ -7,7 +7,15 @@ import { setModalShow } from "./../../../store/store";
 import { useStore } from "./../../../store/useStore";
 import { useParams } from "react-router-dom";
 
-export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
+export function MenuItem1({
+  color,
+  iconName,
+  size,
+  menuName,
+  contentCount,
+  setProjectCancel,
+  setProjectDelete,
+}) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { modalShow } = useSelector((state) => {
@@ -27,7 +35,6 @@ export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
     </a>
   ));
 
-  const { setProjectCancel, project, setProjectDelete } = useStore();
   return (
     <div
       onMouseEnter={() => {

@@ -1,7 +1,7 @@
 import { Label } from "components/atoms";
 import { MenuItem, MenuItem1, MenuItem2 } from "components/molecules";
 import style from "./SideMenu.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { setSideBarClick } from "./../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,8 +14,12 @@ export function SideMenu() {
   });
   let navigate = useNavigate();
   // console.log(checkClick);
-  const { name, color, colorName, like, look, projectAdd, project } =
+  const { project, setProjectCancel, setProjectDelete, setValueInit } =
     useStore();
+
+  useEffect(() => {
+    setValueInit();
+  }, [project]);
   return (
     <>
       <div className={style.main}>
@@ -98,6 +102,8 @@ export function SideMenu() {
                         size={"25px"}
                         menuName={obj.name}
                         contentCount={0}
+                        setProjectCancel={setProjectCancel}
+                        setProjectDelete={setProjectDelete}
                       ></MenuItem1>
                     </div>
                   );

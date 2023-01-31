@@ -12,6 +12,7 @@ export const useStore = create((set) => ({
   projectCancel: false,
   projectAdd: false,
   project: [],
+  todoList: [],
   // project: [{ name: "", color: "", colorName: "", like: false, look: "list" }],
   setName(inputName) {
     set(() => ({ name: inputName }));
@@ -39,6 +40,16 @@ export const useStore = create((set) => ({
       projectAdd: true,
     }));
   },
+  setValueInit() {
+    set(() => ({
+      name: "",
+      color: "",
+      colorName: "",
+      like: true,
+      look: "list",
+      todoList: [],
+    }));
+  },
   setProject: (name, color, colorName, like, look) =>
     set(
       produce((draft) => {
@@ -48,6 +59,7 @@ export const useStore = create((set) => ({
           colorName: colorName,
           like: like,
           look: look,
+          todoList: [],
         });
       })
     ),
@@ -55,6 +67,14 @@ export const useStore = create((set) => ({
     set(
       produce((draft) => {
         draft.project.splice(id, 1);
+      })
+    ),
+  setTodoList: (id, content) =>
+    set(
+      produce((draft) => {
+        draft.project[id].todoList.push({
+          content,
+        });
       })
     ),
   // setProject(name, color, colorName,like, look) {

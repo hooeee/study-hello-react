@@ -1,0 +1,20 @@
+.iconBg {
+  color: red;
+}
+
+.TodoMain {
+  display: flex;
+  margin-bottom: 10px;
+  padding-bottom: 25px;
+  width: 500px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.workAddMain {
+  display: flex;
+}
+.workAddMain:hover {
+  display: flex;
+  color: red;
+  width: 100px;
+}

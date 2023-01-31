@@ -1,7 +1,7 @@
 import style from "./Input.module.css";
 
 export function Input({
-  bgcolor,
+  bgColor,
   fontColor,
   color,
   value,
@@ -13,12 +13,14 @@ export function Input({
       className={style.InputMain}
       style={{
         color: `${fontColor}`,
-        backgroundColor: `${bgcolor}`,
+        backgroundColor: `${bgColor}`,
         border: `1px solid ${color}`,
       }}
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-    ></input>
+    >
+      {console.log(value)}
+    </input>
   );
 }
