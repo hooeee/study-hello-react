@@ -7,6 +7,7 @@
   height: 1000px;
   transform: translateX(0px);
   transition: all 1s ease-in-out;
+  z-index: 10;
 }
 .sideMenuMainClose {
   display: flex;

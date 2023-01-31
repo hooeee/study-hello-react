@@ -1,5 +1,5 @@
 import { useStore } from "./../../../store/useStore";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "./TodoTemplate.module.css";
 import { TodoMain } from "components/organisms";
@@ -16,10 +16,15 @@ export function TodoTemplate() {
   useEffect(() => {
     setTodo(todo);
   }, [todo]);
+  let navigate = useNavigate();
+
   return (
     <>
-      {project.length == 0 ? null : (
+      {project.length == 0 || project.length - 1 < id ? (
+        navigate("/project")
+      ) : (
         <ul>
+          {console.log(project.length)}
           <TodoTitle name={project[id].name}></TodoTitle>
           {/* <h1>{project[id].name}</h1>{" "}
           <GoogleIcon iconName={"message"}></GoogleIcon> */}

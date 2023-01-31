@@ -9,13 +9,15 @@ export function IconInput({
   fontColor,
   value,
   setValue,
+  placeholder,
 }) {
   return (
     <div className={style.IconInputMain} style={{ background: bgColor }}>
       <div className={style.googleIconMain}>
         <GoogleIcon iconName={iconName} color={color} size={size}></GoogleIcon>
       </div>
-      <Input
+      <Input 
+        placeholder={placeholder}
         bgColor={bgColor}
         clasName={style.InputMain}
         value={value}

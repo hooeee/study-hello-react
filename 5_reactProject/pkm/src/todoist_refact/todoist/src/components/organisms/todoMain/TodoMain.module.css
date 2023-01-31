@@ -5,10 +5,10 @@
   align-content: center;
   margin-bottom: 10px;
 }
-.inputMain>input {
+.inputMain > input {
   border: 1px solid transparent;
 }
-.inputMain>input:hover {
+.inputMain > input:hover {
   border: 1px solid black;
 }
 

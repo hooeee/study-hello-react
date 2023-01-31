@@ -2,6 +2,7 @@
   width: 200px;
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 .MenuItemMain > span:nth-child(1) {
   display: flex;

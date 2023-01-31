@@ -61,24 +61,26 @@ export function MenuItem1({
                   size={size}
                 ></GoogleIcon>
               </Dropdown.Toggle>
-              <Dropdown.Menu className="super-colors">
-                <Dropdown.Item
-                  eventKey="1"
-                  onClick={() => {
-                    setProjectCancel();
-                  }}
-                >
-                  프로젝트 추가
-                </Dropdown.Item>
-                <Dropdown.Item
-                  eventKey="2"
-                  onClick={() => {
-                    setProjectDelete(id);
-                  }}
-                >
-                  프로젝트 삭제
-                </Dropdown.Item>
-              </Dropdown.Menu>
+              <div>
+                <Dropdown.Menu variant={"white"} className={"super-colors"}>
+                  <Dropdown.Item
+                    eventKey="1"
+                    onClick={() => {
+                      setProjectCancel();
+                    }}
+                  >
+                    프로젝트 추가
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    eventKey="2"
+                    onClick={() => {
+                      setProjectDelete(id);
+                    }}
+                  >
+                    프로젝트 삭제
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </div>
             </Dropdown>
           </div>
         )}
