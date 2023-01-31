@@ -8,8 +8,10 @@ export function FooterModal() {
     colorName,
     like,
     look,
+    project,
     setProjectCancel,
     setProjectAdd,
+    setProject,
   } = useStore();
   return (
     <div className={style.btnMain}>
@@ -35,6 +37,10 @@ export function FooterModal() {
           console.log(colorName);
           console.log(like);
           console.log(look);
+          setProject(name,color,colorName,like,look);
+          console.log(project[0])
+          console.log(project[0])
+
         }}
       >
         <Button

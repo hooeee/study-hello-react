@@ -38,7 +38,7 @@ export function ProjectPage() {
         <h1>프로젝트 이름: {name}</h1>
         <h2>컬러: {color}</h2>
         <h3>컬러 이름: {colorName}</h3>
-        <h4>즐겨찾기 유무: {like}</h4>
+        <h4>즐겨찾기 유무: {like==false?"false":"true"}</h4>
         <h4>보는 방식: {look}</h4>
       </ul>
     </>

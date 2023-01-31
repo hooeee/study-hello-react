@@ -10,7 +10,8 @@ export const useStore = create((set) => ({
   look: "list",
   projectCancel: false,
   projectAdd: false,
-  project: { name: "", color: "", colorName: "", like: false, look: "" },
+  project: [{}],
+  // project: [{ name: "", color: "", colorName: "", like: false, look: "list" }],
   setName(inputName) {
     set(() => ({ name: inputName }));
   },
@@ -37,14 +38,10 @@ export const useStore = create((set) => ({
       projectAdd: true,
     }));
   },
-  setProject() {
+  setProject(name, color, colorName,like, look) {
     set((state) => ({
-      project: {
-        name: state.name,
-        color: state.color,
-        like: state.like,
-        look: state.look,
-      },
+      // project: project.push({name:name, color:color, colorName:colorName, like:like, look:look})
+      project: [{name:name, color:color, colorName:colorName, like:like, look:look}]
     }));
   },
 }));
