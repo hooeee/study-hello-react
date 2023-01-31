@@ -3,8 +3,9 @@ import Form from "react-bootstrap/Form";
 import { Window } from "components/atoms/modals/Window";
 import { ImageCheckBox, Label } from "components/atoms/forms";
 import { ColorSelector } from "components/molecules/forms/ColorSelector";
-import css from "./ProjectAddModal.module.css";
+import css from "./ProjectFormModal.module.css";
 import { useEffect, useState } from "react";
+import { projectStore } from "stores";
 
 function ProjectAddFrom({ project, setProject }) {
 	const images = [
@@ -24,7 +25,7 @@ function ProjectAddFrom({ project, setProject }) {
 		<Form>
 			<Form.Group className="mb-3" controlId="formBasicEmail">
 				<Label className={css.label}>이름</Label>
-				<Form.Control size="sm" value={project.name} onChange={changeProjectHook} name="name" />
+				<Form.Control size="sm" value={project.title} onChange={changeProjectHook} name="title" />
 			</Form.Group>
 
 			<Form.Group className="mb-3" controlId="formBasicPassword">
@@ -65,7 +66,7 @@ function ProjectAddFrom({ project, setProject }) {
 	);
 }
 
-const Footer = ({ onHide, passableSubmit }) => {
+const Footer = ({ onHide, passableSubmit, onSubmit }) => {
 	const submitButtonStyle = {
 		background: "#db4c3f",
 		border: "1px #db4c3f solid",
@@ -75,36 +76,39 @@ const Footer = ({ onHide, passableSubmit }) => {
 			<Button size="sm" onClick={onHide}>
 				취소
 			</Button>
-			<Button size="sm" onClick={onHide} disabled={!passableSubmit} style={submitButtonStyle}>
+			<Button size="sm" onClick={onSubmit} disabled={!passableSubmit} style={submitButtonStyle}>
 				추가
 			</Button>
 		</>
 	);
 };
-const Title = () => (
-	<div>
-		<h5 className={css.title}>프로젝트 추가</h5>
-	</div>
-);
 
-const projectFactory = () => {
-	return {
-		id: -1,
-		name: "",
-		color: "gray",
-		type: "목록",
-		bookmark: true,
-	};
+const modalStateEnum = {
+	UPDATE: 0,
+	CREATE: 1,
 };
 
-export function ProjectAddModal(props) {
-	const [project, setProject] = useState(projectFactory());
+export function ProjectFormModal(props) {
+	const [modalState, setModalState] = useState(modalStateEnum.CREATE);
+	const [project, setProject, addProject, updateProject] = projectStore((t) => [t.modal, t.setModal, t.addProject, t.updateProject]);
+
+	const onHideHandler = props.onHide;
 
 	useEffect(() => {
-		setProject(projectFactory());
+		setModalState(project.id != -1 ? modalStateEnum.UPDATE : modalStateEnum.CREATE);
 	}, []);
 
+	const onSubmitHandler = () => {
+		if (modalState == modalStateEnum.UPDATE) updateProject(project);
+		else addProject(project);
+		onHideHandler();
+	};
+
 	return (
-		<Window {...props} title={<Title />} body={<ProjectAddFrom project={project} setProject={setProject} />} footer={<Footer onHide={props.onHide} passableSubmit={project.name != ""} />}></Window>
+		<Window
+			{...props}
+			title={<h5 className={css.title}>프로젝트 추가</h5>}
+			body={<ProjectAddFrom project={project} setProject={setProject} />}
+			footer={<Footer onHide={onHideHandler} onSubmit={onSubmitHandler} passableSubmit={project.name != ""} />}></Window>
 	);
 }
