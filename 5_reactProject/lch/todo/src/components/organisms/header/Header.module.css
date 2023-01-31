@@ -1,0 +1,18 @@
+.main {
+  width: 100%;
+  height: 44px;
+  background-color: #db4c3f;
+  display: flex;
+  padding: 0px 17px;
+  z-index: 99;
+}
+
+.left_control {
+  display: flex;
+  justify-content: left;
+}
+
+.right_control {
+  display: flex;
+  margin-left: auto;
+}
