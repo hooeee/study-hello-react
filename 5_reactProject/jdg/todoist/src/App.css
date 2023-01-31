@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+p {
+  display: inline;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid gray;
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eee;
+  text-align: left;
+}
+
+.menuButton {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+  color: white;
+  font-size: 25px;
+}
+
+.menu-bar {
+  display: flex;
+  background: #c84b3f;
+  width: 100%;
+  color: white;
+  padding-left: 20px;
+}
+
+.project-menu {
+  width: 250px;
+  height: 95vh;
+  border: 1px solid #d8d6d3;
+  position: relative;
+  /* margin: 0 auto; */
+  align-items: center;
+}
