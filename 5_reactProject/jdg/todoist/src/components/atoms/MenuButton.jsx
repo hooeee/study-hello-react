@@ -3,10 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 
 export function MenuButton() {
-  const [visible, setVisible] = useState(false);
+  const [isSideBar, SetIsSideBar] = useState(true);
 
   return (
-    <button className="menuButton" onClick={() => {}}>
+    <button
+      className="menuButton"
+      onClick={() => {
+        SetIsSideBar(!isSideBar);
+      }}
+    >
       Menu
     </button>
   );
