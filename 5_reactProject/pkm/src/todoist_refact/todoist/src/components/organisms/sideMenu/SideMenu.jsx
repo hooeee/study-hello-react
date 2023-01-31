@@ -14,7 +14,8 @@ export function SideMenu() {
   });
   let navigate = useNavigate();
   // console.log(checkClick);
-  const { name, color, colorName, like, look, projectAdd, project } = useStore();
+  const { name, color, colorName, like, look, projectAdd, project } =
+    useStore();
   return (
     <>
       <div className={style.main}>
@@ -83,24 +84,24 @@ export function SideMenu() {
             <div>
               <MenuItem2></MenuItem2>
               <div>
-              {
-                project.map((obj,index)=>{
-                  console.log(obj);
-                  <div
-                  onClick={() => {
-                    navigate("./project/1");
-                  }}
-                >
-                  <MenuItem1
-                    iconName={"radio_button_checked"}
-                    color={obj.color}
-                    size={"25px"}
-                    menuName={obj.name}
-                    contentCount={0}
-                  ></MenuItem1>
-                </div>
-                })
-              }
+                {project.map((obj, index) => {
+                  console.log(index);
+                  return (
+                    <div
+                      onClick={() => {
+                        navigate("./project/" + index);
+                      }}
+                    >
+                      <MenuItem1
+                        iconName={"radio_button_checked"}
+                        color={obj.color}
+                        size={"25px"}
+                        menuName={obj.name}
+                        contentCount={0}
+                      ></MenuItem1>
+                    </div>
+                  );
+                })}
               </div>
               {/* {projectAdd == true ? (
                 <div>

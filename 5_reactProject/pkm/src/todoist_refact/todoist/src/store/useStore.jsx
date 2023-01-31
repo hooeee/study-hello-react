@@ -11,7 +11,7 @@ export const useStore = create((set) => ({
   look: "list",
   projectCancel: false,
   projectAdd: false,
-  project: [{}],
+  project: [],
   // project: [{ name: "", color: "", colorName: "", like: false, look: "list" }],
   setName(inputName) {
     set(() => ({ name: inputName }));
@@ -39,14 +39,24 @@ export const useStore = create((set) => ({
       projectAdd: true,
     }));
   },
-setProject:(name, color, colorName,like, look)=>
-set(
-  produce((draft)=>{
-    draft.project.push({
-      name:name, color:color, colorName:colorName, like:like, look:look
-    })
-  })
-),
+  setProject: (name, color, colorName, like, look) =>
+    set(
+      produce((draft) => {
+        draft.project.push({
+          name: name,
+          color: color,
+          colorName: colorName,
+          like: like,
+          look: look,
+        });
+      })
+    ),
+  setProjectDelete: (id) =>
+    set(
+      produce((draft) => {
+        draft.project.splice(id, 1);
+      })
+    ),
   // setProject(name, color, colorName,like, look) {
   //   project.push({name:name, color:color, colorName:colorName, like:like, look:look});
   //   set((state) => ({
