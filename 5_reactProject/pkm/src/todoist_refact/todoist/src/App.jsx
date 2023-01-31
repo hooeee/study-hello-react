@@ -2,7 +2,7 @@ import "./App.css";
 import { ModalShow } from "components/atoms";
 import React from "react";
 import { ModalTemplates } from "components/templates/modalTemplate/ModalTemplate";
-import { LayoutTemplate, TodoTemplate } from "components/templates";
+import { LayoutTemplate, NotFound, TodoTemplate } from "components/templates";
 import {
   useParams,
   Routes,
@@ -24,7 +24,7 @@ function App() {
             element={<div>필터 라벨 페이지 입니다.</div>}
           />
           <Route path="/project/:id" element={<TodoTemplate></TodoTemplate>} />
-          <Route path="*" element={<div>없는 페이지 입니다.</div>} />
+          <Route path="*" element={<NotFound></NotFound>} />
         </Route>
       </Routes>
     </div>
