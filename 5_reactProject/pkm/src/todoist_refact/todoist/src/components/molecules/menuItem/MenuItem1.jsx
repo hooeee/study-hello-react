@@ -5,9 +5,19 @@ import { Button, ButtonGroup, Dropdown, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setModalShow } from "./../../../store/store";
 import { useStore } from "./../../../store/useStore";
+import { useParams } from "react-router-dom";
 
-export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
+export function MenuItem1({
+  color,
+  iconName,
+  size,
+  menuName,
+  contentCount,
+  setProjectCancel,
+  setProjectDelete,
+}) {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const { modalShow } = useSelector((state) => {
     return state;
   });
@@ -25,7 +35,6 @@ export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
     </a>
   ));
 
-  const { setProjectCancel } = useStore();
   return (
     <div
       onMouseEnter={() => {
@@ -52,17 +61,26 @@ export function MenuItem1({ color, iconName, size, menuName, contentCount }) {
                   size={size}
                 ></GoogleIcon>
               </Dropdown.Toggle>
-              <Dropdown.Menu className="super-colors">
-                <Dropdown.Item
-                  eventKey="1"
-                  onClick={() => {
-                    setProjectCancel();
-                  }}
-                >
-                  프로젝트 추가
-                </Dropdown.Item>
-                <Dropdown.Item eventKey="2">프로젝트 삭제</Dropdown.Item>
-              </Dropdown.Menu>
+              <div>
+                <Dropdown.Menu variant={"white"} className={"super-colors"}>
+                  <Dropdown.Item
+                    eventKey="1"
+                    onClick={() => {
+                      setProjectCancel();
+                    }}
+                  >
+                    프로젝트 추가
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    eventKey="2"
+                    onClick={() => {
+                      setProjectDelete(id);
+                    }}
+                  >
+                    프로젝트 삭제
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </div>
             </Dropdown>
           </div>
         )}

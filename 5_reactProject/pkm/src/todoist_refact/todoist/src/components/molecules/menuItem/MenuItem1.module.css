@@ -26,5 +26,9 @@
 .DropMain {
   display: flex;
   position: absolute;
-  right:10%;
+  right: 10%;
+}
+.DropMenuMain {
+  background: white;
+  z-index: 1000;
 }

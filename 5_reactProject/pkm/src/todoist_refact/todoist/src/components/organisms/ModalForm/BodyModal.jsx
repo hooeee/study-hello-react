@@ -18,7 +18,7 @@ export function BodyModal() {
         <div
           onClick={() => {
             dispatch(setCheckClick());
-            // console.log("목룍");
+             console.log("목룍");
             // console.log(checkClick);
             checkClick == false ? setLook("list") : setLook("board");
           }}
@@ -38,9 +38,9 @@ export function BodyModal() {
         <div
           onClick={() => {
             dispatch(setCheckClick());
-            // console.log("보드");
+             console.log("보드");
             // console.log(checkClick);
-            checkClick == false ? setLook("board") : setLook("list");
+            !checkClick == false ? setLook("board") : setLook("list");
           }}
         >
           <CheckBoxImage

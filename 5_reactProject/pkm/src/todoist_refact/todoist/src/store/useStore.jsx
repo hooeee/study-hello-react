@@ -1,5 +1,6 @@
 //npm install zustand
 import { create } from "zustand";
+import produce from "immer";
 
 //test
 export const useStore = create((set) => ({
@@ -10,7 +11,9 @@ export const useStore = create((set) => ({
   look: "list",
   projectCancel: false,
   projectAdd: false,
-  project: { name: "", color: "", colorName: "", like: false, look: "" },
+  project: [],
+  todoList: [],
+  // project: [{ name: "", color: "", colorName: "", like: false, look: "list" }],
   setName(inputName) {
     set(() => ({ name: inputName }));
   },
@@ -37,14 +40,48 @@ export const useStore = create((set) => ({
       projectAdd: true,
     }));
   },
-  setProject() {
-    set((state) => ({
-      project: {
-        name: state.name,
-        color: state.color,
-        like: state.like,
-        look: state.look,
-      },
+  setValueInit() {
+    set(() => ({
+      name: "",
+      color: "",
+      colorName: "",
+      like: true,
+      look: "list",
+      todoList: [],
     }));
   },
+  setProject: (name, color, colorName, like, look) =>
+    set(
+      produce((draft) => {
+        draft.project.push({
+          name: name,
+          color: color,
+          colorName: colorName,
+          like: like,
+          look: look,
+          todoList: [],
+        });
+      })
+    ),
+  setProjectDelete: (id) =>
+    set(
+      produce((draft) => {
+        draft.project.splice(id, 1);
+      })
+    ),
+  setTodoList: (id, content) =>
+    set(
+      produce((draft) => {
+        draft.project[id].todoList.push({
+          content,
+        });
+      })
+    ),
+  // setProject(name, color, colorName,like, look) {
+  //   project.push({name:name, color:color, colorName:colorName, like:like, look:look});
+  //   set((state) => ({
+  //     // project: project.push({name:name, color:color, colorName:colorName, like:like, look:look})
+  //     project:project
+  //   }));
+  // },
 }));

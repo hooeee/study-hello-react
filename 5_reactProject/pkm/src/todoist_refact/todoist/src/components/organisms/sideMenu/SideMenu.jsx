@@ -1,8 +1,8 @@
 import { Label } from "components/atoms";
 import { MenuItem, MenuItem1, MenuItem2 } from "components/molecules";
 import style from "./SideMenu.module.css";
-import { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { setSideBarClick } from "./../../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useStore } from "./../../../store/useStore";
@@ -14,7 +14,12 @@ export function SideMenu() {
   });
   let navigate = useNavigate();
   // console.log(checkClick);
-  const { name, color, colorName, like, look, projectAdd } = useStore();
+  const { project, setProjectCancel, setProjectDelete, setValueInit } =
+    useStore();
+  const { id } = useParams();
+  useEffect(() => {
+    setValueInit();
+  }, [project]);
   return (
     <>
       <div className={style.main}>
@@ -82,7 +87,30 @@ export function SideMenu() {
             </>
             <div>
               <MenuItem2></MenuItem2>
-              {projectAdd == true ? (
+              <div>
+                {project.map((obj, index) => {
+                  console.log(index);
+                  return (
+                    <div
+                      onClick={() => {
+                        navigate("./project/" + index);
+                      }}
+                    >
+                      <MenuItem1
+                        iconName={"radio_button_checked"}
+                        color={obj.color}
+                        size={"25px"}
+                        menuName={obj.name}
+                        contentCount={obj.todoList.length}
+                        setProjectCancel={setProjectCancel}
+                        setProjectDelete={setProjectDelete}
+                      ></MenuItem1>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* {projectAdd == true ? (
+                <div>
                 <div
                   onClick={() => {
                     navigate("./project/1");
@@ -96,7 +124,22 @@ export function SideMenu() {
                     contentCount={0}
                   ></MenuItem1>
                 </div>
-              ) : null}
+                <div
+                  onClick={() => {
+                    navigate("./project/1");
+                  }}
+                >
+                  <MenuItem1
+                    iconName={"radio_button_checked"}
+                    color={color}
+                    size={"25px"}
+                    menuName={name}
+                    contentCount={0}
+                  ></MenuItem1>
+                </div>
+                </div>
+                
+              ) : null} */}
             </div>
           </div>
         </div>
