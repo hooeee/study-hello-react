@@ -24,10 +24,8 @@ export function IconInput({
         value={value}
         setValue={setValue}
         fontColor={fontColor}
-      >
-      </Input>
+      ></Input>
       {children}
-
     </div>
   );
 }
