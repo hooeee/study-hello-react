@@ -1,0 +1,8 @@
+.NotFoundMain {
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
+  flex-direction: row-reverse;
+  align-items: center;
+  max-width: fit-content;
+}
