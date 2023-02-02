@@ -1,8 +1,14 @@
+import { Button, Icon } from "@components/atomic";
+import { IconButton } from "@components/molecules";
 import "./App.css";
-import { IconButton } from "./components/molecules";
 
 function App() {
-  return <div style={{ background: "white" }}></div>;
+  return <div style={{ background: "white" }}>
+
+<Button>dddd</Button>
+<Icon></Icon>
+<IconButton></IconButton>
+  </div>;
 }
 
 export default App;

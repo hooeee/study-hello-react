@@ -1,4 +1,4 @@
-import { Button, Icon } from "../../atomic";
+import { Button, Icon } from "@components/atomic";
 
 export function IconButton({ children, clickEvent, color, iconName, size }) {
   return (
