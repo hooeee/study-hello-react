@@ -1,24 +1,19 @@
-import React from 'react';
-import './button.css';
+import React from "react";
+import "./Button.css";
 
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
-  
   primary?: boolean;
-
-  danger?: boolean;
   /**
    * What background color to use
    */
   backgroundColor?: string;
-
-  children?: React.ReactNode;
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
   /**
    * Button contents
    */
@@ -34,23 +29,19 @@ interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  danger=false,
-  size,
+  size = "medium",
   backgroundColor,
   label,
-  children,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : (danger ? 'storybook-button--danger'  : 'storybook-button--secondary');
-  
+  const mode = primary ? "button-primary" : "button-secondary";
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={["button-main", `storybook-button--${size}`, mode].join(" ")}
       style={{ backgroundColor }}
       {...props}
     >
-      {children}
       {label}
     </button>
   );

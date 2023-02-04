@@ -5,7 +5,7 @@ import { Button } from './Button';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'components/atomic/form/Button',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -19,17 +19,10 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  primary: false,
+  primary: true,
   label: 'Button',
 };
-export const Danger= Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Danger.args = {
-  danger: true,
-  label: 'Button',  
-  size: 'large',
 
-};
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
