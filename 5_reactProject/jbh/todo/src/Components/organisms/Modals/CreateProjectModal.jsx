@@ -6,6 +6,7 @@ import SwitchButton from "../../atoms/forms/SwitchButton";
 import ImageCheck from "../../molecules/imagechecks/ImageCheck";
 import { changeProject } from "../../../store/modalSlice";
 
+//...
 export default function CreateProjectModal() {
     const { project } = useSelector((store) => store.project);
     const dispatch = useDispatch();
