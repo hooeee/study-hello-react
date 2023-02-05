@@ -1,5 +1,5 @@
-import React from 'react';
-import css from './Button.module.css';
+import React from "react";
+import css from "./Button.module.css";
 
 interface ButtonProps {
   /**
@@ -13,7 +13,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'Small' | 'Medium' | 'Large';
+  size?: "Small" | "Medium" | "Large";
   /**
    * Button contents
    */

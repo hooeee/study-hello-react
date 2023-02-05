@@ -1,11 +1,11 @@
 ---
-title: StoryBook 적용하기
+title: StoryBook Adjust
 date: 2023-02-05 15:31:00 +0900
 category: react
 draft: false 
 ---
 
-## 2023-02-05-StoryBook-적용하기
+## 2023-02-05-StoryBook-Adjust
 
 ## 설치 및 setup
 
@@ -305,7 +305,7 @@ export const Button = ({
 
 ```tsx
 import React from "react";
-import css from "Button.module.css";
+import css from "./Button.module.css";
 
 interface ButtonProps {
   /**
@@ -407,50 +407,27 @@ Small.args = {
 
 ```
 
-```tsx
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+## 폴더 구조 나누기
 
-import { Button } from "./Button";
+- x.stories.jsx | x.stories.tsx
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: "Example/Button",
-  component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-} as ComponentMeta<typeof Button>;
+  - .stories파일로 들어가서 
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+    ```tsx
+      title: 'Example/Button',
+    ```
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: "Button",
-};
+    - 타이틀 첫번째가 큰 폴더 나머지는 안에 있는 폴더 라고 생각하면됨
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button",
-};
+- Components/form/Button을 만들고 싶으면 아래와 같이 하면됨
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "Large",
-  label: "Button",
-};
+  ```tsx
+    title: 'Component/form/Button',
+  ```
 
-export const Small = Template.bind({});
-Small.args = {
-  size: "Small",
-  label: "Button",
-};
+  <img src="../../assets/img/post/2023-02-05-StoryBook-Adjust/image-20230205211136522.png" alt="image-20230205211136522" style="zoom:50%;" />
 
-```
+  - 위와 같이 Component라는 큰 폴더 안에 저렇게 표현이 가능하게 관리가 가능하다.
 
 
 
