@@ -28,6 +28,7 @@
 }
 
 .firstDivImage {
+    cursor: pointer;
     width: 220px;
     height: 150px;
     border: 1px solid rgb(232, 229, 229);
@@ -37,6 +38,7 @@
 }
 
 .firstDivCheckImage {
+    cursor: pointer;
     width: 220px;
     height: 150px;
     border: 1px solid red;
@@ -46,6 +48,7 @@
 }
 
 .firstDivImage:hover {
+    cursor: pointer;
     width: 220px;
     height: 150px;
     border: 1px solid black;
@@ -55,6 +58,7 @@
 }
 
 .secondDivImage {
+    cursor: pointer;
     width: 220px;
     height: 150px;
     border: 1px solid rgb(232, 229, 229);
@@ -64,6 +68,7 @@
 }
 
 .secondDivCheckImage {
+    cursor: pointer;
     width: 220px;
     height: 150px;
     border: 1px solid red;
@@ -73,6 +78,7 @@
 }
 
 .secondDivImage:hover {
+    cursor: pointer;
     width: 220px;
     height: 150px;
     border: 1px solid black;

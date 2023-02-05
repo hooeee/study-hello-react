@@ -10,7 +10,7 @@ export default function CenterModal(props) {
                 </Modal.Header>
                 <Modal.Body>{props.children}</Modal.Body>
                 <Modal.Footer>
-                    <Button>Save</Button>
+                    <Button onClick={props.onSave}>Save</Button>
                     <Button onClick={props.onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>

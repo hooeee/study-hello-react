@@ -1,10 +1,13 @@
 import style from "./SideBar.module.css";
 import IconButton from "../../molecules/iconbutton/IconButton";
-import { AiFillAppstore, AiFillCalendar, AiOutlineBorderTop, AiFillFilter, AiOutlinePlus, AiOutlineLeft } from "react-icons/ai";
+import { AiFillAppstore, AiFillCalendar, AiOutlineBorderTop, AiFillFilter, AiOutlinePlus, AiOutlineLeft, AiOutlineEllipsis } from "react-icons/ai";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import CircleText from "../../molecules/circletexts/CircleText.jsx";
 
 export default function SideBar({ modalClick }) {
     const [over, setOver] = useState(false);
+    const { project } = useSelector((store) => store);
     return (
         <div>
             <div className={style.sidebar}>
@@ -42,6 +45,16 @@ export default function SideBar({ modalClick }) {
                             </div>
                         </div>
                     </li>
+                    <div>
+                        {project.projectItems.map((value, index) => {
+                            return (
+                                <div className={style.projectGroup} key={index}>
+                                    <CircleText color={project.projectItems[index].project.colorKey} name={project.projectItems[index].project.name} />
+                                    <IconButton buttonName={<AiOutlineEllipsis />} />
+                                </div>
+                            );
+                        })}
+                    </div>
                 </ul>
             </div>
         </div>

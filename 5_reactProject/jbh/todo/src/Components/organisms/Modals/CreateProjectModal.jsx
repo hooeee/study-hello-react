@@ -1,55 +1,65 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import SelectBox from "../../molecules/selectboxs/SelectBox";
 import style from "./CreateProjectModal.module.css";
 import Form from "react-bootstrap/Form";
 import SwitchButton from "../../atoms/forms/SwitchButton";
+import ImageCheck from "../../molecules/imagechecks/ImageCheck";
+import { changeProject } from "../../../store/modalSlice";
 
 export default function CreateProjectModal() {
-    const [todoFormat, setTodoFormat] = useState("todoList");
-    const onTodoFormatChange = ({ target: { value } }) => {
-        console.log(value);
-        setTodoFormat(value);
-    };
+    const { project } = useSelector((store) => store.project);
+    const dispatch = useDispatch();
 
     return (
         <div>
             <Form>
                 <div>이름</div>
                 <div>
-                    <input className={style.projectNameInput}></input>
+                    <input
+                        className={style.projectNameInput}
+                        name="name"
+                        onChange={(e) => {
+                            dispatch(changeProject({ name: e.target.name, value: e.target.value }));
+                        }}
+                    ></input>
                 </div>
                 <div>색상</div>
                 <SelectBox />
                 <div className={style.switchButton}>
-                    <SwitchButton label={"즐겨찾기 추가"} />
+                    <SwitchButton
+                        label={"즐겨찾기 추가"}
+                        checked={project.favorite}
+                        onChange={(e) => {
+                            dispatch(changeProject({ name: "favorite", value: e.target.checked }));
+                        }}
+                    />
                 </div>
                 <div>
                     <span>보기</span>
                     <div className={style.imageGroup}>
                         <div className={style.firstGroup}>
-                            <div className={`${style.firstDivImage} ${todoFormat === "todoList" ? style.firstDivCheckImage : ""}`} />
-                            <Form.Check
-                                inline
-                                label="목록"
-                                name="imageGroup"
-                                type={"radio"}
-                                id={`inline-radio-1`}
-                                value="todoList"
-                                checked={todoFormat === "todoList"}
-                                onChange={onTodoFormatChange}
+                            <ImageCheck
+                                divImage={style.firstDivImage}
+                                divCheckImage={style.firstDivCheckImage}
+                                label={"목록"}
+                                format={"todoList"}
+                                todoFormat={project.listName}
+                                onTodoFormatChange={(e) => {
+                                    dispatch(changeProject({ name: "listName", value: e.target.value }));
+                                }}
                             />
                         </div>
                         <div className={style.secondGroup}>
-                            <div className={`${style.secondDivImage} ${todoFormat === "todoBoard" ? style.secondDivCheckImage : ""}`} />
-                            <Form.Check
-                                inline
-                                label="보드"
-                                name="imageGroup"
-                                type={"radio"}
-                                id={`inline-radio-1`}
-                                value="todoBoard"
-                                checked={todoFormat === "todoBoard"}
-                                onChange={onTodoFormatChange}
+                            <ImageCheck
+                                divImage={style.secondDivImage}
+                                divCheckImage={style.secondDivCheckImage}
+                                label={"보드"}
+                                format={"todoBoard"}
+                                todoFormat={project.listName}
+                                onTodoFormatChange={(e) => {
+                                    dispatch(changeProject({ name: "listName", value: e.target.value }));
+                                }}
                             />
                         </div>
                     </div>

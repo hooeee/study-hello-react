@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header/Header";
 import CreateProjectModal from "../Modals/CreateProjectModal";
 import SideBar from "../SideBar/SideBar";
 import style from "./layout.module.css";
-
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import CenterModal from "../../molecules/modals/Modal";
+import { addProject } from "../../../store/modalSlice";
 
 export default function Layout(props) {
     const [open, setOpen] = useState(false);
@@ -17,6 +16,9 @@ export default function Layout(props) {
     const projectModalClick = () => {
         setProjectModal(!projectModal);
     };
+
+    const { project } = useSelector((store) => store.project);
+    const dispatch = useDispatch();
     return (
         <div className={style.loyout}>
             <Header hamberClick={hamburgerMenuClick} />
@@ -26,7 +28,14 @@ export default function Layout(props) {
 
             <main className="main">{props.children}</main>
             {projectModal == true ? (
-                <CenterModal show={projectModal} onHide={() => setProjectModal(false)}>
+                <CenterModal
+                    show={projectModal}
+                    onSave={() => {
+                        dispatch(addProject({ project }));
+                        setProjectModal(false);
+                    }}
+                    onHide={() => setProjectModal(false)}
+                >
                     <CreateProjectModal />
                 </CenterModal>
             ) : null}
