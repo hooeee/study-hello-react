@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SelectBox from "../../molecules/selectboxs/SelectBox";
 import style from "./CreateProjectModal.module.css";
