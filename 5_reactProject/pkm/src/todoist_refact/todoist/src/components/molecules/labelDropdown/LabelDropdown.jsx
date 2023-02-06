@@ -1,4 +1,4 @@
-import { Label, GoogleIcon, Input } from "components/atoms";
+import { Label, GoogleIcon, Input } from "@components/atoms";
 import React, { useState } from "react";
 import { Form, Dropdown } from "react-bootstrap";
 import style from "./LabelDropdown.module.css";

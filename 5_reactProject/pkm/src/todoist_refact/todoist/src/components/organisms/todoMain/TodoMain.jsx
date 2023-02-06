@@ -1,17 +1,20 @@
-import { Button, Input } from "components/atoms";
-import { IconInput } from "components/molecules";
+import { Button, Input } from "@components/atoms";
+import { IconInput } from "@components/molecules";
 import { useState } from "react";
 import style from "./TodoMain.module.css";
+import { useStore } from "@store";
 export function TodoMain({ isInput }) {
   const [content, setContent] = useState(true);
   const [checkClick, setCheckClick] = useState(true);
   const [value, setValue] = useState("");
+  const { project, setTodoListDelete } = useStore();
+
   return (
     <div>
       {content == true ? (
         <div className={style.inputMain}>
           <Input setValue={setValue} value={value}></Input>
-          <div className={style.btnCancelMain}>
+          <div className={style.btnCancelMain} onClick={(e) => {}}>
             <Button variant={"!btnNavHover"} name={"취소"}></Button>
           </div>
           <div
@@ -20,7 +23,7 @@ export function TodoMain({ isInput }) {
               setContent(!content);
             }}
           >
-            <Button variant={"btnNavHover"} name={" 추가"}></Button>
+            <Button variant={"btnNavHover"} name={"추가"}></Button>
           </div>
         </div>
       ) : (

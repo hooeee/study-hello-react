@@ -12,6 +12,7 @@
 
 .workAddMain {
   display: flex;
+  color:grey;
 }
 .workAddMain:hover {
   display: flex;

@@ -1,6 +1,6 @@
-import { Button } from "components/atoms";
+import { Button } from "@components/atoms";
 import style from "./FooterModal.module.css";
-import { useStore } from "./../../../store/useStore";
+import { useStore } from "@store";
 export function FooterModal() {
   const {
     name,
@@ -37,11 +37,10 @@ export function FooterModal() {
           console.log(colorName);
           console.log(like);
           console.log(look);
-          setProject(name,color,colorName,like,look);
-          project.map((obj,index)=>{
+          setProject(name, color, colorName, like, look);
+          project.map((obj, index) => {
             console.log(obj);
-          })
-
+          });
         }}
       >
         <Button

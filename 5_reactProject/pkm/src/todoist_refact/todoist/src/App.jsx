@@ -1,8 +1,8 @@
 import "./App.css";
-import { ModalShow } from "components/atoms";
+import { ModalShow } from "@components/atoms"; 
 import React from "react";
-import { ModalTemplates } from "components/templates/modalTemplate/ModalTemplate";
-import { LayoutTemplate, NotFound, TodoTemplate } from "components/templates";
+import { ModalTemplates } from "@components/templates/modalTemplate/ModalTemplate";
+import { LayoutTemplate, NotFound, TodoTemplate } from "@components/templates";
 import {
   useParams,
   Routes,

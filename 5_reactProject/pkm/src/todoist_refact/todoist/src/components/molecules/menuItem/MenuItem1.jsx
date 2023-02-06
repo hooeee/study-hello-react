@@ -1,10 +1,8 @@
 import style from "./MenuItem1.module.css";
-import { GoogleIcon } from "components/atoms";
+import { GoogleIcon } from "@components/atoms";
 import React, { useState } from "react";
 import { Button, ButtonGroup, Dropdown, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setModalShow } from "./../../../store/store";
-import { useStore } from "./../../../store/useStore";
 import { useParams } from "react-router-dom";
 
 export function MenuItem1({

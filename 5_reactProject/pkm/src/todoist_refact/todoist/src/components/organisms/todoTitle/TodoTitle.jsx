@@ -1,4 +1,4 @@
-import { IconButton, TitleButton } from "components/molecules";
+import { IconButton, TitleButton } from "@components/molecules";
 
 export function TodoTitle({ name }) {
   return (

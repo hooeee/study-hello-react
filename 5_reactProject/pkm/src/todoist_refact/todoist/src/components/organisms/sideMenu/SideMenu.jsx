@@ -1,11 +1,11 @@
-import { Label } from "components/atoms";
-import { MenuItem, MenuItem1, MenuItem2 } from "components/molecules";
+import { Label } from "@components/atoms";
+import { MenuItem, MenuItem1, MenuItem2 } from "@components/molecules";
 import style from "./SideMenu.module.css";
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import { setSideBarClick } from "./../../../store/store";
+import { setSideBarClick } from "@store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { useStore } from "./../../../store/useStore";
+import { useStore } from "@store";
 export function SideMenu() {
   // const [sideBarClick, setSideBarClick] = useState(true);
   const dispatch = useDispatch();

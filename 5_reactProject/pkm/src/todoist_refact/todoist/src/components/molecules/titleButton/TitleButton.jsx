@@ -1,4 +1,4 @@
-import { Button, GoogleIcon, Label } from "components/atoms";
+import { Button, GoogleIcon, Label } from "@components/atoms";
 import style from "./TitleButton.module.css";
 export function TitleButton({
   children,

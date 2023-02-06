@@ -4,13 +4,15 @@ import produce from "immer";
 
 //test
 export const useStore = create((set) => ({
-  name: "",
-  color: "",
-  colorName: "",
-  like: true,
-  look: "list",
-  projectCancel: false,
-  projectAdd: false,
+  projectArg: {
+    name: "",
+    color: "",
+    colorName: "",
+    like: true,
+    look: "list",
+    projectCancel: false,
+    projectAdd: false,
+  },
   project: [],
   todoList: [],
   // project: [{ name: "", color: "", colorName: "", like: false, look: "list" }],
@@ -75,6 +77,12 @@ export const useStore = create((set) => ({
         draft.project[id].todoList.push({
           content,
         });
+      })
+    ),
+  setTodoListDelete: (id) =>
+    set(
+      produce((draft) => {
+        draft.project.splice(id, 1);
       })
     ),
   // setProject(name, color, colorName,like, look) {

@@ -1,5 +1,5 @@
-import { GoogleIcon } from "components/atoms";
-import style from "./NotFound.module.css"
+import { GoogleIcon } from "@components/atoms";
+import style from "./NotFound.module.css";
 
 export function NotFound() {
   return (
@@ -10,4 +10,3 @@ export function NotFound() {
     </div>
   );
 }
-

@@ -1,5 +1,4 @@
-import { GoogleIcon, Label } from "components/atoms";
-import { setModalShow } from "./../../../store/store";
+import { GoogleIcon, Label } from "@components/atoms";
 import style from "./MenuItem2.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

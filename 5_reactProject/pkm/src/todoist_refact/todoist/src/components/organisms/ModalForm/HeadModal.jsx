@@ -3,7 +3,7 @@ import {
   LabelDropDown,
   LabelInput,
   TitleButton,
-} from "components/molecules";
+} from "@components/molecules";
 import { useStore } from "./../../../store/useStore";
 
 export function HeadModal() {

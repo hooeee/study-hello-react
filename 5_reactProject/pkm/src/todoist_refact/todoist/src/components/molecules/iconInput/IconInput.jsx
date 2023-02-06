@@ -1,4 +1,4 @@
-import { GoogleIcon, Input } from "components/atoms";
+import { GoogleIcon, Input } from "@components/atoms";
 import style from "./IconInput.module.css";
 
 export function IconInput({
