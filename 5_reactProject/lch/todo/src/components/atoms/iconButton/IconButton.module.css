@@ -1,0 +1,8 @@
+.main {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-right: 5px;
+}
