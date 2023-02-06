@@ -7,6 +7,7 @@ import style from "./layout.module.css";
 import CenterModal from "../../molecules/modals/Modal";
 import { addProject } from "../../../store/modalSlice";
 
+//..테스트
 export default function Layout(props) {
     const [open, setOpen] = useState(false);
     const [projectModal, setProjectModal] = useState(false);
