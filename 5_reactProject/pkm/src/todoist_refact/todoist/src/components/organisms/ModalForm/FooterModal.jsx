@@ -32,16 +32,10 @@ export function FooterModal() {
         onClick={() => {
           setProjectCancel();
           setProjectAdd();
-          console.log(name);
-          console.log(color);
-          console.log(colorName);
-          console.log(like);
-          console.log(look);
-          setProject(name,color,colorName,like,look);
-          project.map((obj,index)=>{
+          setProject(name, color, colorName, like, look);
+          project.map((obj, index) => {
             console.log(obj);
-          })
-
+          });
         }}
       >
         <Button
