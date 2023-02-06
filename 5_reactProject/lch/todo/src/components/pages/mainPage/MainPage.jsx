@@ -5,8 +5,12 @@ import style from "./MainPage.module.css";
 export default function MainPage() {
   return (
     <div className={style.main}>
-      <Header></Header>
-      <HamburgerMenu></HamburgerMenu>
+      <div className="header">
+        <Header></Header>
+      </div>
+      <div className="hamburger_menu">
+        <HamburgerMenu></HamburgerMenu>
+      </div>
     </div>
   );
 }

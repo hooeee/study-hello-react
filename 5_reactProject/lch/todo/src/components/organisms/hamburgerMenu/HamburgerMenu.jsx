@@ -19,6 +19,9 @@ export default function HamburgerMenu() {
       <div>
         <IconButton children={<GrAppsRounded />}></IconButton>
       </div>
+      <div>
+        <IconButton children={"프로젝트"}></IconButton>
+      </div>
     </div>
   );
 }

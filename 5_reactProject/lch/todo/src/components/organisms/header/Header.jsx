@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className={style.main}>
       <div className={style.left_control}>
-        <IconButton children={<RxHamburgerMenu />}></IconButton>
+        <IconButton children={<RxHamburgerMenu />} onClick={""}></IconButton>
         <IconButton children={<GrHomeRounded />}></IconButton>
         <input></input>
       </div>
