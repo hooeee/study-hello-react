@@ -1,0 +1,7 @@
+.btnMain {
+  background: white;
+  border: 1px solid transparent;
+}
+.btnMain:hover {
+  background: grey;
+}

@@ -4,7 +4,7 @@ import { StyledInputGroup } from "./style";
 const InputGroup = (props) => {
   return (
     <StyledInputGroup>
-      <input type="checkbox"></input>
+      <input type="radio"></input>
     </StyledInputGroup>
   );
 };
