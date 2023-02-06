@@ -1,8 +1,9 @@
 import "./App.css";
 import { default as Button } from "./components/atoms/buttons/Button";
 import { default as InputGroup } from "./components/atoms/radioButton/ComplateCheckButton";
-import { default as IconButton } from "./components/atoms/buttons/IconButton";
-
+import { default as IconButton } from "./components/atoms/iconButton/IconButton";
+import { default as Navbar } from "./components/organisms/Navbar/Navbar";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 function App() {
   return (
     <div>
@@ -14,7 +15,8 @@ function App() {
       </Button>
       <Button icon>test</Button>
       <InputGroup></InputGroup>
-      <IconButton />
+      <IconButton icon={faCoffee}></IconButton>
+      <Navbar></Navbar>
     </div>
   );
 }
