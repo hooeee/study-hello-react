@@ -1,17 +1,17 @@
 const colorList = [
   {
     id: 0,
-    name: "charcoal",
+    name: "챠콜",
     code: "#36454f",
   },
   {
     id: 1,
-    name: "red",
+    name: "레드",
     code: "#FF0000",
   },
   {
     id: 2,
-    name: "orange",
+    name: "오렌지",
     code: "#FFA500",
   },
 ];
