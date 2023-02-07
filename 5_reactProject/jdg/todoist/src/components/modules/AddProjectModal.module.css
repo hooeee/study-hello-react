@@ -48,6 +48,7 @@
 .modal > section > main > label {
   display: block;
   margin: 0;
+  text-align: left;
 }
 .modal > section > main > input {
   width: 100%;

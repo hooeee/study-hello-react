@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Dropdown from "../atoms/DropDown";
+import ShowPanel from "../atoms/ShowPanel";
 import style from "./AddProjectModal.module.css";
 
 const AddProjectModal = (props) => {
@@ -31,9 +32,14 @@ const AddProjectModal = (props) => {
               value={selectedColor}
             ></Dropdown>
             <label>보기</label>
-            <span>목록</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>대시보드</span>
+            <ShowPanel
+              src={process.env.PUBLIC_URL + "/list.png"}
+              type="목록"
+            ></ShowPanel>
+            <ShowPanel
+              src={process.env.PUBLIC_URL + "/board.png"}
+              type="보드"
+            ></ShowPanel>
             {/* {props.children} */}
           </main>
           <footer>
