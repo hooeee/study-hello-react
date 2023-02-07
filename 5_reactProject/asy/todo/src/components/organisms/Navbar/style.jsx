@@ -1,26 +1,35 @@
 import { InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
 
-const StyledNavbar = styled.nav`
+const StyledNavbar = styled.div`
   width: 100%;
   height: 50px;
   background-color: #db4c3f;
-  display: -webkit-box;
-  flex-direction: column;
-  margin
+  display: inline-flex;
+  justify-content: space-around;
 `;
 
 const LeftDiv = styled.div`
-  flex: 50%;
   display: flex;
-  justify-content:flex-start
+  align-items: center;
   padding-left: 5%;
   background-color: blue;
 `;
 const RightDiv = styled.div`
-  flex: 50%;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  padding-left: 5%;
   background-color: green;
 `;
-export { StyledNavbar, LeftDiv, RightDiv };
+
+const InnerDiv = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+`;
+
+const NavbarLinkContainer = styled.div`
+  display: flex;
+  background-color: pink;
+`;
+export { StyledNavbar, LeftDiv, RightDiv, InnerDiv, NavbarLinkContainer };
