@@ -1,9 +1,10 @@
 import { default as Button_bs } from "react-bootstrap/Button";
 import style from "./Button.module.css";
 
-export function Button({ children, variant, fontColor, name }) {
+export function Button({ children, variant, fontColor, name, ...props }) {
   return (
     <button
+      {...props}
       className={
         style.btnSize +
         " " +

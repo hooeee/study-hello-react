@@ -27,13 +27,12 @@ export function TodoMain({ isInput }) {
           </div>
         </div>
       ) : (
-        <div
-          onClick={() => {
-            setCheckClick(!checkClick);
-          }}
-        >
+        <div>
           {checkClick == true ? (
             <IconInput
+              onClick={() => {
+                setCheckClick(!checkClick);
+              }}
               iconName={"circle"}
               color={"black"}
               size={"25px"}
@@ -44,6 +43,9 @@ export function TodoMain({ isInput }) {
             ></IconInput>
           ) : (
             <IconInput
+              onClick={() => {
+                setCheckClick(!checkClick);
+              }}
               iconName={"radio_button_checked"}
               color={"red"}
               size={"25px"}

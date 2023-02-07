@@ -7,7 +7,7 @@ import {
 import { useStore } from "./../../../store/useStore";
 
 export function HeadModal() {
-  const { setLike, setName, setColor } = useStore();
+  const { setLike, setName, setColor, setNameProjectArg } = useStore();
   return (
     <div>
       <TitleButton
@@ -19,7 +19,7 @@ export function HeadModal() {
         name={"이름"}
         bgcolor={"transparent"}
         color={"black"}
-        setValue={setName}
+        setValue={setNameProjectArg}
       ></LabelInput>
       <LabelDropDown name={"색상"} setValue={setColor}></LabelDropDown>
       <ButtonLabel name={"즐겨찾기에 추가"} setValue={setLike}></ButtonLabel>

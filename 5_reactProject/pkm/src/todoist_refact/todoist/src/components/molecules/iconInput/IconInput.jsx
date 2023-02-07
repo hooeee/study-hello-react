@@ -11,11 +11,17 @@ export function IconInput({
   setValue,
   placeholder,
   children,
+  ...props
 }) {
   return (
     <div className={style.IconInputMain} style={{ background: bgColor }}>
       <div className={style.googleIconMain}>
-        <GoogleIcon iconName={iconName} color={color} size={size}></GoogleIcon>
+        <GoogleIcon
+          iconName={iconName}
+          color={color}
+          size={size}
+          {...props}
+        ></GoogleIcon>
       </div>
       <Input
         placeholder={placeholder}
