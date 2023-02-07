@@ -3,7 +3,7 @@ import BaseButton from "../atoms/BaseButton";
 import SideBar from "../modules/SideBar";
 import style from "./Layout.module.css";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
-import { Button, Navbar, Container, Nav } from "react-bootstrap";
+import { Button, Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 
 export function Layout() {
   const navigate = useNavigate();

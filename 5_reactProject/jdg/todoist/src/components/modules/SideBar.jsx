@@ -27,9 +27,9 @@ export function SideBar() {
               <AddProjectModal
                 open={modalOpen}
                 close={closeModal}
-                header="Modal heading"
+                header="프로젝트 추가"
               >
-                팝업창입니다. 쉽게 만들 수 있어요. 같이 만들어봐요!
+                팝업창임.
               </AddProjectModal>
             </th>
           </tr>
