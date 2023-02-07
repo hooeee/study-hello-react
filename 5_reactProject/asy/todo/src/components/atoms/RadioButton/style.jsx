@@ -6,7 +6,6 @@ const StyledInputGroup = styled(InputGroup)`
   text-align: left;
   padding: 10px 18px;
   height: 30px;
-  background: red;
 `;
 
 export { StyledInputGroup };
