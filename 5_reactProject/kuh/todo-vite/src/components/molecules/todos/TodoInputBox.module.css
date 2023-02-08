@@ -1,0 +1,38 @@
+.container {
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.focusContainer {
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+.todoForm input:focus {
+  border: none;
+  outline: none !important;
+}
+.todoForm input {
+  border: none;
+  font-size: 13px;
+  min-width: 500px;
+}
+.todoForm input:nth-child(2) {
+  border: none;
+  font-size: 13px;
+  min-width: 500px;
+  color: #838383;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-top: 1px solid #eee;
+}
+
+.footer button {
+  margin-left: 10px;
+}
+
+.todoForm {
+  padding: 5px;
+}

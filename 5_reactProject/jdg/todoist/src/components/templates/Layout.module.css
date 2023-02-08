@@ -1,0 +1,7 @@
+.menu_bar {
+  display: flex;
+  background: #c84b3f;
+  width: 100%;
+  color: white;
+  padding-left: 20px;
+}

@@ -1,0 +1,12 @@
+.project_menu {
+  width: 250px;
+  height: 94vh;
+  border: 1px solid #d8d6d3;
+  position: relative;
+  /* margin: 0 auto; */
+  align-items: center;
+}
+
+.project_btn {
+  border: 0px;
+}
