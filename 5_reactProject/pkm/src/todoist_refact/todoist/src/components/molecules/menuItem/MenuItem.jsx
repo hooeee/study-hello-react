@@ -1,5 +1,5 @@
 import style from "./MenuItem.module.css";
-import { Button, GoogleIcon } from "components/atoms";
+import { Button, GoogleIcon } from "@components/atoms";
 export function MenuItem({
   color,
   iconName,

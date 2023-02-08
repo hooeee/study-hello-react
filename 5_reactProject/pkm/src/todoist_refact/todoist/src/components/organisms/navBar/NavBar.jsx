@@ -1,7 +1,7 @@
-import { IconButton, IconInput } from "components/molecules";
+import { IconButton, IconInput } from "@components/molecules";
 import style from "./NavBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setSideBarClick } from "./../../../store/store";
+import { setSideBarClick } from "@store/store";
 
 export function NavBar() {
   const basicSize = 25;

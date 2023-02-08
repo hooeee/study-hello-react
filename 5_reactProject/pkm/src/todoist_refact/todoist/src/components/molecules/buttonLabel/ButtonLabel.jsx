@@ -1,4 +1,4 @@
-import { Label } from "components/atoms";
+import { Label } from "@components/atoms";
 import { Form } from "react-bootstrap";
 import style from "./ButtonLabel.module.css";
 import { useState } from "react";

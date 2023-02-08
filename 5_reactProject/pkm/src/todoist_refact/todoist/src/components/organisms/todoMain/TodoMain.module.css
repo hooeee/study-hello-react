@@ -14,16 +14,15 @@
 
 .btnCancelMain {
   display: flex;
+  width: 100% ;
   background: #e5e5e5;
-  width: 50px;
-  text-align: center;
   margin-left: 10px;
   border-radius: 5px;
 }
 .btnAddMain {
   display: flex;
+  width: 100% ;
   background: #f3b8b3;
-  width: 50px;
   text-align: center;
   margin-left: 10px;
   border-radius: 5px;

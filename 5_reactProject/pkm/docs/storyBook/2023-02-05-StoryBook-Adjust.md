@@ -414,7 +414,7 @@ Small.args = {
   - .stories파일로 들어가서 
 
     ```tsx
-      title: 'Example/Button',
+    title: 'Example/Button',
     ```
 
     - 타이틀 첫번째가 큰 폴더 나머지는 안에 있는 폴더 라고 생각하면됨
@@ -422,7 +422,7 @@ Small.args = {
 - Components/form/Button을 만들고 싶으면 아래와 같이 하면됨
 
   ```tsx
-    title: 'Component/form/Button',
+  title: 'Component/form/Button',
   ```
 
   <img src="../../assets/img/post/2023-02-05-StoryBook-Adjust/image-20230205211136522.png" alt="image-20230205211136522" style="zoom:50%;" />

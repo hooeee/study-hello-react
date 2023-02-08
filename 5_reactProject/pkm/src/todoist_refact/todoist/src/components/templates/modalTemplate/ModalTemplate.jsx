@@ -1,9 +1,8 @@
-import { BodyModal, FooterModal, HeadModal } from "components/organisms";
+import { BodyModal, FooterModal, HeadModal } from "@components/organisms";
 import style from "./ModalTemplate.module.css";
-import { Button, ModalShow } from "components/atoms";
-import { setModalShow } from "./../../../store/store";
+import { Button, ModalShow } from "@components/atoms";
 import { useDispatch, useSelector } from "react-redux";
-import { useStore } from "./../../../store/useStore";
+import { useStore } from "@store";
 
 export function ModalTemplates() {
   // const [modalShow, setModalShow] = useState(false);
