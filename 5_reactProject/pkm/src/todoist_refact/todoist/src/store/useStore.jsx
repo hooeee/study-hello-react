@@ -4,15 +4,13 @@ import produce from "immer";
 
 //test
 export const useStore = create((set) => ({
-  projectArg: {
-    name: "",
-    color: "",
-    colorName: "",
-    like: true,
-    look: "list",
-    projectCancel: false,
-    projectAdd: false,
-  },
+  name: "",
+  color: "",
+  colorName: "",
+  like: true,
+  look: "list",
+  projectCancel: false,
+  projectAdd: false,
   project: [],
   todoList: [],
   setName(inputName) {

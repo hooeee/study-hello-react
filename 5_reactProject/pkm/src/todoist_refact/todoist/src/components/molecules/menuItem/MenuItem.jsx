@@ -7,6 +7,7 @@ export function MenuItem({
   menuName,
   contentCount,
   btnFunc,
+  children
 }) {
   return (
     <Button variant={"btnMenuHover"}>
@@ -14,6 +15,7 @@ export function MenuItem({
         <GoogleIcon color={color} iconName={iconName} size={size}></GoogleIcon>
         <span>{menuName}</span>
         <span>{contentCount}</span>
+        {children}
       </div>
     </Button>
   );
