@@ -7,10 +7,11 @@ export function TitleButton({
   color,
   fontSize,
   variant,
+  ...props
 }) {
   return (
     <div className={style.LabelMain}>
-      <Label name={name} fontSize={fontSize}></Label>
+      <Label  name={name} fontSize={fontSize} {...props}></Label>
       <div>
         <Button>
           <GoogleIcon

@@ -1,4 +1,21 @@
+.btnMain {
+  display: inline-flex;
+  position: relative;
+}
 .spanSize {
   font-size: 10px;
   width: 20px;
+}
+.btnGrey {
+  width: 100%;
+  background: #e5e5e5;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.btnRed {
+  width: 100%;
+  background: #f3bab3;
+  margin-left: 10px;
+  border-radius: 5px;
 }
