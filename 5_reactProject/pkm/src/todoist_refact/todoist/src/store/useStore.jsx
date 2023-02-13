@@ -49,6 +49,13 @@ export const useStore = create((set) => ({
       todoList: [],
     }));
   },
+  setProjectName: (id, names) =>
+    set(
+      produce((draft) => {
+        console.log(names);
+        draft.project[id].name = [...names];
+      })
+    ),
   setProject: (name, color, colorName, like, look) =>
     set(
       produce((draft) => {

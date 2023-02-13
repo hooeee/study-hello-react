@@ -33,7 +33,7 @@ export function TodoTemplate() {
       ) : (
         <ul>
           {console.log(project.length)}
-          <TodoTitle name={project[id].name}></TodoTitle>
+          <TodoTitle namess={project[id].name}></TodoTitle>
           {/* <h1>{project[id].name}</h1>{" "}
           <GoogleIcon iconName={"message"}></GoogleIcon> */}
           {/* <h2>컬러: {project[id].color}</h2>
