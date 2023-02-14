@@ -38,7 +38,9 @@ export function Layout() {
       <div>
         {sideBarVisible == true ? <SideBar /> : null}
         <div>
-          {state.modalData.name} {state.modalData.color} {state.modalData.show}
+          <p style={{ color: state.modalData.color }}>
+            {state.modalData.name} {state.modalData.show}
+          </p>
         </div>
       </div>
     </div>
