@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { projectStore } from "stores";
 import style from "./TodoInputBox.module.css";
 
 const cancleButtonStyle = {
@@ -19,12 +21,22 @@ const submitButtonStyle = {
 
 export function TodoInputBox({ onSubmit }) {
   const [focus, setFocus] = useState(false);
+  const [keyword, setKeyword] = useState("");
+
+  const onSubmitHandle = (e) => {
+    onSubmit(e, keyword);
+    setKeyword("");
+  };
 
   return (
     <div className={focus ? style.focusContainer : style.container}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmitHandle}>
         <div className={style.todoForm}>
           <input
+            value={keyword}
+            onChange={(e) => {
+              setKeyword(e.target.value);
+            }}
             type="text"
             onFocus={() => {
               setFocus(true);
@@ -36,12 +48,17 @@ export function TodoInputBox({ onSubmit }) {
           <input type="text" placeholder="설명" />
         </div>
         <div className={style.footer}>
-          <div>123123</div>
+          <div></div>
           <div>
-            <Button size="sm" style={cancleButtonStyle} type="submit">
+            <Button size="sm" style={cancleButtonStyle}>
               취소
             </Button>
-            <Button size="sm" style={submitButtonStyle}>
+            <Button
+              size="sm"
+              style={submitButtonStyle}
+              type="submit"
+              onClick={onSubmitHandle}
+            >
               작업추가
             </Button>
           </div>

@@ -1,28 +1,34 @@
 import { H2 } from "components/atoms/typograpics/H2";
 import { TodoInputBox } from "components/molecules/todos/TodoInputBox";
 import { TodoItem } from "components/molecules/todos/TodoItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { projectStore } from "stores";
 import css from "./Todo.module.css";
 
+const temp = [
+  { id: 1, title: "", dene: false },
+  { id: 2, title: "", dene: false },
+  { id: 3, title: "", dene: false },
+];
+
 export function Todo() {
-  const { id } = useParams();
+  const { id: projectId } = useParams();
+  const [addTodo, getTodos, toggleTodo] = projectStore((state) => [
+    state.addTodo,
+    state.getTodos,
+    state.toggleTodo,
+  ]);
+  const todos = getTodos(projectId);
 
-  const temp = [
-    { id: 1, title: "", dene: false },
-    { id: 2, title: "", dene: false },
-    { id: 3, title: "", dene: false },
-  ];
-
-  const [datas, setDatas] = useState(temp);
-
-  const setTitle = (value, id) => {
-    setDatas(
-      datas.map((t) => {
-        if (t.id == id) t.title = value;
-        return t;
-      })
-    );
+  const onSubmitHandle = (e, keyword) => {
+    e.preventDefault();
+    const todo = {
+      id: 1,
+      title: keyword,
+      done: false,
+    };
+    addTodo(todo, projectId);
   };
   return (
     <div className={css.container}>
@@ -31,17 +37,20 @@ export function Todo() {
       </div>
 
       <>
-        {datas.map((t) => (
-          <TodoItem title={t.title} setTitle={setTitle} id={t.id}></TodoItem>
+        {todos.map((t) => (
+          <TodoItem
+            done={t.done}
+            title={t.title}
+            id={t.id}
+            onClcik={() => {
+              console.log(t);
+              toggleTodo(t.id);
+            }}
+          ></TodoItem>
         ))}
       </>
       <>
-        <TodoInputBox
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log("test");
-          }}
-        ></TodoInputBox>
+        <TodoInputBox onSubmit={onSubmitHandle}></TodoInputBox>
       </>
     </div>
   );
