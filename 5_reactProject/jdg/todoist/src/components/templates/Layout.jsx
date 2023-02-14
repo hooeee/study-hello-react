@@ -4,11 +4,16 @@ import SideBar from "../modules/SideBar";
 import style from "./Layout.module.css";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import { Button, Navbar, Container, Nav, Dropdown } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 export function Layout() {
   const navigate = useNavigate();
 
   const [sideBarVisible, SetSideBarVisible] = useState(true);
+
+  const state = useSelector((state) => {
+    return state;
+  });
 
   return (
     <div className="App">
@@ -32,7 +37,9 @@ export function Layout() {
       </Navbar>
       <div>
         {sideBarVisible == true ? <SideBar /> : null}
-        <div>ddd</div>
+        <div>
+          {state.modalData.name} {state.modalData.color} {state.modalData.show}
+        </div>
       </div>
     </div>
   );
