@@ -7,26 +7,22 @@ import {
   InnerDiv,
   NavbarLinkContainer,
 } from "./style";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCoffee } from "@fortawesome/free-solid-svg-icons";
 const Navbar = (props) => {
   return (
     <StyledNavbar>
-      <InnerDiv>
         <LeftDiv>
           <NavbarLinkContainer>
             <IconButton icon={faCoffee} />
-            <IconButton icon={faCoffee} />
+
           </NavbarLinkContainer>
         </LeftDiv>
-      </InnerDiv>
-      <InnerDiv>
         <RightDiv>
           <NavbarLinkContainer>
             <IconButton icon={faCoffee} />
             <IconButton icon={faCoffee} />
           </NavbarLinkContainer>
         </RightDiv>
-      </InnerDiv>
     </StyledNavbar>
   );
 };
