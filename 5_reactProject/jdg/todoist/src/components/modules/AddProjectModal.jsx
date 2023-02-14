@@ -49,7 +49,7 @@ const AddProjectModal = (props) => {
             &nbsp;&nbsp;
             <button
               className={`${style.add}`}
-              disabled={disable}
+              // disabled={disable}
               onClick={() => {
                 alert("모달 폼 데이터 내보내서 메인화면에 뿌려줘야함");
               }}
