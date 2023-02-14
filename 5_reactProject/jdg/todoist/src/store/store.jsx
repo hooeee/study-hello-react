@@ -1,9 +1,20 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const modalData = createSlice({
-  name: "data1",
-  initialState: { name: "jdg", color: "#FF0000", show: "list" },
+  name: "modalData",
+  initialState: [{ name: "jdg", color: "#FF0000", show: "list" }],
+  reducers: {
+    addData(state, action) {
+      const name = action.payload.name;
+
+      if (state.some((x) => x.name != name)) {
+        state.push(action.payload);
+      }
+    },
+  },
 });
+
+export const { addData } = modalData.actions;
 
 export default configureStore({
   reducer: {

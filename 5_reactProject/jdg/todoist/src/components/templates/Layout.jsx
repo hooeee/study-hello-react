@@ -38,9 +38,11 @@ export function Layout() {
       <div>
         {sideBarVisible == true ? <SideBar /> : null}
         <div>
-          <p style={{ color: state.modalData.color }}>
-            {state.modalData.name} {state.modalData.show}
-          </p>
+          {state.modalData.map((a, i) => (
+            <p key={i} style={{ color: state.modalData[i].color }}>
+              {state.modalData[i].name} {state.modalData[i].show}
+            </p>
+          ))}
         </div>
       </div>
     </div>

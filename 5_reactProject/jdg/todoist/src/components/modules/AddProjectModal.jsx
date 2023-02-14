@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "../atoms/DropDown";
 import ShowPanel from "../atoms/ShowPanel";
 import style from "./AddProjectModal.module.css";
+import { useSelector } from "react-redux";
 
 const AddProjectModal = (props) => {
   const { open, close, header } = props;
@@ -12,6 +13,10 @@ const AddProjectModal = (props) => {
   const handleSelectedColor = (e) => {
     setSelectedColor(e.target.value);
   };
+
+  const state = useSelector((state) => {
+    return state;
+  });
 
   return (
     <div className={open ? `${style.openModal} ${style.modal}` : style.modal}>
