@@ -4,11 +4,16 @@ import SideBar from "../modules/SideBar";
 import style from "./Layout.module.css";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import { Button, Navbar, Container, Nav, Dropdown } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 export function Layout() {
   const navigate = useNavigate();
 
   const [sideBarVisible, SetSideBarVisible] = useState(true);
+
+  const state = useSelector((state) => {
+    return state;
+  });
 
   return (
     <div className="App">
@@ -30,23 +35,19 @@ export function Layout() {
           </Nav.Link>
         </Nav>
       </Navbar>
-      <div>{sideBarVisible == true ? <SideBar /> : null}</div>
+      <div>
+        {sideBarVisible == true ? <SideBar /> : null}
+        {/* sideBar에서 클릭한 state의 name이 같은 데이터만 가져와야함. */}
+        <div>
+          {state.modalData.map((a, i) => (
+            <p key={i} style={{ color: state.modalData[i].color }}>
+              {state.modalData[i].name} {state.modalData[i].show}
+            </p>
+          ))}
+        </div>
+      </div>
     </div>
   );
-
-  /* <div className="menu-bar">
-        <BaseButton onClick={() => {}}>Menu</BaseButton>
-        <BaseButton onClick={() => {}}>Home</BaseButton>
-      </div>
-      분리하는코드
-      <div>
-        왼쪽
-        {sideBarVisible == true ? <SideBar /> : null}
-        <div>
-          오른쪽
-          <Outlet />
-        </div>
-      </div> */
 }
 
 export default Layout;
