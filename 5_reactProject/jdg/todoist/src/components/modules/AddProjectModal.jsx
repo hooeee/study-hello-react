@@ -45,6 +45,7 @@ const AddProjectModal = (props) => {
             <Dropdown
               onChange={handleSelectedColor}
               value={selectedColor}
+              // 색깔이 안바뀜 선택이 안됨
             ></Dropdown>
             <label>보기</label>
             <ShowPanel

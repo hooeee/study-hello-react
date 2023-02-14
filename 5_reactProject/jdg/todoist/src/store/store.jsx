@@ -11,10 +11,13 @@ const modalData = createSlice({
         state.push(action.payload);
       }
     },
+    findData(state, action) {
+      const name = action.payload;
+    },
   },
 });
 
-export const { addData } = modalData.actions;
+export const { addData, findData } = modalData.actions;
 
 export default configureStore({
   reducer: {

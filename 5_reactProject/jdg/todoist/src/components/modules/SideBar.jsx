@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Table } from "react-bootstrap";
 import AddProjectModal from "../modules/AddProjectModal";
 import style from "./SideBar.module.css";
-import { addData } from "../../store/store";
+import { addData, findData } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 
 export function SideBar() {
@@ -44,7 +44,15 @@ export function SideBar() {
         </thead>
         <tbody>
           {state.modalData.map((a, i) => (
-            <tr key={i} style={{ color: state.modalData[i].color }}>
+            <tr
+              key={i}
+              style={{ color: state.modalData[i].color }}
+              onClick={() => {
+                const name = state.modalData[i].name;
+                // name을 Layout 으로 전달해야함
+                dispatch(findData(name));
+              }}
+            >
               <td>{state.modalData[i].name}</td>
               <td>{state.modalData[i].show}</td>
             </tr>

@@ -37,6 +37,7 @@ export function Layout() {
       </Navbar>
       <div>
         {sideBarVisible == true ? <SideBar /> : null}
+        {/* sideBar에서 클릭한 state의 name이 같은 데이터만 가져와야함. */}
         <div>
           {state.modalData.map((a, i) => (
             <p key={i} style={{ color: state.modalData[i].color }}>
