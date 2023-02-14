@@ -44,7 +44,7 @@ export function SideBar() {
         </thead>
         <tbody>
           {state.modalData.map((a, i) => (
-            <tr key={i}>
+            <tr key={i} style={{ color: state.modalData[i].color }}>
               <td>{state.modalData[i].name}</td>
               <td>{state.modalData[i].show}</td>
             </tr>

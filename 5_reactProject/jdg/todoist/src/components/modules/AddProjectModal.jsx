@@ -3,12 +3,15 @@ import Dropdown from "../atoms/DropDown";
 import ShowPanel from "../atoms/ShowPanel";
 import style from "./AddProjectModal.module.css";
 import { useSelector } from "react-redux";
+import { addData } from "../../store/store";
+import { useDispatch } from "react-redux";
 
 const AddProjectModal = (props) => {
   const { open, close, header } = props;
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [disable, setDisable] = useState(true);
   const [selectedColor, setSelectedColor] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const handleSelectedColor = (e) => {
     setSelectedColor(e.target.value);
@@ -17,6 +20,8 @@ const AddProjectModal = (props) => {
   const state = useSelector((state) => {
     return state;
   });
+
+  const dispatch = useDispatch();
 
   return (
     <div className={open ? `${style.openModal} ${style.modal}` : style.modal}>
@@ -30,7 +35,12 @@ const AddProjectModal = (props) => {
           </header>
           <main>
             <label>이름</label>
-            <input type="text"></input>
+            <input
+              onChange={(e) => {
+                setInputValue(e.target.value);
+              }}
+              value={inputValue}
+            ></input>
             <label>색상</label>
             <Dropdown
               onChange={handleSelectedColor}
@@ -56,7 +66,14 @@ const AddProjectModal = (props) => {
               className={`${style.add}`}
               // disabled={disable}
               onClick={() => {
-                alert("모달 폼 데이터 내보내서 메인화면에 뿌려줘야함");
+                // alert("모달 폼 데이터 내보내서 메인화면에 뿌려줘야함");
+                dispatch(
+                  addData({
+                    name: inputValue,
+                    color: selectedColor,
+                    show: "list",
+                  })
+                );
               }}
             >
               추가
