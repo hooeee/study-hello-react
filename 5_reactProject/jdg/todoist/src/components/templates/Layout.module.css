@@ -5,3 +5,7 @@
   color: white;
   padding-left: 20px;
 }
+
+p {
+  display: block;
+}
