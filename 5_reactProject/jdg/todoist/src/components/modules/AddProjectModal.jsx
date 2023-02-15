@@ -12,9 +12,16 @@ const AddProjectModal = (props) => {
   const [disable, setDisable] = useState(true);
   const [selectedColor, setSelectedColor] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [selectedType, setSelectedType] = useState("");
+  // const [checked, setChecked] = useState(false);
+  const checked = false;
+
+  const handleSelectedType = (e) => {
+    setSelectedType(e);
+  };
 
   const handleSelectedColor = (e) => {
-    setSelectedColor(e.target.value);
+    setSelectedColor(e);
   };
 
   const state = useSelector((state) => {
@@ -42,21 +49,20 @@ const AddProjectModal = (props) => {
               value={inputValue}
             ></input>
             <label>색상</label>
-            <Dropdown
-              onChange={handleSelectedColor}
-              value={selectedColor}
-              // 색깔이 안바뀜 선택이 안됨
-            ></Dropdown>
+            <Dropdown handleSelectedColor={handleSelectedColor}></Dropdown>
             <label>보기</label>
             <ShowPanel
               src={process.env.PUBLIC_URL + "/list.png"}
               type="목록"
+              checked={checked}
+              handleSelectedType={handleSelectedType}
             ></ShowPanel>
             <ShowPanel
               src={process.env.PUBLIC_URL + "/board.png"}
               type="보드"
+              checked={checked}
+              handleSelectedType={handleSelectedType}
             ></ShowPanel>
-            {/* {props.children} */}
           </main>
           <footer>
             <button className={style.close} onClick={close}>
@@ -72,7 +78,7 @@ const AddProjectModal = (props) => {
                   addData({
                     name: inputValue,
                     color: selectedColor,
-                    show: "list",
+                    show: selectedType,
                   })
                 );
               }}
