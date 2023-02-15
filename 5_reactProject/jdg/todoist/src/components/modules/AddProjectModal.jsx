@@ -14,15 +14,29 @@ const AddProjectModal = (props) => {
   const [inputValue, setInputValue] = useState("");
   const [selectedType, setSelectedType] = useState("");
   // const [checked, setChecked] = useState(false);
-  const checked = false;
 
-  const handleSelectedType = (e) => {
-    setSelectedType(e);
+  const handleChecked = (e) => {
+    console.log(e);
+    // setSelectedType(e);
+
+    if (e == true) {
+      // if (type )
+    }
   };
 
   const handleSelectedColor = (e) => {
     setSelectedColor(e);
   };
+
+  // const onSelectedType = () => {
+  //   if (ischecked) {
+  //     if (type == "보드") {
+  //       setSelectedType("board");
+  //     } else if (type == "목록") {
+  //       setSelectedType("list");
+  //     }
+  //   }
+  // };
 
   const state = useSelector((state) => {
     return state;
@@ -54,14 +68,12 @@ const AddProjectModal = (props) => {
             <ShowPanel
               src={process.env.PUBLIC_URL + "/list.png"}
               type="목록"
-              checked={checked}
-              handleSelectedType={handleSelectedType}
+              handleChecked={handleChecked}
             ></ShowPanel>
             <ShowPanel
               src={process.env.PUBLIC_URL + "/board.png"}
               type="보드"
-              checked={checked}
-              handleSelectedType={handleSelectedType}
+              handleChecked={handleChecked}
             ></ShowPanel>
           </main>
           <footer>
