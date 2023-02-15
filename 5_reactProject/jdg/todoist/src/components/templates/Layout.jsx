@@ -20,6 +20,8 @@ export function Layout() {
     setDoingName(e);
   };
 
+  const findData = state.modalData.find((f) => f.name == doingName);
+
   return (
     <div className="App">
       <Navbar className={style.menu_bar} variant="dark">
@@ -45,14 +47,14 @@ export function Layout() {
           <SideBar handleDoingName={handleDoingName}></SideBar>
         ) : null}
         <div>
-          {state.modalData.find((f) => f.name == doingName) != null ? (
+          {findData != null ? (
             <p
               style={{
-                color: state.modalData.find((f) => f.name == doingName).color,
+                color: findData.color,
               }}
             >
-              {state.modalData.find((f) => f.name == doingName).name}
-              {state.modalData.find((f) => f.name == doingName).show}
+              {findData.name}
+              {findData.show}
             </p>
           ) : null}
         </div>
