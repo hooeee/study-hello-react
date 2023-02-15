@@ -4,11 +4,11 @@ export function Modal(props) {
   return (
     <BootstrapModal
       {...props}
-      size="lg"
+      size={props.size}
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      {console.log("adfadf")}
+      {props.children}
     </BootstrapModal>
   );
 }

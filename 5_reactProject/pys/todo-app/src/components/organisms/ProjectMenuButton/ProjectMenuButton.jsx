@@ -1,7 +1,7 @@
 import style from "./ProjectMenuButton.module.css";
-
 export function ProjectMenuButton({ onAddClick, onExpandClick, isExpand }) {
   return (
+
     <>
       <div className={style.container}>
         <h4>프로젝트</h4>
@@ -32,6 +32,7 @@ export function ProjectMenuButton({ onAddClick, onExpandClick, isExpand }) {
           </div>
         </div>
       </div>
+
     </>
   );
 }
