@@ -4,9 +4,11 @@ import AddProjectModal from "../modules/AddProjectModal";
 import style from "./SideBar.module.css";
 import { addData, findData } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
-export function SideBar() {
+export function SideBar({ handleDoingName }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [doingName, setDoingName] = useState("");
 
   const openModal = () => {
     setModalOpen(true);
@@ -19,6 +21,10 @@ export function SideBar() {
   const state = useSelector((state) => {
     return state;
   });
+
+  useEffect(() => {
+    handleDoingName(doingName);
+  }, [doingName]);
 
   const dispatch = useDispatch();
 
@@ -49,8 +55,8 @@ export function SideBar() {
               style={{ color: state.modalData[i].color }}
               onClick={() => {
                 const name = state.modalData[i].name;
-                // name을 Layout 으로 전달해야함
-                dispatch(findData(name));
+                setDoingName(name);
+                // dispatch(findData(name));
               }}
             >
               <td>{state.modalData[i].name}</td>

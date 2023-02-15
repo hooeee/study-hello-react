@@ -10,10 +10,15 @@ export function Layout() {
   const navigate = useNavigate();
 
   const [sideBarVisible, SetSideBarVisible] = useState(true);
+  const [doingName, setDoingName] = useState("");
 
   const state = useSelector((state) => {
     return state;
   });
+
+  const handleDoingName = (e) => {
+    setDoingName(e);
+  };
 
   return (
     <div className="App">
@@ -36,14 +41,20 @@ export function Layout() {
         </Nav>
       </Navbar>
       <div>
-        {sideBarVisible == true ? <SideBar /> : null}
-        {/* sideBar에서 클릭한 state의 name이 같은 데이터만 가져와야함. */}
+        {sideBarVisible == true ? (
+          <SideBar handleDoingName={handleDoingName}></SideBar>
+        ) : null}
         <div>
-          {state.modalData.map((a, i) => (
-            <p key={i} style={{ color: state.modalData[i].color }}>
-              {state.modalData[i].name} {state.modalData[i].show}
+          {state.modalData.find((f) => f.name == doingName) != null ? (
+            <p
+              style={{
+                color: state.modalData.find((f) => f.name == doingName).color,
+              }}
+            >
+              {state.modalData.find((f) => f.name == doingName).name}
+              {state.modalData.find((f) => f.name == doingName).show}
             </p>
-          ))}
+          ) : null}
         </div>
       </div>
     </div>
