@@ -3,19 +3,7 @@ import style from "./ShowPanel.module.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const ShowPanel = ({ src, type, handleChecked }) => {
-  const [selectedType, setSelectedType] = useState("");
-
-  // const onSelectedType = () => {
-  //   if (ischecked) {
-  //     if (type == "보드") {
-  //       setSelectedType("board");
-  //     } else if (type == "목록") {
-  //       setSelectedType("list");
-  //     }
-  //   }
-  // };
-
+const ShowPanel = ({ src, type, handleChecked, handleSelectedType }) => {
   const [ischecked, setIsChecked] = useState(false);
 
   const checkHandler = () => {
@@ -23,8 +11,15 @@ const ShowPanel = ({ src, type, handleChecked }) => {
   };
 
   useEffect(() => {
-    // onSelectedType();
     handleChecked(ischecked);
+
+    if (ischecked) {
+      if (type == "보드") {
+        handleSelectedType("board");
+      } else if (type == "목록") {
+        handleSelectedType("list");
+      }
+    }
   }, [ischecked]);
 
   return (
