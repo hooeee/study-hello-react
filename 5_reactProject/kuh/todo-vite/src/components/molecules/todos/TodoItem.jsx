@@ -1,11 +1,12 @@
 import { useState } from "react";
 import style from "./TodoItem.module.css";
 
-export function TodoItem({ title, done, id, setTitle }) {
+export function TodoItem({ title, done, id, setTitle, onClcik }) {
   const [hover, setHover] = useState(false);
   return (
     <div className={style.todo}>
       <div
+        onClick={onClcik}
         className={style.todoIconContainer}
         onMouseOver={() => {
           setHover(true);
@@ -15,9 +16,11 @@ export function TodoItem({ title, done, id, setTitle }) {
         }}
       >
         <span
-          className={`${style.todoIcon} ${hover ? style.todoIconHover : <></>}`}
+          className={`${style.todoIcon} ${
+            hover || done == true ? style.todoIconHover : <></>
+          }`}
         >
-          {hover ? (
+          {hover || done == true ? (
             <span
               style={{ fontSize: "14px" }}
               class="material-symbols-outlined"
@@ -30,12 +33,7 @@ export function TodoItem({ title, done, id, setTitle }) {
         </span>
       </div>
       <span>
-        <input
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value, id);
-          }}
-        />
+        <input className={style.todoInput} value={title} />
       </span>
     </div>
   );

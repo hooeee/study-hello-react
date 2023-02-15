@@ -5,31 +5,27 @@ const StyledNavbar = styled.div`
   width: 100%;
   height: 50px;
   background-color: #db4c3f;
-  display: inline-flex;
-  justify-content: space-around;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const LeftDiv = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 5%;
+  width: 50%;
   background-color: blue;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 const RightDiv = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 5%;
+  width: 50%;
   background-color: green;
-`;
-
-const InnerDiv = styled.div`
-  width: 100%;
-  height: 50px;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 const NavbarLinkContainer = styled.div`
   display: flex;
   background-color: pink;
 `;
-export { StyledNavbar, LeftDiv, RightDiv, InnerDiv, NavbarLinkContainer };
+export { StyledNavbar, LeftDiv, RightDiv, NavbarLinkContainer };

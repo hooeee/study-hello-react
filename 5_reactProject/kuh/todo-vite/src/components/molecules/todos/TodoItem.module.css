@@ -25,12 +25,12 @@
   cursor: pointer;
 }
 
-input:focus {
+.todoInput:focus {
   border: none;
   outline: none !important;
   cursor: text;
 }
-input {
+.todoInput {
   border: none;
   font-size: 13px;
   min-width: 500px;
